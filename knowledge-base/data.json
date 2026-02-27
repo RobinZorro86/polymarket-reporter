@@ -1,0 +1,94 @@
+{
+  "knowledge_base": {
+    "version": "1.0",
+    "last_updated": "2026-02-28",
+    "categories": [
+      {
+        "id": "kol-strategies",
+        "name": "KOL 策略",
+        "description": "关键意见领袖的套利策略分享",
+        "entries": [
+          {
+            "id": "noisy-fast-loop",
+            "author": "@noisyb0y1",
+            "title": "Fast-Loop 套利策略",
+            "content": "机器人使用 Fast-Loop 策略：它比 Polymarket 价格反应更快。价格变动时间线：真实价格变动 t=0ms → 机器人反应 t=+10-15ms → Polymarket 反应 t=+20-35ms。结果：机器人能在 5 分钟 BTC/ETH 市场价格调整前下单，约 5ms 可利用窗口。",
+            "date": "2026-02",
+            "tags": ["套利", "Fast-Loop", "OpenClaw", "5分钟市场"],
+            "source": "https://x.com/noisyb0y1/status/2023000249027965264",
+            "metrics": {
+              "月利润": "$386,755",
+              "周利润": "$184,811"
+            }
+          },
+          {
+            "id": "noisy-5min-btc",
+            "author": "@noisyb0y1",
+            "title": "5分钟BTC市场套利",
+            "content": "用 OpenClaw 构建的机器人交易 5 分钟 BTC 市场。这类市场机会极大，因为每笔交易基本上都是 2 倍。如果胜率超过 50%，可以现实地扩大到 $10,000+。两个例子：NickyNic / +$82,000 一天。机器人每 5 分钟扫描一次套利机会，比较 Binance 和 CoinGecko 的价格。结果：全自动化 24/7 系统，在 Polymarket 反应前捕获价格变动并第一时间入场。",
+            "date": "2026-02",
+            "tags": ["5分钟市场", "BTC", "自动化", "OpenClaw"],
+            "source": "https://x.com/noisyb0y1/status/2023035448151384274"
+          },
+          {
+            "id": "noisy-copytrading",
+            "author": "@noisyb0y1",
+            "title": "Clawdbot 跟单策略",
+            "content": "+$253,403 在 24 小时内使用 Clawdbot 跟单。交易员无需知道 Polymarket 是什么就能赚取 $20,000-$53,000：相同的交易、相同的存款时机、同一天创建的资料、每个账户 8-12 笔交易。其中一个账户 2 天前存入 $808，今天是 $93,500。",
+            "date": "2026-02",
+            "tags": ["跟单", "Clawdbot", "复制交易"],
+            "source": "https://x.com/noisyb0y1/status/2026045859247591776",
+            "metrics": {
+              "24小时利润": "$253,403"
+            }
+          },
+          {
+            "id": "noisy-spacehub",
+            "author": "@noisyb0y1",
+            "title": "SpaceHub 项目发布",
+            "content": "昨天正式在 @Polymarket 上推出了项目 (SpaceHub)，清楚地理解需要构建什么：助手或完整产品。项目已有活跃用户，证明做对了。使用：Polymarket builders docs (API) + Cursor + 基本的 Python 知识。构建你自己真正会用的东西。",
+            "date": "2026-02",
+            "tags": ["项目", "SpaceHub", "工具"],
+            "source": "https://x.com/noisyb0y1/status/2016186938097545267"
+          },
+          {
+            "id": "noisy-wallet-tracking",
+            "author": "@noisyb0y1",
+            "title": "钱包追踪服务",
+            "content": "一个帮助在 polymarket 上寻找阿尔法交易的服务：追踪做相同交易的账户网络，使用相同算法的大交易员。很多大交易员在一个钱包赚钱后，转移到新钱包。该服务可以追踪这些变化，发现由同一人运营的新账户。数据库已有 300+ 个最大的 polymarket 钱包。",
+            "date": "2026-02",
+            "tags": ["钱包追踪", "链上分析", "阿尔法"],
+            "source": "https://x.com/noisyb0y1/status/2007852237972742500"
+          },
+          {
+            "id": "noisy-insiders",
+            "author": "@noisyb0y1",
+            "title": "内幕交易观察",
+            "content": "仍然认为 polymarket 上没有内幕交易吗？今日创建的账户，今日下注。市场：U.S. forces seize another Venezuela-linked oil ship by January 9。发生了什么：美军夺取了俄罗斯油轮 Marinera。行动包括直升机、潜艇和该地区完全控制。",
+            "date": "2026-01",
+            "tags": ["内幕交易", "预测市场", "事件"],
+            "source": "https://x.com/noisyb0y1/status/2008913014939124132"
+          }
+        ]
+      },
+      {
+        "id": "arbitrage-basics",
+        "name": "套利基础",
+        "description": " Polymarket 套利基础知识",
+        "entries": []
+      },
+      {
+        "id": "risk-management",
+        "name": "风险管理",
+        "description": "套利风险及防范措施",
+        "entries": []
+      },
+      {
+        "id": "tools-resources",
+        "name": "工具资源",
+        "description": "套利工具和资源汇总",
+        "entries": []
+      }
+    ]
+  }
+}

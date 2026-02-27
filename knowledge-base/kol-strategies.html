@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KOL 策略 | AI 套利知识库</title>
+  <meta name="description" content="KOL 策略 - 关键意见领袖的 Polymarket 套利策略分享，包含 @noisyb0y1 的 Fast-Loop、5分钟市场等实战策略。">
+  <meta name="keywords" content="KOL策略, Polymarket套利, noisyb0y1, Fast-Loop, 机器人交易">
+  <meta name="robots" content="index, follow">
+  
+  <link rel="canonical" href="https://website-ten-bay-21.vercel.app/knowledge-base/kol-strategies.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="logo">📊 <span>Polymarket</span></a>
+      <nav>
+        <a href="/">首页</a>
+        <a href="/reports/">报告</a>
+        <a href="/knowledge-base/" class="active">知识库</a>
+        <a href="/about.html">关于</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <a href="/knowledge-base/" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        返回知识库
+      </a>
+
+      <h1 class="page-title">👤 KOL 策略</h1>
+      <p class="page-description">关键意见领袖的套利策略分享</p>
+
+      <div class="report-detail" style="margin-top: 20px;">
+        <div class="report-content">
+          
+          <h2>@noisyb0y1 的套利策略</h2>
+          <p>加密套利交易者，专注 Polymarket 5分钟 BTC/ETH 短期市场，使用 OpenClaw 机器人执行 Fast-Loop 策略。</p>
+
+          <div class="tip">
+            <h3>📊 核心数据</h3>
+            <ul>
+              <li><strong>月利润</strong>：+$386,755</li>
+              <li><strong>周利润</strong>：+$184,811</li>
+              <li><strong>24小时利润记录</strong>：+$253,403</li>
+              <li><strong>单日最高</strong>：+$82,000</li>
+              <li><strong>起始资金</strong>：$50 → $823</li>
+            </ul>
+          </div>
+
+          <hr style="margin: 30px 0; border: none; border-top: 1px solid var(--border);">
+
+          <h3>🔥 Fast-Loop 套利策略</h3>
+          <div class="highlight">
+            <p><strong>原理</strong>：机器人比 Polymarket 价格反应快 ~20ms</p>
+            <pre style="margin-top: 12px;">价格变动:     t = 0ms
+机器人反应:   t = +10-15ms  ← 先于 Polymarket
+Polymarket:   t = +20-35ms</pre>
+            <p style="margin-top: 12px;"><strong>结果</strong>：约 5ms 可利用窗口，机器人能在价格调整前下单</p>
+          </div>
+          <p><strong>适用市场</strong>：5分钟 BTC/ETH 涨跌市场</p>
+          <p><strong>关键</strong>：需要连接快速基础设施（Chainstack）获取可靠 API</p>
+          <p style="margin-top: 8px;"><a href="https://x.com/noisyb0y1/status/2023000249027965264" target="_blank">🔗 原文链接</a></p>
+
+          <hr style="margin: 30px 0; border: none; border-top: 1px solid var(--border);">
+
+          <h3>🚀 5分钟BTC市场套利</h3>
+          <div class="highlight">
+            <p><strong>策略要点</strong>：</p>
+            <ol style="margin-top: 8px; margin-left: 20px;">
+              <li>每 5 分钟扫描套利机会</li>
+              <li>比较 Binance 和 CoinGecko 的价格</li>
+              <li>全自动 24/7 运行</li>
+              <li>在 Polymarket 反应前捕获价格变动</li>
+            </ol>
+            <p style="margin-top: 12px;"><strong>收益条件</strong>：胜率 &gt; 50% 可扩大到 $10,000+</p>
+          </div>
+          <p><strong>工具</strong>：OpenClaw + Chainstack 基础设施</p>
+          <p style="margin-top: 8px;"><a href="https://x.com/noisyb0y1/status/2023035448151384274" target="_blank">🔗 原文链接</a></p>
+
+          <hr style="margin: 30px 0; border: none; border-top: 1px solid var(--border);">
+
+          <h3>📈 Clawdbot 跟单策略</h3>
+          <div class="highlight">
+            <p><strong>跟单效果</strong>：</p>
+            <ul style="margin-top: 8px;">
+              <li>24小时内盈利：+$253,403</li>
+              <li>交易员赚取：$20,000 - $53,000</li>
+              <li>本金 $808 → $93,500（2天）</li>
+            </ul>
+            <p style="margin-top: 12px;"><strong>特征</strong>：相同交易、相同存款时机、同日创建账户、每账户 8-12 笔交易</p>
+          </div>
+          <p><strong>工具</strong>：OpenClaw + Clawdbot</p>
+          <p style="margin-top: 8px;"><a href="https://x.com/noisyb0y1/status/2026045859247591776" target="_blank">🔗 原文链接</a></p>
+
+          <hr style="margin: 30px 0; border: none; border-top: 1px solid var(--border);">
+
+          <h3>🔍 钱包追踪服务</h3>
+          <p>追踪做相同交易的账户网络，发现大型交易员的操作模式。</p>
+          <div class="highlight">
+            <ul>
+              <li>追踪使用相同算法的大交易员</li>
+              <li>发现大钱包赚钱后转移到新账户</li>
+              <li>数据库已有 300+ 最大 Polymarket 钱包</li>
+            </ul>
+          </div>
+          <p style="margin-top: 8px;"><a href="https://x.com/noisyb0y1/status/2007852237972742500" target="_blank">🔗 原文链接</a></p>
+
+          <hr style="margin: 30px 0; border: none; border-top: 1px solid var(--border);">
+
+          <h3>💡 内幕交易观察</h3>
+          <div class="warning">
+            <p>Polymarket 上存在内幕交易的可能性：</p>
+            <ul style="margin-top: 8px;">
+              <li>今日创建账户 + 今日下注</li>
+              <li>准确预测重大事件（如军事行动）</li>
+              <li>时间线与实际事件高度吻合</li>
+            </ul>
+          </div>
+          <p><strong>案例</strong>：US forces seize Venezuela-linked oil ship - 账户当日创建当日下注</p>
+          <p style="margin-top: 8px;"><a href="https://x.com/noisyb0y1/status/2008913014939124132" target="_blank">🔗 原文链接</a></p>
+
+          <hr style="margin: 30px 0; border: none; border-top: 1px solid var(--border);">
+
+          <h3>🛠️ SpaceHub 项目</h3>
+          <p>在 Polymarket 上构建的助手/产品项目。</p>
+          <div class="tip">
+            <p><strong>技术栈</strong>：</p>
+            <ul style="margin-top: 8px;">
+              <li>Polymarket Builders Docs（API）</li>
+              <li>Cursor（开发工具）</li>
+              <li>Python（测试和安全构建）</li>
+            </ul>
+            <p style="margin-top: 12px;"><strong>建议</strong>：构建你自己真正会用的东西</p>
+          </div>
+          <p style="margin-top: 8px;"><a href="https://x.com/noisyb0y1/status/2016186938097545267" target="_blank">🔗 原文链接</a></p>
+
+        </div>
+      </div>
+
+      <a href="/knowledge-base/" class="back-link" style="margin-top: 30px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        返回知识库
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>🤖 由 Jarvis 自动生成 | 基于 OpenClaw</p>
+      <p style="margin-top: 8px;">
+        <a href="/sitemap.xml">Sitemap</a> | 
+        <a href="/robots.txt">Robots</a> | 
+        <a href="https://polymarket.com" target="_blank" rel="noopener">Polymarket</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

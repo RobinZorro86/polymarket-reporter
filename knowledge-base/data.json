@@ -9,6 +9,22 @@
         "description": "关键意见领袖的套利策略分享",
         "entries": [
           {
+            "id": "ayia-inotes-openclaw-workflows",
+            "author": "@AYi_AInotes",
+            "title": "OpenClaw workflow 交易策略完全指南",
+            "content": "阿绎分享 OpenClaw 自动化交易 workflow 完整攻略。\n\n一、趋势交易策略\n技能：stock-monitor + market-sentiment + trend-analysis + risk-calculator\n条件：MA5 > MA10 && sentimentScore > 0.5 做多\n止损：-5%，止盈：10%，仓位：8%\n\n二、价值投资策略\n技能：financial-report-analysis + competitor-analysis + valuation-calculator + dividend-tracker\n条件：PE<15, PB<2, 股息率>3%, 利润增长>10%\n持有期：180天\n\n三、套利策略\n技能：arbitrage-scanner + finance-data + risk-calculator + order-executor\n条件：价差>10bp，最大仓位5%，目标收益3%\n\n核心观点：\n- OpenClaw让普通人也能实现专业交易\n- 它是工具而非圣杯\n- 成功关键：清晰的交易逻辑+转化为AI可执行指令\n- 需要部署在云端实现7x24运行",
+            "date": "2026-03-01",
+            "tags": [
+              "OpenClaw",
+              "Workflow",
+              "自动化交易",
+              "趋势交易",
+              "价值投资",
+              "套利"
+            ],
+            "source": "https://x.com/ayi_ainotes/status/2027333099366076574"
+          },
+          {
             "id": "cutnpaste-crypto-updown",
             "author": "@cutnpaste4",
             "title": "Polymarket Crypto Up/Down 市场完全指南",

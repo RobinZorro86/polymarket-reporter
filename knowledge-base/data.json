@@ -9,6 +9,22 @@
         "description": "关键意见领袖的套利策略分享",
         "entries": [
           {
+            "id": "cutnpaste-crypto-updown",
+            "author": "@cutnpaste4",
+            "title": "Polymarket Crypto Up/Down 市场完全指南",
+            "content": "Polymarket加密货币涨跌市场完整攻略。\n\n一、延迟套利真相\n- Polymarket与主流交易所延迟约几百毫秒，不是30秒\n- Taker延迟：曾500ms，现250ms\n- 网络设置、代码设计、VPS位置比编程语言更重要\n- Python足够快，网络延迟是100ms级别\n\n二、定价模型\n- 使用Black-Scholes模型定价二元期权\n- 关键参数：隐含波动率(sigma)\n- 用历史波动率 Plug in 大致接近市场价格\n\n三、关键Alpha发现\n- ChainLink数据每秒只更新一次\n- 直接使用Binance价格比ChainLink更好\n- 曾因此获得巨大优势（0 taker delay时期）\n\n四、两种策略\n1) Market Maker做市：\n   - 双向报价，收取价差\n   - 需要大量代码基础设施\n   - 处理边缘情况（高延迟、WS断连、幽灵成交）\n   - 模型出错时会亏损\n\n2) Taker吃单：\n   - 等模型与价格分歧足够大才下单\n   - 更高方差但更容易找到利基\n   - 不那么脆弱，不需要处理报价\n\n五、建议\n- 这些是目前最竞争的市场\n- 没经验别碰\n- 从软市场开始\n- 最重要：保持乐趣！",
+            "date": "2026-03-01",
+            "tags": [
+              "加密货币",
+              "涨跌市场",
+              "延迟套利",
+              "做市",
+              "定价模型",
+              "Black-Scholes"
+            ],
+            "source": "https://x.com/cutnpaste4/status/2027405725266493891"
+          },
+          {
             "id": "rohonchain-hedgefund-data",
             "author": "@RohOnChain",
             "title": "How To Use Prediction Market Data Like Hedge Funds (Complete Roadmap)",

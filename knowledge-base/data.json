@@ -9,6 +9,25 @@
         "description": "关键意见领袖的套利策略分享",
         "entries": [
           {
+            "id": "seanzhao-arbitrage-research",
+            "author": "@seanzhao1105",
+            "title": "109GB数据复盘Polymarket价差套利：为什么99.99%人不适合",
+            "content": "用109GB交易数据研究Polymarket价差套利的完整复盘。\n\n核心结论：PM的Yes+No价差套利，99.99%的人不适合。\n\n研究过程：\n1) 3个月109GB交易数据\n2) 筛选盈利地址并分类（套利/做市/交易/其他）\n3) 开发监控程序验证套利机会存在\n\n为什么失败？\n- 监控到下单约2秒+，但机会消失更快\n- 每次成交时Yes+No已>1\n\n三大原因：\n1) 提升延迟成本太高（需更好服务器/网络/架构）\n2) 收益无法覆盖成本（单笔利润薄）\n3) 这是MEV/高频战场，不是普通人现金流方向\n\n最大收获：\n- AI真的解放生产力（vibe coding）\n- 学到关键常识（数据源、地址行为、API细节、风控）\n- 分享思考过程比装成功更有价值",
+            "date": "2026-03-01",
+            "tags": [
+              "套利",
+              "研究",
+              "数据复盘",
+              "延迟",
+              "MEV"
+            ],
+            "source": "https://x.com/seanzhao1105/status/2024429945993494988",
+            "metrics": {
+              "研究数据": "109GB",
+              "时间窗口": "3个月"
+            }
+          },
+          {
             "id": "edwordkaru-simmer-tutorial",
             "author": "@edwordkaru",
             "title": "旧手机 OpenClaw + Simmer 自动交易教程",

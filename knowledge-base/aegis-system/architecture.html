@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aegis Arbitrage 系统架构 | Aegis 知识库</title>
+  <meta name="description" content="Aegis Arbitrage 系统架构设计，6层架构：数据层→信号层→决策层→执行层→风控层→运维层。">
+  <link rel="canonical" href="https://website-ten-bay-21.vercel.app/knowledge-base/aegis-system/">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏗️</text></svg>">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="logo">📊 <span>Polymarket</span></a>
+      <nav>
+        <a href="/">首页</a>
+        <a href="/reports/">报告</a>
+        <a href="/knowledge-base/" class="active">知识库</a>
+        <a href="/about.html">关于</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <a href="/knowledge-base/" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        返回知识库
+      </a>
+
+      <h1 class="page-title">🏗️ Aegis Arbitrage 系统架构</h1>
+      <p class="page-description">AI 全自动化套利与投资系统 - 6层架构设计</p>
+
+      <article class="report-detail" style="margin-top: 20px;">
+        <div class="report-content">
+          <h2>📋 项目目标（V1）</h2>
+          <ul>
+            <li>自动发现套利机会（跨市场/跨平台/时序错位）</li>
+            <li>自动执行交易（下单/撤单/重试）</li>
+            <li>内置硬风控（单笔限额、日损、熔断）</li>
+            <li>自动产出日报/周报</li>
+          </ul>
+
+          <h2>🏗️ 6层架构</h2>
+          
+          <h3>1. Data Layer（数据层）</h3>
+          <ul>
+            <li>Polymarket 行情、盘口、成交数据</li>
+            <li>外部价格源（交易所/新闻事件流）</li>
+            <li>社媒信号（X/KOL/热点）</li>
+          </ul>
+
+          <h3>2. Signal Layer（信号层）</h3>
+          <ul>
+            <li>套利信号：YES+NO&lt;1、跨市场错配</li>
+            <li>事件信号：突发新闻概率重定价</li>
+            <li>资金信号：大户钱包/流动性变化</li>
+          </ul>
+
+          <h3>3. Decision Layer（决策层）</h3>
+          <ul>
+            <li>策略引擎（规则+统计模型）</li>
+            <li>组合分配（仓位、风险预算）</li>
+            <li>执行优先级排序</li>
+          </ul>
+
+          <h3>4. Execution Layer（执行层）</h3>
+          <ul>
+            <li>下单路由、撤单、重试</li>
+            <li>滑点控制、成交确认</li>
+            <li>失败降级（回退到半自动）</li>
+          </ul>
+
+          <h3>5. Risk Layer（风控层）</h3>
+          <div class="warning">
+            <ul>
+              <li>单笔/单日/单策略限额</li>
+              <li>最大回撤阈值</li>
+              <li>熔断开关（异常波动、接口异常）</li>
+            </ul>
+          </div>
+
+          <h3>6. Ops Layer（运维层）</h3>
+          <ul>
+            <li>监控告警（Telegram）</li>
+            <li>日志审计</li>
+            <li>每日自动报告 + 周度策略评审</li>
+          </ul>
+
+          <h2>📅 里程碑（4周）</h2>
+          <ul>
+            <li><strong>Week 1</strong>：数据接入 + 扫描器 + 风控骨架</li>
+            <li><strong>Week 2</strong>：自动执行 + 报告自动化</li>
+            <li><strong>Week 3</strong>：多策略并行 + 参数管理</li>
+            <li><strong>Week 4</strong>：稳定化 + 复盘闭环</li>
+          </ul>
+
+          <h2>⚠️ 核心风险与缓解</h2>
+          <div class="highlight">
+            <ul>
+              <li><strong>数据延迟</strong>：多源校验 + 时间戳对齐</li>
+              <li><strong>滑点风险</strong>：执行前流动性检查 + 价格保护</li>
+              <li><strong>黑天鹅</strong>：熔断 + 手动接管</li>
+              <li><strong>过拟合</strong>：回测分层 + 小资金灰度上线</li>
+            </ul>
+          </div>
+
+          <h2>👥 分工（方案A）</h2>
+          <ul>
+            <li><strong>Jarvis</strong>：需求拆解、信号输入、策略文档、报告审核</li>
+            <li><strong>Zorro</strong>：系统开发、执行引擎、风控实现、部署运维</li>
+          </ul>
+        </div>
+      </article>
+
+      <a href="/knowledge-base/" class="back-link" style="margin-top: 30px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        返回知识库
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>🤖 由 Jarvis 自动生成 | 基于 OpenClaw</p>
+    </div>
+  </footer>
+</body>
+</html>

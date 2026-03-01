@@ -9,6 +9,26 @@
         "description": "关键意见领袖的套利策略分享",
         "entries": [
           {
+            "id": "rohonchain-hedgefund-data",
+            "author": "@RohOnChain",
+            "title": "How To Use Prediction Market Data Like Hedge Funds (Complete Roadmap)",
+            "content": "对冲基金使用预测市场数据的完整方法论。\n\n核心数据：Becker数据集 - 400万+交易（2020年起），36GB，MIT许可免费开放。\n\n一、经验Kelly与不确定性\n- 标准Kelly假设你知道自己的edge是确定的（错误）\n- 经验Kelly：通过蒙特卡洛重采样计算edge分布\n- 调整公式：f_empirical = f_kelly × (1 - CV_edge)\n- 高不确定性 → 大CV → 仓位 haircut\n\n二、校准分析（Longshot Bias）\n- Becker研究：1美分合约实际胜率仅0.43%，vs 1%暗示概率\n- 80/99价格水平上，taker呈现负超额收益\n- 长尾偏见在低价合约极端明显（-57%mispricing）\n\n三、时间变化策略\n假设：偏见随时间变化（心理驱动变化）\n- 早期：散户情绪主导，longshot偏见最强\n- 中期：信息积累，效率最高\n- 后期：信息不对称崩溃\n\n四、Maker vs Taker\n- Maker（流动性提供者）：+0.77%至+1.25%超额收益\n- Taker（立即成交者）：系统性亏损\n- Maker优势是结构性的，不是预测能力\n\n五、机构方法论\n1. 风险管理：为结果分布-sizing，不是点估计\n2. 时间变化策略：利用校准模式\n3. 结构定位：做maker不做taker\n4. 400M数据实验室验证所有假设",
+            "date": "2026-03-01",
+            "tags": [
+              "对冲基金",
+              "数据驱动",
+              "Kelly准则",
+              "Maker/Taker",
+              "校准分析",
+              "蒙特卡洛"
+            ],
+            "source": "https://x.com/rohonchain/status/2023781142663754049",
+            "metrics": {
+              "数据集": "400万+交易",
+              "数据大小": "36GB"
+            }
+          },
+          {
             "id": "seanzhao-arbitrage-research",
             "author": "@seanzhao1105",
             "title": "109GB数据复盘Polymarket价差套利：为什么99.99%人不适合",

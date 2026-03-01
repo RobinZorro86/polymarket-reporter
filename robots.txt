@@ -1,11 +1,11 @@
-# Robots.txt for Polymarket Reporter
-# https://polymarket-report.example.com
+# Robots.txt for Musk Collective
+# https://muskcollective.com
 
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://polymarket-report.example.com/sitemap.xml
+Sitemap: https://muskcollective.com/sitemap.xml
 
 # Crawl-delay (optional, be nice to servers)
 Crawl-delay: 1

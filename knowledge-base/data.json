@@ -9,6 +9,37 @@
         "description": "关键意见领袖的套利策略分享",
         "entries": [
           {
+            "id": "gemchanger-quant-simulation",
+            "author": "@gemchange_ltd",
+            "title": "机构级量化模拟：从硬币翻转模拟到完整交易系统",
+            "content": "系统性量化模拟教程，包含完整可运行代码。\n\n一、蒙特卡洛基础\n- 样本均值估计概率 p̂\n- 中心极限定理收敛率 O(N^-1/2)\n- 50% 价格合约方差最大\n\n二、重要性采样\n- 指数倾斜处理稀有事件\n- 方差降低 100-10,000 倍\n- 100 次 IS 采样 > 100万次普通 MC\n\n三、粒子滤波\n- 状态空间模型：隐状态 x_t + 观测 y_t\n- Bootstrap 粒子滤波算法\n- 实时更新概率估计\n\n四、方差降低技术\n- 对偶变量：50-75% 方差降低\n- 控制变量：利用已知解析解\n- 分层采样：总是 ≤ 普通 MC\n\n五、Copula 建模相关性\n- 高斯 Copula：尾部依赖 = 0（危险）\n- t-Copula：对称尾部依赖\n- Clayton：下尾依赖\n- Gumbel：上尾依赖\n\n六、Agent-Based Model\n- 知情交易者、噪音交易者、做市商\n- Kyle λ 价格冲击参数\n- 零智能代理可达 96% 效率\n\n七、五层系统架构\n1. 数据摄入层\n2. 概率引擎层\n3. 依赖建模层\n4. 风险管理层\n5. 监控层",
+            "date": "2026-03-02",
+            "tags": [
+              "量化模拟",
+              "Monte Carlo",
+              "Particle Filter",
+              "Copula",
+              "Agent-Based Model",
+              "重要性采样"
+            ],
+            "source": "https://x.com/gemchange_ltd/status/2027744530124951831"
+          },
+          {
+            "id": "leifuchen-three-layer-system",
+            "author": "@leifuchen / @jtrevorchapman",
+            "title": "Polymarket 自动化交易三层架构：记忆 → 信号 → 防御",
+            "content": "盈利因子 4.29、胜率 93% 的 Polymarket 自动化交易系统。\n\n一、核心指标\n- 盈利因子：4.29（每亏 $1，赚回 $4.29）\n- 胜率：93%\n- 只做 BTC，不做 ETH\n\n二、三层架构\n\n**1. 记忆层**\n- 扫描最近 30+ 个已结束 session\n- 找出最像当前盘面的历史 session\n- 携带历史经验（先验偏差）进入下一层\n\n**2. 信号层**\n- 每秒运行 8-12 条规则，独立投票 UP/DOWN + 置信度\n- 最强指标：CVD（累计主动买卖量差）\n- 其他：预言机报价距离、Binance 动量、订单簿不平衡、代币价格走势\n- 按置信度加权得出综合信号\n\n**3. 防御层**\n- 五因子计算 0-1 系数，乘到仓位上\n- CVD 是否同意（一票否决权）\n- 距离基准价格多少\n- session 剩余时间（最后 2-3 分钟风险陡增）\n- 穿越次数（>5 次算混乱市场）\n- 入场价利润空间（高价要求更高胜率）\n\n三、关键细节\n- 40 天、每 200ms 记录一次的数据做回测\n- session 剩余 6 分钟时指标才开始可靠\n- 混乱市场（穿越>5次）信号可靠性大打折扣",
+            "date": "2026-03-02",
+            "tags": [
+              "Polymarket",
+              "自动化交易",
+              "CVD",
+              "三层架构",
+              "风险管理"
+            ],
+            "source": "https://x.com/leifuchen/status/2027910421013840251"
+          },
+          {
             "id": "dashen-openclaw-polymarket-bot",
             "author": "大神 (dashen.wang)",
             "title": "初级指南：如何用 OpenClaw 打造全自动 Polymarket 盈利机器人",

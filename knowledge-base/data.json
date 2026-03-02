@@ -9,6 +9,27 @@
         "description": "关键意见领袖的套利策略分享",
         "entries": [
           {
+            "id": "msjiaozhu-x-scraping-guide",
+            "author": "@msjiaozhu (MapleShaw)",
+            "title": "OpenClaw X 数据抓取方案：0封号的完整演进",
+            "content": "MapleShaw 分享的 X 数据抓取完整方案，从 v1 到 v3 的技术决策过程。\n\n一、目标\n每天自动抓取 30+ 个 X 账号，0 次封号\n\n二、方案演进\nv1: nitter 公共实例 → IP 封锁（VPS IP 被封）\nv2: Camoufox 真实浏览器 → 内存泄漏（31账号跑51分钟，内存爆机）\nv3: 纯 RSS + 多实例 fallback → 稳定（2-3分钟跑完）\n\n三、最终方案（v3）\n- 纯 Python 标准库：urllib + xml.etree.ElementTree\n- 请求 nitter.net/{username}/rss\n- 多实例 fallback：3个实例自动切换\n- 串行抓取 + 1.5s 间隔\n- 零外部依赖，无需 Camoufox\n\n四、核心优势\n- 完全不需要登录 X 账号 = 零封号风险\n- 内存占用极低\n- 多实例 fallback，单点故障自愈\n- OpenClaw Cron + 子代理完美配合\n\n五、架构师思维\n不是选最炫的技术，而是选最适合约束条件的方案。\n放弃 Camoufox（酷炫但内存泄漏）退回 RSS（朴素但稳定）\n\n六、5个踩坑记录\n1. nitter 公共实例 IP 封禁\n2. Camoufox 内存泄漏（核心放弃原因）\n3. nitter RSS 偶发 404\n4. seen.json 为空导致大量新内容\n5. Cron 模型 ID 配置错误\n\n七、局限\n- 依赖 nitter 稳定性\n- RSS 只能获取有限字段（无点赞/转发数）\n- 无法抓取隐私推文",
+            "date": "2026-03-02",
+            "tags": [
+              "OpenClaw",
+              "X抓取",
+              "RSS",
+              "自动化",
+              "Cron",
+              "架构师思维"
+            ],
+            "source": "https://x.com/msjiaozhu/status/2028285401769845207",
+            "metrics": {
+              "账号数": "31",
+              "运行时间": "2-3分钟",
+              "封号次数": "0"
+            }
+          },
+          {
             "id": "zstmfhy-memory-systems",
             "author": "@zstmfhy",
             "title": "OpenClaw 记忆增强生态系统",

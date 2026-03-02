@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Daily Raw Data Schema",
+  "type": "object",
+  "required": ["date", "title", "summary", "url"],
+  "properties": {
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "日期 (YYYY-MM-DD)"
+    },
+    "title": {
+      "type": "string",
+      "description": "事件/市场标题"
+    },
+    "summary": {
+      "type": "string",
+      "description": "摘要描述"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "原始链接"
+    }
+  }
+}

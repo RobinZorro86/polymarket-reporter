@@ -9,6 +9,38 @@
         "description": "关键意见领袖的套利策略分享",
         "entries": [
           {
+            "id": "axtonliu-70-agent-team",
+            "author": "@AxtonLiu",
+            "title": "70 人 AI 团队：Claude Skills 系统设计方法论",
+            "content": "五个月，70+ Claude Skills，六条链路。从单 Skill 到系统化协作。\n\n一、三个阶段\n1) 单 Skill：一个输入一个输出，解决具体问题\n2) Skill 共享状态：风格学习 Skill 统一 9 个创作 Skill 输出风格\n3) Skill 调度 Skill：全自动流水线，两天剪完 15 个视频\n\n二、六条链路分布\n- 内容创作：28 个\n- 视觉与设计：14 个\n- 知识管理：7 个\n- 商业运营：6 个\n- 开发者基建：13 个\n- 工具类：6 个\n\n三、核心方法论：MAPS 四维罗盘\n- Mindset（心智）：人机分工视角\n- Architecture（架构）：Skill 协作关系\n- Prompt（提示词）：单个 Skill 质量\n- Systems（系统）：可监控、可回顾、可扩展\n\n四、踩坑教训\n- 两个 Skill 做同一件事 → 合并\n- 一个 Skill 管太多事 → 拆分共享色板\n- 系统清晰度 > Skill 数量\n\n五、起步建议\n找一件每周至少做一次、每次 30+ 分钟、已有固定套路的工作，写成纯文本文件。\n\n六、ai-pair：AI 调度 AI\n- Claude 负责创作\n- OpenAI Codex 审查逻辑和事实\n- Google Gemini 审查可读性和风格\n三个模型互相审阅，比单一模型更可靠",
+            "date": "2026-03-02",
+            "tags": [
+              "Claude",
+              "Skills",
+              "多Agent",
+              "系统设计",
+              "MAPS",
+              "AI团队"
+            ],
+            "source": "https://x.com/axtonliu/status/2028275905018163596"
+          },
+          {
+            "id": "axtonliu-70-agent-team",
+            "author": "@AxtonLiu",
+            "title": "70 人 AI 团队：Claude Skills 系统设计方法论",
+            "content": "五个月，70+ Claude Skills，六条链路。从单 Skill 到系统化协作。\n\n一、三个阶段\n1) 单 Skill：一个输入一个输出，解决具体问题\n2) Skill 共享状态：风格学习 Skill 统一 9 个创作 Skill 输出风格\n3) Skill 调度 Skill：全自动流水线，两天剪完 15 个视频\n\n二、六条链路分布\n- 内容创作：28 个\n- 视觉与设计：14 个\n- 知识管理：7 个\n- 商业运营：6 个\n- 开发者基建：13 个\n- 工具类：6 个\n\n三、核心方法论：MAPS 四维罗盘\n- Mindset（心智）：人机分工视角\n- Architecture（架构）：Skill 协作关系\n- Prompt（提示词）：单个 Skill 质量\n- Systems（系统）：可监控、可回顾、可扩展\n\n四、踩坑教训\n- 两个 Skill 做同一件事 → 合并\n- 一个 Skill 管太多事 → 拆分共享色板\n- 系统清晰度 > Skill 数量\n\n五、起步建议\n找一件每周至少做一次、每次 30+ 分钟、已有固定套路的工作，写成纯文本文件。\n\n六、ai-pair：AI 调度 AI\n- Claude 负责创作\n- OpenAI Codex 审查逻辑和事实\n- Google Gemini 审查可读性和风格\n三个模型互相审阅，比单一模型更可靠",
+            "date": "2026-03-02",
+            "tags": [
+              "Claude",
+              "Skills",
+              "多Agent",
+              "系统设计",
+              "MAPS",
+              "AI团队"
+            ],
+            "source": "https://x.com/axtonliu/status/2028275905018163596"
+          },
+          {
             "id": "pluvio9yte-multi-agent-arch",
             "author": "@pluvio9yte (雪踏乌云)",
             "title": "OpenClaw 多 Agent 架构进阶：单 Gateway 多 Agent 最佳实践",

@@ -9,6 +9,22 @@
         "description": "关键意见领袖的套利策略分享",
         "entries": [
           {
+            "id": "dashen-openclaw-polymarket-bot",
+            "author": "大神 (dashen.wang)",
+            "title": "初级指南：如何用 OpenClaw 打造全自动 Polymarket 盈利机器人",
+            "content": "完整的 OpenClaw + Polymarket CLI + Simmer API 自动化交易系统搭建教程。\n\n一、三大核心组件\n- OpenClaw：机器人大脑和办公室（定时任务、多渠道通信）\n- Polymarket CLI：交易双手（区块链下单、挂单、领奖励）\n- Simmer：安全网和情报局（风控护栏、AI数据分析、套利机会）\n\n二、赚钱逻辑\n1. Simmer 每半小时扫描市场，寻找价格偏差套利\n2. 复制胜率极高巨鲸钱包的交易\n3. 每天自动领取流动性奖励\n\n三、安装步骤\n1. 安装 Node.js 和 OpenClaw\n2. 安装 Polymarket CLI\n3. 配置钱包（USDC.e + POL）\n4. 注册 Simmer API 并认领\n5. 安装技能：polymarket, polymarket-copytrading, polymarket-ai-divergence\n\n四、自动化任务配置\n- 心跳扫描：每30分钟检查市场和持仓\n- Cron 奖励：每天凌晨2点领取流动性奖励\n- 跟单任务：每4小时追踪巨鲸\n\n五、避坑指南\n- 新建独立钱包，不放主力资金\n- 完成智能合约授权\n- 认领 Simmer 解锁真实交易\n- 赢利后需手动 redeem CTF token",
+            "date": "2026-03-02",
+            "tags": [
+              "OpenClaw",
+              "Polymarket",
+              "Simmer",
+              "自动化交易",
+              "CLI",
+              "教程"
+            ],
+            "source": "https://dashen.wang/article/8810"
+          },
+          {
             "id": "noisyb0y1-bot-systems",
             "author": "@noisyb0y1",
             "title": "两大机器人系统：News Bot 与 Arbitrage Bot",

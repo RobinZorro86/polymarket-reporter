@@ -9,6 +9,36 @@
         "description": "关键意见领袖的套利策略分享",
         "entries": [
           {
+            "id": "pluvio9yte-multi-agent-arch",
+            "author": "@pluvio9yte (雪踏乌云)",
+            "title": "OpenClaw 多 Agent 架构进阶：单 Gateway 多 Agent 最佳实践",
+            "content": "一个月多 Agent 真实体验和最佳实践。\n\n一、结论\n单 Gateway + 多 Agent 架构在 90% 个人/小团队场景下迟早必要。\n一台 Mac Mini 轻松跑 5-15 个 Agent，资源开销极低。\n\n二、多 Agent 核心价值\n不是工具隔离，不是模型分配，而是记忆隔离。\n- 生活助手 agent\n- 信息流检索 agent\n- 工作专用技能 agent\n每个 agent 定义不同，Prompt 再强也无法根治上下文长度限制。\n\n三、何时拆多 Agent？\n- 累计对话 token > 200-300k\n- 同时活跃 3+ 种完全不同场景\n- 跑长期自主任务（cron、24/7监控）\n\n甜点区间：3-8 个 Agent（按角色/项目切分）\n\n四、OpenClaw vs Claude Code\n- OpenClaw = 通用生活助理（聊天驱动）\n- Claude Code = 专业码农\n最佳实践：让 OpenClaw 调用 Claude Code 外包编程任务\n\n五、分层建议\n刚上手 → 单 Agent 玩熟工具链 → 2-4 个专项 Agent → 5-12 个 Agent 单 Gateway\n\n六、管理痛点\n实现一个\"总Agent\"：\n- 读取其他 agent 会话\n- 修改其他 agent 配置文件\n- 其他 agent 遇到问题直接调用总 agent 修改",
+            "date": "2026-03-02",
+            "tags": [
+              "OpenClaw",
+              "多Agent",
+              "架构设计",
+              "记忆隔离",
+              "Gateway"
+            ],
+            "source": "https://x.com/pluvio9yte/status/2028072518368538982"
+          },
+          {
+            "id": "pluvio9yte-multi-agent-arch",
+            "author": "@pluvio9yte (雪踏乌云)",
+            "title": "OpenClaw 多 Agent 架构进阶：单 Gateway 多 Agent 最佳实践",
+            "content": "一个月多 Agent 真实体验和最佳实践。\n\n一、结论\n单 Gateway + 多 Agent 架构在 90% 个人/小团队场景下迟早必要。\n一台 Mac Mini 轻松跑 5-15 个 Agent，资源开销极低。\n\n二、多 Agent 核心价值\n不是工具隔离，不是模型分配，而是**记忆隔离**。\n- 生活助手 agent\n- 信息流检索 agent\n- 工作专用技能 agent\n每个 agent 定义不同，Prompt 再强也无法根治上下文长度限制。\n\n三、何时拆多 Agent？\n- 累计对话 token > 200-300k\n- 同时活跃 3+ 种完全不同场景\n- 跑长期自主任务（cron、24/7监控）\n\n甜点区间：3-8 个 Agent（按角色/项目切分）\n\n四、OpenClaw vs Claude Code\n- OpenClaw = 通用生活助理（聊天驱动）\n- Claude Code = 专业码农\n最佳实践：让 OpenClaw 调用 Claude Code 外包编程任务\n\n五、分层建议\n刚上手 → 单 Agent 玩熟工具链 → 2-4 个专项 Agent → 5-12 个 Agent 单 Gateway\n\n六、管理痛点\n实现一个\"总Agent\"：\n- 读取其他 agent 会话\n- 修改其他 agent 配置文件\n- 其他 agent 遇到问题直接调用总 agent 修改",
+            "date": "2026-03-02",
+            "tags": [
+              "OpenClaw",
+              "多Agent",
+              "架构设计",
+              "记忆隔离",
+              "Gateway"
+            ],
+            "source": "https://x.com/pluvio9yte/status/2028072518368538982"
+          },
+          {
             "id": "msjiaozhu-x-scraping-guide",
             "author": "@msjiaozhu (MapleShaw)",
             "title": "OpenClaw X 数据抓取方案：0封号的完整演进",
@@ -152,7 +182,7 @@
             "id": "noisy-fast-loop",
             "author": "@noisyb0y1",
             "title": "Fast-Loop 套利策略",
-            "content": "机器人使用 Fast-Loop 策略：它比 Polymarket 价格反应更快。价格变动时间线：真实价格变动 t=0ms → 机器人反应 t=+10-15ms → Polymarket 反应 t=+20-35ms。结果：机器人能在 5 分钟 BTC/ETH 市场价格调整前下单，约 5ms 可利用窗口。",
+            "content": "机器人使用 Fast-Loop 策略：它比 Polymarket 价格反应更快。价格变动时间线：真实价格变动 t=0ms → 机器人反应 t=+10-15ms → Polymarket 反应 t=+20-35ms。结果：机器人能在 5 分钟 BTC/ETH 市场价格调整前下单，约 5ms 可利用窗口。\n\n---\n\n## 最新发现 (2026-03-02 抓取)\n- ** → ,172 单笔交易**：使用 Arbitrage Invariant 策略\n- **,580 日利润**：简单数学策略，52% 胜率\n- **300+ 交易员亏损 M+**：市场惩罚赢家效应研究",
             "date": "2026-02",
             "tags": [
               "套利",
@@ -170,7 +200,7 @@
             "id": "noisy-5min-btc",
             "author": "@noisyb0y1",
             "title": "5分钟BTC市场套利",
-            "content": "用 OpenClaw 构建的机器人交易 5 分钟 BTC 市场。这类市场机会极大，因为每笔交易基本上都是 2 倍。如果胜率超过 50%，可以现实地扩大到 $10,000+。两个例子：NickyNic / +$82,000 一天。机器人每 5 分钟扫描一次套利机会，比较 Binance 和 CoinGecko 的价格。结果：全自动化 24/7 系统，在 Polymarket 反应前捕获价格变动并第一时间入场。",
+            "content": "用 OpenClaw 构建的机器人交易 5 分钟 BTC 市场。这类市场机会极大，因为每笔交易基本上都是 2 倍。如果胜率超过 50%，可以现实地扩大到 $10,000+。两个例子：NickyNic / +$82,000 一天。机器人每 5 分钟扫描一次套利机会，比较 Binance 和 CoinGecko 的价格。结果：全自动化 24/7 系统，在 Polymarket 反应前捕获价格变动并第一时间入场。\n\n---\n\n## 最新发现 (2026-03-02 抓取)\n- ** → ,172 单笔交易**：使用 Arbitrage Invariant 策略\n- **,580 日利润**：简单数学策略，52% 胜率\n- **300+ 交易员亏损 M+**：市场惩罚赢家效应研究",
             "date": "2026-02",
             "tags": [
               "5分钟市场",
@@ -184,7 +214,7 @@
             "id": "noisy-copytrading",
             "author": "@noisyb0y1",
             "title": "Clawdbot 跟单策略",
-            "content": "+$253,403 在 24 小时内使用 Clawdbot 跟单。交易员无需知道 Polymarket 是什么就能赚取 $20,000-$53,000：相同的交易、相同的存款时机、同一天创建的资料、每个账户 8-12 笔交易。其中一个账户 2 天前存入 $808，今天是 $93,500。",
+            "content": "+$253,403 在 24 小时内使用 Clawdbot 跟单。交易员无需知道 Polymarket 是什么就能赚取 $20,000-$53,000：相同的交易、相同的存款时机、同一天创建的资料、每个账户 8-12 笔交易。其中一个账户 2 天前存入 $808，今天是 $93,500。\n\n---\n\n## 最新发现 (2026-03-02 抓取)\n- ** → ,172 单笔交易**：使用 Arbitrage Invariant 策略\n- **,580 日利润**：简单数学策略，52% 胜率\n- **300+ 交易员亏损 M+**：市场惩罚赢家效应研究",
             "date": "2026-02",
             "tags": [
               "跟单",
@@ -200,7 +230,7 @@
             "id": "noisy-spacehub",
             "author": "@noisyb0y1",
             "title": "SpaceHub 项目发布",
-            "content": "昨天正式在 @Polymarket 上推出了项目 (SpaceHub)，清楚地理解需要构建什么：助手或完整产品。项目已有活跃用户，证明做对了。使用：Polymarket builders docs (API) + Cursor + 基本的 Python 知识。构建你自己真正会用的东西。",
+            "content": "昨天正式在 @Polymarket 上推出了项目 (SpaceHub)，清楚地理解需要构建什么：助手或完整产品。项目已有活跃用户，证明做对了。使用：Polymarket builders docs (API) + Cursor + 基本的 Python 知识。构建你自己真正会用的东西。\n\n---\n\n## 最新发现 (2026-03-02 抓取)\n- ** → ,172 单笔交易**：使用 Arbitrage Invariant 策略\n- **,580 日利润**：简单数学策略，52% 胜率\n- **300+ 交易员亏损 M+**：市场惩罚赢家效应研究",
             "date": "2026-02",
             "tags": [
               "项目",
@@ -213,7 +243,7 @@
             "id": "noisy-wallet-tracking",
             "author": "@noisyb0y1",
             "title": "钱包追踪服务",
-            "content": "一个帮助在 polymarket 上寻找阿尔法交易的服务：追踪做相同交易的账户网络，使用相同算法的大交易员。很多大交易员在一个钱包赚钱后，转移到新钱包。该服务可以追踪这些变化，发现由同一人运营的新账户。数据库已有 300+ 个最大的 polymarket 钱包。",
+            "content": "一个帮助在 polymarket 上寻找阿尔法交易的服务：追踪做相同交易的账户网络，使用相同算法的大交易员。很多大交易员在一个钱包赚钱后，转移到新钱包。该服务可以追踪这些变化，发现由同一人运营的新账户。数据库已有 300+ 个最大的 polymarket 钱包。\n\n---\n\n## 最新发现 (2026-03-02 抓取)\n- ** → ,172 单笔交易**：使用 Arbitrage Invariant 策略\n- **,580 日利润**：简单数学策略，52% 胜率\n- **300+ 交易员亏损 M+**：市场惩罚赢家效应研究",
             "date": "2026-02",
             "tags": [
               "钱包追踪",
@@ -226,7 +256,7 @@
             "id": "noisy-insiders",
             "author": "@noisyb0y1",
             "title": "内幕交易观察",
-            "content": "仍然认为 polymarket 上没有内幕交易吗？今日创建的账户，今日下注。市场：U.S. forces seize another Venezuela-linked oil ship by January 9。发生了什么：美军夺取了俄罗斯油轮 Marinera。行动包括直升机、潜艇和该地区完全控制。",
+            "content": "仍然认为 polymarket 上没有内幕交易吗？今日创建的账户，今日下注。市场：U.S. forces seize another Venezuela-linked oil ship by January 9。发生了什么：美军夺取了俄罗斯油轮 Marinera。行动包括直升机、潜艇和该地区完全控制。\n\n---\n\n## 最新发现 (2026-03-02 抓取)\n- ** → ,172 单笔交易**：使用 Arbitrage Invariant 策略\n- **,580 日利润**：简单数学策略，52% 胜率\n- **300+ 交易员亏损 M+**：市场惩罚赢家效应研究",
             "date": "2026-01",
             "tags": [
               "内幕交易",

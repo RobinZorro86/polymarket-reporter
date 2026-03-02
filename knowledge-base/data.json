@@ -9,6 +9,36 @@
         "description": "关键意见领袖的套利策略分享",
         "entries": [
           {
+            "id": "noisyb0y1-bot-systems",
+            "author": "@noisyb0y1",
+            "title": "两大机器人系统：News Bot 与 Arbitrage Bot",
+            "content": "测试 100+ 套利/新闻机器人后的核心发现。\n\n一、两种最有效的机器人类型\n1. News Bot：解析新闻源 → 分析情绪 → 下单\n2. Arbitrage Bot：24/7 扫描 Polymarket/Kalshi 价差\n\n二、News Bot 时间窗口\n- 新闻发布 (T=0s)\n- Bot 下单 (T=+0.5-2s)\n- 市场反应 (T=+3-7s)\n- 人类交易 (T=+15-30s)\n- 机会窗口：13-28 秒\n\n三、Arbitrage Bot 时间窗口\n- 价差出现 (T=0s)\n- Bot 下单 (T=+0.3s)\n- 市场反应 (T=+2-3s)\n- 人类交易 (T=+8s)\n- 机会窗口：7.7 秒\n\n四、核心公式\n1. Mispricing: M(p,t) = C(p,t) - p/100\n2. Empirical Kelly: f* = f_kelly × (1 - CV_edge)\n3. VPIN Toxicity: |Vb - Vs| / (Vb + Vs)\n4. Arbitrage Invariant: P(YES) + P(NO) = $1.00\n\n五、机会分布（年）\n- Politics: 1200+\n- Sports: 800+\n- Crypto: 670+\n- Economy: 670+\n\n六、执行建议\n- Claude Code 作为决策大脑\n- Telegram 通知 + 人工决策更安全",
+            "date": "2026-03-02",
+            "tags": [
+              "Polymarket",
+              "机器人",
+              "套利",
+              "News Bot",
+              "Kelly",
+              "时间窗口"
+            ],
+            "source": "https://x.com/noisyb0y1/status/2027452622370967995"
+          },
+          {
+            "id": "qkl2058-content-analysis",
+            "author": "@qkl2058",
+            "title": "X 账号内容汇总分析",
+            "content": "@qkl2058 是一个专注于 Polymarket 预测市场交易的账号。\n\n主要内容方向：\n- Polymarket 市场分析和预测\n- BTC 价格走势分析\n- 加密货币市场趋势\n- 预测市场套利策略\n\n账号特点：\n- 定期发布市场分析\n- 关注短期价格波动\n- 提供交易建议和观点\n\n抓取状态：\n- RSS 抓取遇到限制\n- 需要关注账号获取更多内容",
+            "date": "2026-03-02",
+            "tags": [
+              "Polymarket",
+              "BTC",
+              "预测市场",
+              "交易分析"
+            ],
+            "source": "https://x.com/qkl2058"
+          },
+          {
             "id": "axtonliu-70-agent-team",
             "author": "@AxtonLiu",
             "title": "70 人 AI 团队：Claude Skills 系统设计方法论",

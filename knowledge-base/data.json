@@ -9,6 +9,21 @@
         "description": "关键意见领袖的套利策略分享",
         "entries": [
           {
+            "id": "lufzzliz-openclaw-context-guide",
+            "author": "@LufzzLiz (岚叔)",
+            "title": "OpenClaw 上下文管理硬核指南：如何让龙虾别忘事、不烧钱",
+            "content": "基于源码和真实实验的 OpenClaw 上下文管理完整指南。\n\n一、Token 爆炸原因\n- historyLimit 设置过低时，模型会频繁调用工具（grep、find）查找历史\n- 一次查找可能导致 50w-80w token 消耗\n- 非偏好类问题更容易触发暴力搜索\n\n二、三种解决方案\n1. Group 级别工具禁用\n2. Topic 级别 systemPrompt 约束\n3. Provider 级别工具权限限制\n- 效果：346k → 28k token（降幅 91%）\n\n三、historyLimit 推荐值\n- Group: 15-30\n- DM: 30-50\n\n四、Memory 优化\n- 开启 session-memory hook\n- 配置 compaction + memoryFlush\n- 向量检索：阿里 text-embedding-v4\n- 每日归档：23:55 自动总结\n\n五、关键配置\n- reserveTokensFloor: 300000\n- softThresholdTokens: 6000\n- memorySearch.enabled: true\n\n六、Cache 优化\n- 减少频繁 compaction\n- 减少模型切换\n- 有 cache 比无 cache 成本低一个维度",
+            "date": "2026-03-03",
+            "tags": [
+              "OpenClaw",
+              "Token优化",
+              "Memory管理",
+              "Context管理",
+              "配置调优"
+            ],
+            "source": "https://x.com/LufzzLiz/status/2025741009867657234"
+          },
+          {
             "id": "gemchanger-quant-simulation",
             "author": "@gemchange_ltd",
             "title": "机构级量化模拟：从硬币翻转模拟到完整交易系统",

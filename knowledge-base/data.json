@@ -9,6 +9,23 @@
         "description": "关键意见领袖的套利策略分享",
         "entries": [
           {
+            "id": "meta8mate-multi-agent-telegram",
+            "author": "@机灵的杰尼君 🔶 BNB",
+            "title": "手把手教你配置 OpenClaw 多 Agent × TG 群组自动化系统",
+            "content": "杰尼君第一个小龙虾就是死在了多Agent配置上，全网搜索也没人讲清楚，最后自己摸索出来的TG群聊多Agent配置。\n\n一、架构设计：一主三副，各司其职\n- 🦞 龙虾总值 = 调度中枢，监听群消息，分发任务\n- 📊 大饼 = 市场分析 + 每日晨报（定时稳定）\n- 🎨 冰冰 = 推文润色 + PPT + 信息图（按需创作）\n- 💻 姨太 = 代码 + 量化 + 自动化（技术执行）\n每个 Agent → 独立 TG Bot → 独立 workspace → 共享 skills 库\n\n二、TG 群组配置核心步骤\n1. @BotFather 创建4个独立 Bot，拿到4个 token，对每个子 Bot 执行 /setprivacy → 选 Disable\n2. openclaw.json 里配置4个 account（channels 部分）\n3. openclaw.json 里配置子 Agent（独立 workspace）\n4. bindings 数组绑定 Agent ↔ Bot\n5. 开启跨 Agent 通信：tools.sessions.visibility: all, agentToAgent.enabled: true\n6. 把4个 Bot 全部拉进同一个群，用 @userinfobot 获取群组 ID\n7. 务必关闭子 Agent 的 TG Bot commands 权限（native: false, nativeSkills: false）\n8. 权限设计：主机器人 requireMention: false，子机器人 requireMention: true\n\n三、最容易踩的坑 TOP 5\n坑1：代码尽量喂给主机器人，让他自己修改，防止手动改配置文件遇到空格类型错误，每次修改 JSON 前务必备份\n坑2：私聊调教 ≠ 群聊记忆，同一个 Agent 的私聊/群聊/cron 是完全独立的 session，解决：把所有规范写进 SOUL.md\n坑3：子 Agent 默认不能互相通信，需要在 openclaw.json 开启 sessions.visibility: all 和 agentToAgent.enabled: true\n坑4：Gateway 重启 = 缓存清空 = 高成本，重启后所有 170k tokens 以原价重新加载，避免频繁重启\n坑5：Subagent 容易超时，因为主机器人调取 Subagent 的默认响应时间可能只有几秒，正确做法：让主机器人把等待响应时间设置长一些\n\n四、多 Agent 协作省 Token 的核心：STATE.yaml 模式\n错误做法：龙虾总管把大饼的研究结果(2000字)原文转发给冰冰 → 每份内容被读3次，Token 翻3倍\n正确做法：\n- 龙虾总管建项目目录 /tmp/oc-projects/{项目名}/\n  └── STATE.yaml ← 任务状态清单\n  └── research.md ← 大饼写入研究结果\n  └── output.pptx ← 冰冰生成成果\n- 龙虾总值 → sessions_send 给大饼：只传任务描述 + 目录路径\n- 大饼写完 research.md → 更新 STATE.yaml → 通知龙虾总值\n- 龙虾总值 → sessions_send 给冰冰：直接读那个目录\n- 冰冰读文件 → 做PPT → 更新 STATE.yaml\n龙虾总值全程只传路径，省 Token 80%\n\n五、最终成果\n- ✅ 4个 Bot 同时在线于同一 TG 群\n- ✅ 龙虾总值调度，子 Agent 独立完成任务\n- ✅ STATE.yaml 去中心化协作，省 Token 80%\n\n六、彩蛋\n可以把以下案例文档发到群聊里，让主机器人学习借鉴：\n- awesome-openclaw-usecases/multi-agent-team.md\n- awesome-openclaw-usecases/autonomous-project-management.md\n- awesome-openclaw-usecases/content-factory.md\n- awesome-openclaw-usecases/overnight-mini-app-builder.md",
+            "date": "2026-03-04",
+            "tags": [
+              "OpenClaw",
+              "多Agent",
+              "Telegram",
+              "自动化",
+              "TG群组",
+              "配置教程",
+              "STATE.yaml"
+            ],
+            "source": "https://x.com/meta8mate/status/2028724680182649273"
+          },
+          {
             "id": "berryxia-openclaw-evolution",
             "author": "@Berryxia.AI (搬运)",
             "title": "OpenClaw养成记：从0开始！安装后必看（40天实战经验+含角色提示词）",

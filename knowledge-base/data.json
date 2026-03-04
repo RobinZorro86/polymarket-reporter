@@ -9,6 +9,26 @@
         "description": "关键意见领袖的套利策略分享",
         "entries": [
           {
+            "id": "runes-leo-favorite-longshot-bias",
+            "author": "@runes_leo (Leo)",
+            "title": "🌟 Polymarket 定价偏差套利：逆向工程$5.27M 账户的完整策略",
+            "content": "深度分析 Polymarket Top 12 账户 RN1（6 个月$5.27M 利润）的套利策略，发现平台系统性定价错误。\n\n一、核心发现\nRN1 账户数据（地址前缀 0x2005）：\n- 总交易量：$56.6M（6 个月）\n- 总利润：$5.27M\n- 市场数：17,809 个\n- Maker 比例：91.4%\n- 胜率：60.9%\n- ROI：7.3%\n\n关键洞察：RN1 不是靠\"预测谁赢\"赚钱，而是靠\"发现 Polymarket 定价错误\"赚钱。\n\n二、Favorite-Longshot Bias（热门 - 冷门偏差）\nPolymarket 系统性低估热门方，高估冷门方：\n\n入场价格 0.60-0.70：\n- 隐含胜率：~65%\n- 实际胜率：79.8%\n- 套利优势：+14.8%\n\n入场价格 0.70-0.80：\n- 隐含胜率：~75%\n- 实际胜率：89.1%\n- 套利优势：+14.1%\n\n冷门方 0.10-0.30：\n- 隐含胜率：~20%\n- 实际胜率：~10%\n- 反向机会：-10%\n\n三、欧洲足球联赛细分（全部盈利）\n- EPL 英超：13.8% ROI (+$54K)\n- Serie A 意甲：10.7% ROI (+$18K)\n- Ligue 1 法甲：10.1% ROI (+$10K)\n- La Liga 西甲：9.4% ROI (+$24K)\n- Bundesliga 德甲：5.4% ROI (+$7K)\n\n四、为什么偏差持续存在？\n1. 市场设计问题：\n   - Polymarket 对每个结果使用独立的 Yes/No 市场\n   - 单场比赛拆分成 3 个独立市场（胜/平/负）\n   - 三层 vig 叠加系统性压缩热门方价格\n\n2. 散户行为：\n   - 散户喜欢追逐冷门\"彩票\"（$5 搏 10 倍）\n   - 热门方（$70 搏 1.4 倍）缺乏吸引力\n   - 冷门方价格被推高，热门方被低估\n\n五、可执行策略框架\n筛选条件：\n1. 仅限欧洲足球（EPL、意甲、法甲、西甲、德甲）\n2. 仅热门方（Polymarket 价格 0.50-0.85）\n3. 使用 Pinnacle 作为 sharp reference\n4. 当 Polymarket 价格显著低于 Pinnacle 隐含概率时入场\n\n执行要点：\n- Maker 挂单为主（91.4% maker 比例）\n- 持有至结算（88.5% 仓位持有到期）\n- 高频小额（中位数$17/单）\n- 欧洲比赛时段集中操作（UTC 17:00-23:00）\n\n六、数据验证方法\n从 348M 条链上交易数据中重建 PnL：\n- 使用 DuckDB 处理 3,188 个已结算市场\n- 区分 maker/taker（最关键变量）\n- Activity API 无法区分 maker/taker，必须用链上数据\n\n七、关键结论\n\"预测市场最反直觉的地方：最大的赢家往往不是最好的预测者，而是最懂定价错误的人。\"\n\nRN1 在 6 个月内赚$5.27M，不是因为他们比别人更懂足球，而是因为他们比别人更懂 Polymarket 的定价机制。\n\n八、风险提示\n- 需要大量资金分散风险（RN1 用$3.98M 本金）\n- 需要耐心等待结算（88.5% 仓位持有到期）\n- 需要理解 maker/taker 费用差异\n- 偏差可能随时间缩小（但结构性原因使其难以完全消失）",
+            "date": "2026-03-04",
+            "tags": [
+              "Polymarket",
+              "套利策略",
+              "定价偏差",
+              "Favorite-Longshot Bias",
+              "做市策略",
+              "欧洲足球",
+              "链上数据分析",
+              "⭐ 高优先级"
+            ],
+            "source": "https://x.com/runes_leo/status/2028869528248107134",
+            "priority": "⭐⭐⭐⭐⭐",
+            "actionable": true
+          },
+          {
             "id": "polymarket-beginner-guide",
             "author": "Robin (整理)",
             "title": "Polymarket 零基础参与指南：普通人必须知道的前置知识",

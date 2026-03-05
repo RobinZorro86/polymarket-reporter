@@ -1,0 +1,407 @@
+{
+  "date": "2026-03-05",
+  "timestamp": "2026-03-05T12:21:55.299500",
+  "total_markets": 100,
+  "markets": [
+    {
+      "id": "e703900c-c147-4c5b-943d-1a76dc2ee95a",
+      "question": "Bitcoin Up or Down - March 5, 9:55PM-10:00PM ET",
+      "probability": 0.5302158045399746,
+      "volume": null,
+      "resolves_at": "2026-03-06 03:00:00Z",
+      "url": "https://simmer.markets/e703900c-c147-4c5b-943d-1a76dc2ee95a"
+    },
+    {
+      "id": "a3d17f9d-2d1d-422e-8500-fdbed30bfd73",
+      "question": "Blues vs. Kraken: O/U 7.5",
+      "probability": 0.48499990225074324,
+      "volume": 21.56,
+      "resolves_at": "2026-03-05 03:00:00Z",
+      "url": "https://simmer.markets/a3d17f9d-2d1d-422e-8500-fdbed30bfd73"
+    },
+    {
+      "id": "39900ca1-96f4-43d5-b3f6-c47205437909",
+      "question": "Spread: Kraken (-1.5)",
+      "probability": 0.6154306809072789,
+      "volume": 2567.451371,
+      "resolves_at": "2026-03-05 03:00:00Z",
+      "url": "https://simmer.markets/39900ca1-96f4-43d5-b3f6-c47205437909"
+    },
+    {
+      "id": "bb6d25d1-419e-48e5-96ac-b157c5b1a9d8",
+      "question": "Blues vs. Kraken: O/U 6.5",
+      "probability": 0.57,
+      "volume": 4286.869055,
+      "resolves_at": "2026-03-05 03:00:00Z",
+      "url": "https://simmer.markets/bb6d25d1-419e-48e5-96ac-b157c5b1a9d8"
+    },
+    {
+      "id": "cbfb1210-81fa-4cfb-b250-64e70cf3ba19",
+      "question": "Blues vs. Kraken",
+      "probability": 0.295,
+      "volume": 164127.97627599983,
+      "resolves_at": "2026-03-05 03:00:00Z",
+      "url": "https://simmer.markets/cbfb1210-81fa-4cfb-b250-64e70cf3ba19"
+    },
+    {
+      "id": "e9485899-0702-4ed2-a3a4-278a991d7561",
+      "question": "Blues vs. Kraken: O/U 5.5",
+      "probability": 0.66,
+      "volume": 40730.26917999996,
+      "resolves_at": "2026-03-05 03:00:00Z",
+      "url": "https://simmer.markets/e9485899-0702-4ed2-a3a4-278a991d7561"
+    },
+    {
+      "id": "92b1a552-5d6f-411d-9450-fa7bba549695",
+      "question": "Blues vs. Kraken: O/U 4.5",
+      "probability": 0.845,
+      "volume": 43.36,
+      "resolves_at": "2026-03-05 03:00:00Z",
+      "url": "https://simmer.markets/92b1a552-5d6f-411d-9450-fa7bba549695"
+    },
+    {
+      "id": "6dc4b510-bcf9-4288-b30d-d485c42d1aaa",
+      "question": "Spread: Ducks (-1.5)",
+      "probability": 0.29,
+      "volume": 429.965358,
+      "resolves_at": "2026-03-05 03:00:00Z",
+      "url": "https://simmer.markets/6dc4b510-bcf9-4288-b30d-d485c42d1aaa"
+    },
+    {
+      "id": "e9652420-f376-428f-8702-60f01a3c64eb",
+      "question": "Spread: Islanders (-1.5)",
+      "probability": 0.34,
+      "volume": 132.209506,
+      "resolves_at": "2026-03-05 03:00:00Z",
+      "url": "https://simmer.markets/e9652420-f376-428f-8702-60f01a3c64eb"
+    },
+    {
+      "id": "27c6dc7e-5605-4b44-83e1-ff6f5c9e5572",
+      "question": "Islanders vs. Ducks: O/U 7.5",
+      "probability": 0.31,
+      "volume": 1446.0819250000002,
+      "resolves_at": "2026-03-05 03:00:00Z",
+      "url": "https://simmer.markets/27c6dc7e-5605-4b44-83e1-ff6f5c9e5572"
+    },
+    {
+      "id": "5eb4a3ad-d9cf-46e4-ae10-28291c366840",
+      "question": "Islanders vs. Ducks: O/U 6.5",
+      "probability": 0.48,
+      "volume": 17467.417698,
+      "resolves_at": "2026-03-05 03:00:00Z",
+      "url": "https://simmer.markets/5eb4a3ad-d9cf-46e4-ae10-28291c366840"
+    },
+    {
+      "id": "22a7b673-f182-4aaf-a986-67cc5f26117f",
+      "question": "Islanders vs. Ducks",
+      "probability": 0.535,
+      "volume": 156326.9731389999,
+      "resolves_at": "2026-03-05 03:00:00Z",
+      "url": "https://simmer.markets/22a7b673-f182-4aaf-a986-67cc5f26117f"
+    },
+    {
+      "id": "b3ddf77d-77fe-4a18-8199-0453050a3c25",
+      "question": "Islanders vs. Ducks: O/U 5.5",
+      "probability": 0.595,
+      "volume": 2311.395874,
+      "resolves_at": "2026-03-05 03:00:00Z",
+      "url": "https://simmer.markets/b3ddf77d-77fe-4a18-8199-0453050a3c25"
+    },
+    {
+      "id": "93de62ea-2d44-44b2-8151-fb08dea8008d",
+      "question": "Islanders vs. Ducks: O/U 4.5",
+      "probability": 0.87,
+      "volume": 1079.210475,
+      "resolves_at": "2026-03-05 03:00:00Z",
+      "url": "https://simmer.markets/93de62ea-2d44-44b2-8151-fb08dea8008d"
+    },
+    {
+      "id": "1f1f7166-7437-43dd-86a9-b5b8a7fb8bea",
+      "question": "Bitcoin Up or Down - March 5, 9:50PM-9:55PM ET",
+      "probability": 0.49757445729294125,
+      "volume": null,
+      "resolves_at": "2026-03-06 02:55:00Z",
+      "url": "https://simmer.markets/1f1f7166-7437-43dd-86a9-b5b8a7fb8bea"
+    },
+    {
+      "id": "4f6f0a7d-13b9-4cd5-9b16-3d753c0b55ad",
+      "question": "XRP Up or Down - March 4, 10PM ET",
+      "probability": 0.520028799906041,
+      "volume": null,
+      "resolves_at": "2026-03-05 23:59:59Z",
+      "url": "https://simmer.markets/4f6f0a7d-13b9-4cd5-9b16-3d753c0b55ad"
+    },
+    {
+      "id": "0c2e76a7-4435-432c-b6e5-2d48a79f4173",
+      "question": "Bitcoin Up or Down - March 4, 10PM ET",
+      "probability": 0.5099951000037124,
+      "volume": null,
+      "resolves_at": "2026-03-05 23:59:59Z",
+      "url": "https://simmer.markets/0c2e76a7-4435-432c-b6e5-2d48a79f4173"
+    },
+    {
+      "id": "4abe71b8-6722-4378-abdf-a729bed5ec78",
+      "question": "Ethereum Up or Down - March 5, 9:45PM-10:00PM ET",
+      "probability": 0.5037374720056895,
+      "volume": null,
+      "resolves_at": "2026-03-06 03:00:00Z",
+      "url": "https://simmer.markets/4abe71b8-6722-4378-abdf-a729bed5ec78"
+    },
+    {
+      "id": "d78aefed-b7ed-4d8a-a663-8947a5f66f13",
+      "question": "Hurricanes vs. Canucks: O/U 7.5",
+      "probability": 0.375,
+      "volume": 17.0,
+      "resolves_at": "2026-03-05 03:00:00Z",
+      "url": "https://simmer.markets/d78aefed-b7ed-4d8a-a663-8947a5f66f13"
+    },
+    {
+      "id": "7092b61b-7ee3-4368-a7b2-1c3344b7e0fe",
+      "question": "Hurricanes vs. Canucks: O/U 6.5",
+      "probability": 0.585,
+      "volume": 19352.280671000008,
+      "resolves_at": "2026-03-05 03:00:00Z",
+      "url": "https://simmer.markets/7092b61b-7ee3-4368-a7b2-1c3344b7e0fe"
+    },
+    {
+      "id": "e2e8468f-65e5-431e-9be6-7a43cecdc4c3",
+      "question": "Spread: Hurricanes (-1.5)",
+      "probability": 0.7,
+      "volume": 34176.408589000006,
+      "resolves_at": "2026-03-05 03:00:00Z",
+      "url": "https://simmer.markets/e2e8468f-65e5-431e-9be6-7a43cecdc4c3"
+    },
+    {
+      "id": "4570e4e9-68eb-4a4b-a31c-73b0dd87b450",
+      "question": "Hurricanes vs. Canucks: O/U 5.5",
+      "probability": 0.7,
+      "volume": 458.53718599999996,
+      "resolves_at": "2026-03-05 03:00:00Z",
+      "url": "https://simmer.markets/4570e4e9-68eb-4a4b-a31c-73b0dd87b450"
+    },
+    {
+      "id": "d9192bf7-2854-4f58-9d4d-de861aa35056",
+      "question": "Hurricanes vs. Canucks",
+      "probability": 0.85,
+      "volume": 69175.557064,
+      "resolves_at": "2026-03-05 03:00:00Z",
+      "url": "https://simmer.markets/d9192bf7-2854-4f58-9d4d-de861aa35056"
+    },
+    {
+      "id": "587a3475-d7cc-4cdc-8e27-7469434b1f5d",
+      "question": "Hurricanes vs. Canucks: O/U 4.5",
+      "probability": 0.83,
+      "volume": null,
+      "resolves_at": "2026-03-05 03:00:00Z",
+      "url": "https://simmer.markets/587a3475-d7cc-4cdc-8e27-7469434b1f5d"
+    },
+    {
+      "id": "2adf8d78-0091-467b-b48b-834f0b4380fb",
+      "question": "Bitcoin Up or Down - March 5, 9:45PM-10:00PM ET",
+      "probability": 0.4975744502113747,
+      "volume": null,
+      "resolves_at": "2026-03-06 03:00:00Z",
+      "url": "https://simmer.markets/2adf8d78-0091-467b-b48b-834f0b4380fb"
+    },
+    {
+      "id": "8183eced-b69f-457e-8ffd-2620ef8f9a13",
+      "question": "Ethereum Up or Down - March 4, 10PM ET",
+      "probability": 0.5053093727510344,
+      "volume": null,
+      "resolves_at": "2026-03-05 23:59:59Z",
+      "url": "https://simmer.markets/8183eced-b69f-457e-8ffd-2620ef8f9a13"
+    },
+    {
+      "id": "5d324940-795d-4459-aa35-6a74dca41100",
+      "question": "Bitcoin Up or Down - March 5, 9:35PM-9:40PM ET",
+      "probability": 0.5124233446714953,
+      "volume": null,
+      "resolves_at": "2026-03-06 02:40:00Z",
+      "url": "https://simmer.markets/5d324940-795d-4459-aa35-6a74dca41100"
+    },
+    {
+      "id": "9a245f34-7a4a-484b-b9c0-188e7f146aac",
+      "question": "Ethereum Up or Down - March 5, 9:30PM-9:45PM ET",
+      "probability": 0.5053712468209306,
+      "volume": null,
+      "resolves_at": "2026-03-06 02:45:00Z",
+      "url": "https://simmer.markets/9a245f34-7a4a-484b-b9c0-188e7f146aac"
+    },
+    {
+      "id": "641bb33b-6ab0-4a6d-b2d1-777407603f82",
+      "question": "Bitcoin Up or Down - March 5, 9:30PM-9:45PM ET",
+      "probability": 0.5053712468209306,
+      "volume": null,
+      "resolves_at": "2026-03-06 02:45:00Z",
+      "url": "https://simmer.markets/641bb33b-6ab0-4a6d-b2d1-777407603f82"
+    },
+    {
+      "id": "b1147dfa-e00f-40db-9876-d6c55bbd78ea",
+      "question": "Julian Champagnie: Rebounds O/U 5.5",
+      "probability": 0.275,
+      "volume": null,
+      "resolves_at": "2026-03-06 01:00:00Z",
+      "url": "https://simmer.markets/b1147dfa-e00f-40db-9876-d6c55bbd78ea"
+    },
+    {
+      "id": "388702ef-49e3-48e9-9f88-fb615a44a450",
+      "question": "Keldon Johnson: Points O/U 11.5",
+      "probability": 0.275,
+      "volume": null,
+      "resolves_at": "2026-03-06 01:00:00Z",
+      "url": "https://simmer.markets/388702ef-49e3-48e9-9f88-fb615a44a450"
+    },
+    {
+      "id": "8d0deb96-7b09-4f8a-84d9-8f692cc1e6e9",
+      "question": "Devin Vassell: Points O/U 14.5",
+      "probability": 0.275,
+      "volume": null,
+      "resolves_at": "2026-03-06 01:00:00Z",
+      "url": "https://simmer.markets/8d0deb96-7b09-4f8a-84d9-8f692cc1e6e9"
+    },
+    {
+      "id": "8ccb5b10-530f-4046-b9e7-cca274bf002f",
+      "question": "Jalen Duren: Points O/U 17.5",
+      "probability": 0.285,
+      "volume": null,
+      "resolves_at": "2026-03-06 01:00:00Z",
+      "url": "https://simmer.markets/8ccb5b10-530f-4046-b9e7-cca274bf002f"
+    },
+    {
+      "id": "9059bd23-2eeb-43d0-96cc-a8c7ea870b18",
+      "question": "Julian Champagnie: Points O/U 10.5",
+      "probability": 0.27,
+      "volume": null,
+      "resolves_at": "2026-03-06 01:00:00Z",
+      "url": "https://simmer.markets/9059bd23-2eeb-43d0-96cc-a8c7ea870b18"
+    },
+    {
+      "id": "ea0aab51-3351-4070-bb63-5adf0e606ed8",
+      "question": "Ausar Thompson: Rebounds O/U 5.5",
+      "probability": 0.285,
+      "volume": null,
+      "resolves_at": "2026-03-06 01:00:00Z",
+      "url": "https://simmer.markets/ea0aab51-3351-4070-bb63-5adf0e606ed8"
+    },
+    {
+      "id": "f7343ef2-0202-4616-8003-b03db0ba60e7",
+      "question": "Tobias Harris: Points O/U 13.5",
+      "probability": 0.285,
+      "volume": null,
+      "resolves_at": "2026-03-06 01:00:00Z",
+      "url": "https://simmer.markets/f7343ef2-0202-4616-8003-b03db0ba60e7"
+    },
+    {
+      "id": "54671e7f-43c2-4138-85b1-7f26d2a0175a",
+      "question": "De'Aaron Fox: Points O/U 16.5",
+      "probability": 0.285,
+      "volume": null,
+      "resolves_at": "2026-03-06 01:00:00Z",
+      "url": "https://simmer.markets/54671e7f-43c2-4138-85b1-7f26d2a0175a"
+    },
+    {
+      "id": "e0e21d9b-a621-494e-805a-fb45a1942471",
+      "question": "Victor Wembanyama: Points O/U 23.5",
+      "probability": 0.285,
+      "volume": null,
+      "resolves_at": "2026-03-06 01:00:00Z",
+      "url": "https://simmer.markets/e0e21d9b-a621-494e-805a-fb45a1942471"
+    },
+    {
+      "id": "0dce093a-fb13-477b-b1bd-80c88b698cd1",
+      "question": "Devin Vassell: Rebounds O/U 3.5",
+      "probability": 0.3,
+      "volume": null,
+      "resolves_at": "2026-03-06 01:00:00Z",
+      "url": "https://simmer.markets/0dce093a-fb13-477b-b1bd-80c88b698cd1"
+    },
+    {
+      "id": "5ebf2c79-ee3c-4263-802c-d4a0afe6cdd8",
+      "question": "Stephon Castle: Rebounds O/U 4.5",
+      "probability": 0.29,
+      "volume": null,
+      "resolves_at": "2026-03-06 01:00:00Z",
+      "url": "https://simmer.markets/5ebf2c79-ee3c-4263-802c-d4a0afe6cdd8"
+    },
+    {
+      "id": "7b17fe5c-33bf-4627-89c6-7d63eb52161d",
+      "question": "Victor Wembanyama: Rebounds O/U 11.5",
+      "probability": 0.29,
+      "volume": null,
+      "resolves_at": "2026-03-06 01:00:00Z",
+      "url": "https://simmer.markets/7b17fe5c-33bf-4627-89c6-7d63eb52161d"
+    },
+    {
+      "id": "47fbc89a-7177-414a-9b35-3bca7664d24b",
+      "question": "Stephon Castle: Points O/U 15.5",
+      "probability": 0.29,
+      "volume": null,
+      "resolves_at": "2026-03-06 01:00:00Z",
+      "url": "https://simmer.markets/47fbc89a-7177-414a-9b35-3bca7664d24b"
+    },
+    {
+      "id": "4898dd21-c194-41a8-97a5-2a709cfe81d2",
+      "question": "Stephon Castle: Assists O/U 6.5",
+      "probability": 0.305,
+      "volume": null,
+      "resolves_at": "2026-03-06 01:00:00Z",
+      "url": "https://simmer.markets/4898dd21-c194-41a8-97a5-2a709cfe81d2"
+    },
+    {
+      "id": "8d567fbb-baa6-43aa-9638-07f953cc404c",
+      "question": "Jalen Duren: Rebounds O/U 10.5",
+      "probability": 0.3,
+      "volume": null,
+      "resolves_at": "2026-03-06 01:00:00Z",
+      "url": "https://simmer.markets/8d567fbb-baa6-43aa-9638-07f953cc404c"
+    },
+    {
+      "id": "3d2b411a-c68e-45fc-a884-cd7c8238f5a2",
+      "question": "Dylan Harper: Assists O/U 3.5",
+      "probability": 0.3,
+      "volume": null,
+      "resolves_at": "2026-03-06 01:00:00Z",
+      "url": "https://simmer.markets/3d2b411a-c68e-45fc-a884-cd7c8238f5a2"
+    },
+    {
+      "id": "bde9b369-d3ea-4074-b346-1b93370084a3",
+      "question": "De'Aaron Fox: Assists O/U 5.5",
+      "probability": 0.3,
+      "volume": null,
+      "resolves_at": "2026-03-06 01:00:00Z",
+      "url": "https://simmer.markets/bde9b369-d3ea-4074-b346-1b93370084a3"
+    },
+    {
+      "id": "7977bda7-938c-4706-a5df-b1d03b5021e8",
+      "question": "Dylan Harper: Points O/U 10.5",
+      "probability": 0.29,
+      "volume": null,
+      "resolves_at": "2026-03-06 01:00:00Z",
+      "url": "https://simmer.markets/7977bda7-938c-4706-a5df-b1d03b5021e8"
+    },
+    {
+      "id": "3bff7764-4fb5-480b-9230-f59c13d2e64c",
+      "question": "Cade Cunningham: Assists O/U 9.5",
+      "probability": 0.315,
+      "volume": null,
+      "resolves_at": "2026-03-06 01:00:00Z",
+      "url": "https://simmer.markets/3bff7764-4fb5-480b-9230-f59c13d2e64c"
+    },
+    {
+      "id": "2c4e7a41-5f8c-408e-88f2-e297da497b15",
+      "question": "Cade Cunningham: Rebounds O/U 5.5",
+      "probability": 0.315,
+      "volume": null,
+      "resolves_at": "2026-03-06 01:00:00Z",
+      "url": "https://simmer.markets/2c4e7a41-5f8c-408e-88f2-e297da497b15"
+    },
+    {
+      "id": "a3e343a2-e681-483a-86d6-05c20bf0cb71",
+      "question": "Keldon Johnson: Rebounds O/U 3.5",
+      "probability": 0.32,
+      "volume": null,
+      "resolves_at": "2026-03-06 01:00:00Z",
+      "url": "https://simmer.markets/a3e343a2-e681-483a-86d6-05c20bf0cb71"
+    }
+  ]
+}

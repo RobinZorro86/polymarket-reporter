@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Simmer Scan Result Schema",
+  "type": "object",
+  "required": ["scan_timestamp", "agent_id", "account_mode", "markets_summary"],
+  "properties": {
+    "scan_timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the scan was performed"
+    },
+    "agent_id": {
+      "type": "string",
+      "description": "Simmer agent ID"
+    },
+    "account_mode": {
+      "type": "string",
+      "enum": ["PAPER", "LIVE"],
+      "description": "Trading mode"
+    },
+    "balances": {
+      "type": "object",
+      "properties": {
+        "sim_balance": {"type": "number"},
+        "sim_currency": {"type": "string"},
+        "usdc_balance": {"type": "number"}
+      }
+    },
+    "markets_summary": {
+      "type": "object",
+      "properties": {
+        "fast_5m": {"type": "integer"},
+        "fast_15m": {"type": "integer"},
+        "weather": {"type": "integer"},
+        "sports": {"type": "integer"},
+        "crypto": {"type": "integer"}
+      }
+    },
+    "top_opportunities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "question": {"type": "string"},
+          "probability": {"type": "number"},
+          "spread": {"type": "number"},
+          "resolve_at": {"type": "string", "format": "date-time"}
+        }
+      }
+    },
+    "recommended_strategies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "strategy": {"type": "string"},
+          "description": {"type": "string"},
+          "suitable_markets": {"type": "integer"}
+        }
+      }
+    },
+    "active_positions": {"type": "integer"},
+    "pnl": {"type": "number"}
+  }
+}

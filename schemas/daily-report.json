@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Daily Report Schema",
+  "type": "object",
+  "required": ["date", "title", "markets", "summary"],
+  "properties": {
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Report date (YYYY-MM-DD)"
+    },
+    "title": {
+      "type": "string",
+      "description": "Report title"
+    },
+    "markets": {
+      "type": "array",
+      "description": "List of markets in the report",
+      "items": {
+        "type": "object",
+        "required": ["id", "question", "probability"],
+        "properties": {
+          "id": {"type": "string"},
+          "question": {"type": "string"},
+          "probability": {"type": "number"},
+          "volume": {"type": "number"},
+          "url": {"type": "string", "format": "uri"}
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "properties": {
+        "total_markets": {"type": "integer"},
+        "top_category": {"type": "string"},
+        "avg_probability": {"type": "number"}
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "timestamp": {"type": "string", "format": "date-time"},
+        "source": {"type": "string"}
+      }
+    }
+  }
+}

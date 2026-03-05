@@ -1,0 +1,808 @@
+{
+  "date": "2026-03-05",
+  "timestamp": "2026-03-05T17:22:15.142096",
+  "source": "polymarket_gamma_api",
+  "total_markets": 100,
+  "markets": [
+    {
+      "id": "12",
+      "question": "Will Joe Biden get Coronavirus before the election?",
+      "volume": "32257.445115",
+      "liquidity": "0",
+      "endDate": "2020-11-04T00:00:00Z",
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "17",
+      "question": "Will Airbnb begin publicly trading before Jan 1, 2021?",
+      "volume": "89665.252158",
+      "liquidity": "0",
+      "endDate": "2021-01-02T00:00:00Z",
+      "category": "Tech"
+    },
+    {
+      "id": "18",
+      "question": "Will a new Supreme Court Justice be confirmed before Nov 3rd, 2020?",
+      "volume": "43279.456005",
+      "liquidity": "0",
+      "endDate": "2020-11-04T00:00:00Z",
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "19",
+      "question": "Will Kim Kardashian and Kanye West divorce before Jan 1, 2021?",
+      "volume": "22067.475119",
+      "liquidity": "0.179651",
+      "endDate": "2021-01-02T00:00:00Z",
+      "category": "Pop-Culture "
+    },
+    {
+      "id": "20",
+      "question": "Will Coinbase begin publicly trading before Jan 1, 2021?",
+      "volume": "116803.377183",
+      "liquidity": "0.367501",
+      "endDate": "2021-01-02T00:00:00Z",
+      "category": "Crypto"
+    },
+    {
+      "id": "36",
+      "question": "What will the price of Bitcoin be on November 4th, 2020?",
+      "volume": "59755.804763",
+      "liquidity": "0",
+      "endDate": "2020-11-04T00:00:00Z",
+      "category": "Crypto"
+    },
+    {
+      "id": "40",
+      "question": "Will Trump win the 2020 U.S. presidential election?",
+      "volume": "10802601.987023",
+      "liquidity": "68.283267",
+      "endDate": "2020-11-20T00:00:00Z",
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "42",
+      "question": "Will there be an Emergency Use Authorization (EUA) granted for a COVID-19 vaccine prior to Nov 3 2020?",
+      "volume": "21881.05833",
+      "liquidity": "0",
+      "endDate": "2020-11-04T00:00:00Z",
+      "category": "Coronavirus"
+    },
+    {
+      "id": "43",
+      "question": "What will the total value locked (TVL) in DeFi be at the end of 2020, according to DefiPulse?",
+      "volume": "46944.579746",
+      "liquidity": "4.601742",
+      "endDate": "2021-01-02T00:00:00Z",
+      "category": "Crypto"
+    },
+    {
+      "id": "44",
+      "question": "What will the USD price of Filecoin ($FIL) be on November 17th, 2020?",
+      "volume": "69947.098531",
+      "liquidity": "190.134841",
+      "endDate": "2020-11-17T00:00:00Z",
+      "category": "Crypto"
+    },
+    {
+      "id": "46",
+      "question": "Will Drake release a new studio album before the end of 2020?",
+      "volume": "31841.386373",
+      "liquidity": "0",
+      "endDate": "2021-01-02T00:00:00Z",
+      "category": "Pop-Culture "
+    },
+    {
+      "id": "47",
+      "question": "Which party will win Florida in the 2020 presidential election?",
+      "volume": "243053.252109",
+      "liquidity": "0",
+      "endDate": "2020-11-20T00:00:00Z",
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "48",
+      "question": "How many confirmed Coronavirus cases will there be at EOY in the USA?",
+      "volume": "72112.484035",
+      "liquidity": "1.937475",
+      "endDate": "2021-01-02T00:00:00Z",
+      "category": "Coronavirus"
+    },
+    {
+      "id": "56",
+      "question": "Who will win the 2020 MLB World Series?",
+      "volume": "107601.586423",
+      "liquidity": "0",
+      "endDate": "2020-10-29T00:00:00Z",
+      "category": "Pop-Culture "
+    },
+    {
+      "id": "57",
+      "question": "Will Dharma’s Phase 1 Retroactive UNI Distribution proposal pass?",
+      "volume": "35661.941003",
+      "liquidity": "0",
+      "endDate": "2020-10-31T00:00:00Z",
+      "category": "Crypto"
+    },
+    {
+      "id": "59",
+      "question": "Will there be a federal charge filed against Hunter Biden before 2021?",
+      "volume": "127476.154269",
+      "liquidity": "0.13149",
+      "endDate": "2021-01-02T00:00:00Z",
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "63",
+      "question": "Will BTC break $15k before 2021?",
+      "volume": "224706.488667",
+      "liquidity": "0",
+      "endDate": "2021-01-01T00:00:00Z",
+      "category": "Crypto"
+    },
+    {
+      "id": "64",
+      "question": "Will Khabib win his UFC 254 Fight?",
+      "volume": "17497.115264",
+      "liquidity": "0",
+      "endDate": "2020-10-25T00:00:00Z",
+      "category": "Pop-Culture "
+    },
+    {
+      "id": "65",
+      "question": "Will 538 outperform The Economist in forecasting the 2020 Presidential Election?",
+      "volume": "81312.461764",
+      "liquidity": "0",
+      "endDate": "2020-11-20T00:00:00Z",
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "66",
+      "question": "Who will win the 2020 League of Legends World Championship?",
+      "volume": "84205.451739",
+      "liquidity": "0",
+      "endDate": "2021-11-01T00:00:00Z",
+      "category": "Pop-Culture "
+    },
+    {
+      "id": "67",
+      "question": "Which party will win Pennsylvania in the 2020 presidential election?",
+      "volume": "1421876.344845",
+      "liquidity": "0",
+      "endDate": null,
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "69",
+      "question": "Which party will win Texas in the 2020 presidential election?",
+      "volume": "194336.890284",
+      "liquidity": "0",
+      "endDate": "2020-11-20T00:00:00Z",
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "70",
+      "question": "Which party will win North Carolina in the 2020 presidential election?",
+      "volume": "244840.590497",
+      "liquidity": "0",
+      "endDate": null,
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "71",
+      "question": "Which party will win Georgia in the 2020 presidential election?",
+      "volume": "1253550.166932",
+      "liquidity": "0",
+      "endDate": null,
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "72",
+      "question": "Which party will win Arizona in the 2020 Presidential Election?",
+      "volume": "1506034.746644",
+      "liquidity": "5.470261",
+      "endDate": null,
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "73",
+      "question": "Will Donald Trump tweet announcing that he won the election before November 5th 2020?",
+      "volume": "127490.669491",
+      "liquidity": "3.295904",
+      "endDate": "2020-11-05T00:00:00Z",
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "74",
+      "question": "Will the Associated Press publish a tweet calling the 2020 US presidential election before November 6?",
+      "volume": "261432.197705",
+      "liquidity": "0",
+      "endDate": "2020-11-06T00:00:00Z",
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "75",
+      "question": "Will the Ethereum 2.0 Genesis Event happen successfully on December 1st, 2020?",
+      "volume": "560270.423771",
+      "liquidity": "7.877976",
+      "endDate": "2020-12-02T00:00:00Z",
+      "category": "Crypto"
+    },
+    {
+      "id": "76",
+      "question": "Will $BTC break $20k before 2021?",
+      "volume": "1467610.681134",
+      "liquidity": "1170.706736",
+      "endDate": "2021-01-01T00:00:00Z",
+      "category": "Crypto"
+    },
+    {
+      "id": "77",
+      "question": "Will Donald Trump formally concede the 2020 US Election before December 1st, 2020?",
+      "volume": "454342.990794",
+      "liquidity": "8688.076983",
+      "endDate": "2020-12-01T00:00:00Z",
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "78",
+      "question": "Will LaMelo Ball be the first pick in the 2020 NBA draft?",
+      "volume": "143938.782615",
+      "liquidity": "0",
+      "endDate": "2020-11-19T00:00:00Z",
+      "category": "Sports"
+    },
+    {
+      "id": "86",
+      "question": "Will Kanye West release a new studio album before 2021?",
+      "volume": "54154.420953",
+      "liquidity": "0",
+      "endDate": "2021-01-01T00:00:00Z",
+      "category": "Pop-Culture "
+    },
+    {
+      "id": "87",
+      "question": "Will Donald Trump attend Joe Biden’s inauguration ceremony in person?",
+      "volume": "192840.874875",
+      "liquidity": "54.798207",
+      "endDate": "2021-02-01T00:00:00Z",
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "92",
+      "question": "What will Airbnb's market cap be at close on its 1st day publicly trading?",
+      "volume": "114807.198845",
+      "liquidity": "0",
+      "endDate": null,
+      "category": "Tech"
+    },
+    {
+      "id": "93",
+      "question": "Will Donald Trump be inaugurated for his second term as President of the USA on Inauguration Day, January 20th, 2021?",
+      "volume": "30207577.413504",
+      "liquidity": "43.468918",
+      "endDate": "2021-02-01T00:00:00Z",
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "96",
+      "question": "Will Trump win any of Pennsylvania, Arizona or Georgia?",
+      "volume": "1376323.081579",
+      "liquidity": "2.945378",
+      "endDate": "2021-01-23T00:00:00Z",
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "97",
+      "question": "Will any art piece on Superrare sell for more than $100k before 2021?",
+      "volume": "44204.852746",
+      "liquidity": "0.000056",
+      "endDate": "2020-01-01T00:00:00Z",
+      "category": "Crypto"
+    },
+    {
+      "id": "98",
+      "question": "Will Uniswap v3 launch before 2021?",
+      "volume": "87371.439296",
+      "liquidity": "0",
+      "endDate": "2021-01-01T00:00:00Z",
+      "category": "Crypto"
+    },
+    {
+      "id": "99",
+      "question": "Will the Seahawks or the Rams win their week 10 NFL matchup?",
+      "volume": "140094.576395",
+      "liquidity": "0",
+      "endDate": "2020-11-16T00:00:00Z",
+      "category": "Sports"
+    },
+    {
+      "id": "100",
+      "question": "Will indoor dining be prohibited in NYC at any point before 2021?",
+      "volume": "195834.468106",
+      "liquidity": "0.000031",
+      "endDate": "2021-01-01T00:00:00Z",
+      "category": "Coronavirus"
+    },
+    {
+      "id": "101",
+      "question": "Will Pfizer's COVID-19 vaccine be the first to receive FDA approval or Emergency Use Authorization (EUA)?",
+      "volume": "151822.615733",
+      "liquidity": "0",
+      "endDate": null,
+      "category": "Coronavirus"
+    },
+    {
+      "id": "102",
+      "question": "Will Sushiswap have more TVL than Uniswap at any time before November 24th, according to DefiPulse?",
+      "volume": "139390.060805",
+      "liquidity": "0",
+      "endDate": "2020-11-24T00:00:00Z",
+      "category": "Crypto"
+    },
+    {
+      "id": "103",
+      "question": "Will $BTC break $20k before Thanksgiving?",
+      "volume": "457360.180333",
+      "liquidity": "0",
+      "endDate": "2020-11-26T00:00:00Z",
+      "category": "Crypto"
+    },
+    {
+      "id": "105",
+      "question": "Will Liverpool beat Leicester City in their Matchday 9 game?",
+      "volume": "50163.470657",
+      "liquidity": "0",
+      "endDate": "2020-11-23T00:00:00Z",
+      "category": "Sports"
+    },
+    {
+      "id": "107",
+      "question": "Will Deiveson Figueiredo win his UFC 255 match?",
+      "volume": "69325.229436",
+      "liquidity": "0",
+      "endDate": "2020-11-22T00:00:00Z",
+      "category": "Sports"
+    },
+    {
+      "id": "108",
+      "question": "What will the average sale price of the Jordan 1 Mocha on StockX be on Christmas Day?",
+      "volume": "21681.539389",
+      "liquidity": "0",
+      "endDate": "2020-12-26T00:00:00Z",
+      "category": "Pop-Culture "
+    },
+    {
+      "id": "109",
+      "question": "Will Trump Pardon Himself in His First Term?",
+      "volume": "566518.152363",
+      "liquidity": "99.338559",
+      "endDate": "2021-02-16T00:00:00Z",
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "110",
+      "question": "Which party will win the U.S. Senate runoff in Georgia? (Ossoff - D vs. Perdue - R)",
+      "volume": "206128.535439",
+      "liquidity": "0",
+      "endDate": null,
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "111",
+      "question": "Which party will win the U.S. Senate special election in Georgia? (Loeffler - R vs Warnock - D)",
+      "volume": "237532.290807",
+      "liquidity": "45.370082",
+      "endDate": null,
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "114",
+      "question": "Will Coinbase reach #1 in the Finance category on the US iOS App Store before 2021?",
+      "volume": "195420.953091",
+      "liquidity": "0",
+      "endDate": "2021-01-02T00:00:00Z",
+      "category": "Crypto"
+    },
+    {
+      "id": "115",
+      "question": "Superbowl 55: Kansas City Chiefs vs Tampa Bay Buccaneers",
+      "volume": "649402.092029",
+      "liquidity": "40.005841",
+      "endDate": "2021-02-08T00:00:00Z",
+      "category": "Sports"
+    },
+    {
+      "id": "119",
+      "question": "Will Jake Paul win his boxing match against Nate Robinson?",
+      "volume": "22955.070649",
+      "liquidity": "0",
+      "endDate": "2020-11-29T00:00:00Z",
+      "category": "Sports"
+    },
+    {
+      "id": "120",
+      "question": "Will Mike Tyson win his boxing match against Roy Jones Jr?",
+      "volume": "39083.392778",
+      "liquidity": "0.000018",
+      "endDate": "2020-11-29T00:00:00Z",
+      "category": "Sports"
+    },
+    {
+      "id": "1499",
+      "question": "Will Donald Trump join Parler before Inauguration Day?",
+      "volume": "172744.38442",
+      "liquidity": "0",
+      "endDate": "2021-01-20T00:00:00Z",
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "1500",
+      "question": "What will the average sale price of a PS5 be on StockX on Christmas Day?",
+      "volume": "113361.639986",
+      "liquidity": "0",
+      "endDate": "2020-12-26T00:00:00Z",
+      "category": "Pop-Culture "
+    },
+    {
+      "id": "1547",
+      "question": "What rating will theneedledrop give Drake’s \"Certified Lover Boy\"?",
+      "volume": "7105.380354",
+      "liquidity": "0.00001",
+      "endDate": null,
+      "category": "Pop-Culture "
+    },
+    {
+      "id": "3339",
+      "question": "Will Floyd Mayweather beat Logan Paul in their boxing exhibition match?",
+      "volume": "101440.222822",
+      "liquidity": "1.159156",
+      "endDate": "2021-02-21T00:00:00Z",
+      "category": "Sports"
+    },
+    {
+      "id": "3971",
+      "question": "Will Donald Trump pardon Julian Assange?",
+      "volume": "270406.028611",
+      "liquidity": "0.000121",
+      "endDate": "2021-01-22T00:00:00Z",
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "5790",
+      "question": "Will Playboi Carti release a new album before 2021?",
+      "volume": "56571.134485",
+      "liquidity": "0",
+      "endDate": "2021-01-01T00:00:00Z",
+      "category": "Pop-Culture "
+    },
+    {
+      "id": "7715",
+      "question": "Will Donald Trump pardon Ross Ulbricht?",
+      "volume": "77843.512628",
+      "liquidity": "0",
+      "endDate": "2021-01-22T00:00:00Z",
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "7716",
+      "question": "Will Donald Trump pardon Edward Snowden?",
+      "volume": "47949.009134",
+      "liquidity": "0",
+      "endDate": "2021-01-22T00:00:00Z",
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "7740",
+      "question": "Will any Electoral College Certificates of Vote be formally challenged in Congress?",
+      "volume": "265340.926545",
+      "liquidity": "0",
+      "endDate": "2021-02-01T00:00:00Z",
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "7747",
+      "question": "Which party will control the senate?",
+      "volume": "304097.469926",
+      "liquidity": "6.263726",
+      "endDate": "2021-02-01T00:00:00Z",
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "8938",
+      "question": "Will ETH be above $1,500 on January 27th?",
+      "volume": "759196.237185",
+      "liquidity": "0.000068",
+      "endDate": "2021-01-28T00:00:00Z",
+      "category": "Crypto"
+    },
+    {
+      "id": "8939",
+      "question": "Will $BTC break $25k before March 1st?",
+      "volume": "565291.198531",
+      "liquidity": "0.000006",
+      "endDate": "2021-03-02T00:00:00Z",
+      "category": "Crypto"
+    },
+    {
+      "id": "10196",
+      "question": "What will Coinbase’s market cap be 1 week after it starts publicly trading?",
+      "volume": "489636.840329",
+      "liquidity": "61.074887",
+      "endDate": "2021-09-01T00:00:00Z",
+      "category": "Crypto"
+    },
+    {
+      "id": "11987",
+      "question": "Will Tesla announce a Bitcoin purchase before March 1, 2021?",
+      "volume": "1278837.735124",
+      "liquidity": "0.000168",
+      "endDate": "2021-03-01T00:00:00Z",
+      "category": "Crypto"
+    },
+    {
+      "id": "11988",
+      "question": "Will Bitcoin or Tesla have a higher market cap on March 1, 2021?",
+      "volume": "154400.485529",
+      "liquidity": "2.687799",
+      "endDate": "2021-03-01T00:00:00Z",
+      "category": "Tech"
+    },
+    {
+      "id": "11991",
+      "question": "Will 100 million people have received a dose of an approved COVID-19 vaccine in the US by April 1, 2021?",
+      "volume": "7116763.863114",
+      "liquidity": "83.003653",
+      "endDate": "2021-04-01T00:00:00Z",
+      "category": "Coronavirus"
+    },
+    {
+      "id": "12015",
+      "question": "Will President Trump be suspended from Twitter before April 1, 2021?",
+      "volume": "160336.519211",
+      "liquidity": "0.000001",
+      "endDate": "2021-04-01T00:00:00Z",
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "12016",
+      "question": "Will Andrew Yang win the Democratic primary for Mayor of New York City in 2021?",
+      "volume": "1258244.218619",
+      "liquidity": "2045.016719",
+      "endDate": "2021-06-22T00:00:00Z",
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "12017",
+      "question": "Will Kim Kardashian or Kanye West file for divorce before March 1, 2021?",
+      "volume": "40940.904626",
+      "liquidity": "962.430075",
+      "endDate": "2021-03-02T00:00:00Z",
+      "category": "Pop-Culture "
+    },
+    {
+      "id": "12576",
+      "question": "Will Coinbase delist Ripple (XRP) before they begin publicly trading?",
+      "volume": "176805.568527",
+      "liquidity": "0.000093",
+      "endDate": "2021-09-01T00:00:00Z",
+      "category": "Crypto"
+    },
+    {
+      "id": "13107",
+      "question": "Will Joe Biden be inaugurated as President of the USA on January 20th, 2021?",
+      "volume": "8582604.040652",
+      "liquidity": "40.886614",
+      "endDate": "2021-01-20T00:00:00Z",
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "18286",
+      "question": "Will Donald Trump pardon a family member before Inauguration Day?",
+      "volume": "122101.594931",
+      "liquidity": "0",
+      "endDate": "2021-01-22T00:00:00Z",
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "25367",
+      "question": "Will $BTC break $50k before April 1st, 2021?",
+      "volume": "1164000.478137",
+      "liquidity": "238.094982",
+      "endDate": "2021-04-01T00:00:00Z",
+      "category": "Crypto"
+    },
+    {
+      "id": "29908",
+      "question": "Will the Titans or the Ravens win their January 10th NFL Wild Card matchup?",
+      "volume": "20653.74779",
+      "liquidity": "0",
+      "endDate": "2021-01-11T00:00:00Z",
+      "category": "Sports"
+    },
+    {
+      "id": "29919",
+      "question": "Will Trump complete his first term?",
+      "volume": "692311.018313",
+      "liquidity": "0.000033",
+      "endDate": "2021-01-20T00:00:00Z",
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "30941",
+      "question": "Will Joe Biden be President of the USA on March 1, 2021?",
+      "volume": "5603735.590555",
+      "liquidity": "0.104587",
+      "endDate": "2021-03-02T00:00:00Z",
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "31023",
+      "question": "Who will the world's richest person be on February 27, 2021?",
+      "volume": "182205.347577",
+      "liquidity": "1723.058544",
+      "endDate": "2021-02-27T00:00:00Z",
+      "category": "Tech"
+    },
+    {
+      "id": "31064",
+      "question": "Will Donald Trump be impeached again before the end of his term?",
+      "volume": "269766.48903",
+      "liquidity": "0.000003",
+      "endDate": "2021-01-21T00:00:00Z",
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "34767",
+      "question": "Will an official Presidential inauguration take place in-person outside the US Capitol on January 20th, 2021?",
+      "volume": "41274.849967",
+      "liquidity": "0",
+      "endDate": "2021-01-21T00:00:00Z",
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "35974",
+      "question": "Will the Senate convict Donald Trump on impeachment by April 29, 2021?",
+      "volume": "449246.109862",
+      "liquidity": "0.03717",
+      "endDate": null,
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "35976",
+      "question": "Will Joe Biden be officially inaugurated as President in-person outside the US capitol on January 20th, 2021?",
+      "volume": "874854.208294",
+      "liquidity": "0.000002",
+      "endDate": "2021-01-21T00:00:00Z",
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "35983",
+      "question": "Will Donald Trump's Twitter account be active on March 1, 2021?",
+      "volume": "135580.143423",
+      "liquidity": "0.000147",
+      "endDate": "2021-03-01T00:00:00Z",
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "35988",
+      "question": "$2000 stimulus checks by February 28, 2021?",
+      "volume": "488335.604514",
+      "liquidity": "0.000207",
+      "endDate": "2021-02-28T00:00:00Z",
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "40935",
+      "question": "Donald Trump federally charged by February 20th?",
+      "volume": "155062.394444",
+      "liquidity": "9708.484873",
+      "endDate": "2021-02-21T00:00:00Z",
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "40936",
+      "question": "Will Conor McGregor win his UFC 257 match on January 23?",
+      "volume": "103855.267262",
+      "liquidity": "0.000036",
+      "endDate": "2021-01-23T00:00:00Z",
+      "category": "Sports"
+    },
+    {
+      "id": "42114",
+      "question": "Will the Rams or the Packers win their Jan 16th matchup?",
+      "volume": "4747.920188",
+      "liquidity": "0",
+      "endDate": "2021-01-17T00:00:00Z",
+      "category": "Sports"
+    },
+    {
+      "id": "42115",
+      "question": "Will the Buccaneers or the Saints win their Jan 17th matchup?",
+      "volume": "21200.67645",
+      "liquidity": "0",
+      "endDate": "2021-01-18T00:00:00Z",
+      "category": "Sports"
+    },
+    {
+      "id": "42120",
+      "question": "Will the Browns or the Chiefs win their Jan 17th matchup?",
+      "volume": "89077.426678",
+      "liquidity": "0",
+      "endDate": "2021-01-18T00:00:00Z",
+      "category": "Sports"
+    },
+    {
+      "id": "42121",
+      "question": "Will the Ravens or Bills win their January 16th matchup?",
+      "volume": "9820.220409",
+      "liquidity": "0",
+      "endDate": "2021-01-17T00:00:00Z",
+      "category": "Sports"
+    },
+    {
+      "id": "42404",
+      "question": "Will YFI total supply be greater than 30,000 by March 15th?",
+      "volume": "56433.345679",
+      "liquidity": "3.513259",
+      "endDate": "2021-03-16T00:00:00Z",
+      "category": "Crypto"
+    },
+    {
+      "id": "46924",
+      "question": "How many tweets will @DonaldJTrumpJr post from Jan 18th to 25th?",
+      "volume": "157817.485837",
+      "liquidity": "0.000055",
+      "endDate": "2021-01-25T00:00:00Z",
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "46928",
+      "question": "Will the US have fewer than 50,000 new COVID-19 cases on any day before March 15, 2021?",
+      "volume": "1283321.582851",
+      "liquidity": "1.277538",
+      "endDate": "2021-03-15T00:00:00Z",
+      "category": "Coronavirus"
+    },
+    {
+      "id": "47250",
+      "question": "Will Donald Trump be President of the USA on March 31, 2021?",
+      "volume": "6253674.443228",
+      "liquidity": "1.442885",
+      "endDate": "2021-04-01T00:00:00Z",
+      "category": "US-current-affairs"
+    },
+    {
+      "id": "48678",
+      "question": "Will the Green Bay Packers or the Tampa Bay Buccaneers win the NFC Championship?",
+      "volume": "149008.388504",
+      "liquidity": "0.004038",
+      "endDate": "2021-01-25T00:00:00Z",
+      "category": "Sports"
+    },
+    {
+      "id": "48681",
+      "question": "Will the Buffalo Bills or the Kansas City Chiefs win the AFC Championship?",
+      "volume": "64464.326718",
+      "liquidity": "0.00385",
+      "endDate": "2021-01-25T00:00:00Z",
+      "category": "Sports"
+    },
+    {
+      "id": "57333",
+      "question": "Will DeFi Dominance on CoinGecko be above 10% on March 15, 2021?",
+      "volume": "131944.146992",
+      "liquidity": "1871.70284",
+      "endDate": "2021-03-15T00:00:00Z",
+      "category": "Crypto"
+    },
+    {
+      "id": "57337",
+      "question": "How many Senators will vote to convict Donald Trump on incitement by March 1?",
+      "volume": "229323.537104",
+      "liquidity": "0.812904",
+      "endDate": "2021-03-01T00:00:00Z",
+      "category": "US-current-affairs"
+    }
+  ]
+}

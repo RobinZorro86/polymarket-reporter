@@ -1,0 +1,123 @@
+{
+  "name": "Website 3.0 定期任务配置",
+  "description": "网站数据更新、备份、报告生成的自动化任务",
+  "version": "1.0",
+  "tasks": {
+    "daily": [
+      {
+        "id": "daily-market-scrape",
+        "name": "每日市场数据抓取",
+        "schedule": "0 0 * * *",
+        "timezone": "Asia/Tokyo",
+        "command": "python3 /home/zqd/.openclaw/workspace/polymarket-reporter/scripts/scrape_markets.py",
+        "output": "/data/polymarket/markets-$(date +%Y-%m-%d).json",
+        "on_failure": "notify",
+        "notify_channel": "telegram"
+      },
+      {
+        "id": "daily-index-update",
+        "name": "网站数据索引更新",
+        "schedule": "0 6 * * *",
+        "timezone": "Asia/Tokyo",
+        "command": "python3 /home/zqd/.openclaw/workspace/polymarket-reporter/scripts/update_index.py",
+        "output": "reports/index.html",
+        "on_failure": "notify",
+        "notify_channel": "telegram"
+      },
+      {
+        "id": "daily-report-publish",
+        "name": "日报格式化发布",
+        "schedule": "0 12 * * *",
+        "timezone": "Asia/Tokyo",
+        "command": "python3 /home/zqd/.openclaw/workspace/polymarket-reporter/scripts/publish_daily_report.py",
+        "output": "reports/daily-$(date +%Y-%m-%d).html",
+        "on_failure": "notify",
+        "notify_channel": "telegram"
+      },
+      {
+        "id": "daily-git-backup",
+        "name": "Git 备份与推送",
+        "schedule": "0 18 * * *",
+        "timezone": "Asia/Tokyo",
+        "command": "/home/zqd/.openclaw/workspace/polymarket-reporter/scripts/git_backup.sh",
+        "output": "stdout",
+        "on_failure": "notify",
+        "notify_channel": "telegram"
+      }
+    ],
+    "weekly": [
+      {
+        "id": "weekly-report",
+        "name": "周报生成",
+        "schedule": "0 9 * * 1",
+        "timezone": "Asia/Tokyo",
+        "command": "python3 /home/zqd/.openclaw/workspace/polymarket-reporter/scripts/generate_weekly_report.py",
+        "output": "reports/weekly-$(date +%Y-W%V).html",
+        "on_failure": "notify",
+        "notify_channel": "telegram"
+      },
+      {
+        "id": "weekly-kb-update",
+        "name": "知识库内容更新",
+        "schedule": "0 10 * * 3",
+        "timezone": "Asia/Tokyo",
+        "command": "python3 /home/zqd/.openclaw/workspace/polymarket-reporter/scripts/update_knowledge_base.py",
+        "output": "knowledge-base/data.json",
+        "on_failure": "notify",
+        "notify_channel": "telegram"
+      },
+      {
+        "id": "weekly-skills-review",
+        "name": "Skills 性能评测",
+        "schedule": "0 14 * * 5",
+        "timezone": "Asia/Tokyo",
+        "command": "npx clawhub@latest skills review",
+        "output": "reports/skills-review-$(date +%Y-%m-%d).json",
+        "on_failure": "notify",
+        "notify_channel": "telegram"
+      },
+      {
+        "id": "weekly-site-check",
+        "name": "网站完整性检查",
+        "schedule": "0 20 * * 0",
+        "timezone": "Asia/Tokyo",
+        "command": "python3 /home/zqd/.openclaw/workspace/polymarket-reporter/scripts/site_health_check.py",
+        "output": "reports/health-check-$(date +%Y-%m-%d).json",
+        "on_failure": "notify",
+        "notify_channel": "telegram"
+      }
+    ],
+    "monthly": [
+      {
+        "id": "monthly-report",
+        "name": "月度总结报告",
+        "schedule": "0 0 1 * *",
+        "timezone": "Asia/Tokyo",
+        "command": "python3 /home/zqd/.openclaw/workspace/polymarket-reporter/scripts/generate_monthly_report.py",
+        "output": "reports/monthly-$(date +%Y-%m).html",
+        "on_failure": "notify",
+        "notify_channel": "telegram"
+      },
+      {
+        "id": "monthly-content-audit",
+        "name": "全站内容审计",
+        "schedule": "0 10 15 * *",
+        "timezone": "Asia/Tokyo",
+        "command": "python3 /home/zqd/.openclaw/workspace/polymarket-reporter/scripts/audit_content.py",
+        "output": "reports/content-audit-$(date +%Y-%m-%d).json",
+        "on_failure": "notify",
+        "notify_channel": "telegram"
+      }
+    ]
+  },
+  "notifications": {
+    "on_success": "silent",
+    "on_failure": "telegram",
+    "on_blocked": "notify_jarvis"
+  },
+  "metadata": {
+    "created": "2026-03-05",
+    "author": "Zorro",
+    "task_id": "TASK-R3-003"
+  }
+}

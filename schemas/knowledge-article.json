@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Knowledge Article Schema",
+  "type": "object",
+  "required": ["id", "title", "category", "content"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique article identifier"
+    },
+    "title": {
+      "type": "string",
+      "description": "Article title"
+    },
+    "category": {
+      "type": "string",
+      "enum": ["projects", "strategies", "resources", "tutorials", "learnings"],
+      "description": "Knowledge base category"
+    },
+    "tags": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "content": {
+      "type": "string",
+      "description": "Article content (markdown supported)"
+    },
+    "author": {
+      "type": "string",
+      "description": "Article author"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "related_articles": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "IDs of related articles"
+    }
+  }
+}

@@ -1,223 +1,422 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <!-- TIMESTAMP: created=2026-02-27T10:00:00+09:00 updated=2026-03-05T19:23+09:00 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Musk Collective | AI 套利知识库</title>
-  <meta name="description" content="Polymarket 预测市场信息聚合与 AI 自动化套利系统。汇集 KOL 策略、工具资源、风险管理与实时报告，为您的 AI 套利交易提供决策支持。">
-  <meta name="keywords" content="Polymarket, 预测市场, 套利, AI交易, 加密货币, Maker, 做市, 风险管理">
-  <meta name="author" content="Jarvis">
-  <meta name="robots" content="index, follow">
-  
-  <!-- Open Graph -->
-  <meta property="og:title" content="Musk Collective | AI 套利知识库">
-  <meta property="og:description" content="Polymarket 预测市场信息聚合与 AI 自动化套利系统。">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://muskcollective.com/">
-  <meta property="og:site_name" content="Musk Collective">
-  
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Musk Collective | AI 套利知识库">
-  <meta name="twitter:description" content="Polymarket 预测市场信息聚合与 AI 自动化套利系统。">
-  
-  <!-- Canonical -->
+  <title>Musk Collective | Polymarket 套利知识库</title>
+  <meta name="description" content="Polymarket 预测市场套利策略与工具知识库。汇集 KOL 实战策略、自动化工具教程、风险管理与每日报告。">
   <link rel="canonical" href="https://muskcollective.com/">
-  
-  <!-- Styles -->
   <link rel="stylesheet" href="/css/style.css">
-  
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
-  
-  <!-- JSON-LD Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Musk Collective",
-    "description": "Polymarket 预测市场信息聚合与 AI 自动化套利系统",
-    "url": "https://muskcollective.com/",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Musk Collective"
+  <style>
+    :root {
+      --accent: #0071e3;
+      --accent-hover: #0077ed;
+      --bg: #ffffff;
+      --surface: #f5f5f7;
+      --text: #1d1d1f;
+      --text-secondary: #86868b;
+      --border: #d2d2d7;
+      --card-bg: #ffffff;
+      --shadow: 0 2px 8px rgba(0,0,0,0.04);
+      --shadow-hover: 0 8px 24px rgba(0,0,0,0.08);
     }
-  }
-  </script>
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.47059;
+      font-weight: 400;
+      letter-spacing: -0.022em;
+    }
+
+    .container { max-width: 980px; margin: 0 auto; padding: 0 22px; }
+
+    /* Header */
+    header {
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 52px;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.011em;
+    }
+
+    nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      margin-left: 24px;
+      font-size: 12px;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--accent); }
+    nav a.active { color: var(--text); }
+
+    /* Hero */
+    .hero {
+      padding: 120px 0 80px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 56px;
+      line-height: 1.07143;
+      font-weight: 600;
+      letter-spacing: -0.005em;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      font-size: 24px;
+      line-height: 1.16667;
+      font-weight: 400;
+      color: var(--text-secondary);
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* Stats */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin: 60px 0;
+    }
+
+    .stat-card {
+      background: var(--surface);
+      border-radius: 18px;
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    .stat-card .value {
+      font-size: 48px;
+      font-weight: 600;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-card .label {
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-weight: 400;
+    }
+
+    /* Sections */
+    section { margin: 80px 0; }
+
+    .section-title {
+      font-size: 40px;
+      line-height: 1.1;
+      font-weight: 600;
+      letter-spacing: 0.004em;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      font-size: 19px;
+      color: var(--text-secondary);
+      margin-bottom: 40px;
+    }
+
+    /* Cards Grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+      display: block;
+    }
+
+    .card:hover {
+      border-color: var(--accent);
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-4px);
+    }
+
+    .card-icon {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+
+    .card-title {
+      font-size: 21px;
+      line-height: 1.38096;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .card-desc {
+      font-size: 15px;
+      line-height: 1.33337;
+      color: var(--text-secondary);
+    }
+
+    .card-tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--accent);
+      background: rgba(0,113,227,0.1);
+      padding: 4px 12px;
+      border-radius: 12px;
+      margin-top: 16px;
+    }
+
+    /* Reports Section */
+    .report-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .report-item {
+      display: flex;
+      align-items: center;
+      padding: 20px 24px;
+      background: var(--surface);
+      border-radius: 14px;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.2s;
+    }
+
+    .report-item:hover {
+      background: #e8e8ed;
+      transform: translateX(4px);
+    }
+
+    .report-date {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      min-width: 120px;
+    }
+
+    .report-title {
+      flex: 1;
+      font-size: 17px;
+      font-weight: 500;
+    }
+
+    .report-badge {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 20px;
+      background: var(--accent);
+      color: white;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
+      margin-top: 80px;
+    }
+
+    footer p {
+      font-size: 12px;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 40px; }
+      .hero p { font-size: 19px; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .section-title { font-size: 32px; }
+      .cards-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
   <header>
     <div class="container">
-      <a href="/" class="logo">🧠 <span>Musk Collective</span></a>
+      <a href="/" class="logo">🧠 Musk Collective</a>
       <nav>
         <a href="/" class="active">首页</a>
         <a href="/knowledge-base/">知识库</a>
         <a href="/reports/">报告</a>
-        <a href="/guides/">指南</a>
-        <a href="/search.html">🔍</a>
         <a href="/about.html">关于</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- Hero Section -->
-    <section style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 60px 0; text-align: center;">
+    <!-- Hero -->
+    <section class="hero">
       <div class="container">
-        <h1 style="font-size: 2.5rem; margin-bottom: 16px;">🧠 Musk Collective</h1>
-        <p style="font-size: 1.25rem; opacity: 0.9; margin-bottom: 24px;">AI 自动化套利知识库与决策系统</p>
-        <p style="opacity: 0.8;">汇集 KOL 策略 · 工具资源 · 风险管理 · 实时报告</p>
+        <h1>Polymarket 套利知识库</h1>
+        <p>汇集实战策略、自动化工具与每日市场洞察，助你做出更聪明的交易决策。</p>
       </div>
     </section>
 
+    <!-- Stats -->
     <div class="container">
-      <!-- Stats -->
-      <div class="stats" style="margin-top: -30px;">
+      <div class="stats">
         <div class="stat-card">
-          <div class="value">13</div>
-          <div class="label">知识条目</div>
+          <div class="value">12</div>
+          <div class="label">策略文档</div>
         </div>
         <div class="stat-card">
-          <div class="value">5</div>
-          <div class="label">KOL</div>
+          <div class="value">6</div>
+          <div class="label">KOL 分析</div>
         </div>
         <div class="stat-card">
-          <div class="value">2</div>
+          <div class="value">3</div>
           <div class="label">日报</div>
         </div>
         <div class="stat-card">
-          <div class="value">V2</div>
-          <div class="label">系统版本</div>
+          <div class="value">V3</div>
+          <div class="label">网站版本</div>
         </div>
       </div>
-
-      <!-- Aegis V2 Section -->
-      <section style="margin-top: 40px;">
-        <h2 style="font-size: 1.5rem; margin-bottom: 20px;">🏗️ Aegis V2 系统状态</h2>
-        <div class="report-card" style="border-left: 4px solid #6366f1;">
-          <span class="type daily">进行中</span>
-          <div class="title">Phase 0: 风控 + 训练模式</div>
-          <div class="meta">预计完成: 2026-03-07</div>
-          <div style="margin-top: 12px;">
-            <div style="background: #e2e8f0; border-radius: 8px; height: 8px; overflow: hidden;">
-              <div style="background: #6366f1; height: 100%; width: 20%;"></div>
-            </div>
-            <p style="font-size: 0.875rem; color: #64748b; margin-top: 8px;">进度: 20% | 任务: 风控内核 + Simmer 集成</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Latest Strategies -->
-      <section style="margin-top: 40px;">
-        <h2 style="font-size: 1.5rem; margin-bottom: 20px;">📊 最新策略分享</h2>
-        <div class="report-list">
-          <a href="/knowledge-base/kol-strategies.html" class="report-card">
-            <span class="type daily">KOL</span>
-            <div class="title">@zstmfhy - AI 记忆增强生态系统</div>
-            <div class="meta">Supermemory 85.9% 召回率 | Graph Memory 新趋势</div>
-          </a>
-          <a href="/knowledge-base/kol-strategies.html" class="report-card">
-            <span class="type daily">KOL</span>
-            <div class="title">@cutnpaste4 - Crypto Up/Down 完全指南</div>
-            <div class="meta">延迟真相 | Maker vs Taker | 定价模型</div>
-          </a>
-          <a href="/knowledge-base/kol-strategies.html" class="report-card">
-            <span class="type daily">KOL</span>
-            <div class="title">@RohOnChain - 对冲基金数据方法论</div>
-            <div class="meta">400M 交易数据 | 经验 Kelly | Monte Carlo</div>
-          </a>
-        </div>
-      </section>
-
-      <!-- Knowledge Base Categories -->
-      <section style="margin-top: 40px;">
-        <h2 style="font-size: 1.5rem; margin-bottom: 20px;">📚 知识库分类</h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
-          <a href="/knowledge-base/kol-strategies.html" style="text-decoration: none;">
-            <div style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; text-align: center;">
-              <div style="font-size: 2rem; margin-bottom: 8px;">👤</div>
-              <div style="font-weight: 600; color: #1e293b;">KOL 策略</div>
-              <div style="font-size: 0.875rem; color: #64748b;">13 条内容</div>
-            </div>
-          </a>
-          <a href="/knowledge-base/aegis-system/" style="text-decoration: none;">
-            <div style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; text-align: center;">
-              <div style="font-size: 2rem; margin-bottom: 8px;">🏗️</div>
-              <div style="font-weight: 600; color: #1e293b;">系统架构</div>
-              <div style="font-size: 0.875rem; color: #64748b;">7 层设计</div>
-            </div>
-          </a>
-          <a href="/knowledge-base/tools-resources.html" style="text-decoration: none;">
-            <div style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; text-align: center;">
-              <div style="font-size: 2rem; margin-bottom: 8px;">🛠️</div>
-              <div style="font-weight: 600; color: #1e293b;">工具资源</div>
-              <div style="font-size: 0.875rem; color: #64748b;">OpenClaw · CLI</div>
-            </div>
-          </a>
-          <a href="/knowledge-base/risk-management.html" style="text-decoration: none;">
-            <div style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; text-align: center;">
-              <div style="font-size: 2rem; margin-bottom: 8px;">⚠️</div>
-              <div style="font-weight: 600; color: #1e293b;">风险管理</div>
-              <div style="font-size: 0.875rem; color: #64748b;">风控 · 止损 · 熔断</div>
-            </div>
-          </a>
-        </div>
-      </section>
-
-      <!-- Reports Section -->
-      <section style="margin-top: 40px;">
-        <h2 style="font-size: 1.5rem; margin-bottom: 20px;">📈 报告中心</h2>
-        <div class="report-list">
-          <a href="/reports/" class="report-card">
-            <span class="type daily">日报</span>
-            <div class="title">Polymarket 日报</div>
-            <div class="meta">隔天 09:00 (东京时间) | 自动更新</div>
-          </a>
-          <a href="/reports/" class="report-card">
-            <span class="type weekly">周报</span>
-            <div class="title">Polymarket 周报</div>
-            <div class="meta">每周一 09:00 (东京时间) | 自动更新</div>
-          </a>
-        </div>
-      </section>
-
-      <!-- CTA Section -->
-      <section style="margin-top: 40px; background: #f8fafc; border-radius: 16px; padding: 30px; text-align: center;">
-        <h3 style="font-size: 1.25rem; margin-bottom: 12px;">📬 获取实时推送</h3>
-        <p style="color: #64748b; margin-bottom: 20px;">订阅 Telegram，第一时间获取日报/周报和策略更新</p>
-        <a href="https://t.me/yourchannel" style="display: inline-block; background: #6366f1; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 500;">Telegram 订阅</a>
-      </section>
-
     </div>
+
+    <!-- Strategies -->
+    <section>
+      <div class="container">
+        <h2 class="section-title">📈 核心策略</h2>
+        <p class="section-subtitle">经过验证的套利方法论，从保守到激进全覆盖</p>
+        
+        <div class="cards-grid">
+          <a href="/knowledge-base/strategies/fast-loop/" class="card">
+            <div class="card-icon">⚡</div>
+            <div class="card-title">Fast-Loop</div>
+            <div class="card-desc">5 分钟 BTC  Sprint 市场高频套利，利用 CEX  momentum 信号</div>
+            <span class="card-tag">高频</span>
+          </a>
+
+          <a href="/knowledge-base/strategies/mert-sniper/" class="card">
+            <div class="card-icon">🎯</div>
+            <div class="card-title">Mert Sniper</div>
+            <div class="card-desc">临近到期市场的Conviction Trading，捕捉错误定价</div>
+            <span class="card-tag">中频</span>
+          </a>
+
+          <a href="/knowledge-base/strategies/divergence/" class="card">
+            <div class="card-icon">📊</div>
+            <div class="card-title">AI Divergence</div>
+            <div class="card-desc">发现 AI 预测价格与 Polymarket 市场价格的差异</div>
+            <span class="card-tag">数据驱动</span>
+          </a>
+
+          <a href="/knowledge-base/strategies/copytrading/" class="card">
+            <div class="card-icon">👥</div>
+            <div class="card-title">Copytrading</div>
+            <div class="card-desc">追踪高胜率 Whale 钱包，自动镜像交易</div>
+            <span class="card-tag">跟随策略</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tutorials -->
+    <section style="background: var(--surface); padding: 80px 0; margin: 80px 0;">
+      <div class="container">
+        <h2 class="section-title">🛠️ 工具教程</h2>
+        <p class="section-subtitle">从零开始配置你的自动化交易系统</p>
+        
+        <div class="cards-grid">
+          <a href="/knowledge-base/tutorials/openclaw-setup/" class="card">
+            <div class="card-icon">🦞</div>
+            <div class="card-title">OpenClaw 配置</div>
+            <div class="card-desc">完整安装指南、技能配置、API 密钥管理</div>
+            <span class="card-tag">入门必备</span>
+          </a>
+
+          <a href="/knowledge-base/tutorials/simmer-guide/" class="card">
+            <div class="card-icon">🔮</div>
+            <div class="card-title">Simmer 交易</div>
+            <div class="card-desc">虚拟盘练习 → 实盘 USDC 交易完整流程</div>
+            <span class="card-tag">交易入门</span>
+          </a>
+
+          <a href="/knowledge-base/resources/tools/" class="card">
+            <div class="card-icon">🧰</div>
+            <div class="card-title">工具清单</div>
+            <div class="card-desc">polymarket-cli、Chainstack、MCP 服务器</div>
+            <span class="card-tag">资源汇总</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Daily Reports -->
+    <section>
+      <div class="container">
+        <h2 class="section-title">📰 每日报告</h2>
+        <p class="section-subtitle">每天早上 9 点更新，洞察市场动向</p>
+        
+        <div class="report-list">
+          <a href="/reports/daily/daily-2026-03-05.html" class="report-item">
+            <div class="report-date">2026-03-05</div>
+            <div class="report-title">BTC 突破 10 万大关，预测市场交易量创新高</div>
+            <span class="report-badge">最新</span>
+          </a>
+          
+          <a href="/reports/daily/daily-2026-03-01.html" class="report-item">
+            <div class="report-date">2026-03-01</div>
+            <div class="report-title">Simmer 新功能上线，Weather Trader 策略复盘</div>
+          </a>
+          
+          <a href="/reports/daily/daily-2026-02-27.html" class="report-item">
+            <div class="report-date">2026-02-27</div>
+            <div class="report-title">Polymarket 月度数据：套利机会最多的 5 个类别</div>
+          </a>
+        </div>
+
+        <div style="text-align: center; margin-top: 32px;">
+          <a href="/reports/" style="display: inline-block; padding: 14px 32px; background: var(--accent); color: white; border-radius: 980px; text-decoration: none; font-size: 14px; font-weight: 500; transition: background 0.2s;">
+            查看全部报告
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
     <div class="container">
-      <p>🧠 Musk Collective | AI 套利知识库</p>
-      <p style="margin-top: 8px;">
-        <a href="/sitemap.xml">Sitemap</a> | 
-        <a href="/robots.txt">Robots</a> | 
-        <a href="https://polymarket.com" target="_blank" rel="noopener">Polymarket</a> |
-        <a href="https://github.com/RobinZorro86/jarvis-zorro-collab" target="_blank" rel="noopener">GitHub</a>
-      </p>
-      <p style="margin-top: 8px; font-size: 0.875rem; color: #64748b;">
-        由 Jarvis 自动维护 | 基于 OpenClaw
-      </p>
-    </div>
-  </footer>
-
-  <footer class="site-footer">
-    <div class="container">
       <p>
-        <span class="timestamp">
-          <time datetime="2026-02-27T10:00:00+09:00">创建: 2026-02-27</time> | 
-          <time datetime="2026-03-05T19:23+09:00">更新: 2026-03-05</time>
-        </span>
-        <span class="source">来源: <a href="https://muskcollective.com/" target="_blank" rel="noopener">https://muskcollective.com/</a></span>
+        <time datetime="2026-03-07">最后更新：2026-03-07</time>
+        · 
+        <a href="https://github.com/your-repo" style="color: var(--text-secondary); text-decoration: none;">GitHub</a>
+        ·
+        <a href="https://vercel.com/your-project" style="color: var(--text-secondary); text-decoration: none;">Vercel</a>
       </p>
     </div>
   </footer>
-
 </body>
 </html>

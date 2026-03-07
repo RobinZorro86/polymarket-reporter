@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenClaw 完整配置 | Musk Collective</title>
+  <link rel="canonical" href="https://muskcollective.com/knowledge-base/tutorials/openclaw-setup/">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    :root { --accent: #0071e3; --bg: #ffffff; --surface: #f5f5f7; --text: #1d1d1f; --text-secondary: #86868b; --border: #d2d2d7; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.47059; }
+    .container { max-width: 980px; margin: 0 auto; padding: 0 22px; }
+    header { background: rgba(255,255,255,0.8); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    header .container { display: flex; justify-content: space-between; align-items: center; height: 52px; }
+    .logo { font-size: 21px; font-weight: 600; color: var(--text); text-decoration: none; }
+    nav a { color: var(--text-secondary); text-decoration: none; margin-left: 24px; font-size: 12px; transition: color 0.2s; }
+    nav a:hover { color: var(--accent); }
+    nav a.active { color: var(--text); }
+    main { padding: 60px 0 80px; }
+    .breadcrumb { font-size: 12px; color: var(--text-secondary); margin-bottom: 16px; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .page-header { margin-bottom: 40px; }
+    .page-header h1 { font-size: 40px; font-weight: 600; margin-bottom: 12px; }
+    .page-header .meta { font-size: 13px; color: var(--text-secondary); }
+    .content { background: var(--surface); border-radius: 18px; padding: 32px; margin-bottom: 24px; }
+    .content h2 { font-size: 24px; font-weight: 600; margin: 32px 0 16px; }
+    .content h2:first-child { margin-top: 0; }
+    .content p { margin: 16px 0; font-size: 15px; }
+    .content ul { margin: 16px 0 16px 24px; }
+    .content li { margin: 8px 0; font-size: 15px; }
+    .content pre { background: #1d1d1f; color: #e2e8f0; padding: 20px; border-radius: 12px; overflow-x: auto; font-size: 13px; margin: 16px 0; }
+    .content code { font-family: 'SF Mono', Monaco, monospace; }
+    .tag { display: inline-block; font-size: 12px; font-weight: 500; color: var(--accent); background: rgba(0,113,227,0.1); padding: 4px 12px; border-radius: 12px; margin: 4px 8px 4px 0; }
+    .info-box { background: #e8f4ff; border-left: 4px solid var(--accent); padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; }
+    .info-box p { margin: 0; font-size: 14px; }
+    .warning-box { background: #fff4e6; border-left: 4px solid #ff9500; padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; }
+    footer { border-top: 1px solid var(--border); padding: 40px 0; text-align: center; }
+    footer p { font-size: 12px; color: var(--text-secondary); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="logo">🧠 Musk Collective</a>
+      <nav>
+        <a href="/">首页</a>
+        <a href="/knowledge-base/" class="active">知识库</a>
+        <a href="/reports/">报告</a>
+        <a href="/about.html">关于</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/knowledge-base/">知识库</a> › <a href="../">教程</a> › OpenClaw 配置
+      </div>
+
+      <div class="page-header">
+        <h1>🦞 OpenClaw 完整配置</h1>
+        <div class="meta">
+          <span>最后更新：<time datetime="2026-03-07">2026-03-07</time></span> · 
+          <span>来源：OpenClaw 官方文档</span>
+        </div>
+        <div style="margin-top: 12px;">
+          <span class="tag">入门必备</span>
+          <span class="tag">环境配置</span>
+          <span class="tag">技能安装</span>
+        </div>
+      </div>
+
+      <div class="content">
+        <h2>📌 简介</h2>
+        <p>OpenClaw 是 AI 助手执行框架，支持技能扩展、自动化工具调用和多平台消息集成。本教程从零开始配置完整的交易辅助系统。</p>
+
+        <div class="info-box">
+          <p><strong>⏱️ 预计时间：</strong>30-60 分钟</p>
+        </div>
+
+        <h2>🔧 步骤 1：安装 OpenClaw</h2>
+        <pre><code>npm install -g openclaw
+openclaw onboard</code></pre>
+
+        <h2>⚙️ 步骤 2：配置 Provider</h2>
+        <p>编辑 <code>~/.openclaw/openclaw.json</code>，添加模型 Provider：</p>
+        <pre><code>{
+  "models": {
+    "providers": {
+      "bailian": {
+        "baseUrl": "https://coding.dashscope.aliyuncs.com/v1",
+        "apiKey": "sk-your-api-key",
+        "api": "openai-completions"
+      }
+    }
+  }
+}</code></pre>
+
+        <h2>📦 步骤 3：安装 Skills</h2>
+        <pre><code># Simmer 交易技能
+npx skills add joeseesun/anything-to-notebooklm -y
+
+# 网页内容提取
+npx skills add joeseesun/defuddle-skill -y
+
+# 设计顾问
+npx skills add joeseesun/qiaomu-design-advisor -y
+
+# 学习网站生成
+npx skills add joeseesun/knowledge-site-creator -y</code></pre>
+
+        <h2>🔑 步骤 4：配置 API Keys</h2>
+        <div class="warning-box">
+          <p><strong>⚠️ 安全提示：</strong>不要将 API keys 提交到 Git 仓库！使用 <code>.env</code> 文件或环境变量管理。</p>
+        </div>
+        <pre><code>export SIMMER_API_KEY="sk_live_..."
+export MEMOS_API_KEY="..."</code></pre>
+
+        <h2>✅ 验证安装</h2>
+        <pre><code>openclaw status
+npx skills list</code></pre>
+
+        <h2>📚 下一步</h2>
+        <ul>
+          <li><a href="/knowledge-base/tutorials/simmer-guide/">Simmer 交易指南</a></li>
+          <li><a href="/knowledge-base/resources/tools/">工具清单</a></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>
+        <time datetime="2026-03-07">创建：2026-03-07</time> · 
+        <span>来源：OpenClaw 官方文档</span>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

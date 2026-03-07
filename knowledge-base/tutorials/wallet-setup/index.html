@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>钱包配置指南 | Musk Collective</title>
+  <link rel="canonical" href="https://muskcollective.com/knowledge-base/tutorials/wallet-setup/">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    :root { --accent: #0071e3; --bg: #ffffff; --surface: #f5f5f7; --text: #1d1d1f; --text-secondary: #86868b; --border: #d2d2d7; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.47059; }
+    .container { max-width: 980px; margin: 0 auto; padding: 0 22px; }
+    header { background: rgba(255,255,255,0.8); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    header .container { display: flex; justify-content: space-between; align-items: center; height: 52px; }
+    .logo { font-size: 21px; font-weight: 600; color: var(--text); text-decoration: none; }
+    nav a { color: var(--text-secondary); text-decoration: none; margin-left: 24px; font-size: 12px; transition: color 0.2s; }
+    nav a:hover { color: var(--accent); }
+    nav a.active { color: var(--text); }
+    main { padding: 60px 0 80px; }
+    .breadcrumb { font-size: 12px; color: var(--text-secondary); margin-bottom: 16px; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .page-header { margin-bottom: 40px; }
+    .page-header h1 { font-size: 40px; font-weight: 600; margin-bottom: 12px; }
+    .page-header .meta { font-size: 13px; color: var(--text-secondary); }
+    .content { background: var(--surface); border-radius: 18px; padding: 32px; margin-bottom: 24px; }
+    .content h2 { font-size: 24px; font-weight: 600; margin: 32px 0 16px; }
+    .content h2:first-child { margin-top: 0; }
+    .content p { margin: 16px 0; font-size: 15px; }
+    .content ul, .content ol { margin: 16px 0 16px 24px; }
+    .content li { margin: 8px 0; font-size: 15px; }
+    .content pre { background: #1d1d1f; color: #e2e8f0; padding: 20px; border-radius: 12px; overflow-x: auto; font-size: 13px; margin: 16px 0; }
+    .content code { font-family: 'SF Mono', Monaco, monospace; }
+    .tag { display: inline-block; font-size: 12px; font-weight: 500; color: var(--accent); background: rgba(0,113,227,0.1); padding: 4px 12px; border-radius: 12px; margin: 4px 8px 4px 0; }
+    .info-box { background: #e8f4ff; border-left: 4px solid var(--accent); padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; }
+    .info-box p { margin: 0; font-size: 14px; }
+    .warning-box { background: #fff4e6; border-left: 4px solid #ff9500; padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; }
+    .tip-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; }
+    footer { border-top: 1px solid var(--border); padding: 40px 0; text-align: center; }
+    footer p { font-size: 12px; color: var(--text-secondary); }
+    .step { counter-increment: step; margin: 24px 0; }
+    .step::before { content: "步骤 " counter(step); display: block; font-size: 14px; font-weight: 600; color: var(--accent); margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="logo">🧠 Musk Collective</a>
+      <nav>
+        <a href="/">首页</a>
+        <a href="/knowledge-base/" class="active">知识库</a>
+        <a href="/reports/">报告</a>
+        <a href="/about.html">关于</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/knowledge-base/">知识库</a> › <a href="../">教程</a> › 钱包配置
+      </div>
+
+      <div class="page-header">
+        <h1>👛 钱包配置指南</h1>
+        <div class="meta">
+          <span>最后更新：<time datetime="2026-03-07">2026-03-07</time></span> · 
+          <span>来源：Polymarket + Simmer 官方文档</span>
+        </div>
+        <div style="margin-top: 12px;">
+          <span class="tag">安全</span>
+          <span class="tag">Metamask</span>
+          <span class="tag">Polygon</span>
+        </div>
+      </div>
+
+      <div class="content">
+        <h2>📌 概述</h2>
+        <p>Polymarket 运行在 Polygon 网络上，需要配置支持 Polygon 的钱包并持有 USDC.e（桥接 USDC）和少量 POL（Gas 费）。</p>
+
+        <div class="info-box">
+          <p><strong>⏱️ 预计时间：</strong>10-15 分钟</p>
+        </div>
+
+        <div class="step">
+          <h2>步骤 1：安装 MetaMask</h2>
+          <h3>浏览器扩展（推荐）</h3>
+          <ol>
+            <li>打开 Chrome/Edge/Firefox 浏览器</li>
+            <li>访问 <a href="https://metamask.io" target="_blank">metamask.io</a></li>
+            <li>点击 "Download" 安装扩展</li>
+            <li>创建新钱包或导入现有钱包</li>
+          </ol>
+
+          <h3>移动端</h3>
+          <ul>
+            <li>iOS：App Store 搜索 "MetaMask"</li>
+            <li>Android：Google Play 搜索 "MetaMask"</li>
+          </ul>
+
+          <div class="warning-box">
+            <p><strong>⚠️ 安全提示：</strong>助记词只能保存一次，请离线备份（纸笔记录），不要截图或存云端！</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <h2>步骤 2：添加 Polygon 网络</h2>
+          <p>MetaMask 默认是 Ethereum 主网，需要手动添加 Polygon：</p>
+
+          <h3>自动添加（推荐）</h3>
+          <ol>
+            <li>访问 <a href="https://polygon.technology/polygon-pos" target="_blank">polygon.technology</a></li>
+            <li>点击 "Add Polygon to MetaMask"</li>
+            <li>在 MetaMask 弹窗中确认添加</li>
+          </ol>
+
+          <h3>手动添加</h3>
+          <pre><code>网络名称：Polygon Mainnet
+RPC URL: https://polygon-rpc.com
+链 ID: 137
+货币符号：POL
+区块浏览器：https://polygonscan.com</code></pre>
+        </div>
+
+        <div class="step">
+          <h2>步骤 3：获取 USDC.e</h2>
+          <p>Polymarket 使用 USDC.e（桥接 USDC），不是原生 USDC。</p>
+
+          <h3>方式 A：从交易所提现</h3>
+          <ol>
+            <li>在币安/Bybit 购买 USDC</li>
+            <li>选择提现 → 网络选择 <strong>Polygon</strong></li>
+            <li>输入你的 MetaMask 地址（以 0x 开头）</li>
+            <li>等待 5-10 分钟到账</li>
+          </ol>
+
+          <h3>方式 B：使用桥接</h3>
+          <ol>
+            <li>访问 <a href="https://bridge.polygon.technology" target="_blank">bridge.polygon.technology</a></li>
+            <li>连接钱包</li>
+            <li>选择 Ethereum → Polygon</li>
+            <li>输入金额，确认桥接</li>
+          </ol>
+
+          <div class="tip-box">
+            <p><strong>💡 建议：</strong>首次转入$50-100 测试，确认流程后再转大额。</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <h2>步骤 4：获取 POL（Gas 费）</h2>
+          <p>Polygon 网络交易需要 POL 作为 Gas 费，每笔交易约$0.01-$0.10。</p>
+
+          <h3>获取方式</h3>
+          <ul>
+            <li><strong>交易所提现：</strong>币安/Bybit 购买 POL，选择 Polygon 网络提现</li>
+            <li><strong>桥接：</strong>在 <a href="https://bridge.polygon.technology" target="_blank">bridge.polygon.technology</a> 从 ETH 桥接</li>
+            <li><strong>兑换：</strong>在 Polymarket 内用 USDC 兑换少量 POL</li>
+          </ul>
+
+          <div class="info-box">
+            <p><strong>💰 建议持有量：</strong>5-10 POL（约$2-5），可用很久。</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <h2>步骤 5：连接 Polymarket</h2>
+          <ol>
+            <li>访问 <a href="https://polymarket.com" target="_blank">polymarket.com</a></li>
+            <li>点击右上角 "Connect"</li>
+            <li>选择 MetaMask</li>
+            <li>在 MetaMask 弹窗中确认连接</li>
+            <li>连接成功后显示钱包余额</li>
+          </ol>
+        </div>
+
+        <div class="step">
+          <h2>步骤 6：配置 Simmer（可选）</h2>
+          <p>如果使用 Simmer 进行自动化交易，需要配置外部钱包：</p>
+
+          <h3>导出私钥</h3>
+          <ol>
+            <li>MetaMask → 设置 → 安全与隐私</li>
+            <li>点击 "显示私钥"</li>
+            <li>输入密码，复制私钥（0x 开头的 64 位十六进制）</li>
+          </ol>
+
+          <div class="warning-box">
+            <p><strong>⚠️ 极度危险：</strong>私钥 = 钱包控制权！永远不要：</p>
+            <ul>
+              <li>❌ 发送给任何人</li>
+              <li>❌ 上传到 GitHub</li>
+              <li>❌ 存在云端或聊天软件</li>
+              <li>✅ 只用于 Simmer 等可信服务的本地配置</li>
+            </ul>
+          </div>
+
+          <h3>配置 Simmer</h3>
+          <pre><code>export WALLET_PRIVATE_KEY="0x你的私钥"
+export SIMMER_API_KEY="sk_live_..."</code></pre>
+
+          <p>配置后运行：</p>
+          <pre><code>notebooklm login  # 如果用到 NotebookLM 功能</code></pre>
+        </div>
+
+        <h2>✅ 验证配置</h2>
+        <ul>
+          <li>打开 Polymarket，右上角显示余额</li>
+          <li>尝试买入$1 测试（任何市场）</li>
+          <li>确认 MetaMask 弹出签名请求</li>
+          <li>交易成功后在 "Portfolio" 查看持仓</li>
+        </ul>
+
+        <h2>⚠️ 常见问题</h2>
+        <h3>Q: 转账后余额不显示？</h3>
+        <p>A: 等待区块确认（5-10 分钟），刷新页面或切换网络再切回。</p>
+
+        <h3>Q: Gas 费不足怎么办？</h3>
+        <p>A: 需要 POL 代币。在 Polymarket 设置中可以兑换，或从交易所提现。</p>
+
+        <h3>Q: 如何查看交易历史？</h3>
+        <p>A: 访问 <a href="https://polygonscan.com" target="_blank">polygonscan.com</a>，输入钱包地址查询。</p>
+
+        <h2>📚 相关资源</h2>
+        <ul>
+          <li><a href="https://metamask.io" target="_blank">MetaMask 官网</a></li>
+          <li><a href="https://polygon.technology" target="_blank">Polygon 官网</a></li>
+          <li><a href="https://bridge.polygon.technology" target="_blank">Polygon Bridge</a></li>
+          <li><a href="/knowledge-base/tutorials/polymarket-basics/">Polymarket 基础</a></li>
+          <li><a href="/knowledge-base/tutorials/simmer-guide/">Simmer 交易指南</a></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>
+        <time datetime="2026-03-07">创建：2026-03-07</time> · 
+        <span>来源：Polymarket + Simmer 官方文档</span>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

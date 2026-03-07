@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polymarket 基础 | Musk Collective</title>
+  <link rel="canonical" href="https://muskcollective.com/knowledge-base/tutorials/polymarket-basics/">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    :root { --accent: #0071e3; --bg: #ffffff; --surface: #f5f5f7; --text: #1d1d1f; --text-secondary: #86868b; --border: #d2d2d7; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.47059; }
+    .container { max-width: 980px; margin: 0 auto; padding: 0 22px; }
+    header { background: rgba(255,255,255,0.8); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    header .container { display: flex; justify-content: space-between; align-items: center; height: 52px; }
+    .logo { font-size: 21px; font-weight: 600; color: var(--text); text-decoration: none; }
+    nav a { color: var(--text-secondary); text-decoration: none; margin-left: 24px; font-size: 12px; transition: color 0.2s; }
+    nav a:hover { color: var(--accent); }
+    nav a.active { color: var(--text); }
+    main { padding: 60px 0 80px; }
+    .breadcrumb { font-size: 12px; color: var(--text-secondary); margin-bottom: 16px; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .page-header { margin-bottom: 40px; }
+    .page-header h1 { font-size: 40px; font-weight: 600; margin-bottom: 12px; }
+    .page-header .meta { font-size: 13px; color: var(--text-secondary); }
+    .content { background: var(--surface); border-radius: 18px; padding: 32px; margin-bottom: 24px; }
+    .content h2 { font-size: 24px; font-weight: 600; margin: 32px 0 16px; }
+    .content h2:first-child { margin-top: 0; }
+    .content p { margin: 16px 0; font-size: 15px; }
+    .content ul, .content ol { margin: 16px 0 16px 24px; }
+    .content li { margin: 8px 0; font-size: 15px; }
+    .content pre { background: #1d1d1f; color: #e2e8f0; padding: 20px; border-radius: 12px; overflow-x: auto; font-size: 13px; margin: 16px 0; }
+    .content code { font-family: 'SF Mono', Monaco, monospace; }
+    .tag { display: inline-block; font-size: 12px; font-weight: 500; color: var(--accent); background: rgba(0,113,227,0.1); padding: 4px 12px; border-radius: 12px; margin: 4px 8px 4px 0; }
+    .info-box { background: #e8f4ff; border-left: 4px solid var(--accent); padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; }
+    .info-box p { margin: 0; font-size: 14px; }
+    .warning-box { background: #fff4e6; border-left: 4px solid #ff9500; padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; }
+    .tip-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; }
+    footer { border-top: 1px solid var(--border); padding: 40px 0; text-align: center; }
+    footer p { font-size: 12px; color: var(--text-secondary); }
+    table { width: 100%; border-collapse: collapse; margin: 24px 0; }
+    th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+    th { font-weight: 600; background: var(--surface); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="logo">🧠 Musk Collective</a>
+      <nav>
+        <a href="/">首页</a>
+        <a href="/knowledge-base/" class="active">知识库</a>
+        <a href="/reports/">报告</a>
+        <a href="/about.html">关于</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/knowledge-base/">知识库</a> › <a href="../">教程</a> › Polymarket 基础
+      </div>
+
+      <div class="page-header">
+        <h1>📖 Polymarket 基础</h1>
+        <div class="meta">
+          <span>最后更新：<time datetime="2026-03-07">2026-03-07</time></span> · 
+          <span>来源：Polymarket 官方文档</span>
+        </div>
+        <div style="margin-top: 12px;">
+          <span class="tag">基础</span>
+          <span class="tag">预测市场</span>
+          <span class="tag">入门</span>
+        </div>
+      </div>
+
+      <div class="content">
+        <h2>📌 什么是 Polymarket</h2>
+        <p>Polymarket 是全球最大的去中心化预测市场平台，用户可以对真实世界事件的结果进行交易。每个市场代表一个二元事件（是/否），价格反映市场对事件发生概率的共识。</p>
+
+        <div class="info-box">
+          <p><strong>💡 核心概念：</strong>市场价格 = 事件发生概率。$0.60 的市场价格意味着市场认为有 60% 的概率发生。</p>
+        </div>
+
+        <h2>🎯 市场类型</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>类型</th>
+              <th>描述</th>
+              <th>示例</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>二元市场</td>
+              <td>是/否结果</td>
+              <td>"BTC 会在 2026 年达到$100K 吗？"</td>
+            </tr>
+            <tr>
+              <td>多选市场</td>
+              <td>多个可能结果</td>
+              <td>"2026 年谁将赢得超级碗？"</td>
+            </tr>
+            <tr>
+              <td>数值市场</td>
+              <td>数值范围预测</td>
+              <td>"2026 年美联储利率会是？"</td>
+            </tr>
+            <tr>
+              <td>Sprint 市场</td>
+              <td>短期快速结算（5-15 分钟）</td>
+              <td>"下一个 5 分钟 BTC 涨还是跌？"</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>💰 订单类型</h2>
+        <h3>市价单 (Market Order)</h3>
+        <ul>
+          <li>以当前最优价格立即成交</li>
+          <li>适合快速入场，但可能有滑点</li>
+          <li>示例：以$0.55 买入 100 股 YES</li>
+        </ul>
+
+        <h3>限价单 (Limit Order)</h3>
+        <ul>
+          <li>设定特定价格，等待成交</li>
+          <li>适合大额订单，减少滑点</li>
+          <li>可能不成交（如果价格不到）</li>
+        </ul>
+
+        <h2>📊 费用结构</h2>
+        <ul>
+          <li><strong>Maker 手续费：</strong>0%（挂单提供流动性）</li>
+          <li><strong>Taker 手续费：</strong>2%（吃单消耗流动性）</li>
+          <li><strong>Gas 费：</strong>Polygon 网络费用（约$0.01-$0.10）</li>
+        </ul>
+
+        <div class="tip-box">
+          <p><strong>💡 省钱技巧：</strong>使用限价单做 Maker，可以免手续费。大额交易尤其划算。</p>
+        </div>
+
+        <h2>🏆 结算流程</h2>
+        <ol>
+          <li>事件发生 → Polymarket 获取官方结果</li>
+          <li>预言机（UMA）验证结果</li>
+          <li>获胜份额自动赎回为$1.00/股</li>
+          <li>失败份额价值归零</li>
+          <li>资金自动回到钱包</li>
+        </ol>
+
+        <h2>⚠️ 风险提示</h2>
+        <div class="warning-box">
+          <ul>
+            <li>预测市场有本金损失风险，可能损失全部投资</li>
+            <li>流动性低的市场可能难以退出</li>
+            <li>结算可能有延迟（等待预言机确认）</li>
+            <li>不要投入无法承受损失的资金</li>
+          </ul>
+        </div>
+
+        <h2>📚 相关资源</h2>
+        <ul>
+          <li><a href="https://polymarket.com" target="_blank">Polymarket 官网</a></li>
+          <li><a href="https://docs.polymarket.com" target="_blank">Polymarket 开发者文档</a></li>
+          <li><a href="https://help.polymarket.com" target="_blank">Polymarket 帮助中心</a></li>
+          <li><a href="/knowledge-base/tutorials/wallet-setup/">钱包配置教程</a></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>
+        <time datetime="2026-03-07">创建：2026-03-07</time> · 
+        <span>来源：Polymarket 官方文档</span>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

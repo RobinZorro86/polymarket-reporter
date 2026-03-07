@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>术语表 | Musk Collective</title>
+  <link rel="canonical" href="https://muskcollective.com/knowledge-base/resources/glossary/">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    :root { --accent: #0071e3; --bg: #ffffff; --surface: #f5f5f7; --text: #1d1d1f; --text-secondary: #86868b; --border: #d2d2d7; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.47059; }
+    .container { max-width: 980px; margin: 0 auto; padding: 0 22px; }
+    header { background: rgba(255,255,255,0.8); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    header .container { display: flex; justify-content: space-between; align-items: center; height: 52px; }
+    .logo { font-size: 21px; font-weight: 600; color: var(--text); text-decoration: none; }
+    nav a { color: var(--text-secondary); text-decoration: none; margin-left: 24px; font-size: 12px; transition: color 0.2s; }
+    nav a:hover { color: var(--accent); }
+    nav a.active { color: var(--text); }
+    main { padding: 60px 0 80px; }
+    .breadcrumb { font-size: 12px; color: var(--text-secondary); margin-bottom: 16px; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .page-header { margin-bottom: 40px; }
+    .page-header h1 { font-size: 40px; font-weight: 600; margin-bottom: 12px; }
+    .page-header .meta { font-size: 13px; color: var(--text-secondary); }
+    .content { background: var(--surface); border-radius: 18px; padding: 32px; margin-bottom: 24px; }
+    .content h2 { font-size: 24px; font-weight: 600; margin: 32px 0 16px; }
+    .content h2:first-child { margin-top: 0; }
+    .content p { margin: 16px 0; font-size: 15px; }
+    .content ul { margin: 16px 0 16px 24px; }
+    .content li { margin: 8px 0; font-size: 15px; }
+    .tag { display: inline-block; font-size: 12px; font-weight: 500; color: var(--accent); background: rgba(0,113,227,0.1); padding: 4px 12px; border-radius: 12px; margin: 4px 8px 4px 0; }
+    .term { margin: 20px 0; padding: 16px; background: #fff; border-radius: 12px; border-left: 4px solid var(--accent); }
+    .term h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
+    .term p { font-size: 14px; color: var(--text-secondary); }
+    footer { border-top: 1px solid var(--border); padding: 40px 0; text-align: center; }
+    footer p { font-size: 12px; color: var(--text-secondary); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="logo">🧠 Musk Collective</a>
+      <nav>
+        <a href="/">首页</a>
+        <a href="/knowledge-base/" class="active">知识库</a>
+        <a href="/reports/">报告</a>
+        <a href="/about.html">关于</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/knowledge-base/">知识库</a> › <a href="../">资源</a> › 术语表
+      </div>
+
+      <div class="page-header">
+        <h1>📝 术语表</h1>
+        <div class="meta">
+          <span>最后更新：<time datetime="2026-03-07">2026-03-07</time></span> · 
+          <span>来源：社区整理</span>
+        </div>
+        <div style="margin-top: 12px;">
+          <span class="tag">参考</span>
+          <span class="tag">术语解释</span>
+        </div>
+      </div>
+
+      <div class="content">
+        <h2>📊 市场术语</h2>
+
+        <div class="term">
+          <h3>预测市场 (Prediction Market)</h3>
+          <p>参与者对事件结果进行交易的金融市场。价格反映市场对事件发生概率的共识。</p>
+        </div>
+
+        <div class="term">
+          <h3>YES / NO 份额</h3>
+          <p>二元市场的两种合约。事件发生后，正确预测的份额价值$1.00，错误的归零。</p>
+        </div>
+
+        <div class="term">
+          <h3>市场价格 (Market Price)</h3>
+          <p>当前交易价格，范围$0.00-$1.00。$0.60 表示市场认为有 60% 概率发生。</p>
+        </div>
+
+        <div class="term">
+          <h3>流动性 (Liquidity)</h3>
+          <p>市场深度，决定大额订单的滑点。流动性越高，交易越容易成交。</p>
+        </div>
+
+        <div class="term">
+          <h3>Sprint 市场</h3>
+          <p>短期快速结算的市场（5-15 分钟），如"下一个 5 分钟 BTC 涨还是跌"。</p>
+        </div>
+
+        <h2>💰 交易术语</h2>
+
+        <div class="term">
+          <h3>Maker</h3>
+          <p>挂出限价单提供流动性的人。享受 0% 手续费。</p>
+        </div>
+
+        <div class="term">
+          <h3>Taker</h3>
+          <p>吃单消耗流动性的人。支付 2% 手续费。</p>
+        </div>
+
+        <div class="term">
+          <h3>滑点 (Slippage)</h3>
+          <p>实际成交价与预期价格的差异。流动性低时滑点较大。</p>
+        </div>
+
+        <div class="term">
+          <h3>限价单 (Limit Order)</h3>
+          <p>设定特定价格等待成交的订单。可能不成交，但无滑点。</p>
+        </div>
+
+        <div class="term">
+          <h3>市价单 (Market Order)</h3>
+          <p>以当前最优价格立即成交的订单。快速但有滑点风险。</p>
+        </div>
+
+        <h2>🔗 区块链术语</h2>
+
+        <div class="term">
+          <h3>Polygon</h3>
+          <p>以太坊 Layer 2 扩展网络，Polymarket 运行在其上。Gas 费低廉（约$0.01-$0.10）。</p>
+        </div>
+
+        <div class="term">
+          <h3>USDC.e</h3>
+          <p>桥接到 Polygon 的 USDC 稳定币。Polymarket 的交易货币。</p>
+        </div>
+
+        <div class="term">
+          <h3>POL</h3>
+          <p>Polygon 网络的原生代币，用于支付 Gas 费。</p>
+        </div>
+
+        <div class="term">
+          <h3>Gas Fee</h3>
+          <p>区块链交易手续费。Polygon 网络约$0.01-$0.10/笔。</p>
+        </div>
+
+        <div class="term">
+          <h3>智能合约 (Smart Contract)</h3>
+          <p>自动执行的区块链程序。Polymarket 市场由智能合约管理。</p>
+        </div>
+
+        <h2>🤖 自动化术语</h2>
+
+        <div class="term">
+          <h3>OpenClaw</h3>
+          <p>AI 助手执行框架，支持技能扩展和自动化工具调用。</p>
+        </div>
+
+        <div class="term">
+          <h3>Simmer</h3>
+          <p>AI Agent 专用交易接口，支持 Polymarket 和 Kalshi，带安全限额。</p>
+        </div>
+
+        <div class="term">
+          <h3>Skill</h3>
+          <p>OpenClaw 的可插拔功能模块，如交易策略、数据抓取等。</p>
+        </div>
+
+        <div class="term">
+          <h3>CLOB (Central Limit Order Book)</h3>
+          <p>中央限价订单簿。Polymarket 的高频交易接口。</p>
+        </div>
+
+        <h2>📚 相关资源</h2>
+        <ul>
+          <li><a href="/knowledge-base/tutorials/polymarket-basics/">Polymarket 基础</a></li>
+          <li><a href="/knowledge-base/resources/tools/">工具清单</a></li>
+          <li><a href="/knowledge-base/resources/apis/">API 文档</a></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>
+        <time datetime="2026-03-07">创建：2026-03-07</time> · 
+        <span>来源：社区整理</span>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -97,9 +97,13 @@
     /* Stats */
     .stats {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 24px;
       margin: 60px 0;
+    }
+
+    @media (max-width: 1024px) {
+      .stats { grid-template-columns: repeat(3, 1fr); }
     }
 
     .stat-card {
@@ -291,6 +295,10 @@
           <div class="label">策略文档</div>
         </div>
         <div class="stat-card">
+          <div class="value">4</div>
+          <div class="label">教程文档</div>
+        </div>
+        <div class="stat-card">
           <div class="value">10</div>
           <div class="label">KOL 分析</div>
         </div>
@@ -339,6 +347,20 @@
             <div class="card-desc">追踪高胜率 Whale 钱包，自动镜像交易</div>
             <span class="card-tag">跟随策略</span>
           </a>
+
+          <a href="/knowledge-base/strategies/signal-sniper/" class="card">
+            <div class="card-icon">📡</div>
+            <div class="card-title">Signal Sniper</div>
+            <div class="card-desc">事件驱动套利，快速响应突发新闻和数据发布</div>
+            <span class="card-tag">事件驱动</span>
+          </a>
+
+          <a href="/knowledge-base/strategies/weather-trader/" class="card">
+            <div class="card-icon">🌤️</div>
+            <div class="card-title">Weather Trader</div>
+            <div class="card-desc">天气预测市场套利，基于气象数据和季节性模式</div>
+            <span class="card-tag">另类数据</span>
+          </a>
         </div>
       </div>
     </section>
@@ -362,6 +384,51 @@
             <div class="card-title">Simmer 交易</div>
             <div class="card-desc">虚拟盘练习 → 实盘 USDC 交易完整流程</div>
             <span class="card-tag">交易入门</span>
+          </a>
+
+          <a href="/knowledge-base/tutorials/wallet-setup/" class="card">
+            <div class="card-icon">💼</div>
+            <div class="card-title">钱包配置</div>
+            <div class="card-desc">MetaMask 配置、多链支持、安全最佳实践</div>
+            <span class="card-tag">新手必备</span>
+          </a>
+
+          <a href="/knowledge-base/tutorials/polymarket-basics/" class="card">
+            <div class="card-icon">📚</div>
+            <div class="card-title">Polymarket 基础</div>
+            <div class="card-desc">预测市场入门、订单类型、费用结构</div>
+            <span class="card-tag">入门教程</span>
+          </a>
+
+          <a href="/knowledge-base/resources/tools/" class="card">
+            <div class="card-icon">🧰</div>
+            <div class="card-title">工具清单</div>
+            <div class="card-desc">polymarket-cli、Chainstack、MCP 服务器</div>
+            <span class="card-tag">资源汇总</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resources -->
+    <section>
+      <div class="container">
+        <h2 class="section-title">📖 资源文档</h2>
+        <p class="section-subtitle">API 文档、术语表与工具清单</p>
+        
+        <div class="cards-grid">
+          <a href="/knowledge-base/resources/apis/" class="card">
+            <div class="card-icon">🔌</div>
+            <div class="card-title">API 文档</div>
+            <div class="card-desc">Polymarket API、Simmer API、Chainstack RPC 完整参考</div>
+            <span class="card-tag">开发者</span>
+          </a>
+
+          <a href="/knowledge-base/resources/glossary/" class="card">
+            <div class="card-icon">📖</div>
+            <div class="card-title">术语表</div>
+            <div class="card-desc">预测市场、套利交易、链上术语完整解释</div>
+            <span class="card-tag">新手友好</span>
           </a>
 
           <a href="/knowledge-base/resources/tools/" class="card">

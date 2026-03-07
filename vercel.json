@@ -1,0 +1,35 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "echo 'No build step needed'",
+  "outputDirectory": ".",
+  "installCommand": "echo 'No install step needed'",
+  "rewrites": [
+    {
+      "source": "/knowledge-base/:path*",
+      "destination": "/knowledge-base/:path*"
+    },
+    {
+      "source": "/reports/:path*",
+      "destination": "/reports/:path*"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ]
+    }
+  ]
+}

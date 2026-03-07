@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@molt_cornelius 策略分析 | Musk Collective</title>
+  <link rel="canonical" href="https://muskcollective.com/knowledge-base/kol/molt-cornelius/">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    :root { --accent: #0071e3; --bg: #ffffff; --surface: #f5f5f7; --text: #1d1d1f; --text-secondary: #86868b; --border: #d2d2d7; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.47059; }
+    .container { max-width: 980px; margin: 0 auto; padding: 0 22px; }
+    header { background: rgba(255,255,255,0.8); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    header .container { display: flex; justify-content: space-between; align-items: center; height: 52px; }
+    .logo { font-size: 21px; font-weight: 600; color: var(--text); text-decoration: none; }
+    nav a { color: var(--text-secondary); text-decoration: none; margin-left: 24px; font-size: 12px; transition: color 0.2s; }
+    nav a:hover { color: var(--accent); }
+    nav a.active { color: var(--text); }
+    main { padding: 60px 0 80px; }
+    .breadcrumb { font-size: 12px; color: var(--text-secondary); margin-bottom: 16px; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .page-header { margin-bottom: 40px; }
+    .page-header h1 { font-size: 40px; font-weight: 600; margin-bottom: 12px; }
+    .page-header .meta { font-size: 13px; color: var(--text-secondary); }
+    .content { background: var(--surface); border-radius: 18px; padding: 32px; margin-bottom: 24px; }
+    .content h2 { font-size: 24px; font-weight: 600; margin: 32px 0 16px; }
+    .content h2:first-child { margin-top: 0; }
+    .content p { margin: 16px 0; font-size: 15px; }
+    .content ul, .content ol { margin: 16px 0 16px 24px; }
+    .content li { margin: 8px 0; font-size: 15px; }
+    .content pre { background: #1d1d1f; color: #e2e8f0; padding: 20px; border-radius: 12px; overflow-x: auto; font-size: 13px; margin: 16px 0; }
+    .content code { font-family: 'SF Mono', Monaco, monospace; }
+    .tag { display: inline-block; font-size: 12px; font-weight: 500; color: var(--accent); background: rgba(0,113,227,0.1); padding: 4px 12px; border-radius: 12px; margin: 4px 8px 4px 0; }
+    .info-box { background: #e8f4ff; border-left: 4px solid var(--accent); padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; }
+    .info-box p { margin: 0; font-size: 14px; }
+    .warning-box { background: #fff4e6; border-left: 4px solid #ff9500; padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; }
+    .feature-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 16px 0; }
+    .feature-card h3 { font-size: 17px; font-weight: 600; margin-bottom: 12px; color: var(--accent); }
+    footer { border-top: 1px solid var(--border); padding: 40px 0; text-align: center; }
+    footer p { font-size: 12px; color: var(--text-secondary); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="logo">🧠 Musk Collective</a>
+      <nav>
+        <a href="/">首页</a>
+        <a href="/knowledge-base/" class="active">知识库</a>
+        <a href="/reports/">报告</a>
+        <a href="/about.html">关于</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/knowledge-base/">知识库</a> › <a href="../">KOL</a> › @molt_cornelius
+      </div>
+
+      <div class="page-header">
+        <h1>📝 @molt_cornelius 策略分析</h1>
+        <div class="meta">
+          <span>最后更新：<time datetime="2026-03-07">2026-03-07</time></span> · 
+          <span>来源：X.com @molt_cornelius</span>
+        </div>
+        <div style="margin-top: 12px;">
+          <span class="tag">AI 笔记系统</span>
+          <span class="tag">交易心理学</span>
+          <span class="tag">知识图谱</span>
+        </div>
+      </div>
+
+      <div class="content">
+        <h2>📌 核心贡献</h2>
+        <p>@molt_cornelius 提出了 AI 辅助交易笔记系统的完整架构，将线性交易日志转化为知识图谱，通过自动化分析发现交易者无法自知的行为模式。</p>
+
+        <div class="info-box">
+          <p><strong>💡 核心发现：</strong>金融专业人士被要求给出 90% 置信区间时，实际捕获真实结果的概率仅 33%。73% 的活跃交易者没有系统性记录决策过程。</p>
+        </div>
+
+        <h2>🏗️ 系统架构：7 大核心模块</h2>
+
+        <div class="feature-card">
+          <h3>1. 置信度图谱 (Conviction Graph)</h3>
+          <p>每笔交易开始时记录置信度（1-10 分）， agent 追踪置信度与结果的关联：</p>
+          <pre><code>高置信度交易 (8-10 分)：胜率 58%
+中置信度交易 (5-7 分)：胜率 61%
+低置信度交易 (1-4 分)：胜率 71%
+
+反直觉发现：最不确定的交易表现最好</code></pre>
+        </div>
+
+        <div class="feature-card">
+          <h3>2. 策略漂移检测器 (Strategy Drift Detector)</h3>
+          <p>检查每笔交易是否遵守既定规则：</p>
+          <ul>
+            <li>仓位限制违规检测</li>
+            <li>止损移动追踪</li>
+            <li>入场条件合规性</li>
+          </ul>
+          <pre><code>最近 30 笔交易：7 笔违规 (23%)
+违规模式：连亏后仓位超标 1.4 倍
+高波动时段违规率更高</code></pre>
+        </div>
+
+        <div class="feature-card">
+          <h3>3. 自动复盘引擎 (Postmortem Autopilot)</h3>
+          <p>每笔交易结束后自动生成复盘报告：</p>
+          <ul>
+            <li>原始假设 vs 实际结果</li>
+            <li>错误分类（假设错误/时机错误/违规/情绪化）</li>
+            <li>模式匹配（与历史相似交易对比）</li>
+          </ul>
+          <pre><code>交易分类：正确假设，错误时机
+90 天内第 4 次同类错误
+建议：财报催化入场时机是否系统性过早？</code></pre>
+        </div>
+
+        <div class="feature-card">
+          <h3>4. 情绪状态关联器 (Emotional State Correlator)</h3>
+          <p>记录交易时的情绪状态，计算与表现的关联：</p>
+          <pre><code>情绪状态      胜率    平均收益
+─────────────────────────────
+冷静专注       64%     +1.2%
+兴奋自信       48%     -0.3%
+焦虑不确定     41%     -0.8%
+沮丧           31%     -1.4%
+报复性交易     18%     -2.7%
+
+关键发现：兴奋自信状态比冷静专注差 16%</code></pre>
+        </div>
+
+        <div class="feature-card">
+          <h3>5. 反事实引擎 (Counterfactual Engine)</h3>
+          <p>维护"影子组合"：如果严格遵守规则会发生什么：</p>
+          <pre><code>Q1 实际收益：+4.2%
+影子组合（规则优先）：+11.8%
+差距：7.6%
+
+主要差距来源：
+- 提前平仓：TSLA 少赚 3.6%
+- 移动止损：BTC 多亏 4.1%</code></pre>
+        </div>
+
+        <div class="feature-card">
+          <h3>6. 市场状态记忆 (Regime Memory)</h3>
+          <p>自动分类市场状态，映射历史表现：</p>
+          <pre><code>当前状态：高波动，下跌趋势
+
+历史表现（412 笔交易）：
+低波动上涨：68% 胜率，+1.8% 平均收益
+低波动震荡：52% 胜率，+0.3%
+高波动下跌：44% 胜率，-0.6% ← 当前
+高波动震荡：39% 胜率，-1.1%
+
+警告：当前状态下无盈利策略</code></pre>
+        </div>
+
+        <div class="feature-card">
+          <h3>7. 边缘衰减检测 (Edge Decay Detection)</h3>
+          <p>监控每个策略的滚动表现，发现策略失效：</p>
+          <pre><code>策略：均值回归财报缺口
+1-4 月：68% 胜率，+1.4% 平均收益
+5-8 月：59% 胜率，+0.6%
+9-12 月：47% 胜率，-0.2% ← 跌破盈亏线
+
+统计显著性：p < 0.05
+建议：暂停部署，调查结构性变化</code></pre>
+        </div>
+
+        <h2>📁 知识库结构</h2>
+        <pre><code>vault/
+├── positions/      # 每笔交易：假设、入场、出场、结果
+├── strategies/     # 正式规则集 + 合规追踪
+├── theses/         # 市场观点 + 证据 + 置信度
+├── journal/        # 每日状态：情绪、认知、市场解读
+├── watchlist/      # 追踪设置 + 触发条件
+├── research/       # 市场分析、宏观观点、行业笔记
+├── reviews/        # agent 生成的定期分析
+├── archive/        # 已平仓完整历史
+└── .claude/
+    ├── skills/     # postmortem, drift, review, regime
+    ├── hooks/      # session-orient, pre-trade-check
+    └── CLAUDE.md</code></pre>
+
+        <h2>⚠️ 核心洞察</h2>
+        <h3>为什么传统交易日志无效</h3>
+        <ul>
+          <li><strong>线性文档退化为考古学：</strong>200 条记录后没人会交叉引用第 47 条和第 183 条</li>
+          <li><strong>73% 交易者没有系统记录：</strong>20% 有记录的人中，少于 20% 会复查超过一次</li>
+          <li><strong>原因不是懒惰：</strong>是架构问题，线性文档无法呈现跨模式</li>
+        </ul>
+
+        <h3>情绪对表现的影响</h3>
+        <p>Lo, Repin, and Steenbarger (2005) 研究发现：交易时情绪唤醒强度与表现负相关。不是极端情绪，任何偏离基线的状态都会影响表现。</p>
+
+        <h2>🤔 未解问题</h2>
+        <div class="warning-box">
+          <p><strong>系统性自我认知会改善交易，还是创造新的瘫痪？</strong></p>
+          <p>如果 agent 显示你下午交易表现差 340bp、高置信度是最差信号、亏损后情绪预测下次胜率 29%、最爱策略 4 个月前失效——你会交易更好，还是完全停止交易？</p>
+          <p>Kahneman 证明损失厌恶是收益寻求的 2 倍。精确呈现损失的系统可能放大厌恶而非纠正行为。</p>
+        </div>
+
+        <h2>📚 相关资源</h2>
+        <ul>
+          <li><a href="/knowledge-base/kol/0xchainmind/">@0xChainMind 跟单交易教程</a></li>
+          <li><a href="/knowledge-base/resources/risk-management/">风险管理</a></li>
+          <li><a href="https://x.com/molt_cornelius" target="_blank">@molt_cornelius on X</a></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>
+        <time datetime="2026-03-07">创建：2026-03-07</time> · 
+        <span>来源：X.com @molt_cornelius</span>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

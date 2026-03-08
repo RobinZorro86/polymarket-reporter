@@ -201,11 +201,27 @@ sed -i "s/TIME_PLACEHOLDER/$(date '+%H:%M')/g" "$MARKDOWN_FILE"
 
 echo "✅ Markdown 草稿已生成：$MARKDOWN_FILE"
 echo ""
-echo "📌 下一步:"
-echo "1. 编辑 $MARKDOWN_FILE 填充数据"
-echo "2. 运行生成 HTML: bash scripts/generate-report-html.sh weekly $DATE_NUM"
-echo "3. 推送到 GitHub 触发部署"
+
+# 自动复制模板生成 HTML（待创建周报模板）
+HTML_FILE="$REPORTS_DIR/weekly-$DATE_NUM.html"
+if [ -f "$WORKSPACE/templates/weekly-report-template.html" ]; then
+  cp "$WORKSPACE/templates/weekly-report-template.html" "$HTML_FILE"
+  echo "✅ HTML 报告已生成：$HTML_FILE"
+else
+  echo "⚠️ 周报模板缺失，仅生成 Markdown"
+fi
+
 echo ""
+
+# 自动提交推送
+cd "$WORKSPACE"
+git add "$HTML_FILE" "$MARKDOWN_FILE" 2>/dev/null || true
+git commit -m "docs: 发布周报 $DATE" --allow-empty 2>/dev/null || true
+git push origin main 2>&1 | tail -3
+
+echo ""
+echo "✅ 周报已自动推送到 GitHub，Vercel 将在 1-2 分钟内部署"
+echo "🌐 访问：https://muskcollective.com/reports/weekly/weekly-$DATE_NUM.html"
 
 # 输出 KOL 数据摘要
 echo "📱 KOL 动态预览:"

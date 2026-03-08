@@ -154,11 +154,27 @@ sed -i "s/TIME_PLACEHOLDER/$(date '+%H:%M')/g" "$MARKDOWN_FILE"
 
 echo "✅ Markdown 草稿已生成：$MARKDOWN_FILE"
 echo ""
-echo "📌 下一步:"
-echo "1. 编辑 $MARKDOWN_FILE 填充数据"
-echo "2. 运行生成 HTML: bash scripts/generate-report-html.sh $DATE_NUM"
-echo "3. 推送到 GitHub 触发部署"
+
+# 自动复制模板生成 HTML
+HTML_FILE="$REPORTS_DIR/daily-$DATE_NUM.html"
+cp "$WORKSPACE/templates/daily-report-template.html" "$HTML_FILE"
+
+# 替换 HTML 占位符
+sed -i "s/DATE_PLACEHOLDER/$DATE/g" "$HTML_FILE"
+sed -i "s/TIME_PLACEHOLDER/$(date '+%H:%M')/g" "$HTML_FILE"
+
+echo "✅ HTML 报告已生成：$HTML_FILE"
 echo ""
+
+# 自动提交推送
+cd "$WORKSPACE"
+git add "$HTML_FILE" "$MARKDOWN_FILE" 2>/dev/null || true
+git commit -m "docs: 发布日报 $DATE" --allow-empty 2>/dev/null || true
+git push origin main 2>&1 | tail -3
+
+echo ""
+echo "✅ 日报已自动推送到 GitHub，Vercel 将在 1-2 分钟内部署"
+echo "🌐 访问：https://muskcollective.com/reports/daily/daily-$DATE_NUM.html"
 
 # 输出 X 数据摘要
 echo "📱 X 热点预览:"

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KOL 策略分析 | Musk Collective</title>
+  <meta name="description" content="Polymarket 顶级 KOL 交易策略分析：@vladic_eth、@noisyb0y1、@AYi_AInotes 等 11 位 KOL 完整方法论">
+  <link rel="canonical" href="https://muskcollective.com/knowledge-base/kol/">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    :root { --accent: #0071e3; --bg: #ffffff; --surface: #f5f5f7; --text: #1d1d1f; --text-secondary: #86868b; --border: #d2d2d7; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.47059; }
+    .container { max-width: 980px; margin: 0 auto; padding: 0 22px; }
+    header { background: rgba(255,255,255,0.8); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    header .container { display: flex; justify-content: space-between; align-items: center; height: 52px; }
+    .logo { font-size: 21px; font-weight: 600; color: var(--text); text-decoration: none; }
+    nav a { color: var(--text-secondary); text-decoration: none; margin-left: 24px; font-size: 12px; transition: color 0.2s; }
+    nav a:hover { color: var(--accent); }
+    nav a.active { color: var(--text); }
+    main { padding: 60px 0 80px; }
+    .page-header { text-align: center; margin-bottom: 60px; }
+    .page-header h1 { font-size: 48px; font-weight: 600; margin-bottom: 12px; }
+    .page-header p { font-size: 19px; color: var(--text-secondary); }
+    .section { margin: 60px 0; }
+    .section-title { font-size: 32px; font-weight: 600; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+    .card { background: var(--surface); border-radius: 14px; padding: 24px; text-decoration: none; color: inherit; transition: all 0.3s; border: 1px solid var(--border); }
+    .card:hover { border-color: var(--accent); box-shadow: 0 8px 24px rgba(0,113,227,0.12); transform: translateY(-4px); }
+    .card-icon { font-size: 32px; margin-bottom: 16px; }
+    .card-title { font-size: 21px; font-weight: 600; margin-bottom: 8px; color: var(--text); }
+    .card-desc { font-size: 15px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 16px; }
+    .tag { display: inline-block; font-size: 12px; font-weight: 500; color: var(--accent); background: rgba(0,113,227,0.1); padding: 4px 12px; border-radius: 12px; }
+    footer { border-top: 1px solid var(--border); padding: 40px 0; text-align: center; }
+    footer p { font-size: 12px; color: var(--text-secondary); }
+    footer a { color: var(--text-secondary); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+    @media (max-width: 768px) {
+      .page-header h1 { font-size: 32px; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="logo">🧠 Musk Collective</a>
+      <nav>
+        <a href="/">首页</a>
+        <a href="/zh/knowledge-base/" class="active">知识库</a>
+        <a href="/zh/reports/">报告</a>
+        <a href="/zh/about.html">关于</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="page-header">
+        <h1>👥 KOL 策略分析</h1>
+        <p>11 位 Polymarket 顶级交易者的完整方法论与实战策略</p>
+      </div>
+
+      <!-- 顶级 KOL -->
+      <section class="section">
+        <h2 class="section-title">🌟 顶级 KOL</h2>
+        <div class="grid">
+          <a href="/zh/knowledge-base/kol/vladic_eth/" class="card">
+            <div class="card-icon">🧠</div>
+            <div class="card-title">@vladic_eth</div>
+            <div class="card-desc">Polymarket 系统化交易框架：5 种交易原型完整方法论</div>
+            <span class="tag">系统化交易</span>
+          </a>
+
+          <a href="/zh/knowledge-base/kol/noisyb0y1/" class="card">
+            <div class="card-icon">🎯</div>
+            <div class="card-title">@noisyb0y1</div>
+            <div class="card-desc">Fast-Loop、5 分钟 BTC、Clawdbot 跟单策略</div>
+            <span class="tag">+$386K/月</span>
+          </a>
+
+          <a href="/zh/knowledge-base/kol/ayi_ainotes/" class="card">
+            <div class="card-icon">📊</div>
+            <div class="card-title">@AYi_AInotes</div>
+            <div class="card-desc">OpenClaw Workflow 完整交易体系</div>
+            <span class="tag">系统化</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- 数据驱动型 -->
+      <section class="section">
+        <h2 class="section-title">📈 数据驱动型</h2>
+        <div class="grid">
+          <a href="/zh/knowledge-base/kol/rohonchain/" class="card">
+            <div class="card-icon">🔬</div>
+            <div class="card-title">@RohOnChain</div>
+            <div class="card-desc">400 万交易数据驱动的对冲基金方法论</div>
+            <span class="tag">数据科学</span>
+          </a>
+
+          <a href="/zh/knowledge-base/kol/0xchainmind/" class="card">
+            <div class="card-icon">🧮</div>
+            <div class="card-title">@0xChainMind</div>
+            <div class="card-desc">链上数据分析与市场预测</div>
+            <span class="tag">链上分析</span>
+          </a>
+
+          <a href="/zh/knowledge-base/kol/dmitriyungarov/" class="card">
+            <div class="card-icon">💼</div>
+            <div class="card-title">@DmitriyUngarov</div>
+            <div class="card-desc">50 盈利钱包清单与追踪策略</div>
+            <span class="tag">鲸鱼追踪</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- 策略型 -->
+      <section class="section">
+        <h2 class="section-title">🎲 策略型</h2>
+        <div class="grid">
+          <a href="/zh/knowledge-base/kol/cutnpaste4/" class="card">
+            <div class="card-icon">📈</div>
+            <div class="card-title">@cutnpaste4</div>
+            <div class="card-desc">Crypto Up/Down 市场完全指南</div>
+            <span class="tag">延迟套利</span>
+          </a>
+
+          <a href="/zh/knowledge-base/kol/molt-cornelius/" class="card">
+            <div class="card-icon">🤖</div>
+            <div class="card-title">@molt_cornelius</div>
+            <div class="card-desc">AI 交易笔记系统与自动化</div>
+            <span class="tag">AI 交易</span>
+          </a>
+
+          <a href="/zh/knowledge-base/kol/runes-leo/" class="card">
+            <div class="card-icon">⚡</div>
+            <div class="card-title">@runes_leo</div>
+            <div class="card-desc">Pre-Market No 策略分析</div>
+            <span class="tag">高频</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- 其他 KOL -->
+      <section class="section">
+        <h2 class="section-title">📚 其他 KOL</h2>
+        <div class="grid">
+          <a href="/zh/knowledge-base/kol/aleiahlock/" class="card">
+            <div class="card-icon">💡</div>
+            <div class="card-title">@aleiahlock</div>
+            <div class="card-desc">BTC 15 分钟交易机器人教程</div>
+            <span class="tag">机器人交易</span>
+          </a>
+
+          <a href="/zh/knowledge-base/kol/edwordkaru/" class="card">
+            <div class="card-icon">📊</div>
+            <div class="card-title">@edwordkaru</div>
+            <div class="card-desc">市场分析与交易心得</div>
+            <span class="tag">分析</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- 统计 -->
+      <div style="background: var(--surface); border-radius: 18px; padding: 32px; margin-top: 60px; text-align: center;">
+        <h3 style="font-size: 24px; font-weight: 600; margin-bottom: 16px;">📊 总计</h3>
+        <p style="font-size: 48px; font-weight: 600; color: var(--accent); margin-bottom: 8px;">11</p>
+        <p style="font-size: 15px; color: var(--text-secondary);">位 KOL 策略分析</p>
+        <p style="font-size: 14px; color: var(--text-secondary); margin-top: 24px;">
+          最后更新：<time datetime="2026-03-08">2026-03-08</time>
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>
+        <time datetime="2026-03-08">最后更新：2026-03-08</time>
+        · 
+        <a href="https://github.com/RobinZorro86/polymarket-reporter">GitHub</a>
+        ·
+        <a href="https://vercel.com/robinzorro86s-projects/polymarket-reporter">Vercel</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

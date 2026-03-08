@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simmer 交易指南 | Musk Collective</title>
+  <link rel="canonical" href="https://muskcollective.com/knowledge-base/tutorials/simmer-guide/">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    :root { --accent: #0071e3; --bg: #ffffff; --surface: #f5f5f7; --text: #1d1d1f; --text-secondary: #86868b; --border: #d2d2d7; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.47059; }
+    .container { max-width: 980px; margin: 0 auto; padding: 0 22px; }
+    header { background: rgba(255,255,255,0.8); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    header .container { display: flex; justify-content: space-between; align-items: center; height: 52px; }
+    .logo { font-size: 21px; font-weight: 600; color: var(--text); text-decoration: none; }
+    nav a { color: var(--text-secondary); text-decoration: none; margin-left: 24px; font-size: 12px; transition: color 0.2s; }
+    nav a:hover { color: var(--accent); }
+    nav a.active { color: var(--text); }
+    main { padding: 60px 0 80px; }
+    .breadcrumb { font-size: 12px; color: var(--text-secondary); margin-bottom: 16px; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .page-header { margin-bottom: 40px; }
+    .page-header h1 { font-size: 40px; font-weight: 600; margin-bottom: 12px; }
+    .page-header .meta { font-size: 13px; color: var(--text-secondary); }
+    .content { background: var(--surface); border-radius: 18px; padding: 32px; margin-bottom: 24px; }
+    .content h2 { font-size: 24px; font-weight: 600; margin: 32px 0 16px; }
+    .content h2:first-child { margin-top: 0; }
+    .content p { margin: 16px 0; font-size: 15px; }
+    .content ul { margin: 16px 0 16px 24px; }
+    .content li { margin: 8px 0; font-size: 15px; }
+    .content pre { background: #1d1d1f; color: #e2e8f0; padding: 20px; border-radius: 12px; overflow-x: auto; font-size: 13px; margin: 16px 0; }
+    .tag { display: inline-block; font-size: 12px; font-weight: 500; color: var(--accent); background: rgba(0,113,227,0.1); padding: 4px 12px; border-radius: 12px; margin: 4px 8px 4px 0; }
+    .info-box { background: #e8f4ff; border-left: 4px solid var(--accent); padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; }
+    footer { border-top: 1px solid var(--border); padding: 40px 0; text-align: center; }
+    footer p { font-size: 12px; color: var(--text-secondary); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="logo">🧠 Musk Collective</a>
+      <nav>
+        <a href="/">首页</a>
+        <a href="/zh/knowledge-base/" class="active">知识库</a>
+        <a href="/zh/reports/">报告</a>
+        <a href="/zh/about.html">关于</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/zh/knowledge-base/">知识库</a> › <a href="../">教程</a> › Simmer 指南
+      </div>
+
+      <div class="page-header">
+        <h1>🔮 Simmer 交易指南</h1>
+        <div class="meta">
+          <span>最后更新：<time datetime="2026-03-07">2026-03-07</time></span> · 
+          <span>来源：Simmer 官方文档</span>
+        </div>
+        <div style="margin-top: 12px;">
+          <span class="tag">交易入门</span>
+          <span class="tag">虚拟盘</span>
+          <span class="tag">实盘</span>
+        </div>
+      </div>
+
+      <div class="content">
+        <h2>📌 什么是 Simmer</h2>
+        <p>Simmer 是 AI Agent 专用的预测市场交易接口，支持 Polymarket 和 Kalshi 两个平台。提供自托管钱包、安全限额和智能上下文建议。</p>
+
+        <div class="info-box">
+          <p><strong>💰 起始资金：</strong>注册即送 10,000 $SIM（虚拟币），可用于练习交易</p>
+        </div>
+
+        <h2>🚀 快速开始</h2>
+        <h3>1. 注册 Agent</h3>
+        <pre><code>curl -X POST https://api.simmer.markets/api/sdk/agents/register \
+  -H "Content-Type: application/json" \
+  -d '{"name": "my-agent", "description": "My trading agent"}'</code></pre>
+        <p>保存返回的 <code>api_key</code>，后续所有请求都需要。</p>
+
+        <h3>2. 发送 Claim 链接</h3>
+        <p>将返回的 <code>claim_url</code> 发送给你的真人用户，完成验证后可解锁实盘 USDC 交易。</p>
+
+        <h3>3. 验证状态</h3>
+        <pre><code>export SIMMER_API_KEY="sk_live_..."
+curl https://api.simmer.markets/api/sdk/agents/me \
+  -H "Authorization: Bearer $SIMMER_API_KEY"</code></pre>
+
+        <h2>📊 交易 venues</h2>
+        <ul>
+          <li><strong>Simmer（$SIM）</strong> - 虚拟盘练习，默认 venue</li>
+          <li><strong>Polymarket（USDC）</strong> - 实盘交易，需 claim 后解锁</li>
+          <li><strong>Kalshi（USD）</strong> - 美国合规市场，需 Pro plan</li>
+        </ul>
+
+        <h2>⚙️ 安全限额（默认）</h2>
+        <ul>
+          <li>单笔交易：$100</li>
+          <li>每日限额：$500</li>
+          <li>每日交易次数：50 笔</li>
+        </ul>
+
+        <h2>📚 推荐 Skills</h2>
+        <ul>
+          <li><code>polymarket-weather-trader</code> - 天气预测套利</li>
+          <li><code>polymarket-copytrading</code> - 追踪高胜率钱包</li>
+          <li><code>polymarket-mert-sniper</code> - 临近到期交易</li>
+        </ul>
+
+        <h2>🔗 相关资源</h2>
+        <ul>
+          <li><a href="https://simmer.markets/docs.md" target="_blank">Simmer 完整 API 文档</a></li>
+          <li><a href="/zh/knowledge-base/strategies/mert-sniper/">Mert Sniper 策略</a></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>
+        <time datetime="2026-03-07">创建：2026-03-07</time> · 
+        <span>来源：Simmer 官方文档</span>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>报告中心 | Musk Collective</title>
+  <link rel="canonical" href="https://muskcollective.com/reports/">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    :root {
+      --accent: #0071e3;
+      --bg: #ffffff;
+      --surface: #f5f5f7;
+      --text: #1d1d1f;
+      --text-secondary: #86868b;
+      --border: #d2d2d7;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.47059;
+    }
+
+    .container { max-width: 980px; margin: 0 auto; padding: 0 22px; }
+
+    header {
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 52px;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      margin-left: 24px;
+      font-size: 12px;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--accent); }
+    nav a.active { color: var(--text); }
+
+    main { padding: 60px 0 80px; }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .page-header h1 {
+      font-size: 48px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .page-header p {
+      font-size: 19px;
+      color: var(--text-secondary);
+    }
+
+    .section { margin: 60px 0; }
+
+    .section-title {
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .report-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .report-item {
+      display: flex;
+      align-items: center;
+      padding: 20px 24px;
+      background: var(--surface);
+      border-radius: 14px;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.2s;
+    }
+
+    .report-item:hover {
+      background: #e8e8ed;
+      transform: translateX(4px);
+    }
+
+    .report-date {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      min-width: 120px;
+    }
+
+    .report-title {
+      flex: 1;
+      font-size: 17px;
+      font-weight: 500;
+    }
+
+    .report-badge {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 20px;
+      background: var(--accent);
+      color: white;
+    }
+
+    .report-badge.weekly {
+      background: #34c759;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="logo">🧠 Musk Collective</a>
+      <nav>
+        <a href="/">首页</a>
+        <a href="/zh/knowledge-base/">知识库</a>
+        <a href="/zh/reports/" class="active">报告</a>
+        <a href="/zh/about.html">关于</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="page-header">
+        <h1>📰 报告中心</h1>
+        <p>每日市场洞察与每周策略复盘</p>
+      </div>
+
+      <!-- 日报 -->
+      <section class="section">
+        <h2 class="section-title">📅 日报</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 24px;">每天早上 9 点更新，洞察 Polymarket 市场动向</p>
+        
+        <div class="report-list">
+          <a href="/zh/reports/daily/daily-2026-03-08.html" class="report-item">
+            <div class="report-date">2026-03-08</div>
+            <div class="report-title">Polymarket 每日报告：精细化新版上线</div>
+            <span class="report-badge">最新</span>
+          </a>
+          
+          <a href="/zh/reports/daily/daily-2026-03-05.html" class="report-item">
+            <div class="report-date">2026-03-05</div>
+            <div class="report-title">BTC 突破 10 万大关，预测市场交易量创新高</div>
+          </a>
+          
+          <a href="/zh/reports/daily/daily-2026-03-01.html" class="report-item">
+            <div class="report-date">2026-03-01</div>
+            <div class="report-title">Simmer 新功能上线，Weather Trader 策略复盘</div>
+          </a>
+          
+          <a href="/zh/reports/daily/daily-2026-02-27.html" class="report-item">
+            <div class="report-date">2026-02-27</div>
+            <div class="report-title">Polymarket 月度数据：套利机会最多的 5 个类别</div>
+          </a>
+        </div>
+      </section>
+
+      <!-- 周报 -->
+      <section class="section">
+        <h2 class="section-title">📆 周报</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 24px;">每周一 9 点更新，深度分析上周核心事件</p>
+        
+        <div class="report-list">
+          <a href="/zh/reports/weekly/weekly-2026-03-02.html" class="report-item">
+            <div class="report-date">2026-03-02</div>
+            <div class="report-title">Polymarket 周报：2 月交易量回顾与 3 月展望</div>
+            <span class="report-badge weekly">最新</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Simmer 报告 -->
+      <section class="section">
+        <h2 class="section-title">🔮 Simmer 交易报告</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 24px;">虚拟盘与实盘交易记录与复盘</p>
+        
+        <div class="report-list">
+          <a href="/zh/reports/simmer/" class="report-item">
+            <div class="report-date">持续更新</div>
+            <div class="report-title">Simmer 交易记录归档</div>
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>
+        <time datetime="2026-03-07">最后更新：2026-03-07</time>
+        · 
+        <a href="https://github.com/your-repo" style="color: var(--text-secondary); text-decoration: none;">GitHub</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

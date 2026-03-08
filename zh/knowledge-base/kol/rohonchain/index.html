@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@RohOnChain 策略分析 | Musk Collective</title>
+  <link rel="canonical" href="https://muskcollective.com/knowledge-base/kol/rohonchain/">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    :root { --accent: #0071e3; --bg: #ffffff; --surface: #f5f5f7; --text: #1d1d1f; --text-secondary: #86868b; --border: #d2d2d7; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.47059; }
+    .container { max-width: 980px; margin: 0 auto; padding: 0 22px; }
+    header { background: rgba(255,255,255,0.8); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    header .container { display: flex; justify-content: space-between; align-items: center; height: 52px; }
+    .logo { font-size: 21px; font-weight: 600; color: var(--text); text-decoration: none; }
+    nav a { color: var(--text-secondary); text-decoration: none; margin-left: 24px; font-size: 12px; transition: color 0.2s; }
+    nav a:hover { color: var(--accent); }
+    nav a.active { color: var(--text); }
+    main { padding: 60px 0 80px; }
+    .breadcrumb { font-size: 12px; color: var(--text-secondary); margin-bottom: 16px; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .page-header { margin-bottom: 40px; }
+    .page-header h1 { font-size: 40px; font-weight: 600; margin-bottom: 12px; }
+    .page-header .meta { font-size: 13px; color: var(--text-secondary); }
+    .content { background: var(--surface); border-radius: 18px; padding: 32px; margin-bottom: 24px; }
+    .content h2 { font-size: 24px; font-weight: 600; margin: 32px 0 16px; }
+    .content h2:first-child { margin-top: 0; }
+    .content p { margin: 16px 0; font-size: 15px; }
+    .content ul, .content ol { margin: 16px 0 16px 24px; }
+    .content li { margin: 8px 0; font-size: 15px; }
+    .content pre { background: #1d1d1f; color: #e2e8f0; padding: 20px; border-radius: 12px; overflow-x: auto; font-size: 13px; margin: 16px 0; }
+    .content code { font-family: 'SF Mono', Monaco, monospace; }
+    .tag { display: inline-block; font-size: 12px; font-weight: 500; color: var(--accent); background: rgba(0,113,227,0.1); padding: 4px 12px; border-radius: 12px; margin: 4px 8px 4px 0; }
+    .info-box { background: #e8f4ff; border-left: 4px solid var(--accent); padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; }
+    .info-box p { margin: 0; font-size: 14px; }
+    .formula-box { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin: 16px 0; font-family: 'SF Mono', monospace; font-size: 14px; }
+    .role-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 16px 0; }
+    .role-card h3 { font-size: 17px; font-weight: 600; margin-bottom: 12px; color: var(--accent); }
+    footer { border-top: 1px solid var(--border); padding: 40px 0; text-align: center; }
+    footer p { font-size: 12px; color: var(--text-secondary); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="logo">🧠 Musk Collective</a>
+      <nav>
+        <a href="/">首页</a>
+        <a href="/zh/knowledge-base/" class="active">知识库</a>
+        <a href="/zh/reports/">报告</a>
+        <a href="/zh/about.html">关于</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/zh/knowledge-base/">知识库</a> › <a href="../">KOL</a> › @RohOnChain
+      </div>
+
+      <div class="page-header">
+        <h1>📊 @RohOnChain 策略分析</h1>
+        <div class="meta">
+          <span>最后更新：<time datetime="2026-03-07">2026-03-07</time></span> · 
+          <span>来源：X.com @RohOnChain</span>
+        </div>
+        <div style="margin-top: 12px;">
+          <span class="tag">对冲基金</span>
+          <span class="tag">量化系统</span>
+          <span class="tag">机构架构</span>
+        </div>
+      </div>
+
+      <div class="content">
+        <h2>📌 核心贡献</h2>
+        <p>@RohOnChain 在流动性对冲基金担任量化后端开发，首次公开了对冲基金预测市场交易桌的完整架构、信号栈和 5 大内部策略。</p>
+
+        <div class="info-box">
+          <p><strong>💡 核心价值：</strong>这是互联网上最全面的机构预测市场操作拆解，压缩了顶级机构 3 个月实习才能学到的内容。</p>
+        </div>
+
+        <h2>🏗️ Phase 1: 交易桌架构（5 个核心角色）</h2>
+
+        <div class="role-card">
+          <h3>1. 研究层 (Research Layer)</h3>
+          <p><strong>职责：</strong>市场识别 + 概率建模</p>
+          <ul>
+            <li>寻找量化模型相对市场共识有真实优势的市场</li>
+            <li>运行贝叶斯概率更新器、校准曲面分析</li>
+            <li>构建相关市场的条件依赖图</li>
+          </ul>
+          <div class="formula-box">
+            <strong>核心工具：自定义概率引擎</strong><br>
+            P(H|E) = [P(E|H) × P(H)] / P(E)<br>
+            <small>H=假设（事件结果）, E=新证据（民调/新闻/市场变动）</small>
+          </div>
+        </div>
+
+        <div class="role-card">
+          <h3>2. 执行层 (Execution Layer)</h3>
+          <p><strong>职责：</strong>技术基础设施 + 订单执行</p>
+          <ul>
+            <li>数据工程师：WebSocket 连接、订单簿摄取、延迟监控</li>
+            <li>执行工程师：多场馆适配器、交易路由、头寸对账</li>
+            <li>技术栈：Docker、Kubernetes、Prometheus、Grafana</li>
+          </ul>
+          <p><strong>性能指标：</strong>从信号生成到订单提交平均延迟 &lt;50ms</p>
+        </div>
+
+        <div class="role-card">
+          <h3>3. 风险层 (Risk Layer)</h3>
+          <p><strong>职责：</strong>实时监控投资组合暴露</p>
+          <ul>
+            <li>头寸限制、回撤阈值（VaR 计算）</li>
+            <li>相关性聚类（滚动协方差矩阵）</li>
+            <li>情景分析（蒙特卡洛模拟）</li>
+          </ul>
+          <div class="formula-box">
+            <strong>VPIN 公式（知情交易概率）：</strong><br>
+            VPIN = |V_buy − V_sell| / (V_buy + V_sell)<br>
+            <small>当 VPIN &gt; 0.6 时，触发自动撤单（知情交易者活跃）</small>
+          </div>
+        </div>
+
+        <div class="role-card">
+          <h3>4. 策略层 (Strategy Layer)</h3>
+          <p><strong>职责：</strong>协调所有组件，确保系统达成目标</p>
+          <ul>
+            <li>定义整体架构、设置风险参数</li>
+            <li>审查回测结果（Backtrader/Zipline）</li>
+            <li>决定哪些策略上线生产及规模</li>
+          </ul>
+        </div>
+
+        <div class="role-card">
+          <h3>5. DevOps 层</h3>
+          <p><strong>职责：</strong>基础设施 provisioning + 维护</p>
+          <ul>
+            <li>AWS/GCP 配置、HashiCorp Vault 管理密钥</li>
+            <li>维护 99.9% 正常运行时间</li>
+            <li>运行自有 Polygon/Solana 节点（避免第三方可靠性问题）</li>
+          </ul>
+        </div>
+
+        <h2>📡 Phase 2: 信号栈（4 层数据输入）</h2>
+
+        <h3>1. 市场微观结构数据</h3>
+        <ul>
+          <li>订单簿深度、买卖价差、交易攻击性、交易量不平衡</li>
+          <li><strong>关键指标：</strong>有效价差 = 2 × |交易价格 − 中间价|</li>
+          <li>有效价差 &lt;0.5% = 深度流动性；&gt;2% = 高逆向选择风险</li>
+        </ul>
+
+        <h3>2. 宏观与事件数据</h3>
+        <ul>
+          <li>民调数据：FiveThirtyEight、RealClearPolitics</li>
+          <li>经济指标：Bloomberg Terminal、FRED API</li>
+          <li>突发新闻：Reuters、Bloomberg（亚秒级延迟）</li>
+          <li><strong>LLM 分类器：</strong>使用 Claude/GPT 将新闻分类并提取结构化数据</li>
+        </ul>
+
+        <h3>3. 链上数据</h3>
+        <ul>
+          <li>运行自有 Polygon 节点，获得内存池可见性</li>
+          <li>工具：Alchemy/QuickNode、Etherscan API、web3.py</li>
+          <li>监控鲸鱼钱包活动（大额头寸移动）</li>
+        </ul>
+
+        <h3>4. 外部信号与跨场馆数据</h3>
+        <ul>
+          <li>体育市场：Pinnacle、Bet365、DraftKings（OddsJam 聚合）</li>
+          <li>政治市场：Betfair、Smarkets（通常领先 Polymarket 几分钟）</li>
+          <li><strong>套利窗口：</strong>当体育book 从 55% 移动到 62% 但 Polymarket 仍显示 54% = 8% 可交易差距</li>
+        </ul>
+
+        <h2>🧠 Phase 3: 概率建模引擎</h2>
+
+        <h3>1. 贝叶斯网络</h3>
+        <p>表示市场间的条件依赖。如果"拜登赢得普选票"60% 概率，"拜登赢得选举人团"55% 概率，但两者通过州级结果逻辑连接，网络强制执行一致性并在违反时标记套利。</p>
+
+        <h3>2. 校准曲面</h3>
+        <p>历史分析显示不同价格水平（10%/30%/50%/70%/90%）与实际发生频率的偏差：</p>
+        <ul>
+          <li>Polymarket 10% 定价的市场实际只有 6% 发生 → <strong>4% 系统性高估</strong></li>
+          <li>可通过系统性做空低概率结果获利</li>
+        </ul>
+
+        <h3>3. LLM 事件分类器</h3>
+        <p>使用 Claude/GPT 解析市场解决标准，将新闻分类为相关/无关，防止噪音数据产生假信号。</p>
+
+        <h2>💰 Phase 4: 完整交易生命周期（含数学框架）</h2>
+
+        <h3>步骤 1: 市场识别</h3>
+        <div class="formula-box">
+          <strong>公平价值计算（Black-Scholes 二元期权定价）：</strong><br>
+          Fair Value = N(d₁)<br>
+          d₁ = [ln(S/K) + (r + σ²/2)×T] / (σ√T)<br>
+          <small>S=当前 BTC 价格, K=行权价, T=到期时间, σ=隐含波动率, r=无风险利率</small>
+        </div>
+        <p><strong>示例：</strong>公平价值 38.2% vs 市场价 52% → <strong>13.8% 错误定价</strong></p>
+
+        <h3>步骤 2: 约束验证</h3>
+        <p>检查逻辑依赖：P(95K) ≥ P(100K) ≥ P(105K)</p>
+        <p>如果违反（如 95K 市场 48% 而 100K 市场 52%），存在套利：买入 95K + 做空 100K，无论结果如何都保证盈利。</p>
+
+        <h3>步骤 3: 仓位 sizing（经验凯利公式）</h3>
+        <div class="formula-box">
+          <strong>传统凯利：</strong> f = (p × b − q) / b<br>
+          <strong>经验凯利调整：</strong> f_empirical = f_kelly × (1 − CV_edge)<br>
+          <small>CV_edge = 边缘估计的变异系数（蒙特卡洛模拟得出）</small>
+        </div>
+        <p><strong>示例：</strong>标准凯利 24% → 经验调整后 15.6%（$7,800 仓位 / $50K 配置）</p>
+
+        <h3>步骤 4: VWAP 优化执行</h3>
+        <p>不立即市价卖出$7,800（会推动价格反向）。使用 VWAP 执行：</p>
+        <div class="formula-box">
+          VWAP = Σ(价格_i × 成交量_i) / Σ(成交量_i)
+        </div>
+        <p>订单分成小块，在 15 分钟窗口内以多个价格水平放置，目标 80% 仓位在入场价 0.5% 内执行。</p>
+
+        <h3>步骤 5: 实时 VaR 风险监控</h3>
+        <div class="formula-box">
+          VaR = 投资组合价值 × Z 分数 × σ × √T<br>
+          <small>95% 置信度 (Z=1.96), 30 天 horizon, σ=12% → VaR = $40,782</small>
+        </div>
+        <p>95% 置信度下，未来 30 天损失不超过$40,782。如果实际回撤接近阈值，系统自动停止新仓位。</p>
+
+        <h3>步骤 6: 时间衰减管理退出</h3>
+        <p>不持有至到期（除非优势证明结算风险合理）。随着到期临近，市场越来越容易受知情交易者影响。</p>
+        <ul>
+          <li><strong>目标退出：</strong>优势压缩至&lt;3% 或剩余时间&lt;48 小时</li>
+          <li><strong>最终收益：</strong>$1,092 / $7,800 = 14% 回报（8 小时持有期）</li>
+        </ul>
+
+        <h2>🎯 Phase 5: 5 大内部策略（大多数人从未见过）</h2>
+
+        <h3>策略 1: 条件套利图</h3>
+        <p>机构看到的是整个依赖图，而非单个市场。</p>
+        <div class="formula-box">
+          <strong>逻辑约束：</strong> P(赢得超级碗) ≤ P(进入联合会决赛) ≤ P(赢得分区轮)<br>
+          <strong>2025 NFL 季后赛实例：</strong>酋长超级碗 18% vs 联合会决赛 22% → 买入超级碗 + 做空联合会决赛 = 保证盈利
+        </div>
+        <p><strong>收益：</strong>2025 NFL 季后赛 alone 提取&gt;$180K</p>
+
+        <h3>策略 2: 校准曲面做空</h3>
+        <p>基于数百万交易历史数据库的系统性错误定价模式：</p>
+        <ul>
+          <li>5-15% 定价市场 → 实际发生 4-9%（高估~40%）</li>
+          <li>85-95% 定价市场 → 实际发生 91-97%（低估~2%）</li>
+        </ul>
+        <p><strong>系统性做空&lt;15% 市场：</strong>平均回报 2.8%/笔，胜率 67%，Sharpe 2.4（12 个月）</p>
+
+        <h3>策略 3: 体育book 滞后捕获</h3>
+        <p>体育book 在重大新闻（伤病/天气/阵容）后几秒内重新定价，Polymarket 需要 1-2 分钟。</p>
+        <ul>
+          <li><strong>工具：</strong>Odds API（40+ book 聚合）、OddsJam（正 EV 投注）、自定义 Telegram 机器人</li>
+          <li><strong>平均优势：</strong>4.2%/笔，执行窗口 60-120 秒，月交易量 180-220 笔</li>
+        </ul>
+
+        <h3>策略 4: 解决抢先交易</h3>
+        <p>当事件接近解决时，有人必须点击"resolve"。这些人（市场创建者或预言机提供者）可能在公众看到信息前几秒有信息。</p>
+        <ul>
+          <li>监控 Polygon 上的解决合约调用</li>
+          <li>社交媒体监控官方公告</li>
+          <li><strong>2-4 秒窗口：</strong>在市场锁定前退出仓位（使用公开可观察的区块链数据优化退出时机）</li>
+        </ul>
+
+        <h3>策略 5: 观点分歧交易</h3>
+        <p>跨场馆套利（Polymarket vs Betfair vs Opinion vs Space）：</p>
+        <ul>
+          <li>同一事件在不同场馆价格不同</li>
+          <li>同时买入低估场馆 + 做空高估场馆</li>
+          <li>对冲执行风险（不同抵押品/结算时间/流动性深度/监管管辖区）</li>
+        </ul>
+
+        <h2>🛠️ 机构技术栈</h2>
+
+        <h3>数据基础设施</h3>
+        <ul>
+          <li>TimescaleDB（时间序列订单簿数据）</li>
+          <li>Apache Kafka（100K+ 消息/秒实时摄取）</li>
+          <li>Redis（亚毫秒级市场数据缓存）</li>
+          <li>Neo4j（市场依赖关系图）</li>
+        </ul>
+
+        <h3>概率建模</h3>
+        <ul>
+          <li>Python (NumPy/SciPy/Pandas)：研究和原型</li>
+          <li>Rust：生产推理引擎（低延迟）</li>
+          <li>PyMC：贝叶斯统计建模</li>
+          <li>Stan：复杂层次模型</li>
+        </ul>
+
+        <h3>执行</h3>
+        <ul>
+          <li>CCXT：加密交易所统一 API</li>
+          <li>web3.py/ethers.js：区块链交互</li>
+          <li>自定义订单簿引擎（Rust，确定性&lt;10ms 执行）</li>
+        </ul>
+
+        <h3>风险管理</h3>
+        <ul>
+          <li>QuantLib：期权定价和风险计算</li>
+          <li>RiskMetrics：VaR 和投资组合分析</li>
+          <li>Prometheus + Grafana：100+ 指标实时监控</li>
+        </ul>
+
+        <h3>外部数据源（成本）</h3>
+        <ul>
+          <li>Bloomberg Terminal：$24K/年</li>
+          <li>Odds API：$200/月</li>
+          <li>Twitter/X API：$5K/月</li>
+        </ul>
+
+        <h2>📚 相关资源</h2>
+        <ul>
+          <li><a href="/zh/knowledge-base/kol/0xchainmind/">@0xChainMind 跟单交易教程</a></li>
+          <li><a href="/zh/knowledge-base/kol/molt-cornelius/">@molt_cornelius AI 笔记系统</a></li>
+          <li><a href="https://x.com/RohOnChain" target="_blank">@RohOnChain on X</a></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>
+        <time datetime="2026-03-07">创建：2026-03-07</time> · 
+        <span>来源：X.com @RohOnChain</span>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

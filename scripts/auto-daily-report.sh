@@ -30,8 +30,8 @@ echo "📊 Step 1: 获取 Polymarket 官方市场数据..."
 # 获取活跃市场列表（按交易量排序）
 polymarket markets list --active true --limit 50 -o json > "$REPORT_DATA_DIR/polymarket-markets-$DATE_NUM.json" 2>/dev/null
 
-# 计算市场统计数据
-python3 << PYEOF > "$REPORT_DATA_DIR/market-stats-$DATE_NUM.txt"
+# 计算市场统计数据 - 保存为 JSON 格式避免 shell 解析问题
+python3 << PYEOF > "$REPORT_DATA_DIR/market-stats-$DATE_NUM.json"
 import json
 
 try:
@@ -50,30 +50,45 @@ try:
     # 获取高交易量市场（Top 5）
     top_markets = sorted(active_markets, key=lambda x: float(x.get('volume24hr', 0) or 0), reverse=True)[:5]
     
-    print(f"ACTIVE_MARKETS={len(active_markets)}")
-    print(f"TOTAL_VOLUME={total_volume:,.0f}")
-    print(f"VOLUME_24H={volume_24h:,.0f}")
-    print(f"NEW_MARKETS=0")  # CLI 不直接提供此数据
-    print(f"SETTLED_MARKETS=0")  # CLI 不直接提供此数据
+    result = {
+        "ACTIVE_MARKETS": len(active_markets),
+        "TOTAL_VOLUME": f"{total_volume:,.0f}",
+        "VOLUME_24H": f"{volume_24h:,.0f}",
+        "NEW_MARKETS": "0",
+        "SETTLED_MARKETS": "0",
+        "TOP_MARKETS": []
+    }
     
     # 输出 Top 5 市场
     for i, m in enumerate(top_markets, 1):
         prices = json.loads(m.get('outcomePrices', '[0,0]'))
         yes_price = float(prices[0]) * 100 if len(prices) > 0 else 0
-        print(f"TOP{i}_NAME={m['question']}")
-        print(f"TOP{i}_PROB={yes_price:.1f}%")
-        print(f"TOP{i}_VOLUME={float(m.get('volume24hr', 0) or 0):,.0f}")
-        print(f"TOP{i}_SLUG={m.get('slug', '')}")
+        result["TOP_MARKETS"].append({
+            "NAME": m['question'],
+            "PROB": f"{yes_price:.1f}%",
+            "VOLUME": f"{float(m.get('volume24hr', 0) or 0):,.0f}",
+            "SLUG": m.get('slug', '')
+        })
+    
+    print(json.dumps(result, ensure_ascii=False))
         
 except Exception as e:
-    print(f"ERROR={e}")
-    print("ACTIVE_MARKETS=N/A")
-    print("TOTAL_VOLUME=N/A")
-    print("VOLUME_24H=N/A")
+    print(json.dumps({
+        "ACTIVE_MARKETS": "N/A",
+        "TOTAL_VOLUME": "N/A",
+        "VOLUME_24H": "N/A",
+        "NEW_MARKETS": "0",
+        "SETTLED_MARKETS": "0",
+        "TOP_MARKETS": [],
+        "ERROR": str(e)
+    }))
 PYEOF
 
 # 加载统计数据
-source "$REPORT_DATA_DIR/market-stats-$DATE_NUM.txt"
+MARKET_STATS=$(cat "$REPORT_DATA_DIR/market-stats-$DATE_NUM.json")
+ACTIVE_MARKETS=$(echo "$MARKET_STATS" | python3 -c "import json,sys; print(json.load(sys.stdin)['ACTIVE_MARKETS'])")
+TOTAL_VOLUME=$(echo "$MARKET_STATS" | python3 -c "import json,sys; print(json.load(sys.stdin)['TOTAL_VOLUME'])")
+VOLUME_24H=$(echo "$MARKET_STATS" | python3 -c "import json,sys; print(json.load(sys.stdin)['VOLUME_24H'])")
 
 # Step 2: 抓取 X 热点
 echo "📱 Step 2: 抓取 X 热点..."
@@ -105,9 +120,11 @@ X_DIR = "$X_SUMMARIES"
 REPORT_DIR = "$REPORTS_DIR"
 
 # 加载市场统计数据
-ACTIVE_MARKETS = "$ACTIVE_MARKETS"
-TOTAL_VOLUME = "$TOTAL_VOLUME"
-VOLUME_24H = "$VOLUME_24H"
+import json
+market_stats = json.loads(open("$REPORT_DATA_DIR/market-stats-$DATE_NUM.json").read())
+ACTIVE_MARKETS = market_stats.get('ACTIVE_MARKETS', 'N/A')
+TOTAL_VOLUME = market_stats.get('TOTAL_VOLUME', 'N/A')
+VOLUME_24H = market_stats.get('VOLUME_24H', 'N/A')
 
 # 解析 X 数据
 def parse_x_data(username, file_path):
@@ -146,12 +163,16 @@ if polymarket_tweets:
 '''
 
 # 构建 Top 5 市场 HTML
+import json
+market_stats = json.loads(open("$REPORT_DATA_DIR/market-stats-$DATE_NUM.json").read())
+top_markets = market_stats.get('TOP_MARKETS', [])
+
 top_markets_html = ""
-for i in range(1, 6):
-    name = os.environ.get(f'TOP{i}_NAME', 'N/A')
-    prob = os.environ.get(f'TOP{i}_PROB', 'N/A')
-    vol = os.environ.get(f'TOP{i}_VOLUME', 'N/A')
-    slug = os.environ.get(f'TOP{i}_SLUG', '')
+for m in top_markets:
+    name = m.get('NAME', 'N/A')
+    prob = m.get('PROB', 'N/A')
+    vol = m.get('VOLUME', 'N/A')
+    slug = m.get('SLUG', '')
     
     # 确定概率样式
     try:

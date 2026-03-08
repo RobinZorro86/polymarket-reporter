@@ -1,497 +1,203 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Musk Collective | Polymarket 套利知识库</title>
-  <meta name="description" content="Polymarket 预测市场套利策略与工具知识库。汇集 KOL 实战策略、自动化工具教程、风险管理与每日报告。">
-  <link rel="canonical" href="https://muskcollective.com/">
+  <title>PredictMarket101 | Master Prediction Markets</title>
+  <meta name="description" content="Learn prediction market trading with a structured 7-day path, curated strategies, KOL rankings, resources, and market reports.">
+  <link rel="canonical" href="https://muskcollective.com/en/">
+  <link rel="alternate" hreflang="zh" href="https://muskcollective.com/zh/">
   <link rel="stylesheet" href="/css/style.css">
   <style>
     :root {
-      --accent: #0071e3;
-      --accent-hover: #0077ed;
-      --bg: #ffffff;
-      --surface: #f5f5f7;
-      --text: #1d1d1f;
-      --text-secondary: #86868b;
-      --border: #d2d2d7;
-      --card-bg: #ffffff;
-      --shadow: 0 2px 8px rgba(0,0,0,0.04);
-      --shadow-hover: 0 8px 24px rgba(0,0,0,0.08);
+      --accent: #0071e3; --accent-hover: #0077ed; --bg: #ffffff; --surface: #f5f5f7;
+      --text: #1d1d1f; --text-secondary: #86868b; --border: #d2d2d7; --card-bg: #ffffff;
+      --shadow: 0 2px 8px rgba(0,0,0,0.04); --shadow-hover: 0 8px 24px rgba(0,0,0,0.08);
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.47059;
-      font-weight: 400;
-      letter-spacing: -0.022em;
+    body { font-family: -apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Arial,sans-serif; background: var(--bg); color: var(--text); line-height: 1.47059; letter-spacing: -0.022em; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 22px; }
+    header { background: rgba(255,255,255,0.8); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    header .container { display: flex; justify-content: space-between; align-items: center; min-height: 56px; gap: 20px; }
+    .logo { font-size: 21px; font-weight: 600; color: var(--text); text-decoration: none; white-space: nowrap; }
+    nav { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+    nav a { color: var(--text-secondary); text-decoration: none; font-size: 12px; transition: color 0.2s; }
+    nav a:hover, nav a.active { color: var(--text); }
+    .lang-switch { display: inline-flex; gap: 6px; padding: 4px; background: var(--surface); border-radius: 999px; margin-left: 8px; }
+    .lang-switch a { padding: 4px 10px; border-radius: 999px; }
+    .lang-switch a.active { background: var(--accent); color: #fff; }
+    main { padding: 48px 0 80px; }
+    .hero { text-align: center; padding: 40px 0 28px; }
+    .hero h1 { font-size: 56px; line-height: 1.05; font-weight: 700; margin-bottom: 16px; }
+    .hero .subtitle { font-size: 21px; color: var(--text-secondary); max-width: 760px; margin: 0 auto 28px; }
+    .hero-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn { display: inline-block; padding: 12px 22px; border-radius: 999px; text-decoration: none; font-size: 14px; font-weight: 600; }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent-hover); }
+    .btn-secondary { background: var(--surface); color: var(--text); }
+    section { margin: 56px 0; }
+    section h2 { font-size: 36px; margin-bottom: 12px; }
+    .section-desc { color: var(--text-secondary); margin-bottom: 24px; font-size: 17px; }
+    .feature-grid, .stats-grid, .resource-categories, .kol-preview, .report-grid { display: grid; gap: 20px; }
+    .feature-grid { grid-template-columns: repeat(3, 1fr); }
+    .stats-grid { grid-template-columns: repeat(4, 1fr); }
+    .resource-categories { grid-template-columns: repeat(3, 1fr); }
+    .kol-preview, .report-grid { grid-template-columns: repeat(2, 1fr); }
+    .feature-card, .resource-card, .kol-card, .report-card, .stat-item { background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px; padding: 24px; box-shadow: var(--shadow); text-decoration: none; color: inherit; }
+    .feature-icon, .resource-card .icon { font-size: 28px; margin-bottom: 12px; display: inline-block; }
+    .feature-card h3, .resource-card h4, .kol-card h4 { margin-bottom: 8px; }
+    .feature-card p, .resource-card p, .kol-card p, .note { color: var(--text-secondary); }
+    .day-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 14px; }
+    .day-card { background: var(--surface); border-radius: 18px; padding: 18px 14px; text-decoration: none; color: inherit; min-height: 130px; display: flex; flex-direction: column; gap: 8px; }
+    .day-number { font-size: 12px; color: var(--accent); font-weight: 600; }
+    .day-title { font-size: 18px; font-weight: 600; }
+    .day-desc { font-size: 13px; color: var(--text-secondary); }
+    .stat-number { display: block; font-size: 36px; font-weight: 700; color: var(--accent); }
+    .stat-label { color: var(--text-secondary); font-size: 13px; }
+    .score, .report-lang { display: inline-block; margin-top: 8px; font-size: 12px; color: var(--accent); font-weight: 600; }
+    .report-type { display: block; font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+    .report-date { color: var(--text-secondary); }
+    footer { border-top: 1px solid var(--border); padding: 36px 0; text-align: center; }
+    footer p { font-size: 12px; color: var(--text-secondary); margin: 6px 0; }
+    footer a { color: var(--text-secondary); text-decoration: none; }
+    @media (max-width: 900px) {
+      .feature-grid, .resource-categories, .stats-grid, .kol-preview, .report-grid { grid-template-columns: 1fr 1fr; }
+      .day-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero h1 { font-size: 42px; }
     }
-
-    .container { max-width: 980px; margin: 0 auto; padding: 0 22px; }
-
-    /* Header */
-    header {
-      background: rgba(255,255,255,0.8);
-      backdrop-filter: saturate(180%) blur(20px);
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    header .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 52px;
-    }
-
-    .logo {
-      font-size: 21px;
-      font-weight: 600;
-      color: var(--text);
-      text-decoration: none;
-      letter-spacing: -0.011em;
-    }
-
-    nav a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      margin-left: 24px;
-      font-size: 12px;
-      font-weight: 400;
-      transition: color 0.2s;
-    }
-
-    nav a:hover { color: var(--accent); }
-    nav a.active { color: var(--text); }
-
-    /* Hero */
-    .hero {
-      padding: 120px 0 80px;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: 56px;
-      line-height: 1.07143;
-      font-weight: 600;
-      letter-spacing: -0.005em;
-      margin-bottom: 18px;
-    }
-
-    .hero p {
-      font-size: 24px;
-      line-height: 1.16667;
-      font-weight: 400;
-      color: var(--text-secondary);
-      max-width: 680px;
-      margin: 0 auto;
-    }
-
-    /* Stats */
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 24px;
-      margin: 60px 0;
-    }
-
-    @media (max-width: 1024px) {
-      .stats { grid-template-columns: repeat(3, 1fr); }
-    }
-
-    .stat-card {
-      background: var(--surface);
-      border-radius: 18px;
-      padding: 32px 24px;
-      text-align: center;
-    }
-
-    .stat-card .value {
-      font-size: 48px;
-      font-weight: 600;
-      color: var(--accent);
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-
-    .stat-card .label {
-      font-size: 14px;
-      color: var(--text-secondary);
-      font-weight: 400;
-    }
-
-    /* Sections */
-    section { margin: 80px 0; }
-
-    .section-title {
-      font-size: 40px;
-      line-height: 1.1;
-      font-weight: 600;
-      letter-spacing: 0.004em;
-      margin-bottom: 12px;
-    }
-
-    .section-subtitle {
-      font-size: 19px;
-      color: var(--text-secondary);
-      margin-bottom: 40px;
-    }
-
-    /* Cards Grid */
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 24px;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 28px;
-      text-decoration: none;
-      color: inherit;
-      transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-      display: block;
-    }
-
-    .card:hover {
-      border-color: var(--accent);
-      box-shadow: var(--shadow-hover);
-      transform: translateY(-4px);
-    }
-
-    .card-icon {
-      font-size: 32px;
-      margin-bottom: 16px;
-    }
-
-    .card-title {
-      font-size: 21px;
-      line-height: 1.38096;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-
-    .card-desc {
-      font-size: 15px;
-      line-height: 1.33337;
-      color: var(--text-secondary);
-    }
-
-    .card-tag {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--accent);
-      background: rgba(0,113,227,0.1);
-      padding: 4px 12px;
-      border-radius: 12px;
-      margin-top: 16px;
-    }
-
-    /* Reports Section */
-    .report-list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .report-item {
-      display: flex;
-      align-items: center;
-      padding: 20px 24px;
-      background: var(--surface);
-      border-radius: 14px;
-      text-decoration: none;
-      color: inherit;
-      transition: all 0.2s;
-    }
-
-    .report-item:hover {
-      background: #e8e8ed;
-      transform: translateX(4px);
-    }
-
-    .report-date {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--text-secondary);
-      min-width: 120px;
-    }
-
-    .report-title {
-      flex: 1;
-      font-size: 17px;
-      font-weight: 500;
-    }
-
-    .report-badge {
-      font-size: 12px;
-      font-weight: 600;
-      padding: 6px 14px;
-      border-radius: 20px;
-      background: var(--accent);
-      color: white;
-    }
-
-    /* Footer */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 40px 0;
-      margin-top: 80px;
-    }
-
-    footer p {
-      font-size: 12px;
-      color: var(--text-secondary);
-      text-align: center;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 40px; }
-      .hero p { font-size: 19px; }
-      .stats { grid-template-columns: repeat(2, 1fr); }
-      .section-title { font-size: 32px; }
-      .cards-grid { grid-template-columns: 1fr; }
+    @media (max-width: 640px) {
+      .feature-grid, .resource-categories, .stats-grid, .kol-preview, .report-grid, .day-grid { grid-template-columns: 1fr; }
+      nav { gap: 10px; }
+      .hero h1 { font-size: 34px; }
+      .hero .subtitle { font-size: 18px; }
     }
   </style>
 </head>
 <body>
   <header>
     <div class="container">
-      <a href="/" class="logo">🧠 Musk Collective</a>
+      <a href="/en/" class="logo">📊 PredictMarket101</a>
       <nav>
-      <div class="lang-switch">
-        <a href="/" class="active">EN</a>
-        <a href="/zh/">中文</a>
-      </div>
-        <a href="/" class="active">首页</a>
-        <a href="/knowledge-base/">知识库</a>
-        <a href="/reports/">报告</a>
-        <a href="/about.html">关于</a>
+        <a href="/en/learn/">7-Day Path</a>
+        <a href="/en/strategies/">Strategies</a>
+        <a href="/en/kol/">KOL Rankings</a>
+        <a href="/en/resources/">Resources</a>
+        <a href="/zh/reports/">Reports</a>
+        <div class="lang-switch">
+          <a href="/en/" class="active">EN</a>
+          <a href="/zh/">中文</a>
+        </div>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- Hero -->
-    <section class="hero">
-      <div class="container">
-        <h1>Polymarket 套利知识库</h1>
-        <p>汇集实战策略、自动化工具与每日市场洞察，助你做出更聪明的交易决策。</p>
-      </div>
-    </section>
-
-    <!-- Stats -->
     <div class="container">
-      <div class="stats">
-        <div class="stat-card">
-          <div class="value">6</div>
-          <div class="label">策略文档</div>
+      <section class="hero">
+        <h1>Master Prediction Markets in 7 Days</h1>
+        <p class="subtitle">A simple, practical learning path for Polymarket, Kalshi, trading strategies, KOL research, and market analysis.</p>
+        <div class="hero-cta">
+          <a href="/en/learn/" class="btn btn-primary">Start Learning →</a>
+          <a href="/zh/" class="btn btn-secondary">访问中文版</a>
         </div>
-        <div class="stat-card">
-          <div class="value">4</div>
-          <div class="label">教程文档</div>
+      </section>
+
+      <section class="features">
+        <h2>Why Prediction Markets?</h2>
+        <p class="section-desc">Prediction markets combine probability, information, and execution. Done right, they become a disciplined decision system rather than pure speculation.</p>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-icon">📈</div>
+            <h3>High Liquidity</h3>
+            <p>Trade around real events with continuous pricing and active participation.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🎯</div>
+            <h3>Information Aggregation</h3>
+            <p>Market odds compress news, sentiment, and public expectations into one number.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">💰</div>
+            <h3>Arbitrage Opportunities</h3>
+            <p>Find edge from mispricing, timing, overreaction, and cross-market inefficiencies.</p>
+          </div>
         </div>
-        <div class="stat-card">
-          <div class="value">10</div>
-          <div class="label">KOL 分析</div>
+      </section>
+
+      <section class="learning-path">
+        <h2>7-Day Learning Path</h2>
+        <p class="section-desc">A simple progression from basics to execution.</p>
+        <div class="day-grid">
+          <a href="/en/learn/day1/" class="day-card"><span class="day-number">Day 1</span><span class="day-title">Basics</span><span class="day-desc">What prediction markets are</span></a>
+          <a href="/en/learn/day2/" class="day-card"><span class="day-number">Day 2</span><span class="day-title">Platforms</span><span class="day-desc">Polymarket, Kalshi, workflow</span></a>
+          <a href="/en/learn/day3/" class="day-card"><span class="day-number">Day 3</span><span class="day-title">Strategies</span><span class="day-desc">Signal sniper, weather, arb</span></a>
+          <a href="/en/learn/day4/" class="day-card"><span class="day-number">Day 4</span><span class="day-title">Tools</span><span class="day-desc">APIs, dashboards, automation</span></a>
+          <a href="/en/learn/day5/" class="day-card"><span class="day-number">Day 5</span><span class="day-title">Risk</span><span class="day-desc">Kelly, sizing, drawdown</span></a>
+          <a href="/en/learn/day6/" class="day-card"><span class="day-number">Day 6</span><span class="day-title">Advanced</span><span class="day-desc">Cross-market tactics</span></a>
+          <a href="/en/learn/day7/" class="day-card"><span class="day-number">Day 7</span><span class="day-title">Practice</span><span class="day-desc">Case studies and review</span></a>
         </div>
-        <div class="stat-card">
-          <div class="value">3</div>
-          <div class="label">日报</div>
+      </section>
+
+      <section class="stats-section">
+        <h2>Core Knowledge System</h2>
+        <div class="stats-grid">
+          <div class="stat-item"><span class="stat-number">50+</span><span class="stat-label">Strategies</span></div>
+          <div class="stat-item"><span class="stat-number">11</span><span class="stat-label">KOL Reviews</span></div>
+          <div class="stat-item"><span class="stat-number">200+</span><span class="stat-label">Resources</span></div>
+          <div class="stat-item"><span class="stat-number">Daily</span><span class="stat-label">Reports</span></div>
         </div>
-        <div class="stat-card">
-          <div class="value">V3</div>
-          <div class="label">网站版本</div>
+      </section>
+
+      <section class="kol-section">
+        <h2>Top KOL Rankings</h2>
+        <p class="section-desc">Track high-signal traders, frameworks, and strategy style.</p>
+        <div class="kol-preview">
+          <div class="kol-card">
+            <h4>@vladic_eth</h4>
+            <p>Probability arbitrage framework and structured execution.</p>
+            <span class="score">Score 9.2/10</span>
+          </div>
+          <div class="kol-card">
+            <h4>@noisyb0y1</h4>
+            <p>Verified performance and aggressive but teachable setups.</p>
+            <span class="score">Score 8.8/10</span>
+          </div>
         </div>
-      </div>
+        <a href="/en/kol/" class="btn btn-primary">View Rankings →</a>
+      </section>
+
+      <section class="reports-section">
+        <h2>Latest Reports</h2>
+        <p class="section-desc">Reports remain Chinese-first for now, with English summaries added gradually.</p>
+        <div class="report-grid">
+          <a href="/zh/reports/daily/daily-2026-03-08.html" class="report-card">
+            <span class="report-type">Daily Report</span>
+            <span class="report-date">2026-03-08</span>
+            <span class="report-lang">中文</span>
+          </a>
+          <a href="/zh/reports/weekly/weekly-2026-03-02.html" class="report-card">
+            <span class="report-type">Weekly Report</span>
+            <span class="report-date">2026-03-02</span>
+            <span class="report-lang">中文</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="resources-section">
+        <h2>Curated Resources</h2>
+        <div class="resource-categories">
+          <a href="/en/resources/apis/" class="resource-card"><span class="icon">🔌</span><h4>APIs & Tools</h4><p>Market data, scanners, dashboards, automation.</p></a>
+          <a href="/en/resources/glossary/" class="resource-card"><span class="icon">📖</span><h4>Glossary</h4><p>Core prediction market concepts explained simply.</p></a>
+          <a href="/en/resources/risk/" class="resource-card"><span class="icon">⚠️</span><h4>Risk Management</h4><p>Kelly sizing, stop-loss logic, concentration control.</p></a>
+        </div>
+      </section>
     </div>
-
-    <!-- Strategies -->
-    <section>
-      <div class="container">
-        <h2 class="section-title">📈 核心策略</h2>
-        <p class="section-subtitle">经过验证的套利方法论，从保守到激进全覆盖</p>
-        
-        <div class="cards-grid">
-          <a href="/knowledge-base/strategies/fast-loop/" class="card">
-            <div class="card-icon">⚡</div>
-            <div class="card-title">Fast-Loop</div>
-            <div class="card-desc">5 分钟 BTC  Sprint 市场高频套利，利用 CEX  momentum 信号</div>
-            <span class="card-tag">高频</span>
-          </a>
-
-          <a href="/knowledge-base/strategies/mert-sniper/" class="card">
-            <div class="card-icon">🎯</div>
-            <div class="card-title">Mert Sniper</div>
-            <div class="card-desc">临近到期市场的Conviction Trading，捕捉错误定价</div>
-            <span class="card-tag">中频</span>
-          </a>
-
-          <a href="/knowledge-base/strategies/divergence/" class="card">
-            <div class="card-icon">📊</div>
-            <div class="card-title">AI Divergence</div>
-            <div class="card-desc">发现 AI 预测价格与 Polymarket 市场价格的差异</div>
-            <span class="card-tag">数据驱动</span>
-          </a>
-
-          <a href="/knowledge-base/strategies/copytrading/" class="card">
-            <div class="card-icon">👥</div>
-            <div class="card-title">Copytrading</div>
-            <div class="card-desc">追踪高胜率 Whale 钱包，自动镜像交易</div>
-            <span class="card-tag">跟随策略</span>
-          </a>
-
-          <a href="/knowledge-base/strategies/signal-sniper/" class="card">
-            <div class="card-icon">📡</div>
-            <div class="card-title">Signal Sniper</div>
-            <div class="card-desc">事件驱动套利，快速响应突发新闻和数据发布</div>
-            <span class="card-tag">事件驱动</span>
-          </a>
-
-          <a href="/knowledge-base/strategies/weather-trader/" class="card">
-            <div class="card-icon">🌤️</div>
-            <div class="card-title">Weather Trader</div>
-            <div class="card-desc">天气预测市场套利，基于气象数据和季节性模式</div>
-            <span class="card-tag">另类数据</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Tutorials -->
-    <section style="background: var(--surface); padding: 80px 0; margin: 80px 0;">
-      <div class="container">
-        <h2 class="section-title">🛠️ 工具教程</h2>
-        <p class="section-subtitle">从零开始配置你的自动化交易系统</p>
-        
-        <div class="cards-grid">
-          <a href="/knowledge-base/tutorials/openclaw-setup/" class="card">
-            <div class="card-icon">🦞</div>
-            <div class="card-title">OpenClaw 配置</div>
-            <div class="card-desc">完整安装指南、技能配置、API 密钥管理</div>
-            <span class="card-tag">入门必备</span>
-          </a>
-
-          <a href="/knowledge-base/tutorials/simmer-guide/" class="card">
-            <div class="card-icon">🔮</div>
-            <div class="card-title">Simmer 交易</div>
-            <div class="card-desc">虚拟盘练习 → 实盘 USDC 交易完整流程</div>
-            <span class="card-tag">交易入门</span>
-          </a>
-
-          <a href="/knowledge-base/tutorials/wallet-setup/" class="card">
-            <div class="card-icon">💼</div>
-            <div class="card-title">钱包配置</div>
-            <div class="card-desc">MetaMask 配置、多链支持、安全最佳实践</div>
-            <span class="card-tag">新手必备</span>
-          </a>
-
-          <a href="/knowledge-base/tutorials/polymarket-basics/" class="card">
-            <div class="card-icon">📚</div>
-            <div class="card-title">Polymarket 基础</div>
-            <div class="card-desc">预测市场入门、订单类型、费用结构</div>
-            <span class="card-tag">入门教程</span>
-          </a>
-
-          <a href="/knowledge-base/resources/tools/" class="card">
-            <div class="card-icon">🧰</div>
-            <div class="card-title">工具清单</div>
-            <div class="card-desc">polymarket-cli、Chainstack、MCP 服务器</div>
-            <span class="card-tag">资源汇总</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Resources -->
-    <section>
-      <div class="container">
-        <h2 class="section-title">📖 资源文档</h2>
-        <p class="section-subtitle">API 文档、术语表与工具清单</p>
-        
-        <div class="cards-grid">
-          <a href="/knowledge-base/resources/apis/" class="card">
-            <div class="card-icon">🔌</div>
-            <div class="card-title">API 文档</div>
-            <div class="card-desc">Polymarket API、Simmer API、Chainstack RPC 完整参考</div>
-            <span class="card-tag">开发者</span>
-          </a>
-
-          <a href="/knowledge-base/resources/glossary/" class="card">
-            <div class="card-icon">📖</div>
-            <div class="card-title">术语表</div>
-            <div class="card-desc">预测市场、套利交易、链上术语完整解释</div>
-            <span class="card-tag">新手友好</span>
-          </a>
-
-          <a href="/knowledge-base/resources/tools/" class="card">
-            <div class="card-icon">🧰</div>
-            <div class="card-title">工具清单</div>
-            <div class="card-desc">polymarket-cli、Chainstack、MCP 服务器</div>
-            <span class="card-tag">资源汇总</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Daily Reports -->
-    <section>
-      <div class="container">
-        <h2 class="section-title">📰 每日报告</h2>
-        <p class="section-subtitle">每天早上 9 点更新，洞察市场动向</p>
-        
-        <div class="report-list">
-          <a href="/reports/daily/daily-2026-03-08.html" class="report-item">
-            <div class="report-date">2026-03-08</div>
-            <div class="report-title">Polymarket 每日报告：精细化新版上线</div>
-            <span class="report-badge">最新</span>
-          </a>
-          
-          <a href="/reports/daily/daily-2026-03-05.html" class="report-item">
-            <div class="report-date">2026-03-05</div>
-            <div class="report-title">BTC 突破 10 万大关，预测市场交易量创新高</div>
-          </a>
-          
-          <a href="/reports/daily/daily-2026-03-01.html" class="report-item">
-            <div class="report-date">2026-03-01</div>
-            <div class="report-title">Simmer 新功能上线，Weather Trader 策略复盘</div>
-          </a>
-          
-          <a href="/reports/daily/daily-2026-02-27.html" class="report-item">
-            <div class="report-date">2026-02-27</div>
-            <div class="report-title">Polymarket 月度数据：套利机会最多的 5 个类别</div>
-          </a>
-        </div>
-
-        <div style="text-align: center; margin-top: 32px;">
-          <a href="/reports/" style="display: inline-block; padding: 14px 32px; background: var(--accent); color: white; border-radius: 980px; text-decoration: none; font-size: 14px; font-weight: 500; transition: background 0.2s;">
-            查看全部报告
-          </a>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer>
     <div class="container">
-      <p>
-        <time datetime="2026-03-08">最后更新：2026-03-08</time>
-        · 
-        <a href="https://github.com/RobinZorro86/polymarket-reporter" style="color: var(--text-secondary); text-decoration: none;">GitHub</a>
-        ·
-        <a href="https://vercel.com/robinzorro86s-projects/polymarket-reporter" style="color: var(--text-secondary); text-decoration: none;">Vercel</a>
-      </p>
+      <p>PredictMarket101 · Learn prediction markets with a simple structured system.</p>
+      <p><a href="/en/about.html">About</a> · <a href="/zh/">中文</a></p>
     </div>
   </footer>
 </body>

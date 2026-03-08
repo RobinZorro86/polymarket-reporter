@@ -238,9 +238,9 @@ html = f'''<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Polymarket 每日报告 - {DATE} | Musk Collective</title>
+  <title>Polymarket 每日报告 - {DATE} | Prediction Market 101</title>
   <meta name="description" content="Polymarket 每日市场报告，包含热点事件、高概率机会、KOL 动态和全网新闻">
-  <link rel="canonical" href="https://muskcollective.com/reports/daily/daily-{DATE}.html">
+  <link rel="canonical" href="https://pred101.com/reports/daily/daily-{DATE}.html">
   <link rel="stylesheet" href="/css/style.css">
   <style>
     :root {{ --accent: #0071e3; --bg: #ffffff; --surface: #f5f5f7; --text: #1d1d1f; --text-secondary: #86868b; --border: #d2d2d7; --success: #34c759; --warning: #ff9500; --danger: #ff3b30; }}
@@ -299,7 +299,7 @@ html = f'''<!DOCTYPE html>
 <body>
   <header>
     <div class="container">
-      <a href="/" class="logo">🧠 Musk Collective</a>
+      <a href="/" class="logo">🧠 Prediction Market 101</a>
       <nav>
         <a href="/">首页</a>
         <a href="/knowledge-base/">知识库</a>
@@ -423,5 +423,5 @@ git push origin main
 
 echo ""
 echo "✅ 全自动日报生成完成！"
-echo "🌐 访问: https://muskcollective.com/reports/daily/daily-$DATE.html"
+echo "🌐 访问: https://pred101.com/reports/daily/daily-$DATE.html"
 echo "⏳ Vercel 部署中 (1-2 分钟)..."

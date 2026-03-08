@@ -174,7 +174,7 @@ git push origin main 2>&1 | tail -3
 
 echo ""
 echo "✅ 日报已自动推送到 GitHub，Vercel 将在 1-2 分钟内部署"
-echo "🌐 访问：https://muskcollective.com/reports/daily/daily-$DATE_NUM.html"
+echo "🌐 访问：https://pred101.com/reports/daily/daily-$DATE_NUM.html"
 
 # 输出 X 数据摘要
 echo "📱 X 热点预览:"

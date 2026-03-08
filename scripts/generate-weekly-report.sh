@@ -221,7 +221,7 @@ git push origin main 2>&1 | tail -3
 
 echo ""
 echo "✅ 周报已自动推送到 GitHub，Vercel 将在 1-2 分钟内部署"
-echo "🌐 访问：https://muskcollective.com/reports/weekly/weekly-$DATE_NUM.html"
+echo "🌐 访问：https://pred101.com/reports/weekly/weekly-$DATE_NUM.html"
 
 # 输出 KOL 数据摘要
 echo "📱 KOL 动态预览:"

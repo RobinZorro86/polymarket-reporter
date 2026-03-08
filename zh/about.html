@@ -1,127 +1,26 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <!-- TIMESTAMP: created=2026-02-27T10:00:00+09:00 updated=2026-03-08T08:55+09:00 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>关于 | PredictMarket101 中文站</title>
-  <meta name="description" content="关于 PredictMarket101 中文站：预测市场知识体系、策略研究、KOL 评估与自动化报告。">
-  <meta name="robots" content="index, follow">
-  
-  <link rel="canonical" href="https://muskcollective.com/zh/about.html">
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+  <title>关于 pred101 | Prediction Market 101</title>
+  <meta name="description" content="关于 pred101：Prediction Market 101 中文主站，围绕学习路径、策略库、KOL 评估与报告更新流构建的预测市场知识系统。">
+  <link rel="canonical" href="https://pred101.com/zh/about.html">
   <style>
-    :root { --accent: #0071e3; --bg: #ffffff; --surface: #f5f5f7; --text: #1d1d1f; --text-secondary: #86868b; --border: #d2d2d7; }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.47059; }
-    .container { max-width: 980px; margin: 0 auto; padding: 0 22px; }
-    header { background: rgba(255,255,255,0.8); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
-    header .container { display: flex; justify-content: space-between; align-items: center; height: 52px; }
-    .logo { font-size: 21px; font-weight: 600; color: var(--text); text-decoration: none; }
-    nav a { color: var(--text-secondary); text-decoration: none; margin-left: 24px; font-size: 12px; transition: color 0.2s; }
-    nav a:hover { color: var(--accent); }
-    nav a.active { color: var(--text); }
-    main { padding: 60px 0 80px; }
-    .page-header { margin-bottom: 40px; }
-    .page-header h1 { font-size: 48px; font-weight: 600; margin-bottom: 12px; }
-    .page-header p { font-size: 19px; color: var(--text-secondary); }
-    .content { background: var(--surface); border-radius: 18px; padding: 32px; margin-bottom: 24px; }
-    .content h2 { font-size: 24px; font-weight: 600; margin: 32px 0 16px; }
-    .content h2:first-child { margin-top: 0; }
-    .content p { margin: 16px 0; font-size: 15px; }
-    .content ul { margin: 16px 0 16px 24px; }
-    .content li { margin: 8px 0; font-size: 15px; }
-    .info-box { background: #e8f4ff; border-left: 4px solid var(--accent); padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; }
-    .info-box p { margin: 0; font-size: 14px; }
-    .warning-box { background: #fff4e6; border-left: 4px solid #ff9500; padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; }
-    footer { border-top: 1px solid var(--border); padding: 40px 0; text-align: center; }
-    footer p { font-size: 12px; color: var(--text-secondary); }
-    footer a { color: var(--text-secondary); text-decoration: none; }
-    footer a:hover { color: var(--accent); }
-    @media (max-width: 768px) {
-      .page-header h1 { font-size: 32px; }
-      .content { padding: 24px; }
-    }
+    :root { --bg:#0b1020; --surface:rgba(18,25,45,.84); --text:#f5f7ff; --text-secondary:#9ba7c4; --border:rgba(162,182,255,.14); --accent:#6f7cff; --accent-2:#38d0ff; --warning:#f59e0b; --shadow:0 20px 60px rgba(0,0,0,.35); --radius:22px; --max:1100px; }
+    *{box-sizing:border-box;margin:0;padding:0} body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at top left, rgba(111,124,255,.22), transparent 28%),linear-gradient(180deg,#08101f 0%,#0b1020 46%,#0a0f1b 100%);color:var(--text);line-height:1.6} a{text-decoration:none;color:inherit}.container{max-width:var(--max);margin:0 auto;padding:0 24px} header{position:sticky;top:0;z-index:20;backdrop-filter:blur(18px);background:rgba(8,12,24,.72);border-bottom:1px solid var(--border)} header .container{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px}.logo{font-weight:800;font-size:1.06rem;letter-spacing:-.03em}.logo .mark{color:var(--accent-2)} nav{display:flex;gap:18px;flex-wrap:wrap} nav a{color:var(--text-secondary);font-size:.95rem} nav a.active,nav a:hover{color:var(--text)} main{padding:78px 0 54px}.eyebrow{color:var(--accent-2);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px} h1{font-size:clamp(2.4rem,6vw,4.8rem);line-height:.96;letter-spacing:-.05em}.lead{margin-top:18px;color:var(--text-secondary);max-width:860px;font-size:1.08rem}.panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px}.stack{display:grid;gap:18px}.stack h2{font-size:1.35rem}.stack p,.stack li{color:var(--text-secondary)} .stack ul{padding-left:18px}.notice{background:linear-gradient(135deg, rgba(111,124,255,.16), rgba(56,208,255,.10));border:1px solid var(--border);border-radius:18px;padding:16px 18px;color:var(--text-secondary)} .warn{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.18);border-radius:18px;padding:16px 18px;color:#f8d8a2} section{padding:18px 0} footer{padding:40px 0 54px;color:var(--text-secondary)} footer .container{border-top:1px solid var(--border);padding-top:24px}
   </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <a href="/zh/" class="logo">📊 PredictMarket101</a>
-      <nav>
-        <a href="/zh/">首页</a>
-        <a href="/zh/knowledge-base/">知识库</a>
-        <a href="/zh/reports/">报告</a>
-        <a href="/zh/about.html">关于</a>
-        <div class="lang-switch">
-          <a href="/en/">EN</a>
-          <a href="/zh/" class="active">中文</a>
-        </div>
-      </nav>
-    </div>
-  </header>
-
+  <header><div class="container"><a href="/zh/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a><nav><a href="/zh/">首页</a><a href="/zh/learn/">学习路径</a><a href="/zh/knowledge-base/">知识库</a><a href="/zh/reports/">报告</a><a href="/zh/about.html" class="active">关于</a></nav></div></header>
   <main>
     <div class="container">
-      <div class="page-header">
-        <h1>关于</h1>
-        <p>PredictMarket101 中文站：预测市场知识体系、策略研究、KOL 评估与自动化报告。</p>
-      </div>
-
-      <div class="content">
-        <h2>🧠 项目简介</h2>
-        <p><strong>PredictMarket101 中文站</strong> 是一个围绕预测市场建立的系统化知识站点，聚焦学习路径、策略研究、KOL 评估、资源聚合与自动化报告。</p>
-        <p>通过多语言搜索和智能聚合，为交易者提供 Polymarket 平台的前沿动态、套利策略和风险提示。</p>
-
-        <h2>🔄 更新频率</h2>
-        <ul>
-          <li><strong>日报：</strong>隔天更新（东京时间 09:00）</li>
-          <li><strong>周报：</strong>每周一更新（东京时间 09:00）</li>
-          <li><strong>知识库：</strong>持续更新</li>
-        </ul>
-
-        <h2>📋 内容类别</h2>
-        <ul>
-          <li>前沿动态 - 平台更新、合作、新功能</li>
-          <li>行业研报 - 市场分析、竞品对比</li>
-          <li>社媒热点 - X/Reddit 等讨论</li>
-          <li>套利交易策略 - 跨平台、跨市场套利机会</li>
-          <li>风险提示 - 监管、法律、技术风险</li>
-        </ul>
-
-        <h2>🤖 技术栈</h2>
-        <ul>
-          <li><strong>OpenClaw</strong> - AI 助手框架</li>
-          <li><strong>Web Search</strong> - 多语言资讯搜索</li>
-          <li><strong>Static HTML</strong> - 静态网站生成</li>
-          <li><strong>JSON-LD</strong> - 结构化数据 SEO</li>
-        </ul>
-
-        <div class="warning-box">
-          <p><strong>⚠️ 风险声明：</strong>本网站仅提供信息聚合服务，不构成任何投资建议。预测市场涉及高风险，交易前请自行评估。</p>
-        </div>
-
-        <h2>🔗 链接</h2>
-        <ul>
-          <li><a href="https://polymarket.com" target="_blank" rel="noopener">Polymarket 官网</a></li>
-          <li><a href="https://github.com/RobinZorro86/jarvis-zorro-collab" target="_blank" rel="noopener">GitHub 协作仓库</a></li>
-          <li><a href="/sitemap.xml">网站地图</a></li>
-        </ul>
-      </div>
+      <div class="eyebrow">About · 站点意图</div>
+      <h1>pred101 的目标不是堆内容，而是建立顺序。</h1>
+      <p class="lead">Prediction Market 101 中文主站面向的是学习、研究、执行与复盘四个环节。我们不想做成一个杂乱资讯站，也不想做成一个只有文件索引的仓库，而是要把用户一步步带进正确的路径。</p>
     </div>
+    <section><div class="container stack"><div class="panel"><h2>pred101 是什么</h2><p>pred101 是围绕预测市场建立的系统化知识站点。它的核心由四层构成：学习路径、策略库、KOL 评估、报告更新流。每一层都承担不同任务，而不是互相抢位置。</p></div><div class="panel"><h2>pred101 不是什么</h2><p>它不是资讯堆砌页，不是 KOL 截图墙，也不是随手归档的链接仓库。我们的标准是：结构清楚、顺序清楚、下一步清楚。</p></div><div class="panel"><h2>当前结构</h2><ul><li>首页负责给方向，而不是给目录</li><li>学习路径负责建立顺序</li><li>知识库负责长期沉淀</li><li>报告中心负责最新更新</li><li>中文层承担更深的研究和更高频的内容更新</li></ul></div><div class="notice"><strong>语言策略：</strong>英文层负责清晰概览，中文层负责主站运营、深度归档与更完整的报告输出。</div><div class="warn"><strong>风险声明：</strong>pred101 仅用于学习、研究和信息整理，不构成任何投资建议。预测市场具有高风险，真实交易前必须自行评估并设置明确风控边界。</div></div></section>
   </main>
-
-  <footer>
-    <div class="container">
-      <p>
-        <time datetime="2026-03-08">最后更新：2026-03-08</time>
-        · 
-        <a href="https://github.com/RobinZorro86/polymarket-reporter">GitHub</a>
-        ·
-        <a href="https://vercel.com/robinzorro86s-projects/polymarket-reporter">Vercel</a>
-      </p>
-    </div>
-  </footer>
+  <footer><div class="container"><p>pred101.com · Prediction Market 101 中文主站</p></div></footer>
 </body>
 </html>

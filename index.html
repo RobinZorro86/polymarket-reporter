@@ -3,88 +3,133 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PredictMarket101 | Master Prediction Markets</title>
-  <meta name="description" content="Learn prediction market trading with a structured 7-day path, curated strategies, KOL rankings, resources, and market reports.">
-  <link rel="canonical" href="https://muskcollective.com/en/">
-  <link rel="alternate" hreflang="zh" href="https://muskcollective.com/zh/">
-  <link rel="stylesheet" href="/css/style.css">
+  <title>Prediction Market 101 | Learn Prediction Markets Systematically</title>
+  <meta name="description" content="Prediction Market 101 (pred101): a structured learning site for prediction market basics, strategies, KOL research, tools, and daily reports.">
+  <link rel="canonical" href="https://pred101.com/">
+  <link rel="alternate" hreflang="zh" href="https://pred101.com/zh/">
   <style>
     :root {
-      --accent: #0071e3; --accent-hover: #0077ed; --bg: #ffffff; --surface: #f5f5f7;
-      --text: #1d1d1f; --text-secondary: #86868b; --border: #d2d2d7; --card-bg: #ffffff;
-      --shadow: 0 2px 8px rgba(0,0,0,0.04); --shadow-hover: 0 8px 24px rgba(0,0,0,0.08);
+      --bg: #0b1020;
+      --bg-soft: #11182d;
+      --surface: rgba(18, 25, 45, 0.82);
+      --surface-strong: #141d34;
+      --text: #f5f7ff;
+      --text-secondary: #9ba7c4;
+      --border: rgba(162, 182, 255, 0.14);
+      --accent: #6f7cff;
+      --accent-2: #38d0ff;
+      --accent-3: #8b5cf6;
+      --success: #28d17c;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      --radius: 22px;
+      --max: 1180px;
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Arial,sans-serif; background: var(--bg); color: var(--text); line-height: 1.47059; letter-spacing: -0.022em; }
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 22px; }
-    header { background: rgba(255,255,255,0.8); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
-    header .container { display: flex; justify-content: space-between; align-items: center; min-height: 56px; gap: 20px; }
-    .logo { font-size: 21px; font-weight: 600; color: var(--text); text-decoration: none; white-space: nowrap; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(111,124,255,0.22), transparent 28%),
+        radial-gradient(circle at top right, rgba(56,208,255,0.15), transparent 24%),
+        linear-gradient(180deg, #08101f 0%, #0b1020 46%, #0a0f1b 100%);
+      color: var(--text);
+      line-height: 1.55;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+    header {
+      position: sticky; top: 0; z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(8, 12, 24, 0.72);
+      border-bottom: 1px solid var(--border);
+    }
+    header .container {
+      min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .logo { font-weight: 800; letter-spacing: -0.03em; font-size: 1.08rem; }
+    .logo .mark { color: var(--accent-2); }
     nav { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
-    nav a { color: var(--text-secondary); text-decoration: none; font-size: 12px; transition: color 0.2s; }
+    nav a { color: var(--text-secondary); font-size: 0.95rem; }
     nav a:hover, nav a.active { color: var(--text); }
-    .lang-switch { display: inline-flex; gap: 6px; padding: 4px; background: var(--surface); border-radius: 999px; margin-left: 8px; }
-    .lang-switch a { padding: 4px 10px; border-radius: 999px; }
-    .lang-switch a.active { background: var(--accent); color: #fff; }
-    main { padding: 48px 0 80px; }
-    .hero { text-align: center; padding: 40px 0 28px; }
-    .hero h1 { font-size: 56px; line-height: 1.05; font-weight: 700; margin-bottom: 16px; }
-    .hero .subtitle { font-size: 21px; color: var(--text-secondary); max-width: 760px; margin: 0 auto 28px; }
-    .hero-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-    .btn { display: inline-block; padding: 12px 22px; border-radius: 999px; text-decoration: none; font-size: 14px; font-weight: 600; }
-    .btn-primary { background: var(--accent); color: #fff; }
-    .btn-primary:hover { background: var(--accent-hover); }
-    .btn-secondary { background: var(--surface); color: var(--text); }
-    section { margin: 56px 0; }
-    section h2 { font-size: 36px; margin-bottom: 12px; }
-    .section-desc { color: var(--text-secondary); margin-bottom: 24px; font-size: 17px; }
-    .feature-grid, .stats-grid, .resource-categories, .kol-preview, .report-grid { display: grid; gap: 20px; }
-    .feature-grid { grid-template-columns: repeat(3, 1fr); }
-    .stats-grid { grid-template-columns: repeat(4, 1fr); }
-    .resource-categories { grid-template-columns: repeat(3, 1fr); }
-    .kol-preview, .report-grid { grid-template-columns: repeat(2, 1fr); }
-    .feature-card, .resource-card, .kol-card, .report-card, .stat-item { background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px; padding: 24px; box-shadow: var(--shadow); text-decoration: none; color: inherit; }
-    .feature-icon, .resource-card .icon { font-size: 28px; margin-bottom: 12px; display: inline-block; }
-    .feature-card h3, .resource-card h4, .kol-card h4 { margin-bottom: 8px; }
-    .feature-card p, .resource-card p, .kol-card p, .note { color: var(--text-secondary); }
-    .day-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 14px; }
-    .day-card { background: var(--surface); border-radius: 18px; padding: 18px 14px; text-decoration: none; color: inherit; min-height: 130px; display: flex; flex-direction: column; gap: 8px; }
-    .day-number { font-size: 12px; color: var(--accent); font-weight: 600; }
-    .day-title { font-size: 18px; font-weight: 600; }
-    .day-desc { font-size: 13px; color: var(--text-secondary); }
-    .stat-number { display: block; font-size: 36px; font-weight: 700; color: var(--accent); }
-    .stat-label { color: var(--text-secondary); font-size: 13px; }
-    .score, .report-lang { display: inline-block; margin-top: 8px; font-size: 12px; color: var(--accent); font-weight: 600; }
-    .report-type { display: block; font-size: 18px; font-weight: 600; margin-bottom: 8px; }
-    .report-date { color: var(--text-secondary); }
-    footer { border-top: 1px solid var(--border); padding: 36px 0; text-align: center; }
-    footer p { font-size: 12px; color: var(--text-secondary); margin: 6px 0; }
-    footer a { color: var(--text-secondary); text-decoration: none; }
-    @media (max-width: 900px) {
-      .feature-grid, .resource-categories, .stats-grid, .kol-preview, .report-grid { grid-template-columns: 1fr 1fr; }
-      .day-grid { grid-template-columns: repeat(2, 1fr); }
-      .hero h1 { font-size: 42px; }
+    .lang-switch { display: inline-flex; background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: 999px; padding: 4px; gap: 4px; }
+    .lang-switch a { padding: 6px 12px; border-radius: 999px; font-size: 0.85rem; }
+    .lang-switch a.active { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: white; }
+    .hero { padding: 86px 0 42px; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 10px; margin-bottom: 18px;
+      font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-2);
     }
-    @media (max-width: 640px) {
-      .feature-grid, .resource-categories, .stats-grid, .kol-preview, .report-grid, .day-grid { grid-template-columns: 1fr; }
-      nav { gap: 10px; }
-      .hero h1 { font-size: 34px; }
-      .hero .subtitle { font-size: 18px; }
+    .hero-grid { display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 30px; align-items: stretch; }
+    h1 { font-size: clamp(2.8rem, 7vw, 5.8rem); line-height: 0.95; letter-spacing: -0.05em; max-width: 900px; }
+    .hero p.lead { margin-top: 20px; max-width: 760px; font-size: 1.16rem; color: var(--text-secondary); }
+    .cta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 26px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      min-height: 46px; padding: 0 18px; border-radius: 999px; font-weight: 700;
+      border: 1px solid var(--border);
+    }
+    .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: white; border: none; }
+    .btn-secondary { background: rgba(255,255,255,0.04); color: var(--text); }
+    .hero-side, .panel, .card, .report-card, .path-card, .metric {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow);
+    }
+    .hero-side { padding: 24px; display: grid; gap: 16px; }
+    .hero-side .label { font-size: 0.85rem; color: var(--text-secondary); }
+    .hero-side .big { font-size: 2rem; font-weight: 800; letter-spacing: -0.04em; }
+    .mini-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; }
+    .metric { padding: 16px; }
+    .metric .value { font-size: 1.7rem; font-weight: 800; color: white; }
+    .metric .label { color: var(--text-secondary); font-size: 0.88rem; }
+    section { padding: 26px 0; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 20px; margin-bottom: 20px; }
+    .section-head h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); letter-spacing: -0.04em; }
+    .section-head p { color: var(--text-secondary); max-width: 700px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
+    .card { padding: 22px; }
+    .card .icon { font-size: 1.7rem; margin-bottom: 14px; }
+    .card h3 { font-size: 1.12rem; margin-bottom: 8px; }
+    .card p { color: var(--text-secondary); font-size: 0.95rem; }
+    .card .tag { display: inline-block; margin-top: 14px; font-size: 0.78rem; color: var(--accent-2); }
+    .path-card { padding: 22px; min-height: 180px; }
+    .path-card .step { color: var(--accent-2); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; }
+    .path-card h3 { margin-top: 12px; font-size: 1.18rem; }
+    .path-card p { margin-top: 10px; color: var(--text-secondary); font-size: 0.94rem; }
+    .report-card { padding: 22px; }
+    .report-card .type { color: var(--accent-2); font-size: 0.8rem; text-transform: uppercase; font-weight: 700; letter-spacing: 0.08em; }
+    .report-card h3 { margin-top: 10px; font-size: 1.14rem; }
+    .report-card p { margin-top: 8px; color: var(--text-secondary); }
+    .banner {
+      margin: 24px 0 8px; padding: 18px 20px; border-radius: 18px;
+      background: linear-gradient(135deg, rgba(111,124,255,0.16), rgba(56,208,255,0.10)); border: 1px solid var(--border);
+      color: var(--text-secondary);
+    }
+    footer { padding: 40px 0 54px; color: var(--text-secondary); }
+    footer .container { border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    @media (max-width: 1080px) {
+      .hero-grid, .grid-4, .grid-3 { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 760px) {
+      .hero-grid, .grid-4, .grid-3, .grid-2, .mini-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 2.7rem; }
+      header .container, .section-head { align-items: start; }
+      nav { gap: 12px; }
     }
   </style>
 </head>
 <body>
   <header>
     <div class="container">
-      <a href="/en/" class="logo">📊 PredictMarket101</a>
+      <a href="/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a>
       <nav>
-        <a href="/en/learn/">7-Day Path</a>
+        <a href="/#start" class="active">Start here</a>
         <a href="/en/strategies/">Strategies</a>
-        <a href="/en/kol/">KOL Rankings</a>
-        <a href="/en/resources/">Resources</a>
+        <a href="/en/kol/">KOLs</a>
         <a href="/zh/reports/">Reports</a>
+        <a href="/en/resources/">Resources</a>
         <div class="lang-switch">
-          <a href="/en/" class="active">EN</a>
+          <a href="/" class="active">EN</a>
           <a href="/zh/">中文</a>
         </div>
       </nav>
@@ -92,112 +137,106 @@
   </header>
 
   <main>
-    <div class="container">
-      <section class="hero">
-        <h1>Master Prediction Markets in 7 Days</h1>
-        <p class="subtitle">A simple, practical learning path for Polymarket, Kalshi, trading strategies, KOL research, and market analysis.</p>
-        <div class="hero-cta">
-          <a href="/en/learn/" class="btn btn-primary">Start Learning →</a>
-          <a href="/zh/" class="btn btn-secondary">访问中文版</a>
-        </div>
-      </section>
-
-      <section class="features">
-        <h2>Why Prediction Markets?</h2>
-        <p class="section-desc">Prediction markets combine probability, information, and execution. Done right, they become a disciplined decision system rather than pure speculation.</p>
-        <div class="feature-grid">
-          <div class="feature-card">
-            <div class="feature-icon">📈</div>
-            <h3>High Liquidity</h3>
-            <p>Trade around real events with continuous pricing and active participation.</p>
+    <section class="hero" id="start">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Prediction Market 101 · Structured learning system</div>
+          <h1>Learn prediction markets like a system, not like a feed.</h1>
+          <p class="lead">pred101 is a practical learning and research hub for prediction markets: start with the 7-day path, move into reusable strategies, study high-signal KOLs, and stay current with daily reports.</p>
+          <div class="cta-row">
+            <a href="/en/learn/" class="btn btn-primary">Start the 7-day path</a>
+            <a href="/zh/" class="btn btn-secondary">Open Chinese main site</a>
           </div>
-          <div class="feature-card">
-            <div class="feature-icon">🎯</div>
-            <h3>Information Aggregation</h3>
-            <p>Market odds compress news, sentiment, and public expectations into one number.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">💰</div>
-            <h3>Arbitrage Opportunities</h3>
-            <p>Find edge from mispricing, timing, overreaction, and cross-market inefficiencies.</p>
-          </div>
+          <div class="banner">English serves as the clean overview layer. Deep research, reports, and the richest archive remain Chinese-first for now.</div>
         </div>
-      </section>
-
-      <section class="learning-path">
-        <h2>7-Day Learning Path</h2>
-        <p class="section-desc">A simple progression from basics to execution.</p>
-        <div class="day-grid">
-          <a href="/en/learn/day1/" class="day-card"><span class="day-number">Day 1</span><span class="day-title">Basics</span><span class="day-desc">What prediction markets are</span></a>
-          <a href="/en/learn/day2/" class="day-card"><span class="day-number">Day 2</span><span class="day-title">Platforms</span><span class="day-desc">Polymarket, Kalshi, workflow</span></a>
-          <a href="/en/learn/day3/" class="day-card"><span class="day-number">Day 3</span><span class="day-title">Strategies</span><span class="day-desc">Signal sniper, weather, arb</span></a>
-          <a href="/en/learn/day4/" class="day-card"><span class="day-number">Day 4</span><span class="day-title">Tools</span><span class="day-desc">APIs, dashboards, automation</span></a>
-          <a href="/en/learn/day5/" class="day-card"><span class="day-number">Day 5</span><span class="day-title">Risk</span><span class="day-desc">Kelly, sizing, drawdown</span></a>
-          <a href="/en/learn/day6/" class="day-card"><span class="day-number">Day 6</span><span class="day-title">Advanced</span><span class="day-desc">Cross-market tactics</span></a>
-          <a href="/en/learn/day7/" class="day-card"><span class="day-number">Day 7</span><span class="day-title">Practice</span><span class="day-desc">Case studies and review</span></a>
-        </div>
-      </section>
-
-      <section class="stats-section">
-        <h2>Core Knowledge System</h2>
-        <div class="stats-grid">
-          <div class="stat-item"><span class="stat-number">50+</span><span class="stat-label">Strategies</span></div>
-          <div class="stat-item"><span class="stat-number">11</span><span class="stat-label">KOL Reviews</span></div>
-          <div class="stat-item"><span class="stat-number">200+</span><span class="stat-label">Resources</span></div>
-          <div class="stat-item"><span class="stat-number">Daily</span><span class="stat-label">Reports</span></div>
-        </div>
-      </section>
-
-      <section class="kol-section">
-        <h2>Top KOL Rankings</h2>
-        <p class="section-desc">Track high-signal traders, frameworks, and strategy style.</p>
-        <div class="kol-preview">
-          <div class="kol-card">
-            <h4>@vladic_eth</h4>
-            <p>Probability arbitrage framework and structured execution.</p>
-            <span class="score">Score 9.2/10</span>
+        <aside class="hero-side">
+          <div>
+            <div class="label">Core operating model</div>
+            <div class="big">Learn → Analyze → Execute → Review</div>
           </div>
-          <div class="kol-card">
-            <h4>@noisyb0y1</h4>
-            <p>Verified performance and aggressive but teachable setups.</p>
-            <span class="score">Score 8.8/10</span>
+          <div class="mini-grid">
+            <div class="metric"><div class="value">7</div><div class="label">Learning days</div></div>
+            <div class="metric"><div class="value">6</div><div class="label">Core strategies</div></div>
+            <div class="metric"><div class="value">11</div><div class="label">KOL reviews</div></div>
+            <div class="metric"><div class="value">Daily</div><div class="label">Report cadence</div></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Start here</h2>
+            <p>The site should tell you what to do next. These four entry points are the product, not a dumping ground of links.</p>
           </div>
         </div>
-        <a href="/en/kol/" class="btn btn-primary">View Rankings →</a>
-      </section>
-
-      <section class="reports-section">
-        <h2>Latest Reports</h2>
-        <p class="section-desc">Reports remain Chinese-first for now, with English summaries added gradually.</p>
-        <div class="report-grid">
-          <a href="/zh/reports/daily/daily-2026-03-08.html" class="report-card">
-            <span class="report-type">Daily Report</span>
-            <span class="report-date">2026-03-08</span>
-            <span class="report-lang">中文</span>
-          </a>
-          <a href="/zh/reports/weekly/weekly-2026-03-02.html" class="report-card">
-            <span class="report-type">Weekly Report</span>
-            <span class="report-date">2026-03-02</span>
-            <span class="report-lang">中文</span>
-          </a>
+        <div class="grid-4">
+          <a class="card" href="/en/learn/"><div class="icon">🧭</div><h3>7-Day Path</h3><p>The fastest structured route from basics to actual execution logic.</p><span class="tag">Best first click</span></a>
+          <a class="card" href="/en/strategies/"><div class="icon">🎯</div><h3>Strategy Library</h3><p>Reusable playbooks for signal trading, arbitrage, timing, and risk-aware setups.</p><span class="tag">Execution framework</span></a>
+          <a class="card" href="/en/kol/"><div class="icon">👥</div><h3>KOL Research</h3><p>Separate noise from real edge. Study methods, not screenshots.</p><span class="tag">Framework over hype</span></a>
+          <a class="card" href="/zh/reports/"><div class="icon">📰</div><h3>Report Center</h3><p>Chinese-first daily and weekly reports with stronger market context and curation.</p><span class="tag">Most updated content</span></a>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="resources-section">
-        <h2>Curated Resources</h2>
-        <div class="resource-categories">
-          <a href="/en/resources/apis/" class="resource-card"><span class="icon">🔌</span><h4>APIs & Tools</h4><p>Market data, scanners, dashboards, automation.</p></a>
-          <a href="/en/resources/glossary/" class="resource-card"><span class="icon">📖</span><h4>Glossary</h4><p>Core prediction market concepts explained simply.</p></a>
-          <a href="/en/resources/risk/" class="resource-card"><span class="icon">⚠️</span><h4>Risk Management</h4><p>Kelly sizing, stop-loss logic, concentration control.</p></a>
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>How pred101 is organized</h2>
+            <p>Modeled after the clarity of tutorial-first learning sites: start page, guided path, system library, then deeper archives.</p>
+          </div>
         </div>
-      </section>
-    </div>
+        <div class="grid-3">
+          <div class="card"><div class="icon">1️⃣</div><h3>Start page</h3><p>A focused homepage with one main promise and a small number of deliberate entry points.</p></div>
+          <div class="card"><div class="icon">2️⃣</div><h3>Guided path</h3><p>The learning path is the spine. It teaches concepts, tools, strategy selection, and review discipline.</p></div>
+          <div class="card"><div class="icon">3️⃣</div><h3>Operating library</h3><p>Strategies, KOLs, resources, and reports support the path instead of competing with it.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>7-day path</h2>
+            <p>Not “read everything.” Learn in the right order.</p>
+          </div>
+        </div>
+        <div class="grid-4">
+          <a class="path-card" href="/en/learn/day1/"><div class="step">Day 1</div><h3>Market basics</h3><p>What prices mean, how contracts resolve, and why probability is the real language.</p></a>
+          <a class="path-card" href="/en/learn/day2/"><div class="step">Day 2</div><h3>Platforms & workflow</h3><p>Polymarket, Kalshi, execution flow, and what actually matters operationally.</p></a>
+          <a class="path-card" href="/en/learn/day3/"><div class="step">Day 3</div><h3>Core strategies</h3><p>Start with a small number of repeatable, explainable setups.</p></a>
+          <a class="path-card" href="/en/learn/day4/"><div class="step">Day 4</div><h3>Tools & data</h3><p>APIs, scanners, news inputs, and content pipelines that support decisions.</p></a>
+          <a class="path-card" href="/en/learn/day5/"><div class="step">Day 5</div><h3>Risk management</h3><p>Position sizing, drawdown control, and when not to trade.</p></a>
+          <a class="path-card" href="/en/learn/day6/"><div class="step">Day 6</div><h3>Advanced tactics</h3><p>Cross-market thinking, timing, and edge discipline.</p></a>
+          <a class="path-card" href="/en/learn/day7/"><div class="step">Day 7</div><h3>Practice & review</h3><p>Turn research into an execution-and-review loop.</p></a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Latest reading</h2>
+            <p>Use reports for current context. Use the library for durable frameworks.</p>
+          </div>
+        </div>
+        <div class="grid-2">
+          <a class="report-card" href="/zh/reports/daily/daily-2026-03-08.html"><div class="type">Daily report</div><h3>Polymarket Daily Report · 2026-03-08</h3><p>Refined market summary, curated news, and risk framing.</p></a>
+          <a class="report-card" href="/zh/reports/weekly/weekly-2026-03-02.html"><div class="type">Weekly report</div><h3>Polymarket Weekly Report · 2026-03-02</h3><p>Longer-cycle recap, strategy framing, and key developments.</p></a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
     <div class="container">
-      <p>PredictMarket101 · Learn prediction markets with a simple structured system.</p>
-      <p><a href="/en/about.html">About</a> · <a href="/zh/">中文</a></p>
+      <p>pred101.com · Prediction Market 101</p>
+      <p><a href="/en/about.html">About</a> · <a href="/zh/">中文主站</a></p>
     </div>
   </footer>
 </body>

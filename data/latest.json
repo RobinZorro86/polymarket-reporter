@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-03-09",
+  "daily_report": {
+    "date": "2026-03-08",
+    "url": "/reports/daily/daily-2026-03-08.html",
+    "title": "Polymarket 每日报告 - 2026-03-08"
+  },
+  "weekly_report": {
+    "date": "2026-03-02",
+    "url": "/reports/weekly/weekly-2026-03-02.html",
+    "title": "Polymarket 周报 - 2026-03-02"
+  },
+  "kol_ranking": {
+    "date": "20260308",
+    "url": "/knowledge-base/kol/rankings/KOL-RANKING-20260308.md",
+    "title": "KOL 综合评估排名 - 20260308"
+  },
+  "stats": {
+    "total_reports": 4,
+    "total_kols": 11,
+    "total_strategies": 6
+  }
+}

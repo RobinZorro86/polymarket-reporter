@@ -13,7 +13,7 @@ REPORT_FILE="$REPORT_DIR/weekly-check-$DATE.md"
 # 创建报告目录
 mkdir -p "$REPORT_DIR"
 
-echo "# 🧠 Musk Collective 网站健康检查报告" > "$REPORT_FILE"
+echo "# 🧠 Prediction Market 101 网站健康检查报告" > "$REPORT_FILE"
 echo "" >> "$REPORT_FILE"
 echo "**检查时间**: $(date '+%Y-%m-%d %H:%M:%S')" >> "$REPORT_FILE"
 echo "**检查范围**: 首页、知识库、报告、关于页面" >> "$REPORT_FILE"
@@ -25,21 +25,21 @@ echo "## ✅ 1. 基础检查" >> "$REPORT_FILE"
 echo "" >> "$REPORT_FILE"
 
 # 检查网站可访问性
-if curl -s --max-time 10 https://muskcollective.com -o /dev/null; then
-  echo "- ✅ 主站可访问：https://muskcollective.com" >> "$REPORT_FILE"
+if curl -s --max-time 10 https://pred101.com -o /dev/null; then
+  echo "- ✅ 主站可访问：https://pred101.com" >> "$REPORT_FILE"
 else
-  echo "- ❌ 主站无法访问：https://muskcollective.com" >> "$REPORT_FILE"
+  echo "- ❌ 主站无法访问：https://pred101.com" >> "$REPORT_FILE"
 fi
 
 # 检查知识库
-if curl -s --max-time 10 https://muskcollective.com/knowledge-base/ -o /dev/null; then
+if curl -s --max-time 10 https://pred101.com/knowledge-base/ -o /dev/null; then
   echo "- ✅ 知识库可访问" >> "$REPORT_FILE"
 else
   echo "- ❌ 知识库无法访问" >> "$REPORT_FILE"
 fi
 
 # 检查报告页
-if curl -s --max-time 10 https://muskcollective.com/reports/ -o /dev/null; then
+if curl -s --max-time 10 https://pred101.com/reports/ -o /dev/null; then
   echo "- ✅ 报告页可访问" >> "$REPORT_FILE"
 else
   echo "- ❌ 报告页无法访问" >> "$REPORT_FILE"

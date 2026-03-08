@@ -3,159 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>知识库 | Musk Collective</title>
-  <link rel="canonical" href="https://muskcollective.com/knowledge-base/">
-  <link rel="stylesheet" href="/css/style.css">
+  <title>pred101 知识库 | Prediction Market 101</title>
+  <meta name="description" content="pred101 知识库：按学习、策略、KOL、资源、报告分层组织的 Prediction Market 101 中文知识地图。">
+  <link rel="canonical" href="https://pred101.com/zh/knowledge-base/">
   <style>
     :root {
-      --accent: #0071e3;
-      --bg: #ffffff;
-      --surface: #f5f5f7;
-      --text: #1d1d1f;
-      --text-secondary: #86868b;
-      --border: #d2d2d7;
+      --bg: #0b1020; --surface: rgba(18, 25, 45, 0.84); --text: #f5f7ff; --text-secondary: #9ba7c4;
+      --border: rgba(162, 182, 255, 0.14); --accent: #6f7cff; --accent-2: #38d0ff; --shadow: 0 20px 60px rgba(0,0,0,.35);
+      --radius: 22px; --max: 1180px;
     }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.47059;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, rgba(111,124,255,.22), transparent 28%), linear-gradient(180deg, #08101f 0%, #0b1020 46%, #0a0f1b 100%);
+      color: var(--text); line-height: 1.6;
     }
-
-    .container { max-width: 980px; margin: 0 auto; padding: 0 22px; }
-
-    header {
-      background: rgba(255,255,255,0.8);
-      backdrop-filter: saturate(180%) blur(20px);
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    header .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 52px;
-    }
-
-    .logo {
-      font-size: 21px;
-      font-weight: 600;
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    nav a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      margin-left: 24px;
-      font-size: 12px;
-      transition: color 0.2s;
-    }
-
-    nav a:hover { color: var(--accent); }
-    nav a.active { color: var(--text); }
-
-    main { padding: 60px 0 80px; }
-
-    .page-header {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-
-    .page-header h1 {
-      font-size: 48px;
-      font-weight: 600;
-      margin-bottom: 12px;
-    }
-
-    .page-header p {
-      font-size: 19px;
-      color: var(--text-secondary);
-    }
-
-    .section { margin: 60px 0; }
-
-    .section-title {
-      font-size: 32px;
-      font-weight: 600;
-      margin-bottom: 24px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
-    }
-
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+    header { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(18px); background: rgba(8,12,24,.72); border-bottom: 1px solid var(--border); }
+    header .container { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .logo { font-weight: 800; font-size: 1.06rem; letter-spacing: -0.03em; }
+    .logo .mark { color: var(--accent-2); }
+    nav { display: flex; gap: 18px; flex-wrap: wrap; }
+    nav a { color: var(--text-secondary); font-size: .95rem; }
+    nav a.active, nav a:hover { color: var(--text); }
+    main { padding: 78px 0 54px; }
+    .hero { margin-bottom: 28px; }
+    .eyebrow { color: var(--accent-2); font-size: .82rem; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 14px; }
+    h1 { font-size: clamp(2.4rem, 6vw, 4.8rem); line-height: .96; letter-spacing: -.05em; }
+    .lead { margin-top: 18px; color: var(--text-secondary); max-width: 840px; font-size: 1.08rem; }
+    .notice { margin-top: 22px; padding: 16px 18px; border-radius: 18px; background: linear-gradient(135deg, rgba(111,124,255,.16), rgba(56,208,255,.10)); border: 1px solid var(--border); color: var(--text-secondary); }
+    section { padding: 24px 0; }
+    .section-head { margin-bottom: 18px; }
+    .section-head h2 { font-size: clamp(1.6rem,4vw,2.3rem); letter-spacing: -.04em; }
+    .section-head p { color: var(--text-secondary); margin-top: 8px; }
+    .grid-4, .grid-3 { display: grid; gap: 18px; }
+    .grid-4 { grid-template-columns: repeat(4,1fr); }
+    .grid-3 { grid-template-columns: repeat(3,1fr); }
     .card {
-      background: var(--surface);
-      border-radius: 14px;
-      padding: 24px;
-      text-decoration: none;
-      color: inherit;
-      transition: all 0.2s;
-      display: block;
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow);
+      padding: 22px; min-height: 210px;
     }
-
-    .card:hover {
-      background: #e8e8ed;
-      transform: translateY(-2px);
-    }
-
-    .card-icon {
-      font-size: 28px;
-      margin-bottom: 12px;
-    }
-
-    .card-title {
-      font-size: 19px;
-      font-weight: 500;
-      margin-bottom: 8px;
-    }
-
-    .card-desc {
-      font-size: 14px;
-      color: var(--text-secondary);
-      line-height: 1.4;
-    }
-
-    .tag {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 500;
-      color: var(--accent);
-      background: rgba(0,113,227,0.1);
-      padding: 4px 10px;
-      border-radius: 10px;
-      margin-top: 12px;
-    }
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 40px 0;
-      text-align: center;
-    }
-
-    footer p {
-      font-size: 12px;
-      color: var(--text-secondary);
-    }
+    .card .icon { font-size: 1.7rem; margin-bottom: 12px; }
+    .card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+    .card p { color: var(--text-secondary); font-size: .95rem; }
+    .tag { display: inline-block; margin-top: 14px; color: var(--accent-2); font-size: .78rem; }
+    @media (max-width: 1080px) { .grid-4, .grid-3 { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 760px) { .grid-4, .grid-3 { grid-template-columns: 1fr; } }
+    footer { padding: 40px 0 54px; color: var(--text-secondary); }
+    footer .container { border-top: 1px solid var(--border); padding-top: 24px; }
   </style>
 </head>
 <body>
   <header>
     <div class="container">
-      <a href="/" class="logo">🧠 Musk Collective</a>
+      <a href="/zh/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a>
       <nav>
-        <a href="/">首页</a>
+        <a href="/zh/">首页</a>
+        <a href="/zh/learn/">学习路径</a>
         <a href="/zh/knowledge-base/" class="active">知识库</a>
         <a href="/zh/reports/">报告</a>
         <a href="/zh/about.html">关于</a>
@@ -164,280 +69,73 @@
   </header>
 
   <main>
-    <div class="container">
-      <div class="page-header">
-        <h1>📚 知识库</h1>
-        <p>策略、教程与资源的完整索引</p>
-      </div>
-
-      <!-- Step 1: 新手入门 -->
-      <section class="section">
-        <h2 class="section-title">🚀 新手入门（从这里开始）</h2>
-        <div class="grid">
-          <a href="/zh/knowledge-base/tutorials/polymarket-basics/" class="card">
-            <div class="card-icon">📖</div>
-            <div class="card-title">Polymarket 基础</div>
-            <div class="card-desc">预测市场机制、订单类型、费用结构</div>
-            <span class="tag">第一步</span>
-          </a>
-
-          <a href="/zh/knowledge-base/tutorials/wallet-setup/" class="card">
-            <div class="card-icon">👛</div>
-            <div class="card-title">钱包配置</div>
-            <div class="card-desc">Metamask、Polygon、USDC.e 完整设置</div>
-            <span class="tag">安全</span>
-          </a>
-
-          <a href="/zh/knowledge-base/tutorials/simmer-guide/" class="card">
-            <div class="card-icon">🔮</div>
-            <div class="card-title">Simmer 模拟交易</div>
-            <div class="card-desc">从虚拟盘到实盘 USDC 交易完整流程</div>
-            <span class="tag">练习</span>
-          </a>
-
-          <a href="/zh/knowledge-base/resources/risk-management/" class="card">
-            <div class="card-icon">🛡️</div>
-            <div class="card-title">风险管理</div>
-            <div class="card-desc">仓位控制、止损策略、资金管理原则</div>
-            <span class="tag">必读</span>
-          </a>
-        </div>
-      </section>
-
-      <!-- Step 2: 工具配置 -->
-      <section class="section">
-        <h2 class="section-title">🛠️ 工具配置</h2>
-        <div class="grid">
-          <a href="/zh/knowledge-base/tutorials/openclaw-setup/" class="card">
-            <div class="card-icon">🦞</div>
-            <div class="card-title">OpenClaw 完整配置</div>
-            <div class="card-desc">安装、技能配置、API 密钥管理全流程</div>
-            <span class="tag">自动化</span>
-          </a>
-
-          <a href="/zh/knowledge-base/resources/tools/" class="card">
-            <div class="card-icon">🧰</div>
-            <div class="card-title">工具清单</div>
-            <div class="card-desc">polymarket-cli、Chainstack、MCP 服务器</div>
-            <span class="tag">汇总</span>
-          </a>
-
-          <a href="/zh/knowledge-base/resources/apis/" class="card">
-            <div class="card-icon">🔌</div>
-            <div class="card-title">API 文档</div>
-            <div class="card-desc">Polymarket API、Simmer API、Chainstack RPC</div>
-            <span class="tag">开发者</span>
-          </a>
-
-          <a href="/zh/knowledge-base/resources/glossary/" class="card">
-            <div class="card-icon">📖</div>
-            <div class="card-title">术语表</div>
-            <div class="card-desc">预测市场、套利交易、链上术语完整解释</div>
-            <span class="tag">参考</span>
-          </a>
-        </div>
-      </section>
-
-      <!-- Step 3: 基础策略 -->
-      <section class="section">
-        <h2 class="section-title">📈 基础策略（新手友好）</h2>
-        <div class="grid">
-          <a href="/zh/knowledge-base/strategies/copytrading/" class="card">
-            <div class="card-icon">👥</div>
-            <div class="card-title">Copytrading</div>
-            <div class="card-desc">高胜率 Whale 钱包追踪与镜像</div>
-            <span class="tag">新手友好</span>
-          </a>
-
-          <a href="/zh/knowledge-base/strategies/mert-sniper/" class="card">
-            <div class="card-icon">🎯</div>
-            <div class="card-title">Mert Sniper</div>
-            <div class="card-desc">临近到期市场的 Conviction Trading</div>
-            <span class="tag">中频</span>
-          </a>
-
-          <a href="/zh/knowledge-base/strategies/weather-trader/" class="card">
-            <div class="card-icon">🌤️</div>
-            <div class="card-title">Weather Trader</div>
-            <div class="card-desc">基于 NOAA 数据的温度预测市场套利</div>
-            <span class="tag">Simmer</span>
-          </a>
-        </div>
-      </section>
-
-      <!-- Step 4: 进阶策略 -->
-      <section class="section">
-        <h2 class="section-title">🚀 进阶策略（需要经验）</h2>
-        <div class="grid">
-          <a href="/zh/knowledge-base/strategies/fast-loop/" class="card">
-            <div class="card-icon">⚡</div>
-            <div class="card-title">Fast-Loop</div>
-            <div class="card-desc">5 分钟 BTC Sprint 市场高频套利策略</div>
-            <span class="tag">高频</span>
-          </a>
-
-          <a href="/zh/knowledge-base/strategies/divergence/" class="card">
-            <div class="card-icon">📊</div>
-            <div class="card-title">AI Divergence</div>
-            <div class="card-desc">AI 预测与市场价格差异套利</div>
-            <span class="tag">数据驱动</span>
-          </a>
-
-          <a href="/zh/knowledge-base/strategies/signal-sniper/" class="card">
-            <div class="card-icon">📡</div>
-            <div class="card-title">Signal Sniper</div>
-            <div class="card-desc">突发新闻与市场情绪信号交易</div>
-            <span class="tag">事件驱动</span>
-          </a>
-        </div>
-      </section>
-
-      <!-- Step 5: KOL 学习 -->
-      <section class="section">
-        <h2 class="section-title">👥 KOL 策略学习</h2>
-        <div class="grid">
-          <a href="/zh/knowledge-base/kol/noisyb0y1/" class="card">
-            <div class="card-icon">🎯</div>
-            <div class="card-title">@noisyb0y1</div>
-            <div class="card-desc">Fast-Loop、5 分钟 BTC、Clawdbot 跟单策略</div>
-            <span class="tag">+$386K/月</span>
-          </a>
-
-          <a href="/zh/knowledge-base/kol/ayi_ainotes/" class="card">
-            <div class="card-icon">📊</div>
-            <div class="card-title">@AYi_AInotes</div>
-            <div class="card-desc">OpenClaw Workflow 完整交易体系</div>
-            <span class="tag">系统化</span>
-          </a>
-
-          <a href="/zh/knowledge-base/kol/cutnpaste4/" class="card">
-            <div class="card-icon">📈</div>
-            <div class="card-title">@cutnpaste4</div>
-            <div class="card-desc">Crypto Up/Down 市场完全指南</div>
-            <span class="tag">延迟套利</span>
-          </a>
-
-          <a href="/zh/knowledge-base/kol/rohonchain/" class="card">
-            <div class="card-icon">🔬</div>
-            <div class="card-title">@RohOnChain</div>
-            <div class="card-desc">400 万交易数据驱动的对冲基金方法论</div>
-            <span class="tag">数据科学</span>
-          </a>
-
-          <a href="/zh/knowledge-base/kol/vladic_eth/" class="card">
-            <div class="card-icon">🧠</div>
-            <div class="card-title">@vladic_eth</div>
-            <div class="card-desc">Polymarket 系统化交易框架：5 种交易原型完整方法论</div>
-            <span class="tag">系统化交易</span>
-          </a>
-        </div>
-        <div style="text-align: center; margin-top: 24px;">
-          <a href="/zh/knowledge-base/kol/" style="display: inline-block; padding: 12px 24px; background: var(--accent); color: white; border-radius: 980px; text-decoration: none; font-size: 14px; font-weight: 500;">
-            查看全部 11 位 KOL →
-          </a>
-        </div>
-      </section>
-
-      <!-- Step 6: 日报与复盘 -->
-      <section class="section">
-        <h2 class="section-title">📰 日报与复盘</h2>
-
-          <a href="/zh/knowledge-base/resources/apis/" class="card">
-            <div class="card-icon">🔌</div>
-            <div class="card-title">API 文档</div>
-            <div class="card-desc">Simmer、Polymarket CLOB、Chainstack</div>
-            <span class="tag">开发</span>
-          </a>
-
-          <a href="/zh/knowledge-base/resources/risk-management/" class="card">
-            <div class="card-icon">🛡️</div>
-            <div class="card-title">风险管理</div>
-            <div class="card-desc">止损、熔断、仓位管理最佳实践</div>
-            <span class="tag">风控</span>
-          </a>
-
-          <a href="/zh/knowledge-base/resources/glossary/" class="card">
-            <div class="card-icon">📝</div>
-            <div class="card-title">术语表</div>
-            <div class="card-desc">预测市场与套利交易专业术语解释</div>
-            <span class="tag">参考</span>
-          </a>
-        </div>
-      </section>
-
-      <!-- KOL 策略分析 -->
-      <section class="section">
-        <h2 class="section-title">👥 KOL 策略分析</h2>
-        <div class="grid">
-          <a href="/zh/knowledge-base/kol/noisyb0y1/" class="card">
-            <div class="card-icon">🎯</div>
-            <div class="card-title">@noisyb0y1</div>
-            <div class="card-desc">Fast-Loop、5 分钟 BTC、Clawdbot 跟单策略</div>
-            <span class="tag">+$386K/月</span>
-          </a>
-
-          <a href="/zh/knowledge-base/kol/ayi_ainotes/" class="card">
-            <div class="card-icon">📊</div>
-            <div class="card-title">@AYi_AInotes</div>
-            <div class="card-desc">OpenClaw Workflow 完整交易体系</div>
-            <span class="tag">系统化</span>
-          </a>
-
-          <a href="/zh/knowledge-base/kol/cutnpaste4/" class="card">
-            <div class="card-icon">📈</div>
-            <div class="card-title">@cutnpaste4</div>
-            <div class="card-desc">Crypto Up/Down 市场完全指南</div>
-            <span class="tag">延迟套利</span>
-          </a>
-
-          <a href="/zh/knowledge-base/kol/rohonchain/" class="card">
-            <div class="card-icon">🔬</div>
-            <div class="card-title">@RohOnChain</div>
-            <div class="card-desc">400 万交易数据驱动的对冲基金方法论</div>
-            <span class="tag">数据科学</span>
-          </a>
-
-          <a href="/zh/knowledge-base/kol/vladic_eth/" class="card">
-            <div class="card-icon">🧠</div>
-            <div class="card-title">@vladic_eth</div>
-            <div class="card-desc">Polymarket 系统化交易框架：5 种交易原型完整方法论</div>
-            <span class="tag">系统化交易</span>
-          </a>
-        </div>
-      </section>
-
-      <!-- 日报索引 -->
-      <section class="section">
-        <h2 class="section-title">📰 日报索引</h2>
-        <div class="grid">
-          <a href="/zh/reports/daily/" class="card">
-            <div class="card-icon">📅</div>
-            <div class="card-title">每日报告归档</div>
-            <div class="card-desc">完整的日报历史记录与索引</div>
-            <span class="tag">每日更新</span>
-          </a>
-
-          <a href="/zh/reports/weekly/" class="card">
-            <div class="card-icon">📆</div>
-            <div class="card-title">周报汇总</div>
-            <div class="card-desc">每周核心事件与策略复盘</div>
-            <span class="tag">每周更新</span>
-          </a>
-        </div>
-      </section>
+    <div class="container hero">
+      <div class="eyebrow">Knowledge map · Not a file dump</div>
+      <h1>知识库应该像地图，不该像仓库。</h1>
+      <p class="lead">这个页面不再承担“把所有东西列出来”的任务，而是明确地把内容组织成五层：入门、策略、KOL、资源、报告。用户来这里，应该知道自己现在处在哪一层，下一步该去哪。</p>
+      <div class="notice">最重要的设计决策：把“按文件分类”改成“按任务路径分类”。这是 pred101 从可看走向像产品的关键一步。</div>
     </div>
-  <section style="margin:40px 0;"><h2 style="font-size:28px;margin-bottom:16px;">快速入口</h2><div class="cards-grid"><a class="feature-card" href="/zh/learn/"><div class="feature-icon">🧭</div><h3>学习路径</h3><p>7 天结构化课程，从基础到实战。</p></a><a class="feature-card" href="/zh/knowledge-base/strategies/signal-sniper/"><div class="feature-icon">🎯</div><h3>策略库</h3><p>Signal Sniper、Weather Trader 等可复用策略。</p></a><a class="feature-card" href="/zh/knowledge-base/kol/rankings/"><div class="feature-icon">👥</div><h3>KOL 评估</h3><p>11 位 KOL 的系统化评分与框架分析。</p></a><a class="feature-card" href="/zh/reports/"><div class="feature-icon">📰</div><h3>报告中心</h3><p>日报、周报与自动化输出归档。</p></a></div></section>
-</main>
+
+    <section>
+      <div class="container">
+        <div class="section-head"><h2>先从哪开始</h2><p>面向第一次进入站点的用户，先解决顺序问题。</p></div>
+        <div class="grid-4">
+          <a class="card" href="/zh/learn/"><div class="icon">🧭</div><h3>学习路径</h3><p>7 天结构化学习路线，从概念到实战复盘。</p><span class="tag">默认第一步</span></a>
+          <a class="card" href="/zh/knowledge-base/tutorials/polymarket-basics/"><div class="icon">📚</div><h3>平台基础</h3><p>理解预测市场、合约、费用结构与分辨率逻辑。</p><span class="tag">理解市场</span></a>
+          <a class="card" href="/zh/knowledge-base/tutorials/wallet-setup/"><div class="icon">👛</div><h3>钱包配置</h3><p>钱包、多链、USDC 与安全实践。</p><span class="tag">执行准备</span></a>
+          <a class="card" href="/zh/knowledge-base/resources/risk-management/"><div class="icon">🛡️</div><h3>风险管理</h3><p>仓位、熔断、规则风险和不该碰的市场。</p><span class="tag">必读</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head"><h2>策略库</h2><p>策略不是越多越好，先建立有限但清晰的操作框架。</p></div>
+        <div class="grid-3">
+          <a class="card" href="/zh/knowledge-base/strategies/signal-sniper/"><div class="icon">📡</div><h3>Signal Sniper</h3><p>突发新闻与事件驱动信号后的快速定价偏差。</p><span class="tag">事件驱动</span></a>
+          <a class="card" href="/zh/knowledge-base/strategies/weather-trader/"><div class="icon">🌤️</div><h3>Weather Trader</h3><p>基于可量化天气变量的预测市场套利。</p><span class="tag">另类数据</span></a>
+          <a class="card" href="/zh/knowledge-base/strategies/fast-loop/"><div class="icon">⚡</div><h3>Fast-Loop</h3><p>高频循环、短时定价与执行纪律。</p><span class="tag">高频</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head"><h2>KOL 研究</h2><p>研究对象不是“谁厉害”，而是“谁的方法值得学”。</p></div>
+        <div class="grid-3">
+          <a class="card" href="/zh/knowledge-base/kol/rankings/"><div class="icon">🏆</div><h3>KOL 排名</h3><p>按方法、可信度、可执行性与风险适配度排序。</p><span class="tag">先看总览</span></a>
+          <a class="card" href="/zh/knowledge-base/kol/vladic_eth/"><div class="icon">🧠</div><h3>@vladic_eth</h3><p>系统化框架、交易原型与结构化执行。</p><span class="tag">框架型</span></a>
+          <a class="card" href="/zh/knowledge-base/kol/noisyb0y1/"><div class="icon">🎯</div><h3>@noisyb0y1</h3><p>高信号、高节奏、高执行密度的代表样本。</p><span class="tag">高频观察</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head"><h2>工具与资源</h2><p>让数据流、内容流和执行流真正连起来。</p></div>
+        <div class="grid-3">
+          <a class="card" href="/zh/knowledge-base/tutorials/openclaw-setup/"><div class="icon">🦞</div><h3>OpenClaw 配置</h3><p>自动化工作流、技能和研究/执行基础设施。</p><span class="tag">系统搭建</span></a>
+          <a class="card" href="/zh/knowledge-base/resources/apis/"><div class="icon">🔌</div><h3>API 文档</h3><p>Polymarket、Simmer、Chainstack 与周边工具链。</p><span class="tag">开发者</span></a>
+          <a class="card" href="/zh/knowledge-base/resources/tools/"><div class="icon">🧰</div><h3>工具清单</h3><p>CLI、面板、抓取、清洗和自动化发布工具。</p><span class="tag">基础设施</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head"><h2>报告与复盘</h2><p>知识库负责沉淀，报告负责更新。不要混成一锅。</p></div>
+        <div class="grid-3">
+          <a class="card" href="/zh/reports/"><div class="icon">📰</div><h3>报告中心</h3><p>进入每日/每周更新流，获取当前市场语境。</p><span class="tag">更新入口</span></a>
+          <a class="card" href="/zh/reports/daily/daily-2026-03-08.html"><div class="icon">📅</div><h3>最新日报</h3><p>查看最新的精炼市场日报、新闻摘要与风险提示。</p><span class="tag">最新</span></a>
+          <a class="card" href="/zh/learn/day7/"><div class="icon">♻️</div><h3>复盘模板</h3><p>用固定格式把观点、入场、退出和改进点留痕。</p><span class="tag">闭环</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
     <div class="container">
-      <p>
-        <time datetime="2026-03-08">最后更新：2026-03-08</time>
-        · 
-        <a href="https://github.com/RobinZorro86/polymarket-reporter" style="color: var(--text-secondary); text-decoration: none;">GitHub</a>
-        ·
-        <a href="https://vercel.com/robinzorro86s-projects/polymarket-reporter" style="color: var(--text-secondary); text-decoration: none;">Vercel</a>
-      </p>
+      <p>pred101.com · Prediction Market 101 知识库</p>
     </div>
   </footer>
 </body>

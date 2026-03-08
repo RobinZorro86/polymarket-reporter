@@ -1,11 +1,11 @@
-# Robots.txt for Musk Collective
-# https://muskcollective.com
+# Robots.txt for Prediction Market 101
+# https://pred101.com
 
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://muskcollective.com/sitemap.xml
+Sitemap: https://pred101.com/sitemap.xml
 
 # Crawl-delay (optional, be nice to servers)
 Crawl-delay: 1

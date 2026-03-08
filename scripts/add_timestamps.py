@@ -17,10 +17,10 @@ UPDATED = NOW.strftime("%Y-%m-%dT%H:%M+09:00")
 
 # Files with their source URLs and specific creation dates
 FILE_METADATA = {
-    "index.html": {"source": "https://muskcollective.com/", "created": "2026-02-27T10:00:00+09:00"},
-    "about.html": {"source": "https://muskcollective.com/about", "created": "2026-02-27T10:00:00+09:00"},
-    "search.html": {"source": "https://muskcollective.com/search", "created": "2026-02-27T10:00:00+09:00"},
-    "reports/index.html": {"source": "https://muskcollective.com/reports", "created": "2026-02-27T10:00:00+09:00"},
+    "index.html": {"source": "https://pred101.com/", "created": "2026-02-27T10:00:00+09:00"},
+    "about.html": {"source": "https://pred101.com/about", "created": "2026-02-27T10:00:00+09:00"},
+    "search.html": {"source": "https://pred101.com/search", "created": "2026-02-27T10:00:00+09:00"},
+    "reports/index.html": {"source": "https://pred101.com/reports", "created": "2026-02-27T10:00:00+09:00"},
     "reports/daily/daily-2026-02-27.html": {"source": "simmer API", "created": "2026-02-27T23:00:00+09:00"},
     "reports/daily/daily-2026-03-01.html": {"source": "simmer API", "created": "2026-03-01T23:00:00+09:00"},
     "reports/daily/daily-2026-03-05.html": {"source": "simmer API", "created": "2026-03-05T13:50:00+09:00"},
@@ -57,7 +57,7 @@ def process_file(filepath):
     meta = FILE_METADATA.get(relative_path, {})
     created = meta.get("created", CREATED)
     updated = UPDATED
-    source = meta.get("source", "https://muskcollective.com/")
+    source = meta.get("source", "https://pred101.com/")
     
     created_date = created.split("T")[0]
     updated_date = updated.split("T")[0]
@@ -128,7 +128,7 @@ def main():
             "title": filepath.stem.replace("-", " ").title(),
             "created": meta.get("created", CREATED),
             "updated": UPDATED,
-            "source": meta.get("source", "https://muskcollective.com/")
+            "source": meta.get("source", "https://pred101.com/")
         })
     
     import json

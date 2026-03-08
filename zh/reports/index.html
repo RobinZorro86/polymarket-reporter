@@ -3,239 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>报告中心 | Musk Collective</title>
-  <link rel="canonical" href="https://muskcollective.com/reports/">
-  <link rel="stylesheet" href="/css/style.css">
+  <title>pred101 报告中心 | Prediction Market 101</title>
+  <meta name="description" content="pred101 报告中心：Prediction Market 101 中文主站的更新流，包含日报、周报与执行记录。">
+  <link rel="canonical" href="https://pred101.com/zh/reports/">
   <style>
-    :root {
-      --accent: #0071e3;
-      --bg: #ffffff;
-      --surface: #f5f5f7;
-      --text: #1d1d1f;
-      --text-secondary: #86868b;
-      --border: #d2d2d7;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.47059;
-    }
-
-    .container { max-width: 980px; margin: 0 auto; padding: 0 22px; }
-
-    header {
-      background: rgba(255,255,255,0.8);
-      backdrop-filter: saturate(180%) blur(20px);
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    header .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 52px;
-    }
-
-    .logo {
-      font-size: 21px;
-      font-weight: 600;
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    nav a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      margin-left: 24px;
-      font-size: 12px;
-      transition: color 0.2s;
-    }
-
-    nav a:hover { color: var(--accent); }
-    nav a.active { color: var(--text); }
-
-    main { padding: 60px 0 80px; }
-
-    .page-header {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-
-    .page-header h1 {
-      font-size: 48px;
-      font-weight: 600;
-      margin-bottom: 12px;
-    }
-
-    .page-header p {
-      font-size: 19px;
-      color: var(--text-secondary);
-    }
-
-    .section { margin: 60px 0; }
-
-    .section-title {
-      font-size: 32px;
-      font-weight: 600;
-      margin-bottom: 24px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .report-list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .report-item {
-      display: flex;
-      align-items: center;
-      padding: 20px 24px;
-      background: var(--surface);
-      border-radius: 14px;
-      text-decoration: none;
-      color: inherit;
-      transition: all 0.2s;
-    }
-
-    .report-item:hover {
-      background: #e8e8ed;
-      transform: translateX(4px);
-    }
-
-    .report-date {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--text-secondary);
-      min-width: 120px;
-    }
-
-    .report-title {
-      flex: 1;
-      font-size: 17px;
-      font-weight: 500;
-    }
-
-    .report-badge {
-      font-size: 12px;
-      font-weight: 600;
-      padding: 6px 14px;
-      border-radius: 20px;
-      background: var(--accent);
-      color: white;
-    }
-
-    .report-badge.weekly {
-      background: #34c759;
-    }
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 40px 0;
-      text-align: center;
-    }
-
-    footer p {
-      font-size: 12px;
-      color: var(--text-secondary);
-    }
+    :root { --bg:#0b1020; --surface:rgba(18,25,45,.84); --text:#f5f7ff; --text-secondary:#9ba7c4; --border:rgba(162,182,255,.14); --accent:#6f7cff; --accent-2:#38d0ff; --success:#28d17c; --shadow:0 20px 60px rgba(0,0,0,.35); --radius:22px; --max:1180px; }
+    *{box-sizing:border-box;margin:0;padding:0} body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at top left, rgba(111,124,255,.22), transparent 28%),linear-gradient(180deg,#08101f 0%,#0b1020 46%,#0a0f1b 100%);color:var(--text);line-height:1.6} a{text-decoration:none;color:inherit}.container{max-width:var(--max);margin:0 auto;padding:0 24px} header{position:sticky;top:0;z-index:20;backdrop-filter:blur(18px);background:rgba(8,12,24,.72);border-bottom:1px solid var(--border)} header .container{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px}.logo{font-weight:800;font-size:1.06rem;letter-spacing:-.03em}.logo .mark{color:var(--accent-2)} nav{display:flex;gap:18px;flex-wrap:wrap} nav a{color:var(--text-secondary);font-size:.95rem} nav a.active,nav a:hover{color:var(--text)} main{padding:78px 0 54px}.eyebrow{color:var(--accent-2);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px} h1{font-size:clamp(2.4rem,6vw,4.8rem);line-height:.96;letter-spacing:-.05em}.lead{margin-top:18px;color:var(--text-secondary);max-width:860px;font-size:1.08rem}.notice{margin-top:22px;padding:16px 18px;border-radius:18px;background:linear-gradient(135deg, rgba(111,124,255,.16), rgba(56,208,255,.10));border:1px solid var(--border);color:var(--text-secondary)} section{padding:26px 0}.section-head{margin-bottom:18px}.section-head h2{font-size:clamp(1.6rem,4vw,2.3rem);letter-spacing:-.04em}.section-head p{color:var(--text-secondary);margin-top:8px}.grid-2,.grid-3{display:grid;gap:18px}.grid-2{grid-template-columns:repeat(2,1fr)}.grid-3{grid-template-columns:repeat(3,1fr)}.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}.card .type{display:inline-block;color:var(--accent-2);font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.card h3{margin-top:10px;font-size:1.1rem}.card p{margin-top:8px;color:var(--text-secondary);font-size:.95rem}.badge{display:inline-block;margin-top:12px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.06);font-size:.78rem;color:var(--text-secondary)} .badge.live{background:rgba(40,209,124,.12);color:#7ef0b0}.timeline{display:grid;gap:16px}.item{background:var(--surface);border:1px solid var(--border);border-radius:20px;box-shadow:var(--shadow);padding:20px 22px;display:grid;grid-template-columns:140px 1fr auto;gap:18px;align-items:center}.date{color:var(--text-secondary);font-size:.92rem}.title{font-size:1.04rem}.pill{padding:6px 10px;border-radius:999px;background:linear-gradient(135deg,var(--accent),var(--accent-2));font-size:.78rem;font-weight:700;color:white}@media (max-width:1080px){.grid-2,.grid-3{grid-template-columns:1fr 1fr}.item{grid-template-columns:1fr;align-items:start}}@media (max-width:760px){.grid-2,.grid-3{grid-template-columns:1fr}} footer{padding:40px 0 54px;color:var(--text-secondary)} footer .container{border-top:1px solid var(--border);padding-top:24px}
   </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <a href="/" class="logo">🧠 Musk Collective</a>
-      <nav>
-        <a href="/">首页</a>
-        <a href="/zh/knowledge-base/">知识库</a>
-        <a href="/zh/reports/" class="active">报告</a>
-        <a href="/zh/about.html">关于</a>
-      </nav>
-    </div>
-  </header>
-
+  <header><div class="container"><a href="/zh/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a><nav><a href="/zh/">首页</a><a href="/zh/learn/">学习路径</a><a href="/zh/knowledge-base/">知识库</a><a href="/zh/reports/" class="active">报告</a><a href="/zh/about.html">关于</a></nav></div></header>
   <main>
     <div class="container">
-      <div class="page-header">
-        <h1>📰 报告中心</h1>
-        <p>每日市场洞察与每周策略复盘</p>
-      </div>
-
-      <!-- 日报 -->
-      <section class="section">
-        <h2 class="section-title">📅 日报</h2>
-        <p style="color: var(--text-secondary); margin-bottom: 24px;">每天早上 9 点更新，洞察 Polymarket 市场动向</p>
-        
-        <div class="report-list">
-          <a href="/zh/reports/daily/daily-2026-03-08.html" class="report-item">
-            <div class="report-date">2026-03-08</div>
-            <div class="report-title">Polymarket 每日报告：精细化新版上线</div>
-            <span class="report-badge">最新</span>
-          </a>
-          
-          <a href="/zh/reports/daily/daily-2026-03-05.html" class="report-item">
-            <div class="report-date">2026-03-05</div>
-            <div class="report-title">BTC 突破 10 万大关，预测市场交易量创新高</div>
-          </a>
-          
-          <a href="/zh/reports/daily/daily-2026-03-01.html" class="report-item">
-            <div class="report-date">2026-03-01</div>
-            <div class="report-title">Simmer 新功能上线，Weather Trader 策略复盘</div>
-          </a>
-          
-          <a href="/zh/reports/daily/daily-2026-02-27.html" class="report-item">
-            <div class="report-date">2026-02-27</div>
-            <div class="report-title">Polymarket 月度数据：套利机会最多的 5 个类别</div>
-          </a>
-        </div>
-      </section>
-
-      <!-- 周报 -->
-      <section class="section">
-        <h2 class="section-title">📆 周报</h2>
-        <p style="color: var(--text-secondary); margin-bottom: 24px;">每周一 9 点更新，深度分析上周核心事件</p>
-        
-        <div class="report-list">
-          <a href="/zh/reports/weekly/weekly-2026-03-02.html" class="report-item">
-            <div class="report-date">2026-03-02</div>
-            <div class="report-title">Polymarket 周报：2 月交易量回顾与 3 月展望</div>
-            <span class="report-badge weekly">最新</span>
-          </a>
-        </div>
-      </section>
-
-      <!-- Simmer 报告 -->
-      <section class="section">
-        <h2 class="section-title">🔮 Simmer 交易报告</h2>
-        <p style="color: var(--text-secondary); margin-bottom: 24px;">虚拟盘与实盘交易记录与复盘</p>
-        
-        <div class="report-list">
-          <a href="/zh/reports/simmer/" class="report-item">
-            <div class="report-date">持续更新</div>
-            <div class="report-title">Simmer 交易记录归档</div>
-          </a>
-        </div>
-      </section>
+      <div class="eyebrow">Reports · 更新流</div>
+      <h1>报告中心不是归档页，而是更新流。</h1>
+      <p class="lead">pred101 的知识库负责沉淀，报告中心负责更新。日报提供当天市场语境，周报提供更长周期的框架整理，执行记录则服务于复盘与审计。</p>
+      <div class="notice">设计原则：先让用户知道今天该看什么，再让他往下翻历史。报告页的第一任务不是“列全”，而是“给方向”。</div>
     </div>
-  <section style="margin:40px 0;"><h2 style="font-size:28px;margin-bottom:16px;">最新报告</h2><div style="display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin:24px 0;"><a class="feature-card" href="/zh/reports/daily/daily-2026-03-08.html"><div class="feature-icon">📊</div><h3>2026-03-08 日报</h3><p>Polymarket CLI + Defuddle 精炼内容 + X 热点 + 风险提示</p></a><a class="feature-card" href="/zh/reports/weekly/weekly-2026-03-02.html"><div class="feature-icon">📈</div><h3>2026-03-02 周报</h3><p>周度市场总结与策略回顾</p></a></div></section>
-</main>
-
-  <footer>
-    <div class="container">
-      <p>
-        <time datetime="2026-03-07">最后更新：2026-03-07</time>
-        · 
-        <a href="https://github.com/your-repo" style="color: var(--text-secondary); text-decoration: none;">GitHub</a>
-      </p>
-    </div>
-  </footer>
+    <section><div class="container"><div class="section-head"><h2>报告层级</h2><p>不同报告承担不同角色，不要混成一锅。</p></div><div class="grid-3"><div class="card"><div class="type">Daily</div><h3>每日报告</h3><p>精炼新闻、市场摘要、风险提示与当天重点。</p><span class="badge live">更新最频繁</span></div><div class="card"><div class="type">Weekly</div><h3>周报</h3><p>更长周期的整理、回顾与策略框架修正。</p><span class="badge">结构化回顾</span></div><div class="card"><div class="type">Simmer</div><h3>执行记录</h3><p>交易日志、扫描结果与后续复盘素材。</p><span class="badge">执行层</span></div></div></div></section>
+    <section><div class="container"><div class="section-head"><h2>先看这两篇</h2><p>今天只看最值钱的，不先埋进历史列表。</p></div><div class="grid-2"><a class="card" href="/zh/reports/daily/daily-2026-03-08.html"><div class="type">Daily report</div><h3>Polymarket 每日报告 · 2026-03-08</h3><p>Defuddle 精炼新闻、市场焦点、风险框架与重点观察。</p><span class="badge live">最新</span></a><a class="card" href="/zh/reports/weekly/weekly-2026-03-02.html"><div class="type">Weekly report</div><h3>Polymarket 周报 · 2026-03-02</h3><p>周度市场总结、结构性变化与长期视角。</p><span class="badge">周度</span></a></div></div></section>
+    <section><div class="container"><div class="section-head"><h2>历史流</h2><p>历史内容是支持回看，不是首页主角。</p></div><div class="timeline"><a class="item" href="/zh/reports/daily/daily-2026-03-08.html"><div class="date">2026-03-08</div><div class="title">Polymarket 每日报告：精细化新版上线</div><div class="pill">日报</div></a><a class="item" href="/zh/reports/daily/daily-2026-03-05.html"><div class="date">2026-03-05</div><div class="title">BTC 突破 10 万大关，预测市场交易量创新高</div><div class="pill">日报</div></a><a class="item" href="/zh/reports/daily/daily-2026-03-01.html"><div class="date">2026-03-01</div><div class="title">Simmer 新功能上线，Weather Trader 策略复盘</div><div class="pill">日报</div></a><a class="item" href="/zh/reports/weekly/weekly-2026-03-02.html"><div class="date">2026-03-02</div><div class="title">Polymarket 周报：2 月交易量回顾与 3 月展望</div><div class="pill">周报</div></a><a class="item" href="/zh/reports/simmer/"><div class="date">持续更新</div><div class="title">Simmer 交易记录归档</div><div class="pill">执行</div></a></div></div></section>
+  </main>
+  <footer><div class="container"><p>pred101.com · Prediction Market 101 报告中心</p></div></footer>
 </body>
 </html>

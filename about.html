@@ -3,71 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About | PredictMarket101</title>
-  <meta name="description" content="About PredictMarket101, a structured knowledge site for prediction market learning, research, and reporting.">
-  <link rel="canonical" href="https://muskcollective.com/about.html">
-  <link rel="alternate" hreflang="zh" href="https://muskcollective.com/zh/about.html">
-  <link rel="stylesheet" href="/css/style.css">
+  <title>About pred101 | Prediction Market 101</title>
+  <meta name="description" content="About pred101: Prediction Market 101 is a structured learning and research site for understanding prediction markets through guided paths, libraries, and reports.">
+  <link rel="canonical" href="https://pred101.com/about.html">
+  <link rel="alternate" hreflang="zh" href="https://pred101.com/zh/about.html">
   <style>
-    :root { --accent:#0071e3; --bg:#ffffff; --surface:#f5f5f7; --text:#1d1d1f; --text-secondary:#86868b; --border:#d2d2d7; }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Arial,sans-serif; background:var(--bg); color:var(--text); line-height:1.47; }
-    .container { max-width:980px; margin:0 auto; padding:0 22px; }
-    header { background:rgba(255,255,255,.8); backdrop-filter:saturate(180%) blur(20px); border-bottom:1px solid var(--border); position:sticky; top:0; z-index:100; }
-    header .container { display:flex; justify-content:space-between; align-items:center; min-height:56px; gap:20px; }
-    .logo { font-size:21px; font-weight:600; color:var(--text); text-decoration:none; }
-    nav { display:flex; gap:16px; align-items:center; flex-wrap:wrap; }
-    nav a { color:var(--text-secondary); text-decoration:none; font-size:12px; }
-    .lang-switch { display:inline-flex; gap:6px; padding:4px; background:var(--surface); border-radius:999px; }
-    .lang-switch a { padding:4px 10px; border-radius:999px; }
-    .lang-switch a.active { background:var(--accent); color:#fff; }
-    main { padding:56px 0 80px; }
-    h1 { font-size:46px; margin-bottom:12px; }
-    .lead { font-size:19px; color:var(--text-secondary); margin-bottom:28px; }
-    .content { background:var(--surface); border-radius:18px; padding:32px; }
-    .content h2 { margin:24px 0 12px; font-size:24px; }
-    .content p, .content li { color:var(--text-secondary); margin:10px 0; }
-    .info-box { background:#e8f4ff; border-left:4px solid var(--accent); padding:16px 20px; border-radius:0 12px 12px 0; margin:24px 0; }
-    footer { border-top:1px solid var(--border); padding:36px 0; text-align:center; }
-    footer p { font-size:12px; color:var(--text-secondary); margin:6px 0; }
+    :root { --bg:#0b1020; --surface:rgba(18,25,45,.84); --text:#f5f7ff; --text-secondary:#9ba7c4; --border:rgba(162,182,255,.14); --accent:#6f7cff; --accent-2:#38d0ff; --warning:#f59e0b; --shadow:0 20px 60px rgba(0,0,0,.35); --radius:22px; --max:1100px; }
+    *{box-sizing:border-box;margin:0;padding:0} body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at top left, rgba(111,124,255,.22), transparent 28%),linear-gradient(180deg,#08101f 0%,#0b1020 46%,#0a0f1b 100%);color:var(--text);line-height:1.6} a{text-decoration:none;color:inherit}.container{max-width:var(--max);margin:0 auto;padding:0 24px} header{position:sticky;top:0;z-index:20;backdrop-filter:blur(18px);background:rgba(8,12,24,.72);border-bottom:1px solid var(--border)} header .container{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px}.logo{font-weight:800;font-size:1.06rem;letter-spacing:-.03em}.logo .mark{color:var(--accent-2)} nav{display:flex;gap:18px;flex-wrap:wrap} nav a{color:var(--text-secondary);font-size:.95rem} nav a.active,nav a:hover{color:var(--text)} main{padding:78px 0 54px}.eyebrow{color:var(--accent-2);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px} h1{font-size:clamp(2.4rem,6vw,4.8rem);line-height:.96;letter-spacing:-.05em}.lead{margin-top:18px;color:var(--text-secondary);max-width:860px;font-size:1.08rem}.panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px}.stack{display:grid;gap:18px}.stack h2{font-size:1.35rem}.stack p,.stack li{color:var(--text-secondary)} .stack ul{padding-left:18px}.notice{background:linear-gradient(135deg, rgba(111,124,255,.16), rgba(56,208,255,.10));border:1px solid var(--border);border-radius:18px;padding:16px 18px;color:var(--text-secondary)} .warn{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.18);border-radius:18px;padding:16px 18px;color:#f8d8a2} section{padding:18px 0} footer{padding:40px 0 54px;color:var(--text-secondary)} footer .container{border-top:1px solid var(--border);padding-top:24px}
   </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <a href="/en/" class="logo">📊 PredictMarket101</a>
-      <nav>
-        <a href="/en/learn/">7-Day Path</a>
-        <a href="/en/strategies/">Strategies</a>
-        <a href="/en/kol/">KOL Rankings</a>
-        <a href="/en/resources/">Resources</a>
-        <a href="/zh/reports/">Reports</a>
-        <div class="lang-switch">
-          <a href="/about.html" class="active">EN</a>
-          <a href="/zh/about.html">中文</a>
-        </div>
-      </nav>
-    </div>
-  </header>
+  <header><div class="container"><a href="/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a><nav><a href="/">Home</a><a href="/en/learn/">7-Day Path</a><a href="/knowledge-base/">Library</a><a href="/reports/">Reports</a><a href="/about.html" class="active">About</a></nav></div></header>
   <main>
     <div class="container">
-      <h1>About PredictMarket101</h1>
-      <p class="lead">A simple, structured site for learning, researching, and operating in prediction markets.</p>
-      <div class="content">
-        <h2>What this site is</h2>
-        <p>PredictMarket101 is built around a clear system: learning path, strategy library, KOL research, resource aggregation, and automated reports.</p>
-        <h2>What it focuses on</h2>
-        <ul>
-          <li>Prediction market basics and execution frameworks</li>
-          <li>Polymarket and related platform workflows</li>
-          <li>High-signal KOL study and structured evaluation</li>
-          <li>Daily and weekly market reporting</li>
-          <li>Simple automation without making the stack too complex</li>
-        </ul>
-        <div class="info-box"><p><strong>Current structure:</strong> English main site at <code>/</code> and <code>/en/</code>, Chinese content at <code>/zh/</code>, shared CSS/JS, GitHub + Vercel deployment.</p></div>
-      </div>
+      <div class="eyebrow">About · Product intent</div>
+      <h1>pred101 exists to teach the system behind prediction markets.</h1>
+      <p class="lead">This site is intentionally structured like a learning product first, not like a news feed and not like a random archive. The goal is to help users build durable understanding, execution discipline, and better research habits around prediction markets.</p>
     </div>
+    <section><div class="container stack"><div class="panel"><h2>What pred101 is</h2><p>Prediction Market 101 is a structured learning and research site built around four layers: a guided path, a strategy library, KOL research, and a report stream. Each layer has a distinct job.</p></div><div class="panel"><h2>What it is not</h2><p>It is not trying to be a generic crypto news site, not trying to mirror every market page, and not trying to impress with volume. The standard is clarity, sequence, and usefulness.</p></div><div class="panel"><h2>Current structure</h2><ul><li>Start page for orientation and first actions</li><li>7-day path for ordered learning</li><li>Library for durable knowledge and frameworks</li><li>Reports for the live update layer</li><li>Chinese main site for the deepest archive and freshest content</li></ul></div><div class="notice"><strong>Language strategy:</strong> English provides the clean overview layer. Chinese remains the main operating layer for richer reports, deeper analysis, and denser knowledge assets.</div><div class="warn"><strong>Risk notice:</strong> pred101 is for education, research, and information organization. It is not investment advice. Prediction markets involve substantial risk and should be approached with explicit risk controls.</div></div></section>
   </main>
-  <footer><div class="container"><p>PredictMarket101 · English main pages + Chinese deep content.</p></div></footer>
+  <footer><div class="container"><p>pred101.com · Prediction Market 101</p></div></footer>
 </body>
 </html>

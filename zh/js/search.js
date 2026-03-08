@@ -1,4 +1,4 @@
-// Musk Collective 站内搜索
+// Prediction Market 101 站内搜索
 // 纯前端实现，无需服务器
 
 const searchIndex = [

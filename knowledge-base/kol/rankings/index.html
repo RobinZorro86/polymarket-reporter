@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KOL 排名与评估 | Musk Collective</title>
+  <meta name="description" content="Polymarket KOL 综合评估与推荐度排名，每两周更新一次">
+  <link rel="canonical" href="https://muskcollective.com/knowledge-base/kol/rankings/">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    :root { --accent: #0071e3; --bg: #ffffff; --surface: #f5f5f7; --text: #1d1d1f; --text-secondary: #86868b; --border: #d2d2d7; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.47059; }
+    .container { max-width: 980px; margin: 0 auto; padding: 0 22px; }
+    header { background: rgba(255,255,255,0.8); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    header .container { display: flex; justify-content: space-between; align-items: center; height: 52px; }
+    .logo { font-size: 21px; font-weight: 600; color: var(--text); text-decoration: none; }
+    nav a { color: var(--text-secondary); text-decoration: none; margin-left: 24px; font-size: 12px; transition: color 0.2s; }
+    nav a:hover { color: var(--accent); }
+    nav a.active { color: var(--text); }
+    main { padding: 60px 0 80px; }
+    .page-header { text-align: center; margin-bottom: 60px; }
+    .page-header h1 { font-size: 48px; font-weight: 600; margin-bottom: 12px; }
+    .page-header p { font-size: 19px; color: var(--text-secondary); }
+    .section { margin: 60px 0; }
+    .section-title { font-size: 32px; font-weight: 600; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+    .report-list { display: flex; flex-direction: column; gap: 20px; }
+    .report-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 24px; text-decoration: none; color: inherit; transition: all 0.3s; }
+    .report-card:hover { border-color: var(--accent); box-shadow: 0 8px 24px rgba(0,113,227,0.12); transform: translateY(-4px); }
+    .report-card .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+    .report-card .title { font-size: 21px; font-weight: 600; color: var(--text); }
+    .report-card .date { font-size: 13px; color: var(--text-secondary); }
+    .report-card .desc { font-size: 15px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px; }
+    .report-card .tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .tag { display: inline-block; font-size: 12px; font-weight: 500; color: var(--accent); background: rgba(0,113,227,0.1); padding: 4px 12px; border-radius: 12px; }
+    .info-box { background: #e8f4ff; border-left: 4px solid var(--accent); padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; }
+    .info-box p { margin: 0; font-size: 14px; }
+    footer { border-top: 1px solid var(--border); padding: 40px 0; text-align: center; }
+    footer p { font-size: 12px; color: var(--text-secondary); }
+    footer a { color: var(--text-secondary); text-decoration: none; }
+    @media (max-width: 768px) {
+      .page-header h1 { font-size: 32px; }
+      .report-card .header { flex-direction: column; gap: 8px; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="logo">🧠 Musk Collective</a>
+      <nav>
+        <a href="/">首页</a>
+        <a href="/knowledge-base/" class="active">知识库</a>
+        <a href="/knowledge-base/kol/" class="active">KOL</a>
+        <a href="/reports/">报告</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="page-header">
+        <h1>📊 KOL 排名与评估</h1>
+        <p>每两周更新一次，综合评估 11 位 Polymarket KOL 的策略价值</p>
+      </div>
+
+      <div class="info-box">
+        <p><strong>📅 更新频率：</strong>每两周更新一次（周一 9:00 AM） | <strong>📊 评估维度：</strong>重要性、可操作性、信息真实性、策略有效性、学习曲线、风险水平</p>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">📚 历史报告</h2>
+        <div class="report-list">
+          <a href="/knowledge-base/kol/KOL-RANKING-2026-03-08.md" class="report-card">
+            <div class="header">
+              <div class="title">📊 KOL 综合评估与推荐度排序</div>
+              <div class="date">2026-03-08</div>
+            </div>
+            <div class="desc">
+              首次全面评估 11 位 Polymarket KOL，按多维度打分排序。
+              Top 5：@vladic_eth (9.2)、@noisyb0y1 (8.8)、@RohOnChain (8.5)、@AYi_AInotes (8.2)、@molt_cornelius (7.8)
+            </div>
+            <div class="tags">
+              <span class="tag">首次评估</span>
+              <span class="tag">11 位 KOL</span>
+              <span class="tag">综合评分</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">📈 评估方法</h2>
+        <div style="background: var(--surface); border-radius: 14px; padding: 24px;">
+          <h3 style="font-size: 18px; margin-bottom: 16px; color: var(--text);">评分维度</h3>
+          <ul style="margin-left: 24px; line-height: 2; color: var(--text-secondary);">
+            <li><strong>重要性 (25%)</strong> - 策略影响力、独特性</li>
+            <li><strong>可操作性 (25%)</strong> - 能否被普通人复制</li>
+            <li><strong>信息真实性 (20%)</strong> - 数据可靠性、可验证性</li>
+            <li><strong>策略有效性 (15%)</strong> - 历史表现、胜率</li>
+            <li><strong>学习曲线 (10%)</strong> - 上手难度</li>
+            <li><strong>风险水平 (5%)</strong> - 策略风险</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">🔗 相关链接</h2>
+        <ul style="margin-left: 24px; line-height: 2.5; color: var(--text-secondary);">
+          <li><a href="/knowledge-base/kol/" style="color: var(--accent); text-decoration: none;">→ KOL 策略分析首页</a></li>
+          <li><a href="/knowledge-base/kol/vladic_eth/" style="color: var(--accent); text-decoration: none;">→ @vladic_eth 详细分析</a></li>
+          <li><a href="/knowledge-base/kol/noisyb0y1/" style="color: var(--accent); text-decoration: none;">→ @noisyb0y1 Fast-Loop 策略</a></li>
+          <li><a href="/knowledge-base/kol/rohonchain/" style="color: var(--accent); text-decoration: none;">→ @RohOnChain 对冲基金架构</a></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>
+        <time datetime="2026-03-08">最后更新：2026-03-08</time>
+        · 
+        <a href="https://github.com/RobinZorro86/polymarket-reporter">GitHub</a>
+        ·
+        <a href="https://vercel.com/robinzorro86s-projects/polymarket-reporter">Vercel</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

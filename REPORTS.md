@@ -8,10 +8,12 @@
 
 ## 📅 更新频率
 
-| 报告类型 | 频率 | 时间 | 说明 |
-|---------|------|------|------|
-| **日报** | 隔天 | 9:00 AM | 1,3,5,7,9...日更新 |
-| **周报** | 每周 | 周一 9:00 AM | 覆盖上周一至周日 |
+| 类型 | 频率 | 时间 | 自动推送 |
+|------|------|------|---------|
+| **日报** | 隔天 | 9:00 AM | ✅ 自动生成并推送 |
+| **周报** | 每周 | 周一 9:00 AM | ✅ 自动生成并推送 |
+| **知识库** | 每周 | 周日 20:00 | ✅ 批量收集并推送 |
+| **健康检查** | 每周 | 周一 9:00 AM | ✅ 仅生成报告 |
 
 ---
 
@@ -99,18 +101,16 @@ code reports/daily/daily-20260308.md
 - ✅ 鲸鱼地址和 PnL（Polymarket leaderboard）
 - ✅ 新闻摘要（脚本已搜索）
 
-### Step 3: 生成 HTML
-```bash
-# 使用模板生成 HTML
-# 方法 A: 手动复制模板并替换占位符
-cp templates/daily-report-template.html reports/daily/daily-20260308.html
+### Step 3: 生成 HTML（自动）
+脚本已自动完成 HTML 生成和推送，无需手动操作。
 
-# 方法 B: 使用脚本自动转换（待实现）
-bash scripts/generate-report-html.sh daily 20260308
-```
+**输出位置**:
+- `reports/daily/daily-YYYYMMDD.html` - 最终 HTML
+- `reports/daily/daily-YYYYMMDD.md` - Markdown 草稿
 
-### Step 4: 推送部署
+**自动推送**:
 ```bash
+# 脚本自动执行
 git add reports/daily/daily-20260308.html
 git commit -m "docs: 发布日报 2026-03-08"
 git push origin main
@@ -150,12 +150,25 @@ agent-reach configure twitter-cookies "auth_token=xxx; ct0=yyy"
 ```bash
 # 查看已配置任务
 crontab -l | grep polymarket
+```
 
-# 日报：隔天 9:00 AM
-0 9 */2 * * bash /home/zqd/.openclaw/workspace/polymarket-reporter/scripts/generate-daily-report.sh
+### 完整配置
 
-# 周报：周一 9:00 AM
-0 9 * * 1 bash /home/zqd/.openclaw/workspace/polymarket-reporter/scripts/generate-weekly-report.sh
+```bash
+# 日报：隔天 9:00 AM（自动生成并推送）
+0 9 */2 * * bash ~/polymarket-reporter/scripts/generate-daily-report.sh
+
+# 周报：周一 9:00 AM（自动生成并推送）
+0 9 * * 1 bash ~/polymarket-reporter/scripts/generate-weekly-report.sh
+
+# 知识库周更新：周日 14:00（收集内容，不推送）
+0 14 * * 0 bash ~/polymarket-reporter/scripts/weekly-kb-update.sh
+
+# 周日统一推送：周日 20:00（汇总并推送）
+0 20 * * 0 bash ~/polymarket-reporter/scripts/weekly-batch-deploy.sh
+
+# 网站周检：周一 9:00 AM
+0 9 * * 1 bash ~/polymarket-reporter/scripts/weekly-health-check.sh
 ```
 
 ---
@@ -165,11 +178,14 @@ crontab -l | grep polymarket
 ```
 polymarket-reporter/
 ├── scripts/
-│   ├── generate-daily-report.sh    # 日报生成
-│   ├── generate-weekly-report.sh   # 周报生成
+│   ├── generate-daily-report.sh    # 日报生成（自动推送）
+│   ├── generate-weekly-report.sh   # 周报生成（自动推送）
+│   ├── weekly-kb-update.sh         # 知识库周更新（收集）
+│   ├── weekly-batch-deploy.sh      # 周日统一推送
 │   └── weekly-health-check.sh      # 周检脚本
 ├── templates/
-│   └── daily-report-template.html  # 日报 HTML 模板
+│   ├── daily-report-template.html  # 日报 HTML 模板
+│   └── weekly-report-template.html # 周报 HTML 模板（待创建）
 ├── reports/
 │   ├── daily/
 │   │   ├── daily-20260308.md       # Markdown 草稿
@@ -177,6 +193,10 @@ polymarket-reporter/
 │   └── weekly/
 │       ├── weekly-20260310.md
 │       └── weekly-20260310.html
+├── knowledge-base/
+│   └── weekly-updates/             # 知识库周更新
+│       ├── update-20260310.md
+│       └── kol-summary-20260310.md
 └── REPORTS.md                       # 本文档
 ```
 

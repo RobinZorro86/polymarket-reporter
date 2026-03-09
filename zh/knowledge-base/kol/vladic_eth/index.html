@@ -3,224 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>@vladic_eth 策略分析 | Prediction Market 101</title>
-  <meta name="description" content="@vladic_eth 的 Polymarket 系统化交易框架：5 种交易原型，从信息套利到鲸鱼跟踪的完整方法论">
-  <link rel="canonical" href="https://www.pred101.com/knowledge-base/kol/vladic_eth/">
+  <title>@vladic_eth 研究页 | pred101</title>
+  <meta name="description" content="@vladic_eth 的系统化交易框架研究页：从信息套利到鲸鱼跟踪的五种核心原型。">
+  <link rel="canonical" href="https://www.pred101.com/zh/knowledge-base/kol/vladic_eth/">
   <link rel="stylesheet" href="/css/style.css">
   <style>
-    :root { --accent: #0071e3; --bg: #ffffff; --surface: #f5f5f7; --text: #1d1d1f; --text-secondary: #86868b; --border: #d2d2d7; }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.47059; }
-    .container { max-width: 980px; margin: 0 auto; padding: 0 22px; }
-    header { background: rgba(255,255,255,0.8); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
-    header .container { display: flex; justify-content: space-between; align-items: center; height: 52px; }
-    .logo { font-size: 21px; font-weight: 600; color: var(--text); text-decoration: none; }
-    nav a { color: var(--text-secondary); text-decoration: none; margin-left: 24px; font-size: 12px; transition: color 0.2s; }
-    nav a:hover { color: var(--accent); }
-    nav a.active { color: var(--text); }
-    main { padding: 60px 0 80px; }
-    .breadcrumb { font-size: 12px; color: var(--text-secondary); margin-bottom: 16px; }
-    .breadcrumb a { color: var(--accent); text-decoration: none; }
-    .page-header { margin-bottom: 40px; }
-    .page-header h1 { font-size: 40px; font-weight: 600; margin-bottom: 12px; }
-    .page-header .meta { font-size: 13px; color: var(--text-secondary); }
-    .content { background: var(--surface); border-radius: 18px; padding: 32px; margin-bottom: 24px; }
-    .content h2 { font-size: 24px; font-weight: 600; margin: 32px 0 16px; }
-    .content h2:first-child { margin-top: 0; }
-    .content p { margin: 16px 0; font-size: 15px; }
-    .content ul, .content ol { margin: 16px 0 16px 24px; }
-    .content li { margin: 8px 0; font-size: 15px; }
-    .content pre { background: #1d1d1f; color: #e2e8f0; padding: 20px; border-radius: 12px; overflow-x: auto; font-size: 13px; margin: 16px 0; }
-    .content code { font-family: 'SF Mono', Monaco, monospace; }
-    .tag { display: inline-block; font-size: 12px; font-weight: 500; color: var(--accent); background: rgba(0,113,227,0.1); padding: 4px 12px; border-radius: 12px; margin: 4px 8px 4px 0; }
-    .info-box { background: #e8f4ff; border-left: 4px solid var(--accent); padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; }
-    .info-box p { margin: 0; font-size: 14px; }
-    .stat-card { display: inline-block; background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 16px 24px; margin: 8px 8px 8px 0; text-align: center; }
-    .stat-card .value { font-size: 24px; font-weight: 600; color: var(--accent); }
-    .stat-card .label { font-size: 12px; color: var(--text-secondary); margin-top: 4px; }
-    .warning-box { background: #fff4e6; border-left: 4px solid #ff9500; padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; }
-    .strategy-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 24px; margin: 16px 0; }
-    .strategy-card h3 { font-size: 18px; font-weight: 600; margin-bottom: 12px; color: var(--accent); }
-    .strategy-card .concept { font-size: 14px; color: var(--text-secondary); margin-bottom: 16px; font-style: italic; }
-    .strategy-card ul { margin: 12px 0 12px 20px; }
-    .strategy-card li { margin: 6px 0; font-size: 14px; }
-    footer { border-top: 1px solid var(--border); padding: 40px 0; text-align: center; }
-    footer p { font-size: 12px; color: var(--text-secondary); }
-    @media (max-width: 768px) {
-      .page-header h1 { font-size: 32px; }
-      .content { padding: 24px; }
-    }
+    :root { --bg:#f7f8fb; --surface:#ffffff; --surface-soft:#eef2ff; --text:#111827; --text-secondary:#667085; --border:#e5e7eb; --accent:#6f7cff; --accent-2:#38d0ff; --warning:#f79009; --shadow:0 10px 30px rgba(16,24,40,.06); --max:1080px; }
+    *{margin:0;padding:0;box-sizing:border-box} body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(180deg,#f8fbff 0%,#f6f7fb 100%);color:var(--text);line-height:1.65} a{color:inherit;text-decoration:none}.container{max-width:var(--max);margin:0 auto;padding:0 24px} header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid var(--border)} header .container{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px}.logo{font-size:1.04rem;font-weight:800}.logo .mark{color:var(--accent)} nav{display:flex;gap:18px;flex-wrap:wrap} nav a{color:var(--text-secondary);font-size:.92rem} nav a.active,nav a:hover{color:var(--text)} main{padding:52px 0 80px}.hero{background:linear-gradient(135deg, rgba(111,124,255,.10), rgba(56,208,255,.08));border:1px solid rgba(111,124,255,.16);border-radius:28px;padding:34px 30px;box-shadow:var(--shadow);margin-bottom:30px}.eyebrow{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px} h1{font-size:clamp(2.1rem,5vw,3.4rem);line-height:.98;letter-spacing:-.04em}.lead{margin-top:16px;max-width:780px;color:var(--text-secondary);font-size:1.03rem}.meta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}.meta-card{background:rgba(255,255,255,.7);border:1px solid var(--border);border-radius:16px;padding:14px 16px}.meta-card .label{font-size:.76rem;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.08em}.meta-card .value{margin-top:6px;font-size:.96rem;font-weight:700}.section{background:var(--surface);border:1px solid var(--border);border-radius:24px;box-shadow:var(--shadow);padding:28px;margin:22px 0}.section h2{font-size:1.55rem;margin-bottom:16px;letter-spacing:-.03em}.section h3{font-size:1.08rem;margin:18px 0 10px}.section p,.section li{color:#344054}.section ul{padding-left:20px}.section li{margin:8px 0}.note,.warning-box{border-radius:16px;padding:16px 18px;margin-top:16px}.note{background:#edf7ff;border-left:4px solid var(--accent-2)}.warning-box{background:#fff7ed;border-left:4px solid var(--warning)}.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.tag{display:inline-block;font-size:.78rem;font-weight:700;color:var(--accent);background:rgba(111,124,255,.10);padding:5px 11px;border-radius:999px}.strategy-card{background:#fbfcff;border:1px solid var(--border);border-radius:18px;padding:20px;margin-top:14px}.strategy-card h3{font-size:1.05rem;color:var(--accent)}.strategy-card .concept{margin-top:8px;color:var(--text-secondary);font-style:italic}.next-links{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:26px}.next-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:18px;box-shadow:var(--shadow)}.next-card .small{color:var(--text-secondary);font-size:.82rem}.next-card h4{margin-top:8px;font-size:1rem} footer{padding:38px 0 52px;color:var(--text-secondary)} footer .container{border-top:1px solid var(--border);padding-top:20px;font-size:.86rem}@media (max-width:860px){.meta-grid,.next-links{grid-template-columns:1fr 1fr}}@media (max-width:640px){.meta-grid,.next-links{grid-template-columns:1fr}.hero,.section{padding:22px 18px}}
   </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <a href="/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a>
-      <nav>
-        <a href="/">首页</a>
-        <a href="/zh/knowledge-base/">知识库</a>
-        <a href="/zh/knowledge-base/kol/" class="active">KOL</a>
-        <a href="/zh/reports/">报告</a>
-      </nav>
-    </div>
-  </header>
-
+  <header><div class="container"><a href="/zh/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a><nav><a href="/zh/">首页</a><a href="/zh/learn/">学习路径</a><a href="/zh/knowledge-base/" class="active">知识库</a><a href="/zh/reports/">报告</a><a href="/zh/about.html">关于</a></nav></div></header>
   <main>
     <div class="container">
-      <!-- Breadcrumb -->
-      <div class="breadcrumb">
-        <a href="/">首页</a> → <a href="/zh/knowledge-base/">知识库</a> → <a href="/zh/knowledge-base/kol/">KOL</a> → @vladic_eth
-      </div>
-
-      <!-- Page Header -->
-      <div class="page-header">
+      <section class="hero">
+        <div class="eyebrow">KOL research</div>
         <h1>@vladic_eth</h1>
-        <p class="meta">
-          <time datetime="2026-03-08">更新时间：2026-03-08</time>
-          · 
-          <span>系统化交易框架</span>
-        </p>
-      </div>
-
-      <!-- Introduction -->
-      <div class="content">
-        <h2>📌 核心观点</h2>
-        <p><strong>"Polymarket 的'轻松赚钱'时代已经结束。2026 年，市场被套利机器人、跨交易所策略和动态费用占据。"</strong></p>
-        
-        <div class="info-box">
-          <p>💡 <strong>核心洞察：</strong>免费午餐消失了，但 Edge 并未消失——它只是变得结构化。当大多数散户还在"猜测未来"时，系统化交易者正在收割市场无效性。</p>
+        <p class="lead">这是一个典型的“系统型 KOL”样本：重点不在观点本身，而在他如何把预测市场从“下注行为”重构成“交易系统”。</p>
+        <div class="meta-grid">
+          <div class="meta-card"><div class="label">类型</div><div class="value">系统型 / 框架型</div></div>
+          <div class="meta-card"><div class="label">更新</div><div class="value">2026-03-08</div></div>
+          <div class="meta-card"><div class="label">适合学习</div><div class="value">策略框架</div></div>
+          <div class="meta-card"><div class="label">研究用途</div><div class="value">建立方法论</div></div>
         </div>
-
-        <h2>🎯 5 种交易原型</h2>
-        <p>以下是将"博彩"转变为"生意"的 5 种交易架构：</p>
-
-        <!-- Strategy 1 -->
-        <div class="strategy-card">
-          <h3>1️⃣ Information Arbitrage（信息套利）</h3>
-          <p class="concept">概念：你不猜测；你比市场更快地将新闻转化为数字。Polymarket 价格通常滞后于真实信息场 10-60 秒。</p>
-          
-          <p><strong>Edge 来源：</strong></p>
-          <ul>
-            <li><strong>来源不对称：</strong>当大众在 Twitter 上看头条时，你在监控一手来源（监管 RSS  feed、链上警报、法庭直播）</li>
-            <li><strong>心智模型：</strong>Alpha 不在于拥有更快的 Twitter feed，而在于更快的重新定价。你提前知道："如果美联储说 X，概率从 40% 跳到 55%"</li>
-            <li><strong>工具包：</strong>新闻聚合器、爬虫脚本、热键即时执行订单</li>
-          </ul>
-          
-          <p><strong>适合人群：</strong>在压力下茁壮成长、生活在新闻流中的人</p>
-        </div>
-
-        <!-- Strategy 2 -->
-        <div class="strategy-card">
-          <h3>2️⃣ Market Making（做市商）</h3>
-          <p class="concept">概念：你不对结果下注。你出售流动性，通过价差和 maker 返佣赚钱。</p>
-          
-          <p><strong>Edge 来源：</strong></p>
-          <ul>
-            <li>2026 年，动态 taker 费用杀死了原始套利，但这些收入通过 maker 返佣流入了做市商的口袋</li>
-            <li>散户交易者在炒作期间愿意多付钱进入仓位——你把机会卖给他们</li>
-            <li><strong>工具包：</strong>报价机器人、库存管理、风险模块（在波动率飙升时撤单）</li>
-          </ul>
-          
-          <p><strong>适合人群：</strong>偏好被动现金流、结构化、不想对政治发表意见的人</p>
-        </div>
-
-        <!-- Strategy 3 -->
-        <div class="strategy-card">
-          <h3>3️⃣ Cross-Platform Arbitrage（跨平台套利）</h3>
-          <p class="concept">概念：利用同一事件在不同场所的价格不同步</p>
-          
-          <p><strong>Edge 来源：</strong></p>
-          <ul>
-            <li><strong>价格套利：</strong>Polymarket 定价 55%，Kalshi 定价 70%</li>
-            <li><strong>逻辑套利：</strong>"法案通过"的概率不能高于"通过参议院"的概率。市场经常犯这些逻辑错误</li>
-            <li><strong>工具包：</strong>所有平台的 API、差异扫描器、对解决规则的深入理解（避免因措辞差异陷入"套利而非套利"陷阱）</li>
-          </ul>
-          
-          <p><strong>适合人群：</strong>代码爱好者、工程师、寻找逻辑漏洞的人</p>
-        </div>
-
-        <!-- Strategy 4 -->
-        <div class="strategy-card">
-          <h3>4️⃣ Delta-Neutral / Vol-Trading（Delta 中性/波动率交易）</h3>
-          <p class="concept">概念：将 Polymarket 仓位视为二元期权。你交易"零售概率"与 Deribit/CME 期权隐含的"数学概率"之间的错误定价。</p>
-          
-          <p><strong>Edge 来源：</strong></p>
-          <ul>
-            <li>期权市场（数十亿资金流动）对 BTC  hitting 目标的概率定价比零售博彩者更准确</li>
-            <li>如果 Deribit 隐含 35% 的 BTC 达到 10 万概率，但 Polymarket 定价 55%，这是做空 Polymarket 并通过期货对冲的信号</li>
-            <li><strong>工具包：</strong>Black-Scholes 模型、理解"波动率微笑"、加密衍生品交易所接入</li>
-          </ul>
-          
-          <p><strong>适合人群：</strong>数学家、量化分析师、期权交易者</p>
-        </div>
-
-        <!-- Strategy 5 -->
-        <div class="strategy-card">
-          <h3>5️⃣ Whale-Tracking（鲸鱼跟踪）</h3>
-          <p class="concept">概念：利用链上透明度。你不是在寻找 alpha；你是在寻找拥有 alpha 的人。</p>
-          
-          <p><strong>Edge 来源：</strong></p>
-          <ul>
-            <li>不是所有鲸鱼都聪明。"优质鲸鱼"特征：稳定的正向 PnL、清晰的风格（不是一次性运气）</li>
-            <li>你复制他们的交易，将他们作为自己分析的过滤器</li>
-            <li><strong>工具包：</strong>排行榜、钱包跟踪器、大额交易警报</li>
-            <li><strong>风险：</strong>你总是比鲸鱼更晚入场 + 鲸鱼可能故意 spoof 你</li>
-          </ul>
-          
-          <p><strong>适合人群：</strong>数据分析师、链上侦探</p>
-        </div>
-
-        <h2>✅ 如何选择你的赛道？</h2>
-        <p>不要试图同时成为所有角色。市场会惩罚缺乏专注。</p>
-        
-        <div class="info-box">
-          <p>
-            <strong>1. 新闻成瘾者？</strong> → Information Arbitrage<br>
-            <strong>2. 程序员/工程师？</strong> → Cross-Arbitrage 或 Market Making<br>
-            <strong>3. 数学/量化？</strong> → Delta-Neutral Strategies<br>
-            <strong>4. 数据分析师？</strong> → Whale-tracking
-          </p>
-        </div>
-        
-        <p><strong>选择一个主要风格并精通它。其他一切都是噪音。</strong></p>
-      </div>
-
-      <!-- Source -->
-      <div class="content">
+      </section>
+      <section class="section">
+        <h2>📌 研究结论</h2>
+        <p><strong>核心判断：</strong>“轻松赚钱”的时代已经结束，但真正的 edge 并没有消失，它只是从情绪猜测转移到了结构化方法与执行系统上。</p>
+        <div class="note"><strong>为什么值得学：</strong>他不是在给结论，而是在给框架。对于 pred101 来说，这类 KOL 的价值远高于只会晒收益截图的人。</div>
+        <div class="tags"><span class="tag">信息套利</span><span class="tag">做市</span><span class="tag">跨平台套利</span><span class="tag">Delta 中性</span><span class="tag">鲸鱼跟踪</span></div>
+      </section>
+      <section class="section">
+        <h2>🎯 五种交易原型</h2>
+        <div class="strategy-card"><h3>1. Information Arbitrage</h3><p class="concept">你不是猜未来，而是比市场更快地把新闻转成数字和概率。</p><ul><li>关键 edge：一手信息源 + 快速重定价能力</li><li>适合人群：新闻流敏感、执行速度快的人</li></ul></div>
+        <div class="strategy-card"><h3>2. Market Making</h3><p class="concept">你不押方向，而是出售流动性，赚价差和返佣。</p><ul><li>关键 edge：库存管理、波动撤单、结构化被动收益</li><li>适合人群：偏好系统化和稳定现金流的人</li></ul></div>
+        <div class="strategy-card"><h3>3. Cross-Platform Arbitrage</h3><p class="concept">利用同一事件在不同平台的价格不同步。</p><ul><li>关键 edge：API、差异扫描、规则理解</li><li>适合人群：工程师、逻辑错误猎手</li></ul></div>
+        <div class="strategy-card"><h3>4. Delta-Neutral / Vol-Trading</h3><p class="concept">把二元市场当成期权，交易“零售概率”和“数学概率”的偏差。</p><ul><li>关键 edge：期权模型、波动率理解、衍生品接入</li><li>适合人群：量化、数学、期权背景用户</li></ul></div>
+        <div class="strategy-card"><h3>5. Whale-Tracking</h3><p class="concept">不是找 alpha，而是找真正拥有 alpha 的人。</p><ul><li>关键 edge：钱包跟踪、PnL 筛选、风格识别</li><li>主要风险：总是比鲸鱼更晚一步</li></ul></div>
+      </section>
+      <section class="section">
+        <h2>✅ 如何使用这个对象页</h2>
+        <ul>
+          <li>学他的框架，不要复制他的结论</li>
+          <li>优先吸收“如何分类市场”和“如何选择策略”</li>
+          <li>把内容转成自己的研究模板，而不是收藏金句</li>
+        </ul>
+        <div class="warning-box"><strong>不适合学的方式：</strong>只看他赚了多少、只抄单、只记结论。这样会失去这个页面真正的价值。</div>
+      </section>
+      <section class="section">
         <h2>📎 来源</h2>
-        <p style="font-size: 14px; color: var(--text-secondary);">
-          <a href="https://x.com/vladic_eth/status/2030295455620329737" target="_blank" style="color: var(--accent); text-decoration: none;">
-            X (Twitter) 原文 →
-          </a>
-        </p>
-        <p style="font-size: 13px; color: var(--text-secondary); margin-top: 12px;">
-          发布时间：2026-03-07 23:16:11 UTC
-        </p>
-      </div>
-
-      <!-- Tags -->
-      <div style="margin: 24px 0;">
-        <span class="tag">系统化交易</span>
-        <span class="tag">套利策略</span>
-        <span class="tag">做市商</span>
-        <span class="tag">信息套利</span>
-        <span class="tag">跨平台套利</span>
-        <span class="tag">Delta 中性</span>
-        <span class="tag">鲸鱼跟踪</span>
+        <p><a href="https://x.com/vladic_eth/status/2030295455620329737" target="_blank" rel="noopener" style="color:var(--accent)">X (Twitter) 原文 →</a></p>
+        <p style="margin-top:8px;color:var(--text-secondary)">发布时间：2026-03-07 23:16:11 UTC</p>
+      </section>
+      <div class="next-links">
+        <a class="next-card" href="/zh/knowledge-base/kol/rankings/"><div class="small">返回</div><h4>KOL 排名页</h4></a>
+        <a class="next-card" href="/zh/knowledge-base/kol/noisyb0y1/"><div class="small">继续研究</div><h4>@noisyb0y1</h4></a>
       </div>
     </div>
   </main>
-
-  <footer>
-    <div class="container">
-      <p>
-        <time datetime="2026-03-08">最后更新：2026-03-08</time>
-        · 
-        <a href="https://github.com/RobinZorro86/polymarket-reporter" style="color: var(--text-secondary); text-decoration: none;">GitHub</a>
-        ·
-        <a href="https://vercel.com/robinzorro86s-projects/polymarket-reporter" style="color: var(--text-secondary); text-decoration: none;">Vercel</a>
-      </p>
-    </div>
-  </footer>
+  <footer><div class="container"><p>pred101.com · KOL research layer · Updated 2026-03-08</p></div></footer>
 </body>
 </html>

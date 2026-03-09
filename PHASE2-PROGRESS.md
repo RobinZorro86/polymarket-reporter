@@ -148,7 +148,19 @@ All changes pushed to `main` branch and deployed via Vercel to:
 
 HTTPS active, no old branding remnants.
 
-**Latest Commit:** `60649f3` - Phase-2: unify all strategy and tutorial pages with content-layer template
+**Latest Commit:** `2a89f8f` - Phase-2: Fix canonical URLs for all ZH pages - ensure consistent /zh/ prefix
+
+---
+
+## 🔧 Site-wide Audit (COMPLETED 2026-03-10)
+
+**Canonical URL Fix:**
+- ✅ Fixed 49 pages with inconsistent canonical URLs
+- ✅ All ZH pages now use `https://www.pred101.com/zh/...` format
+- ✅ All EN pages use `https://www.pred101.com/en/...` format
+- ✅ Root legacy pages use `https://www.pred101.com/...` format
+
+**Commit:** `2a89f8f` - Phase-2: Fix canonical URLs for all ZH pages
 
 ---
 
@@ -156,10 +168,10 @@ HTTPS active, no old branding remnants.
 
 Phase-2 is complete. Future enhancements may include:
 
-1. **Site-wide Audit** (optional):
-   - Broken links check
-   - Canonical URL verification
-   - Structure entry points review
+1. **Content Enrichment** (optional):
+   - Add more detailed examples to strategy pages
+   - Expand tutorial pages with video/screenshots
+   - Add interactive elements (calculators, quizzes)
 
 2. **Content Enrichment** (optional):
    - Add more detailed examples to strategy pages

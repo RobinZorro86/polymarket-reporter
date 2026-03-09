@@ -1,6 +1,6 @@
 # Phase-2 Visual Unification Progress
 
-**Last Updated:** 2026-03-10 00:35 JST  
+**Last Updated:** 2026-03-10 01:35 JST  
 **Status:** ✅ ALL COMPLETE
 
 ---
@@ -161,6 +161,15 @@ HTTPS active, no old branding remnants.
 - ✅ Root legacy pages use `https://www.pred101.com/...` format
 
 **Commit:** `2a89f8f` - Phase-2: Fix canonical URLs for all ZH pages
+
+**Structure Entry Link Fix:**
+- ✅ Fixed 4 ZH legacy pages with `/` homepage links → changed to `/zh/`
+- ✅ Fixed 4 ZH knowledge-base pages with inconsistent structure entry links
+- ✅ All ZH pages now use `/zh/` prefix for homepage and internal navigation
+
+**Commits:**
+- `fa42971` - fix: unify structure entry links - use /zh/knowledge-base/ consistently on 4 ZH legacy pages
+- `dcc2b21` - fix: unify homepage links - use /zh/ consistently on 4 ZH knowledge-base pages
 
 ---
 

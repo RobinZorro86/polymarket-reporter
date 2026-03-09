@@ -1,7 +1,7 @@
 # Phase-2 Visual Unification Progress
 
-**Last Updated:** 2026-03-09 10:24 JST  
-**Status:** Learning path complete, KOL pages partially complete
+**Last Updated:** 2026-03-10 00:25 JST  
+**Status:** KOL pages complete, strategy/tutorial pages pending
 
 ---
 
@@ -31,7 +31,7 @@ All 7 days unified in both English and Chinese with phase-2 content template:
 **Commits:**
 - `d55149b` - Phase-2: unify learning path day2-7 pages (EN/ZH) - 12 files updated
 
-### KOL Pages
+### KOL Pages (ALL COMPLETE)
 **Core KOLs (completed in previous sessions):**
 - ✅ knowledge-base/kol/rankings/
 - ✅ knowledge-base/kol/vladic_eth/
@@ -41,11 +41,18 @@ All 7 days unified in both English and Chinese with phase-2 content template:
 - ✅ knowledge-base/kol/molt-cornelius/
 - ✅ knowledge-base/kol/0xchainmind/
 
-**Additional KOLs (completed today):**
+**Additional KOLs (completed in previous sessions):**
 - ✅ knowledge-base/kol/aleiahlock/ - NautilusTrader BTC bot architecture
+
+**Additional KOLs (completed today 2026-03-10):**
+- ✅ knowledge-base/kol/cutnpaste4/ - Crypto Up/Down delay arbitrage
+- ✅ knowledge-base/kol/dmitriyungarov/ - Wallet analysis & copy trading
+- ✅ knowledge-base/kol/edwordkaru/ - Simmer auto-trading tutorials
+- ✅ knowledge-base/kol/runes-leo/ - Pre-Market data analysis
 
 **Commits:**
 - `37ecf16` - Phase-2: unify aleiahlock KOL page
+- (pending commit for remaining 4 KOL pages)
 
 ### Report Detail Pages
 - ✅ reports/daily/ sample pages (completed in previous session)
@@ -55,16 +62,26 @@ All 7 days unified in both English and Chinese with phase-2 content template:
 
 ## ⏳ Remaining
 
-### KOL Pages (4 remaining)
-These pages still use old Apple-style styling (--accent: #0071e3):
-- ⏳ knowledge-base/kol/cutnpaste4/ - Crypto Up/Down delay arbitrage
-- ⏳ knowledge-base/kol/dmitriyungarov/ - Wallet analysis & copy trading
-- ⏳ knowledge-base/kol/edwordkaru/ - Simmer auto-trading tutorials
-- ⏳ knowledge-base/kol/runes-leo/ - Pre-Market data analysis
+### Strategy Detail Pages (6 pages)
+These pages need phase-2 template:
+- ⏳ knowledge-base/strategies/fast-loop/
+- ⏳ knowledge-base/strategies/signal-sniper/
+- ⏳ knowledge-base/strategies/weather-trader/
+- ⏳ knowledge-base/strategies/mert-sniper/
+- ⏳ knowledge-base/strategies/copytrading/
+- ⏳ knowledge-base/strategies/divergence/
 
-### Strategy Detail Pages (not started)
-- ⏳ en/strategies/ detail pages
-- ⏳ zh/strategies/ detail pages (if applicable)
+### Tutorial Detail Pages (4 pages)
+These pages need phase-2 template:
+- ⏳ knowledge-base/tutorials/openclaw-setup/
+- ⏳ knowledge-base/tutorials/simmer-guide/
+- ⏳ knowledge-base/tutorials/polymarket-basics/
+- ⏳ knowledge-base/tutorials/wallet-setup/
+
+### Site-wide Audit (not started)
+- ⏳ Broken links check
+- ⏳ Canonical URL verification
+- ⏳ Structure entry points review
 
 ---
 
@@ -102,9 +119,9 @@ All unified pages use the **dual-layer visual system**:
 
 ## Next Steps
 
-1. **Complete remaining KOL pages** (cutnpaste4, dmitriyungarov, edwordkaru, runes-leo)
-2. **Begin strategy detail pages** with same content-layer system
-3. **Audit and unify** any other orphaned detail pages
+1. **Begin strategy detail pages** with same content-layer system (6 pages)
+2. **Begin tutorial detail pages** (4 pages)
+3. **Site-wide audit**: broken links, canonical, entry points
 4. **Final review** of all pages for consistency
 
 ---

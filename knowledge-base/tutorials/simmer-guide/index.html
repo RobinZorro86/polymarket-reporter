@@ -3,131 +3,166 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simmer 交易指南 | Prediction Market 101</title>
+  <title>Simmer 交易指南 | pred101</title>
+  <meta name="description" content="Simmer 是 AI Agent 专用的预测市场交易接口，支持 Polymarket 和 Kalshi，提供自托管钱包、安全限额和智能上下文。">
   <link rel="canonical" href="https://www.pred101.com/knowledge-base/tutorials/simmer-guide/">
   <link rel="stylesheet" href="/css/style.css">
   <style>
-    :root { --accent: #0071e3; --bg: #ffffff; --surface: #f5f5f7; --text: #1d1d1f; --text-secondary: #86868b; --border: #d2d2d7; }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.47059; }
-    .container { max-width: 980px; margin: 0 auto; padding: 0 22px; }
-    header { background: rgba(255,255,255,0.8); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
-    header .container { display: flex; justify-content: space-between; align-items: center; height: 52px; }
-    .logo { font-size: 21px; font-weight: 600; color: var(--text); text-decoration: none; }
-    nav a { color: var(--text-secondary); text-decoration: none; margin-left: 24px; font-size: 12px; transition: color 0.2s; }
-    nav a:hover { color: var(--accent); }
-    nav a.active { color: var(--text); }
-    main { padding: 60px 0 80px; }
-    .breadcrumb { font-size: 12px; color: var(--text-secondary); margin-bottom: 16px; }
-    .breadcrumb a { color: var(--accent); text-decoration: none; }
-    .page-header { margin-bottom: 40px; }
-    .page-header h1 { font-size: 40px; font-weight: 600; margin-bottom: 12px; }
-    .page-header .meta { font-size: 13px; color: var(--text-secondary); }
-    .content { background: var(--surface); border-radius: 18px; padding: 32px; margin-bottom: 24px; }
-    .content h2 { font-size: 24px; font-weight: 600; margin: 32px 0 16px; }
-    .content h2:first-child { margin-top: 0; }
-    .content p { margin: 16px 0; font-size: 15px; }
-    .content ul { margin: 16px 0 16px 24px; }
-    .content li { margin: 8px 0; font-size: 15px; }
-    .content pre { background: #1d1d1f; color: #e2e8f0; padding: 20px; border-radius: 12px; overflow-x: auto; font-size: 13px; margin: 16px 0; }
-    .tag { display: inline-block; font-size: 12px; font-weight: 500; color: var(--accent); background: rgba(0,113,227,0.1); padding: 4px 12px; border-radius: 12px; margin: 4px 8px 4px 0; }
-    .info-box { background: #e8f4ff; border-left: 4px solid var(--accent); padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; }
-    footer { border-top: 1px solid var(--border); padding: 40px 0; text-align: center; }
-    footer p { font-size: 12px; color: var(--text-secondary); }
-  </style>
+    :root{--bg:#f7f8fb;--surface:#ffffff;--surface-soft:#eef2ff;--text:#111827;--text-secondary:#667085;--border:#e5e7eb;--accent:#6f7cff;--accent-2:#38d0ff;--shadow:0 10px 30px rgba(16,24,40,.06);--max:1080px}*{margin:0;padding:0;box-sizing:border-box}body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(180deg,#f8fbff 0%,#f6f7fb 100%);color:var(--text);line-height:1.65}a{color:inherit;text-decoration:none}.container{max-width:var(--max);margin:0 auto;padding:0 24px}header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid var(--border)}header .container{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px}.logo{font-size:1.04rem;font-weight:800}.logo .mark{color:var(--accent)}nav{display:flex;gap:18px;flex-wrap:wrap}nav a{color:var(--text-secondary);font-size:.92rem}nav a.active,nav a:hover{color:var(--text)}main{padding:52px 0 80px}.hero{background:linear-gradient(135deg, rgba(111,124,255,.10), rgba(56,208,255,.08));border:1px solid rgba(111,124,255,.16);border-radius:28px;padding:34px 30px;box-shadow:var(--shadow);margin-bottom:30px}.eyebrow{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}h1{font-size:clamp(2.1rem,5vw,3.4rem);line-height:.98;letter-spacing:-.04em}.lead{margin-top:16px;max-width:780px;color:var(--text-secondary);font-size:1.03rem}.meta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}.meta-card{background:rgba(255,255,255,.7);border:1px solid var(--border);border-radius:16px;padding:14px 16px}.meta-card .label{font-size:.76rem;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.08em}.meta-card .value{margin-top:6px;font-size:.96rem;font-weight:700}.section{background:var(--surface);border:1px solid var(--border);border-radius:24px;box-shadow:var(--shadow);padding:28px;margin:22px 0}.section h2{font-size:1.55rem;margin-bottom:16px;letter-spacing:-.03em}.section h3{font-size:1.08rem;margin:18px 0 10px}.section p,.section li{color:#344054}.section ul{padding-left:20px}.section li{margin:8px 0}.section pre{background:#1d1d1f;color:#e2e8f0;padding:18px;border-radius:14px;overflow-x:auto;font-size:.85rem;margin:16px 0}.section code{font-family:'SF Mono',Monaco,monospace}.note{background:#edf7ff;border-left:4px solid var(--accent-2);border-radius:16px;padding:16px 18px;margin-top:16px}.note ul{margin:8px 0 0 20px}.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.tag{display:inline-block;font-size:.78rem;font-weight:700;color:var(--accent);background:rgba(111,124,255,.10);padding:5px 11px;border-radius:999px}.strategy-card{background:#fbfcff;border:1px solid var(--border);border-radius:18px;padding:20px;margin-top:14px}.strategy-card h3{font-size:1.05rem;color:var(--accent)}.strategy-card .concept{margin-top:8px;color:var(--text-secondary);font-style:italic}.next-links{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:26px}.next-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:18px;box-shadow:var(--shadow)}.next-card .small{color:var(--text-secondary);font-size:.82rem}.next-card h4{margin-top:8px;font-size:1rem}footer{padding:38px 0 52px;color:var(--text-secondary)}footer .container{border-top:1px solid var(--border);padding-top:20px;font-size:.86rem}@media (max-width:860px){.meta-grid,.next-links{grid-template-columns:1fr 1fr}}@media (max-width:640px){.meta-grid,.next-links{grid-template-columns:1fr}.hero,.section{padding:22px 18px}}</style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <a href="/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a>
-      <nav>
-        <a href="/">首页</a>
-        <a href="/knowledge-base/" class="active">知识库</a>
-        <a href="/reports/">报告</a>
-        <a href="/about.html">关于</a>
-      </nav>
-    </div>
-  </header>
+<header><div class="container"><a href="/zh/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a><nav><a href="/zh/">首页</a><a href="/zh/knowledge-base/" class="active">知识库</a><a href="/zh/reports/">报告</a><a href="/zh/about.html">关于</a></nav></div></header>
+<main><div class="container">
+<section class="hero">
+  <div class="eyebrow">Tutorial</div>
+  <h1>Simmer 交易指南</h1>
+  <p class="lead">Simmer 是 AI Agent 专用的预测市场交易接口，支持 Polymarket 和 Kalshi，提供自托管钱包、安全限额和智能上下文。</p>
+  <div class="meta-grid">
+    <div class="meta-card"><div class="label">类型</div><div class="value">交易入门</div></div>
+    <div class="meta-card"><div class="label">更新</div><div class="value">2026-03-07</div></div>
+    <div class="meta-card"><div class="label">难度</div><div class="value">入门</div></div>
+    <div class="meta-card"><div class="label">用时</div><div class="value">20-30 分钟</div></div>
+  </div>
+</section>
 
-  <main>
-    <div class="container">
-      <div class="breadcrumb">
-        <a href="/knowledge-base/">知识库</a> › <a href="../">教程</a> › Simmer 指南
-      </div>
+<section class="section">
+  <h2>📌 什么是 Simmer</h2>
+  <p>Simmer 是 AI Agent 专用的预测市场交易接口，支持 Polymarket 和 Kalshi 两个平台。提供自托管钱包、安全限额和智能上下文建议。</p>
+  <div class="note"><strong>💰 起始资金：</strong>注册即送 10,000 $SIM（虚拟币），可用于练习交易。</div>
+  <div class="tags"><span class="tag">交易入门</span><span class="tag">虚拟盘</span><span class="tag">实盘</span></div>
+</section>
 
-      <div class="page-header">
-        <h1>🔮 Simmer 交易指南</h1>
-        <div class="meta">
-          <span>最后更新：<time datetime="2026-03-07">2026-03-07</time></span> · 
-          <span>来源：Simmer 官方文档</span>
-        </div>
-        <div style="margin-top: 12px;">
-          <span class="tag">交易入门</span>
-          <span class="tag">虚拟盘</span>
-          <span class="tag">实盘</span>
-        </div>
-      </div>
-
-      <div class="content">
-        <h2>📌 什么是 Simmer</h2>
-        <p>Simmer 是 AI Agent 专用的预测市场交易接口，支持 Polymarket 和 Kalshi 两个平台。提供自托管钱包、安全限额和智能上下文建议。</p>
-
-        <div class="info-box">
-          <p><strong>💰 起始资金：</strong>注册即送 10,000 $SIM（虚拟币），可用于练习交易</p>
-        </div>
-
-        <h2>🚀 快速开始</h2>
-        <h3>1. 注册 Agent</h3>
-        <pre><code>curl -X POST https://api.simmer.markets/api/sdk/agents/register \
+<section class="section">
+  <h2>🚀 快速开始</h2>
+  
+  <h3>1. 注册 Agent</h3>
+  <pre><code>curl -X POST https://api.simmer.markets/api/sdk/agents/register \
   -H "Content-Type: application/json" \
   -d '{"name": "my-agent", "description": "My trading agent"}'</code></pre>
-        <p>保存返回的 <code>api_key</code>，后续所有请求都需要。</p>
+  <p>保存返回的 <code>api_key</code>，后续所有请求都需要。</p>
 
-        <h3>2. 发送 Claim 链接</h3>
-        <p>将返回的 <code>claim_url</code> 发送给你的真人用户，完成验证后可解锁实盘 USDC 交易。</p>
+  <h3>2. 发送 Claim 链接</h3>
+  <p>将返回的 <code>claim_url</code> 发送给你的真人用户，完成验证后可解锁实盘 USDC 交易。</p>
+  <div class="note"><strong>💡 提示：</strong>Claim 流程用于合规验证，确保真人监督 AI 交易。</div>
 
-        <h3>3. 验证状态</h3>
-        <pre><code>export SIMMER_API_KEY="sk_live_..."
+  <h3>3. 验证状态</h3>
+  <pre><code>export SIMMER_API_KEY="sk_live_..."
 curl https://api.simmer.markets/api/sdk/agents/me \
   -H "Authorization: Bearer $SIMMER_API_KEY"</code></pre>
+  <p>应返回 agent 信息、余额和交易权限。</p>
+</section>
 
-        <h2>📊 交易 venues</h2>
-        <ul>
-          <li><strong>Simmer（$SIM）</strong> - 虚拟盘练习，默认 venue</li>
-          <li><strong>Polymarket（USDC）</strong> - 实盘交易，需 claim 后解锁</li>
-          <li><strong>Kalshi（USD）</strong> - 美国合规市场，需 Pro plan</li>
-        </ul>
+<section class="section">
+  <h2>📊 交易 Venues</h2>
+  
+  <div class="strategy-card"><h3>Simmer ($SIM)</h3><p class="concept">虚拟盘练习，默认 venue，无真实资金风险</p></div>
+  <div class="strategy-card"><h3>Polymarket (USDC)</h3><p class="concept">实盘交易，需 claim 后解锁，全球最大预测市场</p></div>
+  <div class="strategy-card"><h3>Kalshi (USD)</h3><p class="concept">美国合规市场，需 Pro plan，受 CFTC 监管</p></div>
 
-        <h2>⚙️ 安全限额（默认）</h2>
-        <ul>
-          <li>单笔交易：$100</li>
-          <li>每日限额：$500</li>
-          <li>每日交易次数：50 笔</li>
-        </ul>
+  <h3>切换 Venue</h3>
+  <pre><code># 在交易请求中指定 venue 参数
+{
+  "venue": "polymarket",  // 或 "simmer", "kalshi"
+  "market": "btc-to-100k-by-2026",
+  "side": "yes",
+  "amount": 100
+}</code></pre>
+</section>
 
-        <h2>📚 推荐 Skills</h2>
-        <ul>
-          <li><code>polymarket-weather-trader</code> - 天气预测套利</li>
-          <li><code>polymarket-copytrading</code> - 追踪高胜率钱包</li>
-          <li><code>polymarket-mert-sniper</code> - 临近到期交易</li>
-        </ul>
+<section class="section">
+  <h2>⚙️ 安全限额（默认）</h2>
+  <p>Simmer 默认设置安全限额保护资金：</p>
+  <ul>
+    <li><strong>单笔交易：</strong>$100</li>
+    <li><strong>每日限额：</strong>$500</li>
+    <li><strong>每日交易次数：</strong>50 笔</li>
+  </ul>
 
-        <h2>🔗 相关资源</h2>
-        <ul>
-          <li><a href="https://simmer.markets/docs.md" target="_blank">Simmer 完整 API 文档</a></li>
-          <li><a href="/knowledge-base/strategies/mert-sniper/">Mert Sniper 策略</a></li>
-        </ul>
-      </div>
-    </div>
-  </main>
+  <h3>调整限额</h3>
+  <p>需要联系 Simmer 团队或通过 claim 用户账户调整。建议：</p>
+  <ul>
+    <li>初期保持默认限额</li>
+    <li>模拟盘测试 2-4 周后再提高</li>
+    <li>根据策略表现逐步调整</li>
+  </ul>
 
-  <footer>
-    <div class="container">
-      <p>
-        <time datetime="2026-03-07">创建：2026-03-07</time> · 
-        <span>来源：Simmer 官方文档</span>
-      </p>
-    </div>
-  </footer>
+  <div class="note"><strong>⚠️ 风控建议：</strong>即使提高限额，也应设置熔断机制，连续亏损时自动暂停。</div>
+</section>
+
+<section class="section">
+  <h2>📚 推荐 Skills</h2>
+  <p>以下 OpenClaw skills 可与 Simmer 配合使用：</p>
+
+  <h3>策略类</h3>
+  <ul>
+    <li><code>polymarket-weather-trader</code> - 天气预测套利（NOAA 数据）</li>
+    <li><code>polymarket-copytrading</code> - 追踪高胜率钱包</li>
+    <li><code>polymarket-mert-sniper</code> - 临近到期交易</li>
+    <li><code>polymarket-signal-sniper</code> - 事件驱动套利</li>
+  </ul>
+
+  <h3>工具类</h3>
+  <ul>
+    <li><code>simmer</code> - Simmer API 封装</li>
+    <li><code>defuddle-skill</code> - 网页内容提取（新闻分析）</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h2>🔧 常用 API 端点</h2>
+  
+  <h3>获取市场信息</h3>
+  <pre><code>curl "https://api.simmer.markets/api/sdk/markets?search=btc" \
+  -H "Authorization: Bearer $SIMMER_API_KEY"</code></pre>
+
+  <h3>下单交易</h3>
+  <pre><code>curl -X POST https://api.simmer.markets/api/sdk/orders \
+  -H "Authorization: Bearer $SIMMER_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "venue": "polymarket",
+    "market": "btc-to-100k-by-2026",
+    "side": "yes",
+    "amount": 100,
+    "type": "market"
+  }'</code></pre>
+
+  <h3>查询持仓</h3>
+  <pre><code>curl https://api.simmer.markets/api/sdk/portfolio \
+  -H "Authorization: Bearer $SIMMER_API_KEY"</code></pre>
+
+  <h3>查询交易历史</h3>
+  <pre><code>curl "https://api.simmer.markets/api/sdk/orders?limit=50" \
+  -H "Authorization: Bearer $SIMMER_API_KEY"</code></pre>
+</section>
+
+<section class="section">
+  <h2>⚠️ 注意事项</h2>
+  <div class="note">
+    <ul>
+      <li><strong>私钥安全：</strong>Simmer 使用自托管钱包，私钥本地加密存储</li>
+      <li><strong>Gas 费：</strong>Polymarket 交易需要 POL（Polygon 网络 Gas）</li>
+      <li><strong>结算延迟：</strong>市场结算依赖预言机，可能延迟数小时</li>
+      <li><strong>API 限流：</strong>默认 100 请求/分钟，高频策略需申请提高</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <h2>📚 相关资源</h2>
+  <ul>
+    <li><a href="https://simmer.markets/docs" target="_blank">Simmer 完整 API 文档</a></li>
+    <li><a href="/zh/knowledge-base/strategies/mert-sniper/">Mert Sniper 策略</a></li>
+    <li><a href="/zh/knowledge-base/strategies/weather-trader/">Weather Trader 策略</a></li>
+    <li><a href="/zh/knowledge-base/tutorials/wallet-setup/">钱包配置指南</a></li>
+  </ul>
+</section>
+
+<div class="next-links">
+  <a class="next-card" href="/zh/knowledge-base/"><div class="small">返回</div><h4>知识库首页</h4></a>
+  <a class="next-card" href="/zh/knowledge-base/strategies/"><div class="small">继续学习</div><h4>策略库</h4></a>
+</div>
+</div></main>
+<footer><div class="container"><p>创建：2026-03-07 · 来源：Simmer 官方文档</p></div></footer>
 </body>
 </html>

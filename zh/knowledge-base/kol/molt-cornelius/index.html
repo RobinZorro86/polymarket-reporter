@@ -3,224 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>@molt_cornelius 策略分析 | Prediction Market 101</title>
-  <link rel="canonical" href="https://www.pred101.com/knowledge-base/kol/molt-cornelius/">
+  <title>@molt_cornelius 研究页 | pred101</title>
+  <meta name="description" content="@molt_cornelius 的 AI 交易笔记系统研究页：从线性日志到知识图谱的行为复盘系统。">
+  <link rel="canonical" href="https://www.pred101.com/zh/knowledge-base/kol/molt-cornelius/">
   <link rel="stylesheet" href="/css/style.css">
   <style>
-    :root { --accent: #0071e3; --bg: #ffffff; --surface: #f5f5f7; --text: #1d1d1f; --text-secondary: #86868b; --border: #d2d2d7; }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.47059; }
-    .container { max-width: 980px; margin: 0 auto; padding: 0 22px; }
-    header { background: rgba(255,255,255,0.8); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
-    header .container { display: flex; justify-content: space-between; align-items: center; height: 52px; }
-    .logo { font-size: 21px; font-weight: 600; color: var(--text); text-decoration: none; }
-    nav a { color: var(--text-secondary); text-decoration: none; margin-left: 24px; font-size: 12px; transition: color 0.2s; }
-    nav a:hover { color: var(--accent); }
-    nav a.active { color: var(--text); }
-    main { padding: 60px 0 80px; }
-    .breadcrumb { font-size: 12px; color: var(--text-secondary); margin-bottom: 16px; }
-    .breadcrumb a { color: var(--accent); text-decoration: none; }
-    .page-header { margin-bottom: 40px; }
-    .page-header h1 { font-size: 40px; font-weight: 600; margin-bottom: 12px; }
-    .page-header .meta { font-size: 13px; color: var(--text-secondary); }
-    .content { background: var(--surface); border-radius: 18px; padding: 32px; margin-bottom: 24px; }
-    .content h2 { font-size: 24px; font-weight: 600; margin: 32px 0 16px; }
-    .content h2:first-child { margin-top: 0; }
-    .content p { margin: 16px 0; font-size: 15px; }
-    .content ul, .content ol { margin: 16px 0 16px 24px; }
-    .content li { margin: 8px 0; font-size: 15px; }
-    .content pre { background: #1d1d1f; color: #e2e8f0; padding: 20px; border-radius: 12px; overflow-x: auto; font-size: 13px; margin: 16px 0; }
-    .content code { font-family: 'SF Mono', Monaco, monospace; }
-    .tag { display: inline-block; font-size: 12px; font-weight: 500; color: var(--accent); background: rgba(0,113,227,0.1); padding: 4px 12px; border-radius: 12px; margin: 4px 8px 4px 0; }
-    .info-box { background: #e8f4ff; border-left: 4px solid var(--accent); padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; }
-    .info-box p { margin: 0; font-size: 14px; }
-    .warning-box { background: #fff4e6; border-left: 4px solid #ff9500; padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; }
-    .feature-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 16px 0; }
-    .feature-card h3 { font-size: 17px; font-weight: 600; margin-bottom: 12px; color: var(--accent); }
-    footer { border-top: 1px solid var(--border); padding: 40px 0; text-align: center; }
-    footer p { font-size: 12px; color: var(--text-secondary); }
+    :root { --bg:#f7f8fb; --surface:#ffffff; --surface-soft:#eef2ff; --text:#111827; --text-secondary:#667085; --border:#e5e7eb; --accent:#6f7cff; --accent-2:#38d0ff; --warning:#f79009; --shadow:0 10px 30px rgba(16,24,40,.06); --max:1080px; }
+    *{margin:0;padding:0;box-sizing:border-box} body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(180deg,#f8fbff 0%,#f6f7fb 100%);color:var(--text);line-height:1.65} a{color:inherit;text-decoration:none}.container{max-width:var(--max);margin:0 auto;padding:0 24px} header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid var(--border)} header .container{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px}.logo{font-size:1.04rem;font-weight:800}.logo .mark{color:var(--accent)} nav{display:flex;gap:18px;flex-wrap:wrap} nav a{color:var(--text-secondary);font-size:.92rem} nav a.active,nav a:hover{color:var(--text)} main{padding:52px 0 80px}.hero{background:linear-gradient(135deg, rgba(111,124,255,.10), rgba(56,208,255,.08));border:1px solid rgba(111,124,255,.16);border-radius:28px;padding:34px 30px;box-shadow:var(--shadow);margin-bottom:30px}.eyebrow{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px} h1{font-size:clamp(2.1rem,5vw,3.4rem);line-height:.98;letter-spacing:-.04em}.lead{margin-top:16px;max-width:780px;color:var(--text-secondary);font-size:1.03rem}.meta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}.meta-card{background:rgba(255,255,255,.7);border:1px solid var(--border);border-radius:16px;padding:14px 16px}.meta-card .label{font-size:.76rem;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.08em}.meta-card .value{margin-top:6px;font-size:.96rem;font-weight:700}.section{background:var(--surface);border:1px solid var(--border);border-radius:24px;box-shadow:var(--shadow);padding:28px;margin:22px 0}.section h2{font-size:1.55rem;margin-bottom:16px;letter-spacing:-.03em}.section h3{font-size:1.08rem;margin:18px 0 10px}.section p,.section li{color:#344054}.section ul{padding-left:20px}.section li{margin:8px 0}.note,.warning-box{border-radius:16px;padding:16px 18px;margin-top:16px}.note{background:#edf7ff;border-left:4px solid var(--accent-2)}.warning-box{background:#fff7ed;border-left:4px solid var(--warning)}.feature-card{background:#fbfcff;border:1px solid var(--border);border-radius:18px;padding:20px;margin-top:14px}.feature-card h3{color:var(--accent)}pre{background:#111827;color:#e5e7eb;border-radius:16px;padding:18px;overflow:auto;margin-top:14px}.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.tag{display:inline-block;font-size:.78rem;font-weight:700;color:var(--accent);background:rgba(111,124,255,.10);padding:5px 11px;border-radius:999px}.next-links{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:26px}.next-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:18px;box-shadow:var(--shadow)}.next-card .small{color:var(--text-secondary);font-size:.82rem}.next-card h4{margin-top:8px;font-size:1rem} footer{padding:38px 0 52px;color:var(--text-secondary)} footer .container{border-top:1px solid var(--border);padding-top:20px;font-size:.86rem}@media (max-width:860px){.meta-grid,.next-links{grid-template-columns:1fr 1fr}}@media (max-width:640px){.meta-grid,.next-links{grid-template-columns:1fr}.hero,.section{padding:22px 18px}}
   </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <a href="/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a>
-      <nav>
-        <a href="/">首页</a>
-        <a href="/zh/knowledge-base/" class="active">知识库</a>
-        <a href="/zh/reports/">报告</a>
-        <a href="/zh/about.html">关于</a>
-      </nav>
-    </div>
-  </header>
-
+  <header><div class="container"><a href="/zh/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a><nav><a href="/zh/">首页</a><a href="/zh/learn/">学习路径</a><a href="/zh/knowledge-base/" class="active">知识库</a><a href="/zh/reports/">报告</a><a href="/zh/about.html">关于</a></nav></div></header>
   <main>
     <div class="container">
-      <div class="breadcrumb">
-        <a href="/zh/knowledge-base/">知识库</a> › <a href="../">KOL</a> › @molt_cornelius
-      </div>
-
-      <div class="page-header">
-        <h1>📝 @molt_cornelius 策略分析</h1>
-        <div class="meta">
-          <span>最后更新：<time datetime="2026-03-07">2026-03-07</time></span> · 
-          <span>来源：X.com @molt_cornelius</span>
-        </div>
-        <div style="margin-top: 12px;">
-          <span class="tag">AI 笔记系统</span>
-          <span class="tag">交易心理学</span>
-          <span class="tag">知识图谱</span>
-        </div>
-      </div>
-
-      <div class="content">
-        <h2>📌 核心贡献</h2>
-        <p>@molt_cornelius 提出了 AI 辅助交易笔记系统的完整架构，将线性交易日志转化为知识图谱，通过自动化分析发现交易者无法自知的行为模式。</p>
-
-        <div class="info-box">
-          <p><strong>💡 核心发现：</strong>金融专业人士被要求给出 90% 置信区间时，实际捕获真实结果的概率仅 33%。73% 的活跃交易者没有系统性记录决策过程。</p>
-        </div>
-
-        <h2>🏗️ 系统架构：7 大核心模块</h2>
-
-        <div class="feature-card">
-          <h3>1. 置信度图谱 (Conviction Graph)</h3>
-          <p>每笔交易开始时记录置信度（1-10 分）， agent 追踪置信度与结果的关联：</p>
-          <pre><code>高置信度交易 (8-10 分)：胜率 58%
-中置信度交易 (5-7 分)：胜率 61%
-低置信度交易 (1-4 分)：胜率 71%
-
-反直觉发现：最不确定的交易表现最好</code></pre>
-        </div>
-
-        <div class="feature-card">
-          <h3>2. 策略漂移检测器 (Strategy Drift Detector)</h3>
-          <p>检查每笔交易是否遵守既定规则：</p>
-          <ul>
-            <li>仓位限制违规检测</li>
-            <li>止损移动追踪</li>
-            <li>入场条件合规性</li>
-          </ul>
-          <pre><code>最近 30 笔交易：7 笔违规 (23%)
-违规模式：连亏后仓位超标 1.4 倍
-高波动时段违规率更高</code></pre>
-        </div>
-
-        <div class="feature-card">
-          <h3>3. 自动复盘引擎 (Postmortem Autopilot)</h3>
-          <p>每笔交易结束后自动生成复盘报告：</p>
-          <ul>
-            <li>原始假设 vs 实际结果</li>
-            <li>错误分类（假设错误/时机错误/违规/情绪化）</li>
-            <li>模式匹配（与历史相似交易对比）</li>
-          </ul>
-          <pre><code>交易分类：正确假设，错误时机
-90 天内第 4 次同类错误
-建议：财报催化入场时机是否系统性过早？</code></pre>
-        </div>
-
-        <div class="feature-card">
-          <h3>4. 情绪状态关联器 (Emotional State Correlator)</h3>
-          <p>记录交易时的情绪状态，计算与表现的关联：</p>
-          <pre><code>情绪状态      胜率    平均收益
-─────────────────────────────
-冷静专注       64%     +1.2%
-兴奋自信       48%     -0.3%
-焦虑不确定     41%     -0.8%
-沮丧           31%     -1.4%
-报复性交易     18%     -2.7%
-
-关键发现：兴奋自信状态比冷静专注差 16%</code></pre>
-        </div>
-
-        <div class="feature-card">
-          <h3>5. 反事实引擎 (Counterfactual Engine)</h3>
-          <p>维护"影子组合"：如果严格遵守规则会发生什么：</p>
-          <pre><code>Q1 实际收益：+4.2%
-影子组合（规则优先）：+11.8%
-差距：7.6%
-
-主要差距来源：
-- 提前平仓：TSLA 少赚 3.6%
-- 移动止损：BTC 多亏 4.1%</code></pre>
-        </div>
-
-        <div class="feature-card">
-          <h3>6. 市场状态记忆 (Regime Memory)</h3>
-          <p>自动分类市场状态，映射历史表现：</p>
-          <pre><code>当前状态：高波动，下跌趋势
-
-历史表现（412 笔交易）：
-低波动上涨：68% 胜率，+1.8% 平均收益
-低波动震荡：52% 胜率，+0.3%
-高波动下跌：44% 胜率，-0.6% ← 当前
-高波动震荡：39% 胜率，-1.1%
-
-警告：当前状态下无盈利策略</code></pre>
-        </div>
-
-        <div class="feature-card">
-          <h3>7. 边缘衰减检测 (Edge Decay Detection)</h3>
-          <p>监控每个策略的滚动表现，发现策略失效：</p>
-          <pre><code>策略：均值回归财报缺口
-1-4 月：68% 胜率，+1.4% 平均收益
-5-8 月：59% 胜率，+0.6%
-9-12 月：47% 胜率，-0.2% ← 跌破盈亏线
-
-统计显著性：p < 0.05
-建议：暂停部署，调查结构性变化</code></pre>
-        </div>
-
-        <h2>📁 知识库结构</h2>
-        <pre><code>vault/
-├── positions/      # 每笔交易：假设、入场、出场、结果
-├── strategies/     # 正式规则集 + 合规追踪
-├── theses/         # 市场观点 + 证据 + 置信度
-├── journal/        # 每日状态：情绪、认知、市场解读
-├── watchlist/      # 追踪设置 + 触发条件
-├── research/       # 市场分析、宏观观点、行业笔记
-├── reviews/        # agent 生成的定期分析
-├── archive/        # 已平仓完整历史
-└── .claude/
-    ├── skills/     # postmortem, drift, review, regime
-    ├── hooks/      # session-orient, pre-trade-check
-    └── CLAUDE.md</code></pre>
-
-        <h2>⚠️ 核心洞察</h2>
-        <h3>为什么传统交易日志无效</h3>
-        <ul>
-          <li><strong>线性文档退化为考古学：</strong>200 条记录后没人会交叉引用第 47 条和第 183 条</li>
-          <li><strong>73% 交易者没有系统记录：</strong>20% 有记录的人中，少于 20% 会复查超过一次</li>
-          <li><strong>原因不是懒惰：</strong>是架构问题，线性文档无法呈现跨模式</li>
-        </ul>
-
-        <h3>情绪对表现的影响</h3>
-        <p>Lo, Repin, and Steenbarger (2005) 研究发现：交易时情绪唤醒强度与表现负相关。不是极端情绪，任何偏离基线的状态都会影响表现。</p>
-
-        <h2>🤔 未解问题</h2>
-        <div class="warning-box">
-          <p><strong>系统性自我认知会改善交易，还是创造新的瘫痪？</strong></p>
-          <p>如果 agent 显示你下午交易表现差 340bp、高置信度是最差信号、亏损后情绪预测下次胜率 29%、最爱策略 4 个月前失效——你会交易更好，还是完全停止交易？</p>
-          <p>Kahneman 证明损失厌恶是收益寻求的 2 倍。精确呈现损失的系统可能放大厌恶而非纠正行为。</p>
-        </div>
-
-        <h2>📚 相关资源</h2>
-        <ul>
-          <li><a href="/zh/knowledge-base/kol/0xchainmind/">@0xChainMind 跟单交易教程</a></li>
-          <li><a href="/zh/knowledge-base/resources/risk-management/">风险管理</a></li>
-          <li><a href="https://x.com/molt_cornelius" target="_blank">@molt_cornelius on X</a></li>
-        </ul>
-      </div>
+      <section class="hero"><div class="eyebrow">KOL research</div><h1>@molt_cornelius</h1><p class="lead">这是一个“交易认知与复盘系统型 KOL”样本。重点不是如何下一单，而是如何把交易日志升级成能发现行为模式、策略漂移和情绪偏差的知识系统。</p><div class="meta-grid"><div class="meta-card"><div class="label">类型</div><div class="value">复盘 / 认知系统</div></div><div class="meta-card"><div class="label">更新</div><div class="value">2026-03-07</div></div><div class="meta-card"><div class="label">适合学习</div><div class="value">交易复盘</div></div><div class="meta-card"><div class="label">研究用途</div><div class="value">行为修正</div></div></div></section>
+      <section class="section"><h2>📌 研究价值</h2><p>@molt_cornelius 的价值在于：把线性交易日志升级成知识图谱与自动复盘系统，从而暴露交易者自己看不到的行为模式。</p><div class="note"><strong>核心发现：</strong>大多数活跃交易者并没有真正系统地记录和回看决策，因此很多错误模式会被重复放大。</div><div class="tags"><span class="tag">AI 笔记系统</span><span class="tag">交易心理学</span><span class="tag">知识图谱</span><span class="tag">复盘自动化</span></div></section>
+      <section class="section"><h2>🏗️ 七大核心模块</h2><div class="feature-card"><h3>1. 置信度图谱</h3><p>记录每笔交易的主观置信度，反向检查“自信”与“结果”的真实关系。</p></div><div class="feature-card"><h3>2. 策略漂移检测器</h3><p>检查你是否持续遵守自己的规则，以及哪些时段最容易违规。</p></div><div class="feature-card"><h3>3. 自动复盘引擎</h3><p>把交易结束后的假设、时机和结果自动组织成复盘模板。</p></div><div class="feature-card"><h3>4. 情绪状态关联器</h3><p>记录不同情绪状态下的胜率和收益差异。</p></div><div class="feature-card"><h3>5. 反事实引擎</h3><p>维护“影子组合”，看如果严格守规则会怎样。</p></div><div class="feature-card"><h3>6. 市场状态记忆</h3><p>按波动率和趋势分类市场环境，映射不同状态下的历史表现。</p></div><div class="feature-card"><h3>7. 边缘衰减检测</h3><p>监控策略是否从有效走向失效，避免继续部署过期 edge。</p></div></section>
+      <section class="section"><h2>⚠️ 核心洞察</h2><ul><li>传统线性交易日志很快会退化成“考古档案”</li><li>真正的价值在于跨交易模式识别</li><li>系统越能准确反映损失与偏差，越可能同时带来改进与心理压力</li></ul><div class="warning-box"><strong>最重要的问题：</strong>系统化自我认知会让你交易更好，还是会让你因为过度看见自己的缺陷而停下手来？</div></section>
+      <section class="section"><h2>📚 相关资源</h2><ul><li><a href="/zh/knowledge-base/resources/risk-management/" style="color:var(--accent)">风险管理</a></li><li><a href="https://x.com/molt_cornelius" target="_blank" rel="noopener" style="color:var(--accent)">@molt_cornelius on X</a></li></ul></section>
+      <div class="next-links"><a class="next-card" href="/zh/knowledge-base/kol/rankings/"><div class="small">返回</div><h4>KOL 排名页</h4></a><a class="next-card" href="/zh/knowledge-base/kol/ayi_ainotes/"><div class="small">对照研究</div><h4>@AYi_AInotes</h4></a></div>
     </div>
   </main>
-
-  <footer>
-    <div class="container">
-      <p>
-        <time datetime="2026-03-07">创建：2026-03-07</time> · 
-        <span>来源：X.com @molt_cornelius</span>
-      </p>
-    </div>
-  </footer>
+  <footer><div class="container"><p>pred101.com · KOL research layer · Updated 2026-03-07</p></div></footer>
 </body>
 </html>

@@ -1,6 +1,6 @@
 # Phase-2 Visual Unification Progress
 
-**Last Updated:** 2026-03-10 01:35 JST  
+**Last Updated:** 2026-03-10 01:45 JST  
 **Status:** ✅ ALL COMPLETE
 
 ---
@@ -165,11 +165,13 @@ HTTPS active, no old branding remnants.
 **Structure Entry Link Fix:**
 - ✅ Fixed 4 ZH legacy pages with `/` homepage links → changed to `/zh/`
 - ✅ Fixed 4 ZH knowledge-base pages with inconsistent structure entry links
+- ✅ Fixed 24 ZH pages (reports, strategies, KOLs, tutorials, resources) with `/` homepage links → changed to `/zh/`
 - ✅ All ZH pages now use `/zh/` prefix for homepage and internal navigation
 
 **Commits:**
 - `fa42971` - fix: unify structure entry links - use /zh/knowledge-base/ consistently on 4 ZH legacy pages
 - `dcc2b21` - fix: unify homepage links - use /zh/ consistently on 4 ZH knowledge-base pages
+- `f9cb7b0` - fix: unify homepage links - use /zh/ consistently across all ZH pages (24 files)
 
 ---
 

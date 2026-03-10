@@ -3,119 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fast-Loop 高频套利 | Prediction Market 101</title>
+  <title>Fast-Loop 快速循环 | pred101</title>
+  <meta name="description" content="快速观察 - 执行 - 复盘工作流，适用于高频预测市场交易。">
   <link rel="canonical" href="https://www.pred101.com/zh/knowledge-base/strategies/fast-loop/">
+  <link rel="alternate" hreflang="en" href="https://www.pred101.com/knowledge-base/strategies/fast-loop/">
   <link rel="stylesheet" href="/css/style.css">
-  <style>
-    :root { --accent: #0071e3; --bg: #ffffff; --surface: #f5f5f7; --text: #1d1d1f; --text-secondary: #86868b; --border: #d2d2d7; }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.47059; }
-    .container { max-width: 980px; margin: 0 auto; padding: 0 22px; }
-    header { background: rgba(255,255,255,0.8); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
-    header .container { display: flex; justify-content: space-between; align-items: center; height: 52px; }
-    .logo { font-size: 21px; font-weight: 600; color: var(--text); text-decoration: none; }
-    nav a { color: var(--text-secondary); text-decoration: none; margin-left: 24px; font-size: 12px; transition: color 0.2s; }
-    nav a:hover { color: var(--accent); }
-    nav a.active { color: var(--text); }
-    main { padding: 60px 0 80px; }
-    .breadcrumb { font-size: 12px; color: var(--text-secondary); margin-bottom: 16px; }
-    .breadcrumb a { color: var(--accent); text-decoration: none; }
-    .page-header { margin-bottom: 40px; }
-    .page-header h1 { font-size: 40px; font-weight: 600; margin-bottom: 12px; }
-    .page-header .meta { font-size: 13px; color: var(--text-secondary); }
-    .content { background: var(--surface); border-radius: 18px; padding: 32px; margin-bottom: 24px; }
-    .content h2 { font-size: 24px; font-weight: 600; margin: 32px 0 16px; }
-    .content h2:first-child { margin-top: 0; }
-    .content p { margin: 16px 0; font-size: 15px; }
-    .content ul { margin: 16px 0 16px 24px; }
-    .content li { margin: 8px 0; font-size: 15px; }
-    .tag { display: inline-block; font-size: 12px; font-weight: 500; color: var(--accent); background: rgba(0,113,227,0.1); padding: 4px 12px; border-radius: 12px; margin: 4px 8px 4px 0; }
-    .info-box { background: #e8f4ff; border-left: 4px solid var(--accent); padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; }
-    .info-box p { margin: 0; font-size: 14px; }
-    footer { border-top: 1px solid var(--border); padding: 40px 0; text-align: center; }
-    footer p { font-size: 12px; color: var(--text-secondary); }
-  </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <a href="/zh/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a>
-      <nav>
-        <a href="/zh/">首页</a>
-        <a href="/zh/knowledge-base/" class="active">知识库</a>
-        <a href="/zh/reports/">报告</a>
-        <a href="/zh/about.html">关于</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <div class="container">
-      <div class="breadcrumb">
-        <a href="/zh/knowledge-base/">知识库</a> › <a href="../">策略</a> › Fast-Loop
-      </div>
-
-      <div class="page-header">
-        <h1>⚡ Fast-Loop 高频套利</h1>
-        <div class="meta">
-          <span>最后更新：<time datetime="2026-03-07">2026-03-07</time></span> · 
-          <span>来源：@noisyb0y1 策略分析</span>
-        </div>
-        <div style="margin-top: 12px;">
-          <span class="tag">高频交易</span>
-          <span class="tag">BTC Sprint</span>
-          <span class="tag">5 分钟市场</span>
-        </div>
-      </div>
-
-      <div class="content">
-        <h2>📌 策略概述</h2>
-        <p>Fast-Loop 是针对 Polymarket 5 分钟 BTC Sprint 市场的高频套利策略。通过追踪 CEX（币安/Bybit）的 momentum 信号，在预测市场反应延迟中捕捉定价偏差。</p>
-
-        <div class="info-box">
-          <p><strong>💰 收益潜力：</strong>根据@noisyb0y1 复盘数据，该策略月收益可达 $386K（需大资金 + 高频执行）</p>
-        </div>
-
-        <h2>🔄 核心逻辑</h2>
-        <ul>
-          <li><strong>市场：</strong>Polymarket BTC 5 分钟 Sprint（下一个 5 分钟蜡烛是涨还是跌）</li>
-          <li><strong>信号源：</strong>币安/Bybit 1 分钟 K 线 momentum</li>
-          <li><strong>执行窗口：</strong>每轮 5 分钟周期的前 30-90 秒</li>
-          <li><strong>延迟优势：</strong>预测市场反应比 CEX 慢 2-5 秒</li>
-        </ul>
-
-        <h2>⚙️ 配置要求</h2>
-        <ul>
-          <li><strong>OpenClaw 技能：</strong>simmer, signal-sniper</li>
-          <li><strong>CEX API：</strong>币安/Bybit WebSocket（免费）</li>
-          <li><strong>执行速度：</strong>&lt;500ms 延迟</li>
-          <li><strong>资金门槛：</strong>建议 ≥$5K（考虑 gas 和手续费）</li>
-        </ul>
-
-        <h2>⚠️ 风险提示</h2>
-        <ul>
-          <li>高频交易 gas 成本占比高，小资金不划算</li>
-          <li>CEX 价格剧烈波动时可能出现双重损失</li>
-          <li>需要持续监控 API 延迟和连接稳定性</li>
-        </ul>
-
-        <h2>📚 相关资源</h2>
-        <ul>
-          <li><a href="/zh/knowledge-base/tutorials/openclaw-setup/">OpenClaw 配置教程</a></li>
-          <li><a href="/zh/knowledge-base/tutorials/simmer-guide/">Simmer 交易指南</a></li>
-          <li><a href="/zh/knowledge-base/kol/noisyb0y1/">@noisyb0y1 完整策略分析</a></li>
-        </ul>
-      </div>
-    </div>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>
-        <time datetime="2026-03-07">创建：2026-03-07</time> · 
-        <span>来源：@noisyb0y1 策略分析</span>
-      </p>
-    </div>
-  </footer>
+<header><div class="container"><a href="/zh/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a><nav><a href="/zh/">首页</a><a href="/zh/knowledge-base/" class="active">知识库</a><a href="/zh/reports/">报告</a><a href="/zh/about.html">关于</a></nav></div></header>
+<main><div class="container" style="padding:52px 24px">
+<h1>Fast-Loop 快速循环</h1>
+<p>快速观察 - 执行 - 复盘工作流，适用于高频预测市场交易。</p>
+<p><a href="/knowledge-base/strategies/fast-loop/">查看英文版</a></p>
+</div></main>
 </body>
 </html>

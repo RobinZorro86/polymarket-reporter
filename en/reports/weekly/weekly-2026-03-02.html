@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polymarket Weekly Report · 2026-03-02 | pred101</title>
+  <meta name="description" content="Weekly report for Prediction Market 101 covering major Polymarket developments, market sentiment, and next-week outlook.">
+  <link rel="canonical" href="https://www.pred101.com/en/reports/weekly/weekly-2026-03-02.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --surface: #ffffff;
+      --surface-soft: #eef2ff;
+      --text: #111827;
+      --text-secondary: #667085;
+      --border: #e5e7eb;
+      --accent: #6f7cff;
+      --accent-2: #38d0ff;
+      --success: #18b26b;
+      --warning: #f79009;
+      --danger: #f04438;
+      --shadow: 0 10px 30px rgba(16, 24, 40, 0.06);
+      --radius: 20px;
+      --max: 1080px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #f8fbff 0%, #f6f7fb 100%);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(255,255,255,0.82);
+      backdrop-filter: saturate(180%) blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+    header .container {
+      min-height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .logo { font-size: 1.04rem; font-weight: 800; }
+    .logo .mark { color: var(--accent); }
+    nav { display: flex; gap: 18px; flex-wrap: wrap; }
+    nav a { color: var(--text-secondary); font-size: 0.92rem; }
+    nav a.active, nav a:hover { color: var(--text); }
+    main { padding: 52px 0 80px; }
+    .report-hero {
+      background: linear-gradient(135deg, rgba(111,124,255,.10), rgba(56,208,255,.08));
+      border: 1px solid rgba(111,124,255,.16);
+      border-radius: 28px;
+      padding: 34px 30px;
+      box-shadow: var(--shadow);
+      margin-bottom: 30px;
+    }
+    .eyebrow {
+      display: inline-block;
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    h1 {
+      font-size: clamp(2.1rem, 5vw, 3.4rem);
+      line-height: .98;
+      letter-spacing: -.04em;
+    }
+    .lead {
+      margin-top: 16px;
+      max-width: 760px;
+      color: var(--text-secondary);
+      font-size: 1.03rem;
+    }
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 22px;
+    }
+    .meta-card {
+      background: rgba(255,255,255,.7);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px 16px;
+    }
+    .meta-card .label { font-size: .76rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: .08em; }
+    .meta-card .value { margin-top: 6px; font-size: .96rem; font-weight: 700; }
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 28px 28px;
+      margin: 22px 0;
+    }
+    .section h2 {
+      font-size: 1.55rem;
+      margin-bottom: 16px;
+      letter-spacing: -.03em;
+    }
+    .section h3 {
+      font-size: 1.12rem;
+      margin: 18px 0 10px;
+    }
+    .section p, .section li { color: #344054; }
+    .section ul { padding-left: 20px; }
+    .section li { margin: 8px 0; }
+    .info-strip {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--surface-soft);
+      color: #364152;
+      font-size: .84rem;
+      border: 1px solid #dbe2ff;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 10px;
+      overflow: hidden;
+      border-radius: 16px;
+      background: #fbfcff;
+    }
+    th, td {
+      padding: 14px 14px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+      font-size: .95rem;
+    }
+    th {
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--text-secondary);
+      background: #f4f6fb;
+    }
+    .note, .warning-box {
+      border-radius: 16px;
+      padding: 16px 18px;
+      margin-top: 16px;
+    }
+    .note {
+      background: #edf7ff;
+      border-left: 4px solid var(--accent-2);
+    }
+    .warning-box {
+      background: #fff7ed;
+      border-left: 4px solid var(--warning);
+    }
+    .next-links {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 16px;
+      margin-top: 26px;
+    }
+    .next-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+    .next-card .small { color: var(--text-secondary); font-size: .82rem; }
+    .next-card h4 { margin-top: 8px; font-size: 1rem; }
+    footer {
+      padding: 38px 0 52px;
+      color: var(--text-secondary);
+    }
+    footer .container {
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+      font-size: .86rem;
+    }
+    @media (max-width: 860px) {
+      .meta-grid, .next-links { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .meta-grid, .next-links { grid-template-columns: 1fr; }
+      .report-hero, .section { padding: 22px 18px; }
+      h1 { font-size: 2rem; }
+      table, thead, tbody, tr, th, td { display: block; }
+      thead { display: none; }
+      td { padding: 10px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/en/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a>
+      <nav>
+        <a href="/en/">Home</a>
+        <a href="/en/learn/">7-Day Path</a>
+        <a href="/en/knowledge-base/">Library</a>
+        <a href="/en/reports/" class="active">Reports</a>
+        <a href="/about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="report-hero">
+        <div class="eyebrow">Weekly report</div>
+        <h1>Polymarket Weekly Report · 2026-03-02</h1>
+        <p class="lead">A structured weekly summary of the dominant market narrative, major volume clusters, sentiment drift, and the key setups worth watching next.</p>
+        <div class="meta-grid">
+          <div class="meta-card"><div class="label">Published</div><div class="value">2026-03-02</div></div>
+          <div class="meta-card"><div class="label">Coverage</div><div class="value">2026-02-24 → 2026-03-02</div></div>
+          <div class="meta-card"><div class="label">Type</div><div class="value">Weekly recap</div></div>
+          <div class="meta-card"><div class="label">Audience</div><div class="value">Research / execution</div></div>
+        </div>
+        <div class="info-strip">
+          <span class="pill">Theme: geopolitics dominant</span>
+          <span class="pill">Focus: Iran-related markets</span>
+          <span class="pill">Layer: update feed</span>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>🔥 Weekly focus</h2>
+        <p>This week Polymarket activity was heavily concentrated around Middle East developments. Iran-related contracts dominated both attention and volume, pushing geopolitical event markets into the core of weekly decision flow.</p>
+
+        <h3>Iran situation</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Market</th>
+              <th>Probability</th>
+              <th>Volume</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Iranian regime falls before June 30?</td><td>41% Yes</td><td>$3M</td></tr>
+            <tr><td>US / Israel bomb Iran before March 2?</td><td>98% Yes</td><td>$2M</td></tr>
+            <tr><td>Iran closes the Strait of Hormuz?</td><td>55% Yes</td><td>$200K+</td></tr>
+            <tr><td>US invades Iran before 2027?</td><td>23% Yes</td><td>$235K</td></tr>
+            <tr><td>Iran appoints a new successor before March 2?</td><td>33% Yes</td><td>$567K</td></tr>
+            <tr><td>Reza Pahlavi enters Iran before March 31?</td><td>10% Yes</td><td>$3M</td></tr>
+          </tbody>
+        </table>
+        <div class="note"><strong>Key read:</strong> short-term military escalation was priced aggressively, while longer-horizon political outcomes remained much more fragmented.</div>
+      </section>
+
+      <section class="section">
+        <h2>⚔️ Ceasefire expectations</h2>
+        <ul>
+          <li>US × Iran ceasefire before March 2: <strong>2%</strong> (about $2M volume)</li>
+          <li>US × Iran ceasefire before March 6: <strong>12%</strong></li>
+          <li>Iran / Israel conflict ends before March 7: <strong>20%</strong></li>
+          <li>Iran / Israel conflict ends before March 15: <strong>36%</strong></li>
+        </ul>
+        <div class="warning-box"><strong>Interpretation:</strong> the market expected escalation to arrive faster than resolution. That asymmetry matters for timing, headline sensitivity, and overnight risk.</div>
+      </section>
+
+      <section class="section">
+        <h2>📊 Cross-market notes</h2>
+        <h3>Bitcoin</h3>
+        <ul>
+          <li>BTC 5-minute up/down stayed one of the highest-volume short-cycle contracts at roughly <strong>$20M</strong>.</li>
+        </ul>
+
+        <h3>Sports</h3>
+        <ul>
+          <li>Fulham vs Spurs: Fulham 87%</li>
+          <li>Man Utd vs Palace: Palace 42%</li>
+        </ul>
+
+        <h3>Esports</h3>
+        <ul>
+          <li>CS2: Astralis vs Monte — Astralis 75%</li>
+          <li>LoL: G2 vs Karmine Corp — G2 64%</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>🔮 Next-week outlook</h2>
+        <ul>
+          <li>Continue monitoring Iran-related event chains and secondary reaction markets.</li>
+          <li>Early March remains a dense expiry cluster for multiple narrative contracts.</li>
+          <li>BTC volatility is still elevated and likely to keep short-cycle markets active.</li>
+        </ul>
+      </section>
+
+      <div class="next-links">
+        <a class="next-card" href="/en/reports/"><div class="small">Back to</div><h4>Report center</h4></a>
+        <a class="next-card" href="/en/reports/daily/daily-2026-03-08.html"><div class="small">Read next</div><h4>Daily Report · 2026-03-08</h4></a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>pred101.com · Weekly report layer · Updated 2026-03-05 · Source: weekly summary archive</p>
+    </div>
+  </footer>
+</body>
+</html>

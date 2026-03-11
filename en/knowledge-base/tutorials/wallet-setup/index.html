@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>钱包配置指南 | pred101</title>
+  <meta name="description" content="配置支持 Polygon 网络的钱包，获取 USDC.e 和 POL，连接 Polymarket 进行预测市场交易。">
+  <link rel="canonical" href="https://www.pred101.com/en/knowledge-base/tutorials/wallet-setup/">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    :root{--bg:#f7f8fb;--surface:#ffffff;--surface-soft:#eef2ff;--text:#111827;--text-secondary:#667085;--border:#e5e7eb;--accent:#6f7cff;--accent-2:#38d0ff;--shadow:0 10px 30px rgba(16,24,40,.06);--max:1080px}*{margin:0;padding:0;box-sizing:border-box}body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(180deg,#f8fbff 0%,#f6f7fb 100%);color:var(--text);line-height:1.65}a{color:inherit;text-decoration:none}.container{max-width:var(--max);margin:0 auto;padding:0 24px}header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid var(--border)}header .container{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px}.logo{font-size:1.04rem;font-weight:800}.logo .mark{color:var(--accent)}nav{display:flex;gap:18px;flex-wrap:wrap}nav a{color:var(--text-secondary);font-size:.92rem}nav a.active,nav a:hover{color:var(--text)}main{padding:52px 0 80px}.hero{background:linear-gradient(135deg, rgba(111,124,255,.10), rgba(56,208,255,.08));border:1px solid rgba(111,124,255,.16);border-radius:28px;padding:34px 30px;box-shadow:var(--shadow);margin-bottom:30px}.eyebrow{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}h1{font-size:clamp(2.1rem,5vw,3.4rem);line-height:.98;letter-spacing:-.04em}.lead{margin-top:16px;max-width:780px;color:var(--text-secondary);font-size:1.03rem}.meta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}.meta-card{background:rgba(255,255,255,.7);border:1px solid var(--border);border-radius:16px;padding:14px 16px}.meta-card .label{font-size:.76rem;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.08em}.meta-card .value{margin-top:6px;font-size:.96rem;font-weight:700}.section{background:var(--surface);border:1px solid var(--border);border-radius:24px;box-shadow:var(--shadow);padding:28px;margin:22px 0}.section h2{font-size:1.55rem;margin-bottom:16px;letter-spacing:-.03em}.section h3{font-size:1.08rem;margin:18px 0 10px}.section p,.section li{color:#344054}.section ul{padding-left:20px}.section li{margin:8px 0}.section pre{background:#1d1d1f;color:#e2e8f0;padding:18px;border-radius:14px;overflow-x:auto;font-size:.85rem;margin:16px 0}.section code{font-family:'SF Mono',Monaco,monospace}.note{background:#edf7ff;border-left:4px solid var(--accent-2);border-radius:16px;padding:16px 18px;margin-top:16px}.note ul{margin:8px 0 0 20px}.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.tag{display:inline-block;font-size:.78rem;font-weight:700;color:var(--accent);background:rgba(111,124,255,.10);padding:5px 11px;border-radius:999px}.strategy-card{background:#fbfcff;border:1px solid var(--border);border-radius:18px;padding:20px;margin-top:14px}.strategy-card h3{font-size:1.05rem;color:var(--accent)}.strategy-card .concept{margin-top:8px;color:var(--text-secondary);font-style:italic}.next-links{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:26px}.next-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:18px;box-shadow:var(--shadow)}.next-card .small{color:var(--text-secondary);font-size:.82rem}.next-card h4{margin-top:8px;font-size:1rem}footer{padding:38px 0 52px;color:var(--text-secondary)}footer .container{border-top:1px solid var(--border);padding-top:20px;font-size:.86rem}@media (max-width:860px){.meta-grid,.next-links{grid-template-columns:1fr 1fr}}@media (max-width:640px){.meta-grid,.next-links{grid-template-columns:1fr}.hero,.section{padding:22px 18px}}</style>
+</head>
+<body>
+<header><div class="container"><a href="/zh/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a><nav><a href="/zh/">首页</a><a href="/en/knowledge-base/" class="active">知识库</a><a href="/en/reports/">报告</a><a href="/zh/about.html">关于</a></nav></div></header>
+<main><div class="container">
+<section class="hero">
+  <div class="eyebrow">Tutorial</div>
+  <h1>钱包配置指南</h1>
+  <p class="lead">Polymarket 运行在 Polygon 网络上，需要配置支持 Polygon 的钱包并持有 USDC.e（桥接 USDC）和少量 POL（Gas 费）。</p>
+  <div class="meta-grid">
+    <div class="meta-card"><div class="label">类型</div><div class="value">安全</div></div>
+    <div class="meta-card"><div class="label">更新</div><div class="value">2026-03-07</div></div>
+    <div class="meta-card"><div class="label">难度</div><div class="value">入门</div></div>
+    <div class="meta-card"><div class="label">用时</div><div class="value">10-15 分钟</div></div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>📌 概述</h2>
+  <p>Polymarket 运行在 Polygon 网络上，需要配置支持 Polygon 的钱包并持有 USDC.e（桥接 USDC）和少量 POL（Gas 费）。</p>
+  <div class="note"><strong>⏱️ 预计时间：</strong>10-15 分钟</div>
+  <div class="tags"><span class="tag">安全</span><span class="tag">Metamask</span><span class="tag">Polygon</span></div>
+</section>
+
+<section class="section">
+  <h2>🔧 步骤 1：安装 MetaMask</h2>
+  
+  <h3>浏览器扩展（推荐）</h3>
+  <ol>
+    <li>打开 Chrome/Edge/Firefox 浏览器</li>
+    <li>访问 <a href="https://metamask.io" target="_blank">metamask.io</a></li>
+    <li>点击 "Download" 安装扩展</li>
+    <li>创建新钱包或导入现有钱包</li>
+    <li><strong>安全保存助记词</strong>（离线纸笔记录，不要截图或存云端）</li>
+  </ol>
+
+  <h3>移动端</h3>
+  <ul>
+    <li>iOS：App Store 搜索 "MetaMask"</li>
+    <li>Android：Google Play 搜索 "MetaMask"</li>
+  </ul>
+
+  <div class="note">
+    <strong>⚠️ 安全提示：</strong>助记词只能保存一次，请离线备份（纸笔记录），不要截图或存云端！丢失助记词 = 永久丢失资金。
+  </div>
+</section>
+
+<section class="section">
+  <h2>🌐 步骤 2：添加 Polygon 网络</h2>
+  <p>MetaMask 默认是 Ethereum 主网，需要手动添加 Polygon：</p>
+
+  <h3>自动添加（推荐）</h3>
+  <ol>
+    <li>访问 <a href="https://polygon.technology/polygon-pos" target="_blank">polygon.technology</a></li>
+    <li>点击 "Add Polygon to MetaMask"</li>
+    <li>在 MetaMask 弹窗中确认添加</li>
+  </ol>
+
+  <h3>手动添加</h3>
+  <pre><code>网络名称：Polygon Mainnet
+RPC URL: https://polygon-rpc.com
+链 ID: 137
+货币符号：POL
+区块浏览器：https://polygonscan.com</code></pre>
+
+  <h3>验证添加成功</h3>
+  <p>在 MetaMask 网络切换器中应能看到 "Polygon Mainnet" 选项。</p>
+</section>
+
+<section class="section">
+  <h2>💵 步骤 3：获取 USDC.e</h2>
+  <p>Polymarket 使用 USDC.e（桥接 USDC），不是原生 USDC。</p>
+
+  <h3>方式 A：从交易所提现（推荐）</h3>
+  <ol>
+    <li>在币安/Bybit 购买 USDC</li>
+    <li>选择提现 → 网络选择 <strong>Polygon</strong></li>
+    <li>输入你的 MetaMask 地址（以 0x 开头）</li>
+    <li>等待 5-10 分钟到账</li>
+  </ol>
+
+  <h3>方式 B：使用桥接</h3>
+  <ol>
+    <li>访问 <a href="https://bridge.polygon.technology" target="_blank">bridge.polygon.technology</a></li>
+    <li>连接钱包</li>
+    <li>选择 Ethereum → Polygon</li>
+    <li>输入金额，确认桥接（需支付 Ethereum Gas 费）</li>
+    <li>等待 10-30 分钟到账</li>
+  </ol>
+
+  <div class="note"><strong>💡 建议：</strong>首次转入$50-100 测试，确认流程后再转大额。</div>
+</section>
+
+<section class="section">
+  <h2>⛽ 步骤 4：获取 POL（Gas 费）</h2>
+  <p>Polygon 网络交易需要 POL 作为 Gas 费，每笔交易约$0.01-$0.10。</p>
+
+  <h3>获取方式</h3>
+  <ul>
+    <li><strong>交易所提现：</strong>币安/Bybit 购买 POL，选择 Polygon 网络提现</li>
+    <li><strong>桥接：</strong>在 <a href="https://bridge.polygon.technology" target="_blank">bridge.polygon.technology</a> 从 ETH 桥接</li>
+    <li><strong>兑换：</strong>在 Polymarket 内用 USDC 兑换少量 POL</li>
+  </ul>
+
+  <div class="note"><strong>💰 建议持有量：</strong>5-10 POL（约$2-5），可用很久。</div>
+</section>
+
+<section class="section">
+  <h2>🔗 步骤 5：连接 Polymarket</h2>
+  <ol>
+    <li>访问 <a href="https://polymarket.com" target="_blank">polymarket.com</a></li>
+    <li>点击右上角 "Connect"</li>
+    <li>选择 MetaMask</li>
+    <li>在 MetaMask 弹窗中确认连接</li>
+    <li>连接成功后显示钱包余额</li>
+  </ol>
+
+  <h3>验证连接</h3>
+  <ul>
+    <li>右上角显示钱包地址（部分隐藏）</li>
+    <li>显示 USDC 和 POL 余额</li>
+    <li>可以浏览市场并下单</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h2>🤖 步骤 6：配置 Simmer（可选）</h2>
+  <p>如果使用 Simmer 进行自动化交易，需要配置外部钱包：</p>
+
+  <h3>导出私钥</h3>
+  <ol>
+    <li>MetaMask → 设置 → 安全与隐私</li>
+    <li>点击 "显示私钥"</li>
+    <li>输入密码，复制私钥（0x 开头的 64 位十六进制）</li>
+  </ol>
+
+  <div class="note">
+    <strong>⚠️ 极度危险：</strong>私钥 = 钱包控制权！永远不要：
+    <ul>
+      <li>❌ 发送给任何人</li>
+      <li>❌ 上传到 GitHub</li>
+      <li>❌ 存在云端或聊天软件</li>
+      <li>✅ 只用于 Simmer 等可信服务的本地配置</li>
+    </ul>
+  </div>
+
+  <h3>配置 Simmer</h3>
+  <pre><code># 添加到 ~/.bashrc 或 ~/.zshrc
+export WALLET_PRIVATE_KEY="0x 你的私钥"
+export SIMMER_API_KEY="sk_live_..."
+
+# 重新加载配置
+source ~/.bashrc  # 或 source ~/.zshrc</code></pre>
+</section>
+
+<section class="section">
+  <h2>✅ 验证配置</h2>
+  <ul>
+    <li>打开 Polymarket，右上角显示余额</li>
+    <li>尝试买入$1 测试（任何市场）</li>
+    <li>确认 MetaMask 弹出签名请求</li>
+    <li>交易成功后在 "Portfolio" 查看持仓</li>
+  </ul>
+
+  <h3>Simmer 验证（如已配置）</h3>
+  <pre><code>curl https://api.simmer.markets/api/sdk/agents/me \
+  -H "Authorization: Bearer $SIMMER_API_KEY"</code></pre>
+</section>
+
+<section class="section">
+  <h2>⚠️ 常见问题</h2>
+  
+  <h3>Q: 转账后余额不显示？</h3>
+  <p>A: 等待区块确认（5-10 分钟），刷新页面或切换网络再切回。</p>
+
+  <h3>Q: Gas 费不足怎么办？</h3>
+  <p>A: 需要 POL 代币。在 Polymarket 设置中可以兑换，或从交易所提现。</p>
+
+  <h3>Q: 如何查看交易历史？</h3>
+  <p>A: 访问 <a href="https://polygonscan.com" target="_blank">polygonscan.com</a>，输入钱包地址查询。</p>
+
+  <h3>Q: USDC 和 USDC.e 有什么区别？</h3>
+  <p>A: USDC.e 是桥接版本，Polymarket 只支持 USDC.e。从交易所提现时选择 Polygon 网络即可。</p>
+</section>
+
+<section class="section">
+  <h2>📚 相关资源</h2>
+  <ul>
+    <li><a href="https://metamask.io" target="_blank">MetaMask 官网</a></li>
+    <li><a href="https://polygon.technology" target="_blank">Polygon 官网</a></li>
+    <li><a href="https://bridge.polygon.technology" target="_blank">Polygon Bridge</a></li>
+    <li><a href="https://polygonscan.com" target="_blank">Polygon 区块浏览器</a></li>
+    <li><a href="/en/knowledge-base/tutorials/polymarket-basics/">Polymarket 基础</a></li>
+    <li><a href="/en/knowledge-base/tutorials/simmer-guide/">Simmer 交易指南</a></li>
+  </ul>
+</section>
+
+<div class="next-links">
+  <a class="next-card" href="/en/knowledge-base/"><div class="small">返回</div><h4>知识库首页</h4></a>
+  <a class="next-card" href="/en/knowledge-base/tutorials/polymarket-basics/"><div class="small">继续学习</div><h4>Polymarket 基础</h4></a>
+</div>
+</div></main>
+<footer><div class="container"><p>创建：2026-03-07 · 来源：Polymarket + Simmer 官方文档</p></div></footer>
+</body>
+</html>

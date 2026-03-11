@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polymarket 特别日报（Simmer 篇）- 2026-03-04</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .report-meta { background: #f6f8fa; padding: 12px 16px; border-radius: 8px; margin: 20px 0; }
+        .report-meta strong { color: #0366d6; }
+        .timestamp { color: #6a737d; font-size: 14px; }
+        .section { margin: 30px 0; }
+        .section h2 { border-bottom: 2px solid #0366d6; padding-bottom: 8px; }
+        table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+        th, td { border: 1px solid #e1e4e8; padding: 12px; text-align: left; }
+        th { background: #f6f8fa; font-weight: 600; }
+        .warning { background: #fff5b1; padding: 12px; border-radius: 6px; border-left: 4px solid #f9c513; }
+        .success { background: #dcffe4; padding: 12px; border-radius: 6px; border-left: 4px solid #28a745; }
+        code { background: #f6f8fa; padding: 2px 6px; border-radius: 4px; font-family: 'SFMono-Regular', monospace; }
+        pre { background: #f6f8fa; padding: 16px; border-radius: 6px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="/en/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a>
+            <nav>
+                <a href="/">首页</a>
+                <a href="/en/reports/" class="active">报告</a>
+                <a href="/en/knowledge-base/">知识库</a>
+                <a href="/about.html">关于</a>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <article class="report-content">
+                <h1>📊 Polymarket 特别日报（Simmer 篇）</h1>
+                
+                <div class="report-meta">
+                    <p><strong>日期：</strong>2026 年 3 月 4 日</p>
+                    <p><strong>版本：</strong>1.0</p>
+                    <p class="timestamp"><strong>生成时间：</strong>2026-03-04 14:53:00 (Asia/Tokyo)</p>
+                    <p class="timestamp"><strong>最后更新：</strong>2026-03-04 14:57:00 (Asia/Tokyo)</p>
+                </div>
+
+                <div class="section">
+                    <h2>🎯 一、Simmer 核心定位</h2>
+                    <p><strong>Simmer</strong> 是专为 AI Agent 设计的预测市场交易接口，由 <strong>Spartan Labs</strong> 开发。</p>
+                    
+                    <table>
+                        <tr><th>特性</th><th>说明</th></tr>
+                        <tr><td>目标用户</td><td>AI 自主交易 Agent（也支持手动交易）</td></tr>
+                        <tr><td>支持市场</td><td>Polymarket（Polygon）、Kalshi</td></tr>
+                        <tr><td>钱包模式</td><td>自托管钱包（Self-Custody）或 Simmer 托管</td></tr>
+                        <tr><td>模拟交易</td><td>$SIM 虚拟货币，真实市场价格，零风险练习</td></tr>
+                        <tr><td>统一 API</td><td>一个 SDK 接入多个交易场所</td></tr>
+                    </table>
+
+                    <p><strong>官网：</strong><a href="https://simmer.markets" target="_blank">https://simmer.markets</a><br>
+                    <strong>SDK 文档：</strong><a href="https://simmer.markets/docs.md" target="_blank">https://simmer.markets/docs.md</a><br>
+                    <strong>Telegram 社区：</strong><a href="https://t.me/+m7sN0OLM_780M2Fl" target="_blank">t.me/+m7sN0OLM_780M2Fl</a></p>
+                </div>
+
+                <div class="section">
+                    <h2>🧠 二、策略体系（4 大核心策略）</h2>
+                    
+                    <h3>1️⃣ Weather Trader（天气交易）</h3>
+                    <p><strong>灵感来源：</strong>@gopfan2 的温度预测策略</p>
+                    <table>
+                        <tr><th>项目</th><th>配置</th></tr>
+                        <tr><td>数据源</td><td>NOAA 天气预报 API</td></tr>
+                        <tr><td>策略逻辑</td><td>当预报显示强边缘（如 70%+ 概率）vs 市场隐含概率（如 40%）时买入</td></tr>
+                        <tr><td>出场条件</td><td>赔率收敛或达到利润目标</td></tr>
+                        <tr><td>适用市场</td><td>Polymarket 温度预测市场</td></tr>
+                        <tr><td>安装命令</td><td><code>clawhub install polymarket-weather-trader</code></td></tr>
+                    </table>
+
+                    <h3>2️⃣ Mert Sniper（到期狙击）</h3>
+                    <p><strong>灵感来源：</strong>@mert 的临近到期 conviction 交易策略</p>
+                    <table>
+                        <tr><th>项目</th><th>配置</th></tr>
+                        <tr><td>扫描窗口</td><td>默认 2-8 分钟内到期</td></tr>
+                        <tr><td>最小倾斜</td><td>60%/40% 或更高</td></tr>
+                        <tr><td>最大仓位</td><td>$10/笔（可配置）</td></tr>
+                        <tr><td>适用市场</td><td>5 分钟加密货币市场（BTC/ETH/SOL 涨跌）</td></tr>
+                        <tr><td>安装命令</td><td><code>clawhub install polymarket-mert-sniper</code></td></tr>
+                    </table>
+
+                    <h3>3️⃣ Copytrading（跟单策略）</h3>
+                    <p><strong>功能：</strong>自动追踪并复制成功交易员的持仓</p>
+                    <table>
+                        <tr><th>项目</th><th>配置</th></tr>
+                        <tr><td>追踪对象</td><td>Top-N 高胜率钱包</td></tr>
+                        <tr><td>最小跟单金额</td><td>可配置（如$5 起）</td></tr>
+                        <tr><td>再平衡逻辑</td><td>自动计算目标配置并执行调仓</td></tr>
+                        <tr><td>安装命令</td><td><code>clawhub install polymarket-copytrading</code></td></tr>
+                    </table>
+
+                    <h3>4️⃣ Signal Sniper（信号狙击）</h3>
+                    <p><strong>功能：</strong>基于 RSS 订阅源自动交易</p>
+                    <table>
+                        <tr><th>项目</th><th>配置</th></tr>
+                        <tr><td>数据源</td><td>RSS 订阅（新闻、推特、博客等）</td></tr>
+                        <tr><td>触发条件</td><td>关键词匹配 + 情绪分析</td></tr>
+                        <tr><td>执行速度</td><td>秒级响应</td></tr>
+                        <tr><td>安装命令</td><td><code>clawhub install polymarket-signal-sniper</code></td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h2>📚 三、教程与实操路径</h2>
+                    
+                    <h3>阶段 1：模拟交易（$SIM）</h3>
+                    <div class="success">
+                        <strong>目标：</strong>在零风险环境下累积交易数据和经验
+                    </div>
+                    <pre><code># 1. 获取 API Key
+访问 https://simmer.markets/dashboard → SDK 标签页
+
+# 2. 设置环境变量
+export SIMMER_API_KEY=sk_live_xxx
+export TRADING_VENUE=simmer  # 模拟模式
+
+# 3. 安装技能
+clawhub install polymarket-weather-trader
+clawhub install polymarket-mert-sniper
+
+# 4. 运行模拟
+cd skills/polymarket-weather-trader
+python3 weather_trader.py  # 默认 dry-run</code></pre>
+                    <p><strong>毕业标准：</strong>胜率≥70%，连续 20 笔交易正收益</p>
+
+                    <h3>阶段 2：真实交易（Polymarket）</h3>
+                    <div class="warning">
+                        <strong>前提：</strong>模拟阶段达到毕业标准
+                    </div>
+                    <pre><code># 1. 充值 USDC.e 到 Simmer 钱包
+地址：0x86E26b79a6F845fd1a11fc704c68486E03920214
+
+# 2. 切换到真实模式
+export TRADING_VENUE=polymarket
+export WALLET_PRIVATE_KEY=0x...  # 自托管钱包需要
+
+# 3. 开启真实交易
+python3 weather_trader.py --live</code></pre>
+                </div>
+
+                <div class="section">
+                    <h2>⚠️ 四、风险与注意事项</h2>
+                    
+                    <h3>1. 钱包安全</h3>
+                    <table>
+                        <tr><th>风险</th><th>建议</th></tr>
+                        <tr><td>私钥泄露</td><td>使用专用小号钱包，不要放主力资金</td></tr>
+                        <tr><td>Simmer 托管</td><td>服务器端管理密钥，存在平台风险</td></tr>
+                        <tr><td>自托管钱包</td><td>需自行保管私钥，丢失无法恢复</td></tr>
+                    </table>
+
+                    <h3>2. 交易风险</h3>
+                    <table>
+                        <tr><th>风险</th><th>建议</th></tr>
+                        <tr><td>滑点</td><td>真实市场有 2-5% 订单簿滑差，$SIM 无滑差</td></tr>
+                        <tr><td>流动性</td><td>小市场可能无法及时成交</td></tr>
+                        <tr><td>结算延迟</td><td>Polymarket 结算依赖预言机，可能延迟</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h2>✅ 五、可执行建议（针对你的账户）</h2>
+                    
+                    <h3>当前状态</h3>
+                    <table>
+                        <tr><th>项目</th><th>状态</th></tr>
+                        <tr><td>SIMMER_API_KEY</td><td>✅ 已配置</td></tr>
+                        <tr><td>WALLET_PRIVATE_KEY</td><td>❌ 未设置</td></tr>
+                        <tr><td>Simmer 钱包地址</td><td><code>0x86E26b79...0214</code></td></tr>
+                        <tr><td>交易模式</td><td><strong>PAPER MODE（模拟）</strong></td></tr>
+                        <tr><td>已安装技能</td><td>12 个（包括 Weather/Mert/Copytrading 等）</td></tr>
+                    </table>
+
+                    <h3>今日动作清单</h3>
+                    <ol>
+                        <li><strong>继续模拟交易练习</strong> ✅ 已设置
+                            <ul>
+                                <li>Mert Sniper 每 5 分钟自动扫描</li>
+                                <li>日志：<code>tail -f /tmp/mert_sniper.log</code></li>
+                            </ul>
+                        </li>
+                        <li><strong>充值测试（可选）</strong>
+                            <ul>
+                                <li>往 <code>0x86E26b79...</code> 充值$10-20 USDC.e</li>
+                                <li>使用 Across Bridge (https://across.to) 从其他链跨过来</li>
+                            </ul>
+                        </li>
+                        <li><strong>监控数据</strong>
+                            <ul>
+                                <li>目标：胜率≥70%，连续 20 笔正收益</li>
+                                <li>达标后再开启实盘</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="section">
+                    <h2>📎 附录：资源链接</h2>
+                    <table>
+                        <tr><th>类型</th><th>链接</th></tr>
+                        <tr><td>官网</td><td><a href="https://simmer.markets" target="_blank">https://simmer.markets</a></td></tr>
+                        <tr><td>SDK 文档</td><td><a href="https://simmer.markets/docs.md" target="_blank">https://simmer.markets/docs.md</a></td></tr>
+                        <tr><td>技能市场</td><td><a href="https://simmer.markets/skills" target="_blank">https://simmer.markets/skills</a></td></tr>
+                        <tr><td>ClawHub</td><td><a href="https://clawhub.ai" target="_blank">https://clawhub.ai</a></td></tr>
+                        <tr><td>Telegram</td><td><a href="https://t.me/+m7sN0OLM_780M2Fl" target="_blank">https://t.me/+m7sN0OLM_780M2Fl</a></td></tr>
+                        <tr><td>GitHub SDK</td><td><a href="https://github.com/SpartanLabsXyz/simmer-sdk" target="_blank">https://github.com/SpartanLabsXyz/simmer-sdk</a></td></tr>
+                    </table>
+                </div>
+
+                <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #e1e4e8; color: #6a737d; font-size: 14px;">
+                    <p>🤖 由 Jarvis 自动生成</p>
+                    <p class="timestamp">下次更新：2026-03-05</p>
+                </footer>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>📊 Polymarket 信息聚合 | <a href="/">首页</a> | <a href="/en/reports/">报告</a> | <a href="/en/knowledge-base/">知识库</a></p>
+        </div>
+    </footer>
+</body>
+</html>

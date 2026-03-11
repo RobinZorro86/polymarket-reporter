@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>工具清单 | Prediction Market 101</title>
+  <link rel="canonical" href="https://www.pred101.com/en/knowledge-base/resources/tools/">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    :root { --accent: #0071e3; --bg: #ffffff; --surface: #f5f5f7; --text: #1d1d1f; --text-secondary: #86868b; --border: #d2d2d7; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.47059; }
+    .container { max-width: 980px; margin: 0 auto; padding: 0 22px; }
+    header { background: rgba(255,255,255,0.8); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    header .container { display: flex; justify-content: space-between; align-items: center; height: 52px; }
+    .logo { font-size: 21px; font-weight: 600; color: var(--text); text-decoration: none; }
+    nav a { color: var(--text-secondary); text-decoration: none; margin-left: 24px; font-size: 12px; transition: color 0.2s; }
+    nav a:hover { color: var(--accent); }
+    nav a.active { color: var(--text); }
+    main { padding: 60px 0 80px; }
+    .breadcrumb { font-size: 12px; color: var(--text-secondary); margin-bottom: 16px; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .page-header { margin-bottom: 40px; }
+    .page-header h1 { font-size: 40px; font-weight: 600; margin-bottom: 12px; }
+    .page-header .meta { font-size: 13px; color: var(--text-secondary); }
+    .content { background: var(--surface); border-radius: 18px; padding: 32px; margin-bottom: 24px; }
+    .content h2 { font-size: 24px; font-weight: 600; margin: 32px 0 16px; }
+    .content h2:first-child { margin-top: 0; }
+    .content p { margin: 16px 0; font-size: 15px; }
+    .content ul { margin: 16px 0 16px 24px; }
+    .content li { margin: 8px 0; font-size: 15px; }
+    .content pre { background: #1d1d1f; color: #e2e8f0; padding: 20px; border-radius: 12px; overflow-x: auto; font-size: 13px; margin: 16px 0; }
+    .content code { font-family: 'SF Mono', Monaco, monospace; }
+    .tag { display: inline-block; font-size: 12px; font-weight: 500; color: var(--accent); background: rgba(0,113,227,0.1); padding: 4px 12px; border-radius: 12px; margin: 4px 8px 4px 0; }
+    .info-box { background: #e8f4ff; border-left: 4px solid var(--accent); padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; }
+    .tool-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 20px; margin: 16px 0; }
+    .tool-card h3 { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+    .tool-card .link { color: var(--accent); text-decoration: none; font-size: 14px; }
+    .tool-card .link:hover { text-decoration: underline; }
+    footer { border-top: 1px solid var(--border); padding: 40px 0; text-align: center; }
+    footer p { font-size: 12px; color: var(--text-secondary); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/en/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a>
+      <nav>
+        <a href="/">首页</a>
+        <a href="/en/knowledge-base/" class="active">知识库</a>
+        <a href="/en/reports/">报告</a>
+        <a href="/about.html">关于</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/en/knowledge-base/">知识库</a> › <a href="../">资源</a> › 工具清单
+      </div>
+
+      <div class="page-header">
+        <h1>🧰 工具清单</h1>
+        <div class="meta">
+          <span>最后更新：<time datetime="2026-03-07">2026-03-07</time></span> · 
+          <span>来源：社区整理</span>
+        </div>
+        <div style="margin-top: 12px;">
+          <span class="tag">汇总</span>
+          <span class="tag">CLI</span>
+          <span class="tag">API</span>
+        </div>
+      </div>
+
+      <div class="content">
+        <h2>📌 核心工具</h2>
+
+        <div class="tool-card">
+          <h3>🦞 OpenClaw</h3>
+          <p>AI 助手执行框架，支持技能扩展、自动化工具调用和多平台消息集成。</p>
+          <p style="margin-top: 12px;">
+            <a href="https://github.com/openclaw/openclaw" target="_blank" class="link">GitHub →</a> · 
+            <a href="https://docs.openclaw.ai" target="_blank" class="link">文档 →</a>
+          </p>
+          <pre style="margin-top: 12px;"><code>npm install -g openclaw
+openclaw onboard</code></pre>
+        </div>
+
+        <div class="tool-card">
+          <h3>📊 polymarket-cli</h3>
+          <p>Polymarket 官方 CLI 工具，支持市场查询、订单管理、CLOB 数据访问。</p>
+          <p style="margin-top: 12px;">
+            <a href="https://github.com/Polymarket/polymarket-cli" target="_blank" class="link">GitHub →</a> · 
+            <a href="https://docs.polymarket.com" target="_blank" class="link">文档 →</a>
+          </p>
+          <pre style="margin-top: 12px;"><code># 安装（Homebrew）
+brew tap Polymarket/polymarket-cli
+brew install polymarket
+
+# 安装（脚本）
+curl -sSL https://raw.githubusercontent.com/Polymarket/polymarket-cli/main/install.sh | sh
+
+# 查询市场
+polymarket markets list --limit 10
+polymarket markets get will-trump-win-2024
+
+# CLOB 数据
+polymarket clob book TOKEN_ID
+polymarket clob price TOKEN_ID --side buy</code></pre>
+        </div>
+
+        <div class="tool-card">
+          <h3>🔮 Simmer SDK</h3>
+          <p>AI Agent 专用交易接口，支持 Polymarket 和 Kalshi，自托管钱包 + 安全限额。</p>
+          <p style="margin-top: 12px;">
+            <a href="https://simmer.markets" target="_blank" class="link">官网 →</a> · 
+            <a href="https://simmer.markets/docs.md" target="_blank" class="link">文档 →</a>
+          </p>
+          <pre style="margin-top: 12px;"><code># Python SDK
+pip install simmer-sdk
+
+# 注册 Agent
+curl -X POST https://api.simmer.markets/api/sdk/agents/register \
+  -H "Content-Type: application/json" \
+  -d '{"name": "my-agent"}'
+
+# 环境变量
+export SIMMER_API_KEY="sk_live_..."
+export WALLET_PRIVATE_KEY="0x..."</code></pre>
+        </div>
+
+        <div class="tool-card">
+          <h3>🔗 Chainstack</h3>
+          <p>区块链 RPC 节点服务，支持 Polygon、Ethereum 等多链。</p>
+          <p style="margin-top: 12px;">
+            <a href="https://chainstack.com" target="_blank" class="link">官网 →</a>
+          </p>
+          <pre style="margin-top: 12px;"><code># Polygon RPC 端点
+https://polygon-rpc.com
+https://polygon-mainnet.g.alchemy.com/v2/YOUR_KEY
+
+# 免费额度：每月 300 万次请求</code></pre>
+        </div>
+
+        <h2>🛠️ 辅助工具</h2>
+
+        <div class="tool-card">
+          <h3>📝 MetaMask</h3>
+          <p>加密货币钱包，支持 Polygon 网络。</p>
+          <p style="margin-top: 12px;">
+            <a href="https://metamask.io" target="_blank" class="link">官网 →</a>
+          </p>
+        </div>
+
+        <div class="tool-card">
+          <h3>🔍 Polygonscan</h3>
+          <p>Polygon 区块浏览器，查询交易、余额、合约。</p>
+          <p style="margin-top: 12px;">
+            <a href="https://polygonscan.com" target="_blank" class="link">官网 →</a>
+          </p>
+        </div>
+
+        <div class="tool-card">
+          <h3>🌉 Polygon Bridge</h3>
+          <p>官方桥接工具，Ethereum ↔ Polygon 资产转移。</p>
+          <p style="margin-top: 12px;">
+            <a href="https://bridge.polygon.technology" target="_blank" class="link">官网 →</a>
+          </p>
+        </div>
+
+        <h2>📚 相关资源</h2>
+        <ul>
+          <li><a href="/en/knowledge-base/tutorials/openclaw-setup/">OpenClaw 配置教程</a></li>
+          <li><a href="/en/knowledge-base/tutorials/simmer-guide/">Simmer 交易指南</a></li>
+          <li><a href="/en/knowledge-base/resources/apis/">API 文档</a></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>
+        <time datetime="2026-03-07">创建：2026-03-07</time> · 
+        <span>来源：社区整理</span>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -3,14 +3,16 @@
   "buildCommand": "echo 'No build step needed'",
   "outputDirectory": ".",
   "installCommand": "echo 'No install step needed'",
-  "rewrites": [
+  "redirects": [
     {
       "source": "/knowledge-base/:path*",
-      "destination": "/knowledge-base/:path*"
+      "destination": "/en/knowledge-base/:path*",
+      "permanent": false
     },
     {
       "source": "/reports/:path*",
-      "destination": "/reports/:path*"
+      "destination": "/en/reports/:path*",
+      "permanent": false
     }
   ],
   "headers": [

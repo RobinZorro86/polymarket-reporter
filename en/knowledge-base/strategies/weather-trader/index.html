@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Trader 天气预测套利 | pred101</title>
+  <meta name="description" content="Weather Trader 策略基于 NOAA 天气预报数据，在 Polymarket 天气预测市场中寻找错误定价机会。">
+  <link rel="canonical" href="https://www.pred101.com/en/knowledge-base/strategies/weather-trader/">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    :root{--bg:#f7f8fb;--surface:#ffffff;--surface-soft:#eef2ff;--text:#111827;--text-secondary:#667085;--border:#e5e7eb;--accent:#6f7cff;--accent-2:#38d0ff;--shadow:0 10px 30px rgba(16,24,40,.06);--max:1080px}*{margin:0;padding:0;box-sizing:border-box}body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(180deg,#f8fbff 0%,#f6f7fb 100%);color:var(--text);line-height:1.65}a{color:inherit;text-decoration:none}.container{max-width:var(--max);margin:0 auto;padding:0 24px}header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid var(--border)}header .container{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px}.logo{font-size:1.04rem;font-weight:800}.logo .mark{color:var(--accent)}nav{display:flex;gap:18px;flex-wrap:wrap}nav a{color:var(--text-secondary);font-size:.92rem}nav a.active,nav a:hover{color:var(--text)}main{padding:52px 0 80px}.hero{background:linear-gradient(135deg, rgba(111,124,255,.10), rgba(56,208,255,.08));border:1px solid rgba(111,124,255,.16);border-radius:28px;padding:34px 30px;box-shadow:var(--shadow);margin-bottom:30px}.eyebrow{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}h1{font-size:clamp(2.1rem,5vw,3.4rem);line-height:.98;letter-spacing:-.04em}.lead{margin-top:16px;max-width:780px;color:var(--text-secondary);font-size:1.03rem}.meta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}.meta-card{background:rgba(255,255,255,.7);border:1px solid var(--border);border-radius:16px;padding:14px 16px}.meta-card .label{font-size:.76rem;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.08em}.meta-card .value{margin-top:6px;font-size:.96rem;font-weight:700}.section{background:var(--surface);border:1px solid var(--border);border-radius:24px;box-shadow:var(--shadow);padding:28px;margin:22px 0}.section h2{font-size:1.55rem;margin-bottom:16px;letter-spacing:-.03em}.section h3{font-size:1.08rem;margin:18px 0 10px}.section p,.section li{color:#344054}.section ul{padding-left:20px}.section li{margin:8px 0}.note{background:#edf7ff;border-left:4px solid var(--accent-2);border-radius:16px;padding:16px 18px;margin-top:16px}.note ul{margin:8px 0 0 20px}.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.tag{display:inline-block;font-size:.78rem;font-weight:700;color:var(--accent);background:rgba(111,124,255,.10);padding:5px 11px;border-radius:999px}.strategy-card{background:#fbfcff;border:1px solid var(--border);border-radius:18px;padding:20px;margin-top:14px}.strategy-card h3{font-size:1.05rem;color:var(--accent)}.strategy-card .concept{margin-top:8px;color:var(--text-secondary);font-style:italic}.next-links{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:26px}.next-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:18px;box-shadow:var(--shadow)}.next-card .small{color:var(--text-secondary);font-size:.82rem}.next-card h4{margin-top:8px;font-size:1rem}footer{padding:38px 0 52px;color:var(--text-secondary)}footer .container{border-top:1px solid var(--border);padding-top:20px;font-size:.86rem}@media (max-width:860px){.meta-grid,.next-links{grid-template-columns:1fr 1fr}}@media (max-width:640px){.meta-grid,.next-links{grid-template-columns:1fr}.hero,.section{padding:22px 18px}}</style>
+</head>
+<body>
+<header><div class="container"><a href="/zh/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a><nav><a href="/zh/">首页</a><a href="/en/knowledge-base/" class="active">知识库</a><a href="/en/reports/">报告</a><a href="/zh/about.html">关于</a></nav></div></header>
+<main><div class="container">
+<section class="hero">
+  <div class="eyebrow">Strategy</div>
+  <h1>Weather Trader</h1>
+  <p class="lead">基于 NOAA 天气预报数据，在 Polymarket 天气预测市场中寻找错误定价机会。官方天气预报通常比市场共识更准确。</p>
+  <div class="meta-grid">
+    <div class="meta-card"><div class="label">类型</div><div class="value">天气预测</div></div>
+    <div class="meta-card"><div class="label">更新</div><div class="value">2026-03-07</div></div>
+    <div class="meta-card"><div class="label">适合</div><div class="value">NOAA 数据</div></div>
+    <div class="meta-card"><div class="label">用例</div><div class="value">Simmer</div></div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>📌 策略概述</h2>
+  <p>Weather Trader 策略基于 NOAA（美国国家海洋和大气管理局）的天气预报数据，在 Polymarket 天气预测市场中寻找错误定价机会。官方天气预报通常比市场共识更准确。</p>
+  <div class="note"><strong>💡 核心思想：</strong>NOAA 天气预报准确率&gt;70%，当市场价格显著偏离 NOAA 预测时存在套利机会。</div>
+  <div class="tags"><span class="tag">Simmer</span><span class="tag">天气预测</span><span class="tag">NOAA 数据</span></div>
+</section>
+
+<section class="section">
+  <h2>🔄 核心逻辑</h2>
+  
+  <h3>1. 数据源</h3>
+  <div class="strategy-card"><h3>NOAA API</h3><p class="concept">官方天气预报数据（温度、降水、降雪等）</p></div>
+  <div class="strategy-card"><h3>预测范围</h3><p class="concept">1-14 天短期预报（准确率最高）</p></div>
+  <div class="strategy-card"><h3>覆盖城市</h3><p class="concept">NYC、Chicago、Seattle、Atlanta、Dallas、Miami 等</p></div>
+
+  <h3>2. 机会识别</h3>
+  <ul>
+    <li><strong>扫描市场：</strong>Polymarket 上所有活跃天气市场</li>
+    <li><strong>比较预测：</strong>NOAA 预测概率 vs 市场价格</li>
+    <li><strong>阈值：</strong>差异&gt;10% 时触发交易信号</li>
+    <li><strong>示例：</strong>NOAA 预测 80% 概率温度&lt;35°F，市场价仅 60% → 买入 YES</li>
+  </ul>
+
+  <h3>3. 执行策略</h3>
+  <ul>
+    <li><strong>仓位 sizing：</strong>每笔交易$50-$200（根据置信度调整）</li>
+    <li><strong>分散投资：</strong>同时持有 5-10 个天气市场仓位</li>
+    <li><strong>持有到期：</strong>天气市场通常短期结算（1-14 天）</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h2>⚙️ 配置要求</h2>
+  <ul>
+    <li><strong>OpenClaw 技能：</strong>simmer, weather-trader</li>
+    <li><strong>数据源：</strong>NOAA API（免费）</li>
+    <li><strong>执行频率：</strong>每日扫描，发现机会立即执行</li>
+    <li><strong>模拟练习：</strong>建议先用 Simmer 虚拟盘测试 2-4 周</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h2>📊 优势与风险</h2>
+  
+  <h3>优势</h3>
+  <div class="strategy-card"><h3>数据可靠</h3><p class="concept">NOAA 是官方权威机构，准确率&gt;70%</p></div>
+  <div class="strategy-card"><h3>低相关性</h3><p class="concept">与政治/加密货币市场无关</p></div>
+  <div class="strategy-card"><h3>短期结算</h3><p class="concept">1-14 天快速回笼资金</p></div>
+
+  <h3>风险</h3>
+  <div class="note">
+    <ul>
+      <li><strong>天气不确定性：</strong>极端天气事件可能导致预测失效</li>
+      <li><strong>市场流动性：</strong>部分天气市场交易量低</li>
+      <li><strong>季节性：</strong>某些季节天气市场较少</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <h2>📚 相关资源</h2>
+  <ul>
+    <li><a href="/en/knowledge-base/tutorials/simmer-guide/">Simmer 交易指南</a></li>
+    <li><a href="https://www.noaa.gov/weather" target="_blank">NOAA 官方网站</a></li>
+  </ul>
+</section>
+
+<div class="next-links">
+  <a class="next-card" href="/en/knowledge-base/strategies/"><div class="small">返回</div><h4>策略总览</h4></a>
+  <a class="next-card" href="/en/knowledge-base/tutorials/simmer-guide/"><div class="small">相关教程</div><h4>Simmer 指南</h4></a>
+</div>
+</div></main>
+<footer><div class="container"><p>创建：2026-03-07 · 来源：Simmer 官方技能</p></div></footer>
+</body>
+</html>

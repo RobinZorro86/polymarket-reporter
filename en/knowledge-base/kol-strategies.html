@@ -1,17 +1,50 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-  <!-- TIMESTAMP: created=2026-02-27T10:00:00+09:00 updated=2026-03-05T19:23+09:00 -->
+  <!-- TIMESTAMP: created=2026-02-27T10:00:00+09:00 updated=2026-03-11T16:31+09:00 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KOL 策略 | AI 套利知识库</title>
-  <meta name="description" content="KOL 策略 - 关键意见领袖的 Polymarket 套利策略分享，包含 @noisyb0y1 的 Fast-Loop、5分钟市场等实战策略。">
-  <meta name="keywords" content="KOL策略, Polymarket套利, noisyb0y1, Fast-Loop, 机器人交易">
+  <title>KOL Strategies | pred101</title>
+  <meta name="description" content="KOL Strategies - Key opinion leaders share their Polymarket trading strategies, including @noisyb0y1's Fast-Loop, 5-minute markets, and more.">
+  <meta name="keywords" content="KOL strategies, Polymarket arbitrage, noisyb0y1, Fast-Loop, automated trading">
   <meta name="robots" content="index, follow">
   
   <link rel="canonical" href="https://www.pred101.com/en/knowledge-base/kol-strategies.html">
+  <link rel="alternate" hreflang="zh" href="https://www.pred101.com/zh/knowledge-base/kol-strategies.html">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+  <style>
+    :root{--bg:#f7f8fb;--surface:#ffffff;--surface-soft:#eef2ff;--text:#111827;--text-secondary:#667085;--border:#e5e7eb;--accent:#6f7cff;--accent-2:#38d0ff;--shadow:0 10px 30px rgba(16,24,40,.06);--max:1080px}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(180deg,#f8fbff 0%,#f6f7fb 100%);color:var(--text);line-height:1.65}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--max);margin:0 auto;padding:0 24px}
+    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid var(--border)}
+    header .container{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .logo{font-size:1.04rem;font-weight:800}
+    .logo .mark{color:var(--accent)}
+    nav{display:flex;gap:18px;flex-wrap:wrap}
+    nav a{color:var(--text-secondary);font-size:.92rem}
+    nav a.active,nav a:hover{color:var(--text)}
+    main{padding:52px 0 80px}
+    .back-link{display:inline-flex;align-items:center;gap:8px;color:var(--text-secondary);font-size:.92rem;margin-bottom:24px}
+    .back-link:hover{color:var(--accent)}
+    .page-title{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:12px;letter-spacing:-.03em}
+    .page-description{color:var(--text-secondary);font-size:1.08rem;max-width:720px}
+    .section{background:var(--surface);border:1px solid var(--border);border-radius:24px;box-shadow:var(--shadow);padding:28px;margin:22px 0}
+    .section h2{font-size:1.55rem;margin-bottom:16px;letter-spacing:-.03em}
+    .section h3{font-size:1.08rem;margin:18px 0 10px}
+    .section p,.section li{color:#344054}
+    .section ul{padding-left:20px}
+    .section li{margin:8px 0}
+    .tip{background:#f0fdf4;border-left:4px solid #22c55e;border-radius:16px;padding:16px 18px;margin-top:16px}
+    .warning{background:#fef3c7;border-left:4px solid #f59e0b;border-radius:16px;padding:16px 18px;margin-top:16px}
+    .highlight{background:var(--surface-soft);border-radius:16px;padding:16px 18px;margin:14px 0}
+    pre{background:#f8f9fb;border:1px solid var(--border);border-radius:12px;padding:14px;overflow-x:auto;font-size:.85rem}
+    footer{padding:38px 0 52px;color:var(--text-secondary)}
+    footer .container{border-top:1px solid var(--border);padding-top:20px;font-size:.86rem}
+    hr{margin:30px 0;border:none;border-top:1px solid var(--border)}
+  </style>
 </head>
 <body>
   <header>
@@ -19,8 +52,8 @@
       <a href="/en/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a>
       <nav>
         <a href="/en/">Home</a>
-        <a href="/en/reports/">Reports</a>
         <a href="/en/knowledge-base/" class="active">Library</a>
+        <a href="/en/reports/">Reports</a>
         <a href="/en/about.html">About</a>
       </nav>
     </div>
@@ -32,400 +65,383 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M19 12H5M12 19l-7-7 7-7"/>
         </svg>
-        返回知识库
+        Back to Library
       </a>
 
-      <h1 class="page-title">👤 KOL 策略</h1>
-      <p class="page-description">关键意见领袖的套利策略分享</p>
+      <h1 class="page-title">👤 KOL Strategies</h1>
+      <p class="page-description">Key opinion leaders share their Polymarket trading strategies and insights</p>
 
-      <div class="report-detail" style="margin-top: 20px;">
-        <div class="report-content">
-          
-          <h2>📱 @edwordkaru 的 Simmer 自动交易教程</h2>
-          <p>卡神 Karu 分享用旧手机 + OpenClaw 做 Polymarket 自动交易的完整教程。</p>
+      <div class="section">
+        <h2>📱 @edwordkaru - Simmer Automated Trading Tutorial</h2>
+        <p>Karu shares a complete tutorial on automated Polymarket trading using an old phone + OpenClaw.</p>
 
-          <div class="tip">
-            <h3>🔧 工具与安装</h3>
-            <ul>
-              <li><strong>工具</strong>：Simmer（Spartan Labs 开发）</li>
-              <li><strong>安装命令</strong>：<code>npx clawhub@latest install simmer</code></li>
-              <li><strong>硬件</strong>：旧手机即可运行</li>
-            </ul>
-          </div>
-
-          <h3>🛠️ 可用 SKILL</h3>
-          <div class="highlight">
-            <p><strong>1. Weather Trader</strong> - 天气温度交易</p>
-            <ul>
-              <li>可交易城市：NYC, Chicago, Seattle, Atlanta, Dallas, Miami</li>
-              <li>Entry threshold: 13%（低于13%买入）</li>
-              <li>Exit threshold: 35%（高于35%卖出）</li>
-              <li>Max position: $2.00</li>
-            </ul>
-            <p style="margin-top: 12px;"><strong>2. Mert Sniper</strong> - 自选赛道自动扫描</p>
-            <ul>
-              <li>可选：Bitcoin / Solana / Ethereum</li>
-              <li>自定义买入/卖出价位</li>
-              <li>支持 Cron 自动交易</li>
-            </ul>
-          </div>
-
-          <div class="warning">
-            <h3>⚠️ 重要提醒</h3>
-            <ul>
-              <li>先用<strong>虚拟交易</strong>累计数据</li>
-              <li>建议 <strong>胜率 70%</strong> 后再开启正式交易</li>
-              <li>官方提供 10,000 SIM 代币练习</li>
-              <li>训练模式可自行调节买卖价，主动出击累计数据</li>
-            </ul>
-          </div>
-
-          <p style="margin-top: 8px;"><a href="https://x.com/edwordkaru/status/2022674831540670526" target="_blank">🔗 原文链接</a></p>
-
-          <hr style="margin: 30px 0; border: none; border-top: 1px solid var(--border);">
-
-          <h2>📊 @zstmfhy：AI记忆增强生态系统</h2>
-          <p>AI奶爸分享：7大记忆增强系统正在改变游戏规则。</p>
-
-          <div class="highlight">
-            <h3>🔑 核心数据</h3>
-            <ul>
-              <li>OpenClaw 原生记忆召回率：<strong>58.3%</strong></li>
-              <li>Supermemory MemoryBench 得分：<strong>85.9%</strong></li>
-            </ul>
-          </div>
-
-          <h3>1. 7大记忆增强系统</h3>
+        <div class="tip">
+          <h3>🔧 Tools & Installation</h3>
           <ul>
-            <li><strong>Supermemory</strong> - 云端记忆插件</li>
-            <li><strong>Memori</strong> - SQL 原生</li>
-            <li><strong>mem0</strong> - 向量-图混合</li>
-            <li><strong>OpenViking</strong> - 企业级</li>
-            <li><strong>EvoMap</strong> - 进化式</li>
+            <li><strong>Tool</strong>: Simmer (developed by Spartan Labs)</li>
+            <li><strong>Install</strong>: <code>npx clawhub@latest install simmer</code></li>
+            <li><strong>Hardware</strong>: Old smartphone is sufficient</li>
           </ul>
-
-          <h3>2. 技术架构</h3>
-          <ul>
-            <li>存储层：KV + Vector DB + Graph Layer</li>
-            <li>召回：Auto-Recall + 向量语义 + 时间衰减</li>
-            <li>生命周期：工作→短期→长期记忆</li>
-          </ul>
-
-          <h3>3. 趋势</h3>
-          <p>Graph Memory 或成下一代标配</p>
-
-          <p style="margin-top: 8px;"><a href="https://x.com/zstmfhy/status/2027927177090797994" target="_blank">🔗 原文链接</a></p>
-
-          <hr style="margin: 30px 0; border: none; border-top: 1px solid var(--border);">
-
-          <h2>📊 @AYi_AInotes：OpenClaw Workflow 交易策略</h2>
-          <p>阿绎分享 OpenClaw 自动化交易 workflow 完整攻略。</p>
-
-          <h3>1. 趋势交易策略</h3>
-          <ul>
-            <li>技能：stock-monitor + market-sentiment + trend-analysis + risk-calculator</li>
-            <li>做多条件：MA5 > MA10 && sentimentScore > 0.5</li>
-            <li>止损：-5%，止盈：10%，仓位：8%</li>
-          </ul>
-
-          <h3>2. 价值投资策略</h3>
-          <ul>
-            <li>技能：financial-report-analysis + competitor-analysis + valuation-calculator + dividend-tracker</li>
-            <li>条件：PE<15, PB<2, 股息率>3%, 利润增长>10%</li>
-            <li>持有期：180天</li>
-          </ul>
-
-          <h3>3. 套利策略</h3>
-          <ul>
-            <li>技能：arbitrage-scanner + finance-data + risk-calculator + order-executor</li>
-            <li>条件：价差>10bp，最大仓位5%，目标收益3%</li>
-          </ul>
-
-          <div class="highlight">
-            <h3>💡 核心观点</h3>
-            <ul>
-              <li>OpenClaw 让普通人也能实现专业交易</li>
-              <li>它是工具而非圣杯</li>
-              <li>成功关键：清晰的交易逻辑 + 转化为 AI 可执行指令</li>
-              <li>需要部署在云端实现 7x24 运行</li>
-            </ul>
-          </div>
-
-          <p style="margin-top: 8px;"><a href="https://x.com/ayi_ainotes/status/2027333099366076574" target="_blank">🔗 原文链接</a></p>
-
-          <hr style="margin: 30px 0; border: none; border-top: 1px solid var(--border);">
-
-          <h2>📊 @cutnpaste4：加密涨跌市场完全指南</h2>
-          <p>CUTNPASTE 分享 Polymarket 加密货币 up/down 市场的完整攻略。</p>
-
-          <h3>1. 延迟套利真相</h3>
-          <ul>
-            <li>延迟约几百毫秒，不是30秒</li>
-            <li>Taker 延迟：曾 500ms，现 250ms</li>
-            <li>网络设置、VPS位置比编程语言更重要</li>
-            <li>Python 足够快</li>
-          </ul>
-
-          <h3>2. 定价模型</h3>
-          <ul>
-            <li>使用 Black-Scholes 定价二元期权</li>
-            <li>关键参数：隐含波动率 (sigma)</li>
-            <li>历史波动率 Plug in 大致接近市价</li>
-          </ul>
-
-          <h3>3. 关键 Alpha</h3>
-          <div class="highlight">
-            <ul>
-              <li>ChainLink 每秒只更新一次</li>
-              <li>直接用 Binance 价格比 ChainLink 更好</li>
-              <li>这是曾经的秘密优势</li>
-            </ul>
-          </div>
-
-          <h3>4. 策略对比</h3>
-          <div class="warning">
-            <p><strong>Market Maker（做市）</strong></p>
-            <ul>
-              <li>双向报价收取价差</li>
-              <li>需大量代码基础设施</li>
-              <li>处理边缘情况复杂</li>
-            </ul>
-            <p><strong>Taker（吃单）</strong></p>
-            <ul>
-              <li>等模型与价格分歧才下单</li>
-              <li>更高方差但更容易找到利基</li>
-              <li>更简单，不那么脆弱</li>
-            </ul>
-          </div>
-
-          <h3>5. 建议</h3>
-          <ul>
-            <li>这是目前最竞争的市场</li>
-            <li>没经验别碰</li>
-            <li>从软市场开始</li>
-            <li>最重要：保持乐趣！</li>
-          </ul>
-
-          <p style="margin-top: 8px;"><a href="https://x.com/cutnpaste4/status/2027405725266493891" target="_blank">🔗 原文链接</a></p>
-
-          <hr style="margin: 30px 0; border: none; border-top: 1px solid var(--border);">
-
-          <h2>📊 @RohOnChain：对冲基金预测市场数据方法论</h2>
-          <p>Roan（后端开发者，HFT风格）分享对冲基金如何使用预测市场数据构建交易策略。</p>
-
-          <div class="highlight">
-            <h3>🔑 核心数据</h3>
-            <ul>
-              <li><strong>Becker 数据集</strong>：400万+交易（2020年起）</li>
-              <li>36GB 压缩，MIT 许可免费开放</li>
-              <li>每笔交易含时间戳、价格、成交量、taker方向</li>
-            </ul>
-          </div>
-
-          <h3>1. 经验 Kelly 与不确定性</h3>
-          <ul>
-            <li>标准 Kelly 假设你知道 edge（错误）</li>
-            <li>经验 Kelly：用蒙特卡洛计算 edge 分布</li>
-            <li>公式：f_empirical = f_kelly × (1 - CV_edge)</li>
-          </ul>
-
-          <h3>2. 校准分析（Longshot Bias）</h3>
-          <div class="warning">
-            <ul>
-              <li>1美分合约实际胜率 0.43% vs 1% 暗示概率</li>
-              <li>80/99 价格水平上 taker 呈负超额收益</li>
-              <li>长尾偏见：-57% mispricing</li>
-            </ul>
-          </div>
-
-          <h3>3. Maker vs Taker</h3>
-          <ul>
-            <li><strong>Maker</strong>（流动性提供者）：+0.77% ~ +1.25% 超额收益</li>
-            <li><strong>Taker</strong>（立即成交者）：系统性亏损</li>
-            <li>优势是结构性，不是预测能力</li>
-          </ul>
-
-          <h3>4. 机构方法论</h3>
-          <ol>
-            <li>风险管理：为分布-sizing，不是点估计</li>
-            <li>时间变化策略：利用校准模式</li>
-            <li>结构定位：做maker不做taker</li>
-          </ol>
-
-          <p style="margin-top: 8px;"><a href="https://x.com/rohonchain/status/2023781142663754049" target="_blank">🔗 原文链接</a></p>
-
-          <hr style="margin: 30px 0; border: none; border-top: 1px solid var(--border);">
-
-          <h2>📊 @seanzhao1105 的价差套利研究复盘</h2>
-          <p>Sean子琦用 109GB 数据、3 个月时间研究 Polymarket 价差套利的完整复盘。</p>
-
-          <div class="warning">
-            <h3>⚠️ 核心结论：99.99% 的人不适合做价差套利</h3>
-            <ul>
-              <li>监控到机会 → 下单成交约 2 秒+，但机会消失更快</li>
-              <li>每次成交时 Yes+No 已 > 1</li>
-            </ul>
-          </div>
-
-          <h3>🔬 研究过程</h3>
-          <ul>
-            <li>109GB 交易数据分析</li>
-            <li>筛选盈利地址并分类（套利/做市/交易/其他）</li>
-            <li>开发监控程序验证套利机会确实存在</li>
-          </ul>
-
-          <h3>❌ 失败三大原因</h3>
-          <div class="highlight">
-            <ol>
-              <li><strong>提升延迟成本太高</strong>：需更好服务器/网络/架构</li>
-              <li><strong>收益无法覆盖成本</strong>：单笔利润薄</li>
-              <li><strong>这是 MEV/高频战场</strong>：不是普通人现金流方向</li>
-            </ol>
-          </div>
-
-          <h3>💡 最大收获</h3>
-          <ul>
-            <li>AI 真的解放生产力（vibe coding）</li>
-            <li>学到关键常识（数据源、地址行为、API细节）</li>
-            <li>分享思考过程比装成功更有价值</li>
-          </ul>
-
-          <p style="margin-top: 8px;"><a href="https://x.com/seanzhao1105/status/2024429945993494988" target="_blank">🔗 原文链接</a></p>
-
-          <hr style="margin: 30px 0; border: none; border-top: 1px solid var(--border);">
-
-          <h2>@noisyb0y1 的套利策略</h2>
-          <p>加密套利交易者，专注 Polymarket 5分钟 BTC/ETH 短期市场，使用 OpenClaw 机器人执行 Fast-Loop 策略。</p>
-
-          <div class="tip">
-            <h3>📊 核心数据</h3>
-            <ul>
-              <li><strong>月利润</strong>：+$386,755</li>
-              <li><strong>周利润</strong>：+$184,811</li>
-              <li><strong>24小时利润记录</strong>：+$253,403</li>
-              <li><strong>单日最高</strong>：+$82,000</li>
-              <li><strong>起始资金</strong>：$50 → $823</li>
-            </ul>
-          </div>
-
-          <hr style="margin: 30px 0; border: none; border-top: 1px solid var(--border);">
-
-          <h3>🔥 Fast-Loop 套利策略</h3>
-          <div class="highlight">
-            <p><strong>原理</strong>：机器人比 Polymarket 价格反应快 ~20ms</p>
-            <pre style="margin-top: 12px;">价格变动:     t = 0ms
-机器人反应:   t = +10-15ms  ← 先于 Polymarket
-Polymarket:   t = +20-35ms</pre>
-            <p style="margin-top: 12px;"><strong>结果</strong>：约 5ms 可利用窗口，机器人能在价格调整前下单</p>
-          </div>
-          <p><strong>适用市场</strong>：5分钟 BTC/ETH 涨跌市场</p>
-          <p><strong>关键</strong>：需要连接快速基础设施（Chainstack）获取可靠 API</p>
-          <p style="margin-top: 8px;"><a href="https://x.com/noisyb0y1/status/2023000249027965264" target="_blank">🔗 原文链接</a></p>
-
-          <hr style="margin: 30px 0; border: none; border-top: 1px solid var(--border);">
-
-          <h3>🚀 5分钟BTC市场套利</h3>
-          <div class="highlight">
-            <p><strong>策略要点</strong>：</p>
-            <ol style="margin-top: 8px; margin-left: 20px;">
-              <li>每 5 分钟扫描套利机会</li>
-              <li>比较 Binance 和 CoinGecko 的价格</li>
-              <li>全自动 24/7 运行</li>
-              <li>在 Polymarket 反应前捕获价格变动</li>
-            </ol>
-            <p style="margin-top: 12px;"><strong>收益条件</strong>：胜率 &gt; 50% 可扩大到 $10,000+</p>
-          </div>
-          <p><strong>工具</strong>：OpenClaw + Chainstack 基础设施</p>
-          <p style="margin-top: 8px;"><a href="https://x.com/noisyb0y1/status/2023035448151384274" target="_blank">🔗 原文链接</a></p>
-
-          <hr style="margin: 30px 0; border: none; border-top: 1px solid var(--border);">
-
-          <h3>📈 Clawdbot 跟单策略</h3>
-          <div class="highlight">
-            <p><strong>跟单效果</strong>：</p>
-            <ul style="margin-top: 8px;">
-              <li>24小时内盈利：+$253,403</li>
-              <li>交易员赚取：$20,000 - $53,000</li>
-              <li>本金 $808 → $93,500（2天）</li>
-            </ul>
-            <p style="margin-top: 12px;"><strong>特征</strong>：相同交易、相同存款时机、同日创建账户、每账户 8-12 笔交易</p>
-          </div>
-          <p><strong>工具</strong>：OpenClaw + Clawdbot</p>
-          <p style="margin-top: 8px;"><a href="https://x.com/noisyb0y1/status/2026045859247591776" target="_blank">🔗 原文链接</a></p>
-
-          <hr style="margin: 30px 0; border: none; border-top: 1px solid var(--border);">
-
-          <h3>🔍 钱包追踪服务</h3>
-          <p>追踪做相同交易的账户网络，发现大型交易员的操作模式。</p>
-          <div class="highlight">
-            <ul>
-              <li>追踪使用相同算法的大交易员</li>
-              <li>发现大钱包赚钱后转移到新账户</li>
-              <li>数据库已有 300+ 最大 Polymarket 钱包</li>
-            </ul>
-          </div>
-          <p style="margin-top: 8px;"><a href="https://x.com/noisyb0y1/status/2007852237972742500" target="_blank">🔗 原文链接</a></p>
-
-          <hr style="margin: 30px 0; border: none; border-top: 1px solid var(--border);">
-
-          <h3>💡 内幕交易观察</h3>
-          <div class="warning">
-            <p>Polymarket 上存在内幕交易的可能性：</p>
-            <ul style="margin-top: 8px;">
-              <li>今日创建账户 + 今日下注</li>
-              <li>准确预测重大事件（如军事行动）</li>
-              <li>时间线与实际事件高度吻合</li>
-            </ul>
-          </div>
-          <p><strong>案例</strong>：US forces seize Venezuela-linked oil ship - 账户当日创建当日下注</p>
-          <p style="margin-top: 8px;"><a href="https://x.com/noisyb0y1/status/2008913014939124132" target="_blank">🔗 原文链接</a></p>
-
-          <hr style="margin: 30px 0; border: none; border-top: 1px solid var(--border);">
-
-          <h3>🛠️ SpaceHub 项目</h3>
-          <p>在 Polymarket 上构建的助手/产品项目。</p>
-          <div class="tip">
-            <p><strong>技术栈</strong>：</p>
-            <ul style="margin-top: 8px;">
-              <li>Polymarket Builders Docs（API）</li>
-              <li>Cursor（开发工具）</li>
-              <li>Python（测试和安全构建）</li>
-            </ul>
-            <p style="margin-top: 12px;"><strong>建议</strong>：构建你自己真正会用的东西</p>
-          </div>
-          <p style="margin-top: 8px;"><a href="https://x.com/noisyb0y1/status/2016186938097545267" target="_blank">🔗 原文链接</a></p>
-
         </div>
+
+        <h3>🛠️ Available SKILLs</h3>
+        <div class="highlight">
+          <p><strong>1. Weather Trader</strong> - Weather temperature trading</p>
+          <ul>
+            <li>Available cities: NYC, Chicago, Seattle, Atlanta, Dallas, Miami</li>
+            <li>Entry threshold: 13% (buy below 13%)</li>
+            <li>Exit threshold: 35% (sell above 35%)</li>
+            <li>Max position: $2.00</li>
+          </ul>
+          <p style="margin-top: 12px;"><strong>2. Mert Sniper</strong> - Custom track automated scanning</p>
+          <ul>
+            <li>Options: Bitcoin / Solana / Ethereum</li>
+            <li>Customizable buy/sell prices</li>
+            <li>Supports Cron automated trading</li>
+          </ul>
+        </div>
+
+        <div class="warning">
+          <h3>⚠️ Important Reminders</h3>
+          <ul>
+            <li>Start with <strong>paper trading</strong> to accumulate data</li>
+            <li>Recommend enabling live trading after reaching <strong>70% win rate</strong></li>
+            <li>Official provides 10,000 SIM tokens for practice</li>
+            <li>Training mode allows adjusting buy/sell prices to actively accumulate data</li>
+          </ul>
+        </div>
+
+        <p style="margin-top: 8px;"><a href="https://x.com/edwordkaru/status/2022674831540670526" target="_blank">🔗 Original Thread</a></p>
+      </div>
+
+      <hr>
+
+      <div class="section">
+        <h2>📊 @zstmfhy: AI Memory Enhancement Ecosystem</h2>
+        <p>AI Dad shares: 7 major memory enhancement systems are changing the game.</p>
+
+        <div class="highlight">
+          <h3>🔑 Core Data</h3>
+          <ul>
+            <li>OpenClaw native memory recall rate: <strong>58.3%</strong></li>
+            <li>Supermemory MemoryBench score: <strong>85.9%</strong></li>
+          </ul>
+        </div>
+
+        <h3>1. Seven Major Memory Enhancement Systems</h3>
+        <ul>
+          <li><strong>Supermemory</strong> - Cloud memory plugin</li>
+          <li><strong>Memori</strong> - SQL native</li>
+          <li><strong>mem0</strong> - Vector-graph hybrid</li>
+          <li><strong>OpenViking</strong> - Enterprise grade</li>
+          <li><strong>EvoMap</strong> - Evolutionary</li>
+        </ul>
+
+        <h3>2. Technical Architecture</h3>
+        <ul>
+          <li>Storage layer: KV + Vector DB + Graph Layer</li>
+          <li>Recall: Auto-Recall + Vector semantics + Time decay</li>
+          <li>Lifecycle: Working → Short-term → Long-term memory</li>
+        </ul>
+
+        <h3>3. Trends</h3>
+        <p>Graph Memory may become next-gen standard</p>
+
+        <p style="margin-top: 8px;"><a href="https://x.com/zstmfhy/status/2027927177090797994" target="_blank">🔗 Original Thread</a></p>
+      </div>
+
+      <hr>
+
+      <div class="section">
+        <h2>📊 @AYi_AInotes: OpenClaw Workflow Trading Strategies</h2>
+        <p>Ayi shares complete攻略 on OpenClaw automated trading workflows.</p>
+
+        <h3>1. Trend Trading Strategy</h3>
+        <ul>
+          <li>Skills: stock-monitor + market-sentiment + trend-analysis + risk-calculator</li>
+          <li>Long condition: MA5 > MA10 && sentimentScore > 0.5</li>
+          <li>Stop loss: -5%, Take profit: 10%, Position: 8%</li>
+        </ul>
+
+        <h3>2. Value Investment Strategy</h3>
+        <ul>
+          <li>Skills: financial-report-analysis + competitor-analysis + valuation-calculator + dividend-tracker</li>
+          <li>Conditions: PE<15, PB<2, Dividend yield>3%, Profit growth>10%</li>
+          <li>Holding period: 180 days</li>
+        </ul>
+
+        <h3>3. Arbitrage Strategy</h3>
+        <ul>
+          <li>Skills: arbitrage-scanner + finance-data + risk-calculator + order-executor</li>
+          <li>Conditions: Spread>10bp, Max position 5%, Target return 3%</li>
+        </ul>
+
+        <div class="highlight">
+          <h3>💡 Core Insights</h3>
+          <ul>
+            <li>OpenClaw enables普通人 to achieve professional trading</li>
+            <li>It's a tool, not a holy grail</li>
+            <li>Success key: Clear trading logic + Convert to AI-executable instructions</li>
+            <li>Requires cloud deployment for 7x24 operation</li>
+          </ul>
+        </div>
+
+        <p style="margin-top: 8px;"><a href="https://x.com/ayi_ainotes/status/2027333099366076574" target="_blank">🔗 Original Thread</a></p>
+      </div>
+
+      <hr>
+
+      <div class="section">
+        <h2>📊 @cutnpaste4: Complete Guide to Crypto Up/Down Markets</h2>
+        <p>CUTNPASTE shares a complete攻略 on Polymarket cryptocurrency up/down markets.</p>
+
+        <h3>1. Latency Arbitrage Truth</h3>
+        <ul>
+          <li>Latency is a few hundred milliseconds, not 30 seconds</li>
+          <li>Taker latency: Was 500ms, now 250ms</li>
+          <li>Network setup and VPS location matter more than programming language</li>
+          <li>Python is fast enough</li>
+        </ul>
+
+        <h3>2. Pricing Model</h3>
+        <ul>
+          <li>Use Black-Scholes to price binary options</li>
+          <li>Key parameter: Implied volatility (sigma)</li>
+          <li>Historical volatility plugged in is roughly close to market price</li>
+        </ul>
+
+        <h3>3. Key Alpha</h3>
+        <div class="highlight">
+          <ul>
+            <li>ChainLink updates only once per second</li>
+            <li>Using Binance price directly is better than ChainLink</li>
+            <li>This was once a secret advantage</li>
+          </ul>
+        </div>
+
+        <h3>4. Strategy Comparison</h3>
+        <div class="warning">
+          <p><strong>Market Maker</strong></p>
+          <ul>
+            <li>Two-sided quoting to capture spread</li>
+            <li>Requires大量 code infrastructure</li>
+            <li>Complex edge case handling</li>
+          </ul>
+          <p><strong>Taker</strong></p>
+          <ul>
+            <li>Only order when model disagrees with price</li>
+            <li>Higher variance but easier to find niches</li>
+            <li>Simpler, less fragile</li>
+          </ul>
+        </div>
+
+        <h3>5. Recommendations</h3>
+        <ul>
+          <li>This is the most competitive market currently</li>
+          <li>Don't touch without experience</li>
+          <li>Start with soft markets</li>
+          <li>Most important: Keep it fun!</li>
+        </ul>
+
+        <p style="margin-top: 8px;"><a href="https://x.com/cutnpaste4/status/2027405725266493891" target="_blank">🔗 Original Thread</a></p>
+      </div>
+
+      <hr>
+
+      <div class="section">
+        <h2>📊 @RohOnChain: Hedge Fund Prediction Market Data Methodology</h2>
+        <p>Roan (backend developer, HFT style) shares how hedge funds use prediction market data to build trading strategies.</p>
+
+        <div class="highlight">
+          <h3>🔑 Core Data</h3>
+          <ul>
+            <li><strong>Becker Dataset</strong>: 4M+ trades (since 2020)</li>
+            <li>36GB compressed, MIT license, free to access</li>
+            <li>Each trade includes timestamp, price, volume, taker side</li>
+          </ul>
+        </div>
+
+        <h3>1. Empirical Kelly & Uncertainty</h3>
+        <ul>
+          <li>Standard Kelly assumes you know the edge (wrong)</li>
+          <li>Empirical Kelly: Use Monte Carlo to calculate edge distribution</li>
+          <li>Formula: f_empirical = f_kelly × (1 - CV_edge)</li>
+        </ul>
+
+        <h3>2. Calibration Analysis (Longshot Bias)</h3>
+        <div class="warning">
+          <ul>
+            <li>1 cent contracts actual win rate 0.43% vs 1% implied probability</li>
+            <li>At 80/99 price levels, takers show negative excess returns</li>
+            <li>Longtail bias: -57% mispricing</li>
+          </ul>
+        </div>
+
+        <h3>3. Maker vs Taker</h3>
+        <ul>
+          <li><strong>Maker</strong> (liquidity provider): +0.77% ~ +1.25% excess returns</li>
+          <li><strong>Taker</strong> (immediate execution): Systematic losses</li>
+          <li>Advantage is structural, not predictive ability</li>
+        </ul>
+
+        <h3>4. Institutional Methodology</h3>
+        <ol>
+          <li>Risk management: Size for distribution, not point estimates</li>
+          <li>Time-varying strategies: Exploit calibration patterns</li>
+          <li>Structural positioning: Be maker, not taker</li>
+        </ol>
+
+        <p style="margin-top: 8px;"><a href="https://x.com/rohonchain/status/2023781142663754049" target="_blank">🔗 Original Thread</a></p>
+      </div>
+
+      <hr>
+
+      <div class="section">
+        <h2>📊 @seanzhao1105's Spread Arbitrage Research Review</h2>
+        <p>Sean Ziqi's complete review of 3 months researching Polymarket spread arbitrage with 109GB of data.</p>
+
+        <div class="warning">
+          <h3>⚠️ Core Conclusion: 99.99% of People Should Not Do Spread Arbitrage</h3>
+          <ul>
+            <li>~2+ seconds from monitoring opportunity to order execution, but opportunities disappear faster</li>
+            <li>Yes+No already > 1 when each trade executes</li>
+          </ul>
+        </div>
+
+        <h3>🔬 Research Process</h3>
+        <ul>
+          <li>109GB trade data analysis</li>
+          <li>Filtered profitable addresses and classified (arbitrage/market maker/trading/other)</li>
+          <li>Developed monitoring program to verify arbitrage opportunities do exist</li>
+        </ul>
+
+        <h3>❌ Three Major Failure Reasons</h3>
+        <div class="highlight">
+          <ol>
+            <li><strong>Improving latency costs too much</strong>: Need better servers/network/architecture</li>
+            <li><strong>Returns cannot cover costs</strong>: Thin per-trade profits</li>
+            <li><strong>This is an MEV/HFT battlefield</strong>: Not a direction for普通人 cash flow</li>
+          </ol>
+        </div>
+
+        <h3>💡 Biggest Takeaways</h3>
+        <ul>
+          <li>AI truly liberates productivity (vibe coding)</li>
+          <li>Learned key common sense (data sources, address behavior, API details)</li>
+          <li>Sharing thinking process is more valuable than pretending success</li>
+        </ul>
+
+        <p style="margin-top: 8px;"><a href="https://x.com/seanzhao1105/status/2024429945993494988" target="_blank">🔗 Original Thread</a></p>
+      </div>
+
+      <hr>
+
+      <div class="section">
+        <h2>@noisyb0y1's Arbitrage Strategies</h2>
+        <p>Crypto arbitrage trader focusing on Polymarket 5-minute BTC/ETH short-term markets, using OpenClaw bot to execute Fast-Loop strategy.</p>
+
+        <div class="tip">
+          <h3>📊 Core Data</h3>
+          <ul>
+            <li><strong>Monthly profit</strong>: +$386,755</li>
+            <li><strong>Weekly profit</strong>: +$184,811</li>
+            <li><strong>24h profit record</strong>: +$253,403</li>
+            <li><strong>Single day high</strong>: +$82,000</li>
+            <li><strong>Starting capital</strong>: $50 → $823</li>
+          </ul>
+        </div>
+
+        <h3>🔥 Fast-Loop Arbitrage Strategy</h3>
+        <div class="highlight">
+          <p><strong>Principle</strong>: Bot reacts ~20ms faster than Polymarket price</p>
+          <pre style="margin-top: 12px;">Price move:      t = 0ms
+Bot reaction:    t = +10-15ms  ← Before Polymarket
+Polymarket:      t = +20-35ms</pre>
+          <p style="margin-top: 12px;"><strong>Result</strong>: ~5ms exploitable window, bot can order before price adjusts</p>
+        </div>
+        <p><strong>Applicable markets</strong>: 5-minute BTC/ETH up/down markets</p>
+        <p><strong>Key</strong>: Requires fast infrastructure connection (Chainstack) for reliable API</p>
+        <p style="margin-top: 8px;"><a href="https://x.com/noisyb0y1/status/2023000249027965264" target="_blank">🔗 Original Thread</a></p>
+
+        <h3>🚀 5-Minute BTC Market Arbitrage</h3>
+        <div class="highlight">
+          <p><strong>Strategy points</strong>:</p>
+          <ol style="margin-top: 8px; margin-left: 20px;">
+            <li>Scan arbitrage opportunities every 5 minutes</li>
+            <li>Compare Binance and CoinGecko prices</li>
+            <li>Fully automated 24/7 operation</li>
+            <li>Capture price moves before Polymarket reacts</li>
+          </ol>
+          <p style="margin-top: 12px;"><strong>Scaling condition</strong>: Win rate > 50% allows scaling to $10,000+</p>
+        </div>
+        <p><strong>Tools</strong>: OpenClaw + Chainstack infrastructure</p>
+        <p style="margin-top: 8px;"><a href="https://x.com/noisyb0y1/status/2023035448151384274" target="_blank">🔗 Original Thread</a></p>
+
+        <h3>📈 Clawdbot Copy Trading Strategy</h3>
+        <div class="highlight">
+          <p><strong>Copy trading results</strong>:</p>
+          <ul style="margin-top: 8px;">
+            <li>24h profit: +$253,403</li>
+            <li>Trader earns: $20,000 - $53,000</li>
+            <li>Capital $808 → $93,500 (2 days)</li>
+          </ul>
+          <p style="margin-top: 12px;"><strong>Characteristics</strong>: Same trades, same deposit timing, accounts created same day, 8-12 trades per account</p>
+        </div>
+        <p><strong>Tools</strong>: OpenClaw + Clawdbot</p>
+        <p style="margin-top: 8px;"><a href="https://x.com/noisyb0y1/status/2026045859247591776" target="_blank">🔗 Original Thread</a></p>
+
+        <h3>🔍 Wallet Tracking Service</h3>
+        <p>Track account networks making same trades, discovering large trader operation patterns.</p>
+        <div class="highlight">
+          <ul>
+            <li>Track large traders using same algorithms</li>
+            <li>Discover large wallets moving to new accounts after profits</li>
+            <li>Database has 300+ largest Polymarket wallets</li>
+          </ul>
+        </div>
+        <p style="margin-top: 8px;"><a href="https://x.com/noisyb0y1/status/2007852237972742500" target="_blank">🔗 Original Thread</a></p>
+
+        <h3>💡 Insider Trading Observations</h3>
+        <div class="warning">
+          <p>Possibility of insider trading on Polymarket:</p>
+          <ul style="margin-top: 8px;">
+            <li>Account created today + bet placed today</li>
+            <li>Accurate prediction of major events (e.g., military operations)</li>
+            <li>Timeline highly correlated with actual events</li>
+          </ul>
+        </div>
+        <p><strong>Case</strong>: US forces seize Venezuela-linked oil ship - account created and bet placed same day</p>
+        <p style="margin-top: 8px;"><a href="https://x.com/noisyb0y1/status/2008913014939124132" target="_blank">🔗 Original Thread</a></p>
+
+        <h3>🛠️ SpaceHub Project</h3>
+        <p>Assistant/product project building on Polymarket.</p>
+        <div class="tip">
+          <p><strong>Tech stack</strong>:</p>
+          <ul style="margin-top: 8px;">
+            <li>Polymarket Builders Docs (API)</li>
+            <li>Cursor (development tool)</li>
+            <li>Python (testing and safe building)</li>
+          </ul>
+          <p style="margin-top: 12px;"><strong>Recommendation</strong>: Build something you'll actually use</p>
+        </div>
+        <p style="margin-top: 8px;"><a href="https://x.com/noisyb0y1/status/2016186938097545267" target="_blank">🔗 Original Thread</a></p>
       </div>
 
       <a href="/en/knowledge-base/" class="back-link" style="margin-top: 30px;">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M19 12H5M12 19l-7-7 7-7"/>
         </svg>
-        返回知识库
+        Back to Library
       </a>
     </div>
   </main>
 
   <footer>
     <div class="container">
-      <p>🤖 由 Jarvis 自动生成 | 基于 OpenClaw</p>
+      <p>pred101 · Learn prediction markets with a simple structured system.</p>
       <p style="margin-top: 8px;">
-        <a href="/sitemap.xml">Sitemap</a> | 
-        <a href="/robots.txt">Robots</a> | 
-        <a href="https://polymarket.com" target="_blank" rel="noopener">Polymarket</a>
-      </p>
-    </div>
-  </footer>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>
-        <span class="timestamp">
-          <time datetime="2026-02-27T10:00:00+09:00">创建: 2026-02-27</time> | 
-          <time datetime="2026-03-05T19:23+09:00">更新: 2026-03-05</time>
-        </span>
-        <span class="source">来源: <a href="/en/knowledge-base/" rel="noopener">knowledge base</a></span>
+        <a href="/en/about.html">About</a> · 
+        <a href="/zh/knowledge-base/kol-strategies.html">中文版本</a>
       </p>
     </div>
   </footer>

@@ -1,102 +1,103 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>@cutnpaste4 策略分析 | pred101</title>
-  <meta name="description" content="@cutnpaste4 专注于 Crypto Up/Down 市场的延迟套利策略，提供完整的市场机制解析和定价模型。">
+  <title>@cutnpaste4 Strategy Analysis | pred101</title>
+  <meta name="description" content="@cutnpaste4 focuses on latency arbitrage strategies in Crypto Up/Down markets, providing complete market mechanism analysis and pricing models.">
   <link rel="canonical" href="https://www.pred101.com/en/knowledge-base/kol/cutnpaste4/">
+  <link rel="alternate" hreflang="zh" href="https://www.pred101.com/zh/knowledge-base/kol/cutnpaste4/">
   <link rel="stylesheet" href="/css/style.css">
   <style>
     :root{--bg:#f7f8fb;--surface:#ffffff;--surface-soft:#eef2ff;--text:#111827;--text-secondary:#667085;--border:#e5e7eb;--accent:#6f7cff;--accent-2:#38d0ff;--shadow:0 10px 30px rgba(16,24,40,.06);--max:1080px}*{margin:0;padding:0;box-sizing:border-box}body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(180deg,#f8fbff 0%,#f6f7fb 100%);color:var(--text);line-height:1.65}a{color:inherit;text-decoration:none}.container{max-width:var(--max);margin:0 auto;padding:0 24px}header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid var(--border)}header .container{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px}.logo{font-size:1.04rem;font-weight:800}.logo .mark{color:var(--accent)}nav{display:flex;gap:18px;flex-wrap:wrap}nav a{color:var(--text-secondary);font-size:.92rem}nav a.active,nav a:hover{color:var(--text)}main{padding:52px 0 80px}.hero{background:linear-gradient(135deg, rgba(111,124,255,.10), rgba(56,208,255,.08));border:1px solid rgba(111,124,255,.16);border-radius:28px;padding:34px 30px;box-shadow:var(--shadow);margin-bottom:30px}.eyebrow{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}h1{font-size:clamp(2.1rem,5vw,3.4rem);line-height:.98;letter-spacing:-.04em}.lead{margin-top:16px;max-width:780px;color:var(--text-secondary);font-size:1.03rem}.meta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}.meta-card{background:rgba(255,255,255,.7);border:1px solid var(--border);border-radius:16px;padding:14px 16px}.meta-card .label{font-size:.76rem;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.08em}.meta-card .value{margin-top:6px;font-size:.96rem;font-weight:700}.section{background:var(--surface);border:1px solid var(--border);border-radius:24px;box-shadow:var(--shadow);padding:28px;margin:22px 0}.section h2{font-size:1.55rem;margin-bottom:16px;letter-spacing:-.03em}.section h3{font-size:1.08rem;margin:18px 0 10px}.section p,.section li{color:#344054}.section ul{padding-left:20px}.section li{margin:8px 0}.section pre{background:#1d1d1f;color:#e2e8f0;padding:18px;border-radius:14px;overflow-x:auto;font-size:.85rem;margin:16px 0}.section code{font-family:'SF Mono',Monaco,monospace}.note{background:#edf7ff;border-left:4px solid var(--accent-2);border-radius:16px;padding:16px 18px;margin-top:16px}.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.tag{display:inline-block;font-size:.78rem;font-weight:700;color:var(--accent);background:rgba(111,124,255,.10);padding:5px 11px;border-radius:999px}.strategy-card{background:#fbfcff;border:1px solid var(--border);border-radius:18px;padding:20px;margin-top:14px}.strategy-card h3{font-size:1.05rem;color:var(--accent)}.strategy-card .concept{margin-top:8px;color:var(--text-secondary);font-style:italic}.next-links{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:26px}.next-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:18px;box-shadow:var(--shadow)}.next-card .small{color:var(--text-secondary);font-size:.82rem}.next-card h4{margin-top:8px;font-size:1rem}footer{padding:38px 0 52px;color:var(--text-secondary)}footer .container{border-top:1px solid var(--border);padding-top:20px;font-size:.86rem}@media (max-width:860px){.meta-grid,.next-links{grid-template-columns:1fr 1fr}}@media (max-width:640px){.meta-grid,.next-links{grid-template-columns:1fr}.hero,.section{padding:22px 18px}}</style>
 </head>
 <body>
-<header><div class="container"><a href="/zh/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a><nav><a href="/en/">Home</a><a href="/en/knowledge-base/" class="active">Library</a><a href="/en/reports/">Reports</a><a href="/zh/about.html">关于</a></nav></div></header>
+<header><div class="container"><a href="/en/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a><nav><a href="/en/">Home</a><a href="/en/knowledge-base/" class="active">Library</a><a href="/en/reports/">Reports</a><a href="/en/about.html">About</a></nav></div></header>
 <main><div class="container">
 <section class="hero">
   <div class="eyebrow">KOL research</div>
   <h1>@cutnpaste4</h1>
-  <p class="lead">@cutnpaste4 专注于 Crypto Up/Down 市场的延迟套利策略，提供完整的市场机制解析和定价模型。</p>
+  <p class="lead">@cutnpaste4 focuses on latency arbitrage strategies in Crypto Up/Down markets, providing complete market mechanism analysis and pricing models.</p>
   <div class="meta-grid">
-    <div class="meta-card"><div class="label">类型</div><div class="value">延迟套利</div></div>
-    <div class="meta-card"><div class="label">更新</div><div class="value">2026-03-07</div></div>
-    <div class="meta-card"><div class="label">适合</div><div class="value">高频交易</div></div>
-    <div class="meta-card"><div class="label">用例</div><div class="value">CEX 套利</div></div>
+    <div class="meta-card"><div class="label">Type</div><div class="value">Latency Arbitrage</div></div>
+    <div class="meta-card"><div class="label">Updated</div><div class="value">2026-03-07</div></div>
+    <div class="meta-card"><div class="label">Best for</div><div class="value">High-Frequency Trading</div></div>
+    <div class="meta-card"><div class="label">Use case</div><div class="value">CEX Arbitrage</div></div>
   </div>
 </section>
 
 <section class="section">
-  <h2>📌 核心贡献</h2>
-  <p>@cutnpaste4 专注于 Crypto Up/Down 市场的延迟套利策略，提供完整的市场机制解析和定价模型。</p>
-  <div class="note"><strong>💡 核心发现：</strong>Polymarket 的 Crypto Up/Down 市场存在 2-5 秒的反应延迟，可利用 CEX 价格变动进行套利。</div>
-  <div class="tags"><span class="tag">延迟套利</span><span class="tag">加密货币</span><span class="tag">做市</span></div>
+  <h2>📌 Core Contribution</h2>
+  <p>@cutnpaste4 focuses on latency arbitrage strategies in Crypto Up/Down markets, providing complete market mechanism analysis and pricing models.</p>
+  <div class="note"><strong>💡 Core finding:</strong> Polymarket's Crypto Up/Down markets have a 2-5 second reaction delay that can be exploited for arbitrage using CEX price movements.</div>
+  <div class="tags"><span class="tag">Latency Arbitrage</span><span class="tag">Cryptocurrency</span><span class="tag">Market Making</span></div>
 </section>
 
 <section class="section">
-  <h2>🎯 Crypto Up/Down 市场</h2>
-  <p>这类市场预测加密货币（BTC/ETH/SOL）在特定时间点的价格方向：</p>
-  <div class="strategy-card"><h3>UP 份额</h3><p class="concept">价格上涨则价值$1.00</p></div>
-  <div class="strategy-card"><h3>DOWN 份额</h3><p class="concept">价格下跌则价值$1.00</p></div>
-  <div class="strategy-card"><h3>结算时间</h3><p class="concept">通常为 5 分钟、15 分钟、1 小时</p></div>
+  <h2>🎯 Crypto Up/Down Markets</h2>
+  <p>These markets predict the price direction of cryptocurrencies (BTC/ETH/SOL) at a specific point in time:</p>
+  <div class="strategy-card"><h3>UP Shares</h3><p class="concept">Worth $1.00 if price goes up</p></div>
+  <div class="strategy-card"><h3>DOWN Shares</h3><p class="concept">Worth $1.00 if price goes down</p></div>
+  <div class="strategy-card"><h3>Settlement Time</h3><p class="concept">Typically 5 min, 15 min, 1 hour</p></div>
 </section>
 
 <section class="section">
-  <h2>⏱️ 延迟套利原理</h2>
-  <h3>价格传导链条</h3>
-  <pre><code>CEX 价格变动 (t=0ms)
+  <h2>⏱️ Latency Arbitrage Principle</h2>
+  <h3>Price Transmission Chain</h3>
+  <pre><code>CEX Price Move (t=0ms)
     ↓
-套利机器人检测 (t=+10-15ms)
+Arb Bot Detection (t=+10-15ms)
     ↓
-Polymarket 价格调整 (t=+20-35ms)
+Polymarket Price Adjustment (t=+20-35ms)
     ↓
-可利用窗口：约 5-20ms</code></pre>
+Exploitable Window: ~5-20ms</code></pre>
 
-  <h3>执行策略</h3>
+  <h3>Execution Strategy</h3>
   <ol>
-    <li>监控 Binance/Bybit 的 BTC/ETH 价格</li>
-    <li>检测到显著变动（&gt;0.5%）</li>
-    <li>立即在 Polymarket 买入对应方向</li>
-    <li>等待市场价格调整到合理水平</li>
-    <li>卖出获利或持有到期</li>
+    <li>Monitor Binance/Bybit BTC/ETH prices via WebSocket</li>
+    <li>Detect significant moves (&gt;0.5%)</li>
+    <li>Immediately buy corresponding direction on Polymarket</li>
+    <li>Wait for market price to adjust to fair value</li>
+    <li>Sell for profit or hold to settlement</li>
   </ol>
 </section>
 
 <section class="section">
-  <h2>⚠️ 关键风险</h2>
+  <h2>⚠️ Key Risks</h2>
   <div class="note">
     <ul>
-      <li><strong>延迟陷阱：</strong>2 秒延迟可能导致入场即亏损</li>
-      <li><strong>流动性风险：</strong>大额订单可能无法及时退出</li>
-      <li><strong>Gas 成本：</strong>高频交易下 gas 占比显著</li>
-      <li><strong>资金门槛：</strong>建议 ≥$5K 起步（考虑 gas 和手续费）</li>
+      <li><strong>Latency trap:</strong> 2-second delay can mean instant loss on entry</li>
+      <li><strong>Liquidity risk:</strong> Large orders may not exit in time</li>
+      <li><strong>Gas costs:</strong> Significant percentage under high-frequency trading</li>
+      <li><strong>Capital threshold:</strong> Recommend ≥$5K starting (considering gas and fees)</li>
     </ul>
   </div>
-  <p style="margin-top:16px"><strong>📊 数据洞察：</strong>根据@cutnpaste4 的复盘，99.99% 的人不适合高频延迟套利，需要专业基础设施。</p>
+  <p style="margin-top:16px"><strong>📊 Data insight:</strong> According to @cutnpaste4's analysis, 99.99% of people are not suited for high-frequency latency arbitrage—it requires professional infrastructure.</p>
 </section>
 
 <section class="section">
-  <h2>🛠️ 推荐工具</h2>
+  <h2>🛠️ Recommended Tools</h2>
   <ul>
-    <li><strong>CEX API：</strong>币安/Bybit WebSocket（免费）</li>
-    <li><strong>执行速度：</strong>&lt;500ms 延迟</li>
-    <li><strong>OpenClaw 技能：</strong>signal-sniper, fast-loop</li>
+    <li><strong>CEX API:</strong> Binance/Bybit WebSocket (free)</li>
+    <li><strong>Execution speed:</strong> &lt;500ms latency required</li>
+    <li><strong>OpenClaw skills:</strong> signal-sniper, fast-loop</li>
   </ul>
 </section>
 
 <section class="section">
-  <h2>📚 相关资源</h2>
+  <h2>📚 Related Resources</h2>
   <ul>
-    <li><a href="/en/knowledge-base/strategies/fast-loop/">Fast-Loop 策略详情</a></li>
-    <li><a href="/en/knowledge-base/kol/noisyb0y1/">@noisyb0y1 策略分析</a></li>
+    <li><a href="/en/knowledge-base/strategies/fast-loop/">Fast-Loop Strategy Details</a></li>
+    <li><a href="/en/knowledge-base/kol/noisyb0y1/">@noisyb0y1 Strategy Analysis</a></li>
     <li><a href="https://x.com/cutnpaste4" target="_blank">@cutnpaste4 on X</a></li>
   </ul>
 </section>
 
 <div class="next-links">
-  <a class="next-card" href="/en/knowledge-base/kol/"><div class="small">返回</div><h4>KOL 研究总览</h4></a>
-  <a class="next-card" href="/en/knowledge-base/strategies/fast-loop/"><div class="small">相关策略</div><h4>Fast-Loop</h4></a>
+  <a class="next-card" href="/en/knowledge-base/kol/"><div class="small">Back to</div><h4>KOL Research Overview</h4></a>
+  <a class="next-card" href="/en/knowledge-base/strategies/fast-loop/"><div class="small">Related strategy</div><h4>Fast-Loop</h4></a>
 </div>
 </div></main>
-<footer><div class="container"><p>创建：2026-03-07 · 来源：X.com @cutnpaste4</p></div></footer>
+<footer><div class="container"><p>Created：2026-03-07 · Source：X.com @cutnpaste4</p></div></footer>
 </body>
 </html>

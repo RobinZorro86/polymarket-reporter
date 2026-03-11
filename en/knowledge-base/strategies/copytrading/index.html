@@ -1,99 +1,99 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Copytrading 跟单策略 | pred101</title>
-  <meta name="description" content="通过追踪 Polymarket 上盈利钱包的交易活动，自动复制其交易决策。">
+  <title>Copytrading Strategy | pred101</title>
+  <meta name="description" content="Track profitable Polymarket wallets, filter by trade quality, and build a repeatable copytrading framework with better risk control.">
   <link rel="canonical" href="https://www.pred101.com/en/knowledge-base/strategies/copytrading/">
+  <link rel="alternate" hreflang="zh" href="https://www.pred101.com/zh/knowledge-base/strategies/copytrading/">
   <link rel="stylesheet" href="/css/style.css">
   <style>
     :root{--bg:#f7f8fb;--surface:#ffffff;--surface-soft:#eef2ff;--text:#111827;--text-secondary:#667085;--border:#e5e7eb;--accent:#6f7cff;--accent-2:#38d0ff;--shadow:0 10px 30px rgba(16,24,40,.06);--max:1080px}*{margin:0;padding:0;box-sizing:border-box}body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(180deg,#f8fbff 0%,#f6f7fb 100%);color:var(--text);line-height:1.65}a{color:inherit;text-decoration:none}.container{max-width:var(--max);margin:0 auto;padding:0 24px}header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid var(--border)}header .container{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px}.logo{font-size:1.04rem;font-weight:800}.logo .mark{color:var(--accent)}nav{display:flex;gap:18px;flex-wrap:wrap}nav a{color:var(--text-secondary);font-size:.92rem}nav a.active,nav a:hover{color:var(--text)}main{padding:52px 0 80px}.hero{background:linear-gradient(135deg, rgba(111,124,255,.10), rgba(56,208,255,.08));border:1px solid rgba(111,124,255,.16);border-radius:28px;padding:34px 30px;box-shadow:var(--shadow);margin-bottom:30px}.eyebrow{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}h1{font-size:clamp(2.1rem,5vw,3.4rem);line-height:.98;letter-spacing:-.04em}.lead{margin-top:16px;max-width:780px;color:var(--text-secondary);font-size:1.03rem}.meta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}.meta-card{background:rgba(255,255,255,.7);border:1px solid var(--border);border-radius:16px;padding:14px 16px}.meta-card .label{font-size:.76rem;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.08em}.meta-card .value{margin-top:6px;font-size:.96rem;font-weight:700}.section{background:var(--surface);border:1px solid var(--border);border-radius:24px;box-shadow:var(--shadow);padding:28px;margin:22px 0}.section h2{font-size:1.55rem;margin-bottom:16px;letter-spacing:-.03em}.section h3{font-size:1.08rem;margin:18px 0 10px}.section p,.section li{color:#344054}.section ul{padding-left:20px}.section li{margin:8px 0}.note{background:#edf7ff;border-left:4px solid var(--accent-2);border-radius:16px;padding:16px 18px;margin-top:16px}.note ul{margin:8px 0 0 20px}.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.tag{display:inline-block;font-size:.78rem;font-weight:700;color:var(--accent);background:rgba(111,124,255,.10);padding:5px 11px;border-radius:999px}.strategy-card{background:#fbfcff;border:1px solid var(--border);border-radius:18px;padding:20px;margin-top:14px}.strategy-card h3{font-size:1.05rem;color:var(--accent)}.strategy-card .concept{margin-top:8px;color:var(--text-secondary);font-style:italic}.next-links{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:26px}.next-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:18px;box-shadow:var(--shadow)}.next-card .small{color:var(--text-secondary);font-size:.82rem}.next-card h4{margin-top:8px;font-size:1rem}footer{padding:38px 0 52px;color:var(--text-secondary)}footer .container{border-top:1px solid var(--border);padding-top:20px;font-size:.86rem}@media (max-width:860px){.meta-grid,.next-links{grid-template-columns:1fr 1fr}}@media (max-width:640px){.meta-grid,.next-links{grid-template-columns:1fr}.hero,.section{padding:22px 18px}}</style>
 </head>
 <body>
-<header><div class="container"><a href="/zh/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a><nav><a href="/zh/">首页</a><a href="/en/knowledge-base/" class="active">知识库</a><a href="/en/reports/">报告</a><a href="/zh/about.html">关于</a></nav></div></header>
+<header><div class="container"><a href="/en/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a><nav><a href="/en/">Overview</a><a href="/en/learn/">7-Day Path</a><a href="/en/knowledge-base/" class="active">Library</a><a href="/en/reports/">Reports</a><a href="/en/about.html">About</a></nav></div></header>
 <main><div class="container">
 <section class="hero">
   <div class="eyebrow">Strategy</div>
   <h1>Copytrading</h1>
-  <p class="lead">通过追踪 Polymarket 上盈利钱包的交易活动，自动复制其交易决策。基于链上透明性，所有交易公开可查。</p>
+  <p class="lead">Track profitable Polymarket wallets, copy only the signals worth following, and turn wallet observation into a disciplined framework instead of blind imitation.</p>
   <div class="meta-grid">
-    <div class="meta-card"><div class="label">类型</div><div class="value">跟随策略</div></div>
-    <div class="meta-card"><div class="label">更新</div><div class="value">2026-03-07</div></div>
-    <div class="meta-card"><div class="label">适合</div><div class="value">钱包追踪</div></div>
-    <div class="meta-card"><div class="label">用例</div><div class="value">链上分析</div></div>
+    <div class="meta-card"><div class="label">Type</div><div class="value">Follow Strategy</div></div>
+    <div class="meta-card"><div class="label">Updated</div><div class="value">2026-03-07</div></div>
+    <div class="meta-card"><div class="label">Best for</div><div class="value">Wallet Tracking</div></div>
+    <div class="meta-card"><div class="label">Use case</div><div class="value">On-chain Analysis</div></div>
   </div>
 </section>
 
 <section class="section">
-  <h2>📌 策略概述</h2>
-  <p>Copytrading 跟单策略通过追踪 Polymarket 上盈利钱包的交易活动，自动复制其交易决策。基于链上透明性，所有交易公开可查，可系统性追踪高胜率钱包。</p>
-  <div class="note"><strong>💡 核心思想：</strong>市场上存在持续盈利的专业交易者，通过追踪他们的交易可以获取 alpha。</div>
-  <div class="tags"><span class="tag">跟随策略</span><span class="tag">钱包追踪</span><span class="tag">链上分析</span></div>
+  <h2>📌 Strategy Overview</h2>
+  <p>Copytrading on Polymarket is possible because the market is transparent at the wallet level. The edge comes from finding repeatably strong traders, understanding what kind of trades they are making, and copying only what still survives lag, slippage, and your own risk limits.</p>
+  <div class="note"><strong>💡 Core idea:</strong> There may be persistent professional traders on-chain, but profitable copytrading requires filtering. You are not trying to mirror every action. You are trying to capture the tradable part of their process.</div>
+  <div class="tags"><span class="tag">Follow Strategy</span><span class="tag">Wallet Tracking</span><span class="tag">On-chain Analysis</span></div>
 </section>
 
 <section class="section">
-  <h2>🔄 核心逻辑</h2>
-  
-  <h3>1. 钱包筛选</h3>
+  <h2>🔄 Core Logic</h2>
+  <h3>1. Wallet selection</h3>
   <ul>
-    <li><strong>胜率门槛：</strong>历史胜率 &gt;55%</li>
-    <li><strong>样本量：</strong>&gt;100 笔交易（区分技能与运气）</li>
-    <li><strong>Sharpe 比率：</strong>&gt;1.5（风险调整后收益）</li>
-    <li><strong>避免：</strong>排行榜钱包（可见性摧毁优势）</li>
+    <li><strong>Win rate threshold:</strong> historical win rate above 55%</li>
+    <li><strong>Sample size:</strong> more than 100 trades to separate skill from luck</li>
+    <li><strong>Risk-adjusted return:</strong> look for steadier curves, not just explosive PnL</li>
+    <li><strong>Avoid pure leaderboard chasing:</strong> visibility often destroys edge quickly</li>
   </ul>
 
-  <h3>2. 巨鲸类型识别</h3>
-  <div class="strategy-card"><h3>方向性交易者 ✅</h3><p class="concept">大仓位、低频率、特定主题专注</p></div>
-  <div class="strategy-card"><h3>做市商 ❌</h3><p class="concept">同时持有 YES+NO，赚点差和返佣</p></div>
-  <div class="strategy-card"><h3>高频机器人 ❌</h3><p class="concept">每天数百笔，依赖速度优势</p></div>
+  <h3>2. Trader-type identification</h3>
+  <div class="strategy-card"><h3>Directional Trader ✅</h3><p class="concept">Large size, lower frequency, tighter theme concentration.</p></div>
+  <div class="strategy-card"><h3>Market Maker ❌</h3><p class="concept">Often holds both YES and NO, monetizing spread and rebates rather than directional conviction.</p></div>
+  <div class="strategy-card"><h3>High-Frequency Bot ❌</h3><p class="concept">Too fast to copy profitably; your execution lag becomes the entire trade.</p></div>
 
-  <h3>3. 跟单执行</h3>
+  <h3>3. Execution framework</h3>
   <ul>
-    <li><strong>篮子策略：</strong>追踪 5-10 个钱包，分散风险</li>
-    <li><strong>仓位 sizing：</strong>每笔跟单仓位≤总资金 5%</li>
-    <li><strong>滑点控制：</strong>设置最大滑点 3-5%</li>
-    <li><strong>延迟管理：</strong>目标&lt;30 秒执行延迟</li>
-  </ul>
-</section>
-
-<section class="section">
-  <h2>⚙️ 配置要求</h2>
-  <ul>
-    <li><strong>OpenClaw 技能：</strong>simmer, copytrading</li>
-    <li><strong>数据源：</strong>Polymarket API、链上数据索引</li>
-    <li><strong>监控工具：</strong>钱包追踪仪表盘、交易警报</li>
-    <li><strong>执行频率：</strong>实时监控，发现交易立即执行</li>
+    <li><strong>Basket approach:</strong> track 5–10 wallets instead of betting on one hero wallet</li>
+    <li><strong>Position sizing:</strong> keep single copied trades under 5% of bankroll</li>
+    <li><strong>Slippage guard:</strong> set clear max slippage limits before entry</li>
+    <li><strong>Latency discipline:</strong> if you cannot execute quickly enough, skip the trade</li>
   </ul>
 </section>
 
 <section class="section">
-  <h2>⚠️ 风险提示</h2>
+  <h2>⚙️ What You Need</h2>
+  <ul>
+    <li><strong>Data source:</strong> Polymarket API plus wallet-level trade indexing</li>
+    <li><strong>Monitoring layer:</strong> wallet alerts, dashboard, and market context</li>
+    <li><strong>Filtering layer:</strong> conviction score, specialization, and recent performance checks</li>
+    <li><strong>Execution rule:</strong> real-time monitoring, but selective entry</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h2>⚠️ Risk Warnings</h2>
   <div class="note">
     <ul>
-      <li><strong>滞后风险：</strong>跟单永远慢于原交易者，可能错过最佳入场点</li>
-      <li><strong>策略失效：</strong>盈利钱包可能突然改变策略或停止交易</li>
-      <li><strong>流动性风险：</strong>大额跟单可能推动价格反向</li>
-      <li><strong>不要盲目跟单：</strong>需要持续监控钱包表现，及时调整追踪列表</li>
+      <li><strong>Lag risk:</strong> you are always slower than the original trader</li>
+      <li><strong>Strategy drift:</strong> strong wallets can suddenly change style or stop trading</li>
+      <li><strong>Liquidity risk:</strong> your copied size may move the market against you</li>
+      <li><strong>Over-copying risk:</strong> not every trade from a strong wallet deserves replication</li>
     </ul>
   </div>
 </section>
 
 <section class="section">
-  <h2>📚 相关资源</h2>
+  <h2>📚 Related Resources</h2>
   <ul>
-    <li><a href="/en/knowledge-base/kol/0xchainmind/">@0xChainMind 跟单交易教程</a></li>
-    <li><a href="/en/knowledge-base/kol/dmitriyungarov/">50 个盈利钱包清单</a></li>
-    <li><a href="/en/knowledge-base/kol/rohonchain/">@RohOnChain 对冲基金交易系统</a></li>
+    <li><a href="/en/knowledge-base/kol/0xchainmind/">@0xChainMind Copytrading Notes</a></li>
+    <li><a href="/en/knowledge-base/kol/dmitriyungarov/">50 Profitable Wallets List</a></li>
+    <li><a href="/en/knowledge-base/kol/rohonchain/">@RohOnChain System Design</a></li>
     <li><a href="/en/knowledge-base/resources/conviction-score-copytrading/">Conviction Score & Copytrading</a></li>
   </ul>
 </section>
 
 <div class="next-links">
-  <a class="next-card" href="/en/knowledge-base/strategies/"><div class="small">返回</div><h4>策略总览</h4></a>
-  <a class="next-card" href="/en/knowledge-base/kol/dmitriyungarov/"><div class="small">相关研究</div><h4>盈利钱包清单</h4></a>
+  <a class="next-card" href="/en/knowledge-base/strategies/"><div class="small">Back to</div><h4>Strategy Overview</h4></a>
+  <a class="next-card" href="/en/knowledge-base/resources/conviction-score-copytrading/"><div class="small">Read next</div><h4>Trade Quality Filtering</h4></a>
 </div>
 </div></main>
-<footer><div class="container"><p>创建：2026-03-07 · 来源：社区整理</p></div></footer>
+<footer><div class="container"><p>Created: 2026-03-07 · Source: Community synthesis</p></div></footer>
 </body>
 </html>

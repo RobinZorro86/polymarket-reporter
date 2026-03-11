@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wallet Setup Guide | Prediction Market 101</title>
+  <link rel="canonical" href="https://www.pred101.com/en/knowledge-base/tutorials/wallet-setup/">
+  <link rel="alternate" hreflang="zh" href="https://www.pred101.com/zh/knowledge-base/tutorials/wallet-setup/">
+  <style>
+    :root { --bg:#0b1020; --surface:rgba(18,25,45,.84); --text:#f5f7ff; --text-secondary:#9ba7c4; --border:rgba(162,182,255,.14); --accent:#6f7cff; --accent-2:#38d0ff; --success:#28d17c; --warning:#ffb020; --shadow:0 20px 60px rgba(0,0,0,.35); --radius:22px; --max:1100px; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif; background: linear-gradient(180deg, #08101f 0%, #0b1020 100%); color: var(--text); line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+    header { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(18px); background: rgba(8,12,24,.72); border-bottom: 1px solid var(--border); }
+    header .container { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .logo { font-weight: 800; font-size: 1.06rem; letter-spacing: -.03em; }
+    .logo .mark { color: var(--accent-2); }
+    nav { display: flex; gap: 18px; flex-wrap: wrap; }
+    nav a { color: var(--text-secondary); font-size: .95rem; }
+    nav a:hover, nav a.active { color: var(--text); }
+    main { padding: 72px 0 80px; }
+    .breadcrumb { color: var(--text-secondary); font-size: .85rem; margin-bottom: 16px; }
+    .breadcrumb a { color: var(--accent); }
+    .page-header { margin-bottom: 32px; }
+    .page-header h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1; letter-spacing: -.04em; margin-bottom: 12px; }
+    .page-header .meta { color: var(--text-secondary); font-size: .9rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .tag { display: inline-block; font-size: .78rem; font-weight: 700; color: var(--accent-2); background: rgba(56, 208, 255, .12); padding: 5px 11px; border-radius: 999px; }
+    .content { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); margin-bottom: 24px; }
+    .content h2 { font-size: 1.5rem; margin: 28px 0 16px; letter-spacing: -.03em; }
+    .content h2:first-child { margin-top: 0; }
+    .content h3 { font-size: 1.1rem; margin: 20px 0 12px; color: var(--accent-2); }
+    .content p { margin: 14px 0; color: var(--text-secondary); }
+    .content ul, .content ol { margin: 14px 0 14px 24px; color: var(--text-secondary); }
+    .content li { margin: 8px 0; }
+    .content pre { background: rgba(13, 18, 30, .8); color: #e2e8f0; padding: 18px; border-radius: 12px; overflow-x: auto; font-size: .85rem; margin: 16px 0; border: 1px solid var(--border); }
+    .content code { font-family: 'SF Mono', Monaco, monospace; }
+    .info-box { background: rgba(56, 208, 255, .10); border-left: 4px solid var(--accent-2); padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; }
+    .info-box p { margin: 0; }
+    .warning-box { background: rgba(255, 176, 32, .10); border-left: 4px solid var(--warning); padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; }
+    .warning-box p { margin: 0; }
+    .tip-box { background: rgba(40, 209, 124, .10); border-left: 4px solid var(--success); padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; }
+    .tip-box p { margin: 0; }
+    .step { counter-increment: step; margin: 28px 0; padding-top: 24px; border-top: 1px solid var(--border); }
+    .step:first-of-type { border-top: none; padding-top: 0; }
+    .step::before { content: "Step " counter(step); display: block; font-size: .85rem; font-weight: 700; color: var(--accent-2); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; }
+    footer { padding: 40px 0; border-top: 1px solid var(--border); text-align: center; color: var(--text-secondary); font-size: .85rem; }
+    @media (max-width: 760px) {
+      .content { padding: 22px 18px; }
+      pre { font-size: .8rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/en/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a>
+      <nav>
+        <a href="/en/">Home</a>
+        <a href="/en/learn/">7-Day Path</a>
+        <a href="/en/knowledge-base/" class="active">Library</a>
+        <a href="/en/reports/">Reports</a>
+        <a href="/en/about.html">About</a>
+        <div class="lang-switch" style="margin-left: 12px; padding-left: 12px; border-left: 1px solid var(--border);">
+          <a href="/en/knowledge-base/tutorials/wallet-setup/" class="active">EN</a>
+          <a href="/zh/knowledge-base/tutorials/wallet-setup/" style="color: var(--text-secondary)">中文</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/en/knowledge-base/">Library</a> › <a href="../">Tutorials</a> › Wallet Setup
+      </div>
+
+      <div class="page-header">
+        <h1>👛 Wallet Setup Guide</h1>
+        <div class="meta">
+          <span>Last updated: <time datetime="2026-03-07">2026-03-07</time></span> · 
+          <span>Source: Polymarket + Simmer Docs</span>
+        </div>
+        <div class="tags">
+          <span class="tag">Security</span>
+          <span class="tag">MetaMask</span>
+          <span class="tag">Polygon</span>
+        </div>
+      </div>
+
+      <div class="content">
+        <h2>📌 Overview</h2>
+        <p>Polymarket runs on the Polygon network. You'll need a Polygon-compatible wallet with USDC.e (bridged USDC) for trading and a small amount of POL for gas fees.</p>
+
+        <div class="info-box">
+          <p><strong>⏱️ Estimated time:</strong> 10-15 minutes</p>
+        </div>
+
+        <div class="step">
+          <h2>Install MetaMask</h2>
+          <h3>Browser Extension (Recommended)</h3>
+          <ol>
+            <li>Open Chrome / Edge / Firefox browser</li>
+            <li>Visit <a href="https://metamask.io" target="_blank" style="color: var(--accent)">metamask.io</a></li>
+            <li>Click "Download" to install the extension</li>
+            <li>Create a new wallet or import an existing one</li>
+          </ol>
+
+          <h3>Mobile App</h3>
+          <ul>
+            <li>iOS: Search "MetaMask" in the App Store</li>
+            <li>Android: Search "MetaMask" in Google Play</li>
+          </ul>
+
+          <div class="warning-box">
+            <p><strong>⚠️ Security alert:</strong> Your seed phrase can only be backed up once. Write it down offline (pen and paper). Never screenshot it or store it in the cloud!</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <h2>Add Polygon Network</h2>
+          <p>MetaMask defaults to Ethereum mainnet. You need to add Polygon manually:</p>
+
+          <h3>Auto-add (Recommended)</h3>
+          <ol>
+            <li>Visit <a href="https://polygon.technology/polygon-pos" target="_blank" style="color: var(--accent)">polygon.technology</a></li>
+            <li>Click "Add Polygon to MetaMask"</li>
+            <li>Confirm the addition in the MetaMask popup</li>
+          </ol>
+
+          <h3>Manual Configuration</h3>
+          <pre><code>Network Name: Polygon Mainnet
+RPC URL: https://polygon-rpc.com
+Chain ID: 137
+Currency Symbol: POL
+Block Explorer: https://polygonscan.com</code></pre>
+        </div>
+
+        <div class="step">
+          <h2>Get USDC.e</h2>
+          <p>Polymarket uses USDC.e (bridged USDC), not native USDC.</p>
+
+          <h3>Option A: Withdraw from Exchange</h3>
+          <ol>
+            <li>Buy USDC on Binance / Bybit / other exchange</li>
+            <li>Select withdraw → Choose <strong>Polygon</strong> network</li>
+            <li>Enter your MetaMask address (starts with 0x)</li>
+            <li>Wait 5-10 minutes for confirmation</li>
+          </ol>
+
+          <h3>Option B: Use a Bridge</h3>
+          <ol>
+            <li>Visit <a href="https://bridge.polygon.technology" target="_blank" style="color: var(--accent)">bridge.polygon.technology</a></li>
+            <li>Connect your wallet</li>
+            <li>Select Ethereum → Polygon</li>
+            <li>Enter amount and confirm the bridge</li>
+          </ol>
+
+          <div class="tip-box">
+            <p><strong>💡 Pro tip:</strong> Start with $50-100 for your first transfer to test the flow before moving larger amounts.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <h2>Get POL for Gas</h2>
+          <p>You'll need a small amount of POL (typically $5-10 worth) for transaction fees.</p>
+
+          <h3>From Exchange</h3>
+          <ul>
+            <li>Buy POL on your exchange</li>
+            <li>Withdraw to your MetaMask address on Polygon network</li>
+          </ul>
+
+          <h3>Swap within MetaMask</h3>
+          <ul>
+            <li>Use MetaMask's built-in swap feature</li>
+            <li>Swap a small amount of USDC.e → POL</li>
+          </ul>
+        </div>
+
+        <h2>✅ Verification Checklist</h2>
+        <ul>
+          <li>✅ MetaMask installed and wallet created</li>
+          <li>✅ Polygon network added and selected</li>
+          <li>✅ USDC.e balance visible (not native USDC)</li>
+          <li>✅ POL balance for gas fees (at least $5 worth)</li>
+          <li>✅ Seed phrase backed up offline</li>
+        </ul>
+
+        <h2>⚠️ Common Mistakes</h2>
+        <div class="warning-box">
+          <ul>
+            <li><strong>Wrong network:</strong> Make sure you're on Polygon, not Ethereum mainnet</li>
+            <li><strong>Wrong token:</strong> Polymarket needs USDC.e, not native USDC or USDT</li>
+            <li><strong>Insufficient gas:</strong> Keep at least $5-10 POL for transactions</li>
+            <li><strong>Lost seed phrase:</strong> Without it, you lose access to your wallet forever</li>
+          </ul>
+        </div>
+
+        <h2>📚 Related Resources</h2>
+        <ul>
+          <li><a href="/en/knowledge-base/tutorials/polymarket-basics/" style="color: var(--accent)">Polymarket Basics</a></li>
+          <li><a href="https://metamask.io" target="_blank" style="color: var(--accent)">MetaMask Official Site</a></li>
+          <li><a href="https://support.metamask.io" target="_blank" style="color: var(--accent)">MetaMask Support</a></li>
+          <li><a href="/en/knowledge-base/tutorials/simmer-guide/" style="color: var(--accent)">Simmer Guide</a></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>
+        <time datetime="2026-03-07">Created: 2026-03-07</time> · 
+        <span>Source: Polymarket + Simmer Documentation</span>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

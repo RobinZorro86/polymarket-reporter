@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simmer Trading Guide | Prediction Market 101</title>
+  <link rel="canonical" href="https://www.pred101.com/en/knowledge-base/tutorials/simmer-guide/">
+  <link rel="alternate" hreflang="zh" href="https://www.pred101.com/zh/knowledge-base/tutorials/simmer-guide/">
+  <style>
+    :root { --bg:#0b1020; --surface:rgba(18,25,45,.84); --text:#f5f7ff; --text-secondary:#9ba7c4; --border:rgba(162,182,255,.14); --accent:#6f7cff; --accent-2:#38d0ff; --success:#28d17c; --warning:#ffb020; --shadow:0 20px 60px rgba(0,0,0,.35); --radius:22px; --max:1100px; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif; background: linear-gradient(180deg, #08101f 0%, #0b1020 100%); color: var(--text); line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+    header { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(18px); background: rgba(8,12,24,.72); border-bottom: 1px solid var(--border); }
+    header .container { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .logo { font-weight: 800; font-size: 1.06rem; letter-spacing: -.03em; }
+    .logo .mark { color: var(--accent-2); }
+    nav { display: flex; gap: 18px; flex-wrap: wrap; }
+    nav a { color: var(--text-secondary); font-size: .95rem; }
+    nav a:hover, nav a.active { color: var(--text); }
+    main { padding: 72px 0 80px; }
+    .breadcrumb { color: var(--text-secondary); font-size: .85rem; margin-bottom: 16px; }
+    .breadcrumb a { color: var(--accent); }
+    .page-header { margin-bottom: 32px; }
+    .page-header h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1; letter-spacing: -.04em; margin-bottom: 12px; }
+    .page-header .meta { color: var(--text-secondary); font-size: .9rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .tag { display: inline-block; font-size: .78rem; font-weight: 700; color: var(--accent-2); background: rgba(56, 208, 255, .12); padding: 5px 11px; border-radius: 999px; }
+    .content { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); margin-bottom: 24px; }
+    .content h2 { font-size: 1.5rem; margin: 28px 0 16px; letter-spacing: -.03em; }
+    .content h2:first-child { margin-top: 0; }
+    .content h3 { font-size: 1.1rem; margin: 20px 0 12px; color: var(--accent-2); }
+    .content p { margin: 14px 0; color: var(--text-secondary); }
+    .content ul, .content ol { margin: 14px 0 14px 24px; color: var(--text-secondary); }
+    .content li { margin: 8px 0; }
+    .content pre { background: rgba(13, 18, 30, .8); color: #e2e8f0; padding: 18px; border-radius: 12px; overflow-x: auto; font-size: .85rem; margin: 16px 0; border: 1px solid var(--border); }
+    .content code { font-family: 'SF Mono', Monaco, monospace; color: var(--accent-2); }
+    .info-box { background: rgba(56, 208, 255, .10); border-left: 4px solid var(--accent-2); padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; }
+    .info-box p { margin: 0; }
+    .warning-box { background: rgba(255, 176, 32, .10); border-left: 4px solid var(--warning); padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; }
+    .warning-box p { margin: 0; }
+    footer { padding: 40px 0; border-top: 1px solid var(--border); text-align: center; color: var(--text-secondary); font-size: .85rem; }
+    @media (max-width: 760px) {
+      .content { padding: 22px 18px; }
+      pre { font-size: .8rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/en/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a>
+      <nav>
+        <a href="/en/">Home</a>
+        <a href="/en/learn/">7-Day Path</a>
+        <a href="/en/knowledge-base/" class="active">Library</a>
+        <a href="/en/reports/">Reports</a>
+        <a href="/en/about.html">About</a>
+        <div class="lang-switch" style="margin-left: 12px; padding-left: 12px; border-left: 1px solid var(--border);">
+          <a href="/en/knowledge-base/tutorials/simmer-guide/" class="active">EN</a>
+          <a href="/zh/knowledge-base/tutorials/simmer-guide/" style="color: var(--text-secondary)">中文</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/en/knowledge-base/">Library</a> › <a href="../">Tutorials</a> › Simmer Guide
+      </div>
+
+      <div class="page-header">
+        <h1>🔮 Simmer Trading Guide</h1>
+        <div class="meta">
+          <span>Last updated: <time datetime="2026-03-07">2026-03-07</time></span> · 
+          <span>Source: Simmer Documentation</span>
+        </div>
+        <div class="tags">
+          <span class="tag">Trading Setup</span>
+          <span class="tag">Paper Trading</span>
+          <span class="tag">Live Trading</span>
+        </div>
+      </div>
+
+      <div class="content">
+        <h2>📌 What is Simmer</h2>
+        <p>Simmer is a prediction market trading interface designed for AI agents, supporting both Polymarket and Kalshi platforms. It provides self-custody wallets, safety rails with configurable limits, and smart context suggestions.</p>
+
+        <div class="info-box">
+          <p><strong>💰 Starting capital:</strong> Register to receive 10,000 $SIM (virtual credits) for practice trading.</p>
+        </div>
+
+        <h2>🚀 Quick Start</h2>
+        <h3>1. Register Your Agent</h3>
+        <pre><code>curl -X POST https://api.simmer.markets/api/sdk/agents/register \
+  -H "Content-Type: application/json" \
+  -d '{"name": "my-agent", "description": "My trading agent"}'</code></pre>
+        <p>Save the returned <code>api_key</code> — all subsequent requests require this authentication.</p>
+
+        <h3>2. Send Claim Link</h3>
+        <p>Send the returned <code>claim_url</code> to your human user. After verification, this unlocks live USDC trading on Polymarket.</p>
+
+        <h3>3. Verify Status</h3>
+        <pre><code>export SIMMER_API_KEY="sk_live_..."
+curl https://api.simmer.markets/api/sdk/agents/me \
+  -H "Authorization: Bearer $SIMMER_API_KEY"</code></pre>
+
+        <h2>📊 Trading Venues</h2>
+        <ul>
+          <li><strong>Simmer ($SIM)</strong> — Paper trading mode, default venue for practice</li>
+          <li><strong>Polymarket (USDC)</strong> — Live trading, requires claim verification to unlock</li>
+          <li><strong>Kalshi (USD)</strong> — US-regulated market, requires Pro plan subscription</li>
+        </ul>
+
+        <h2>⚙️ Default Safety Limits</h2>
+        <ul>
+          <li>Per-trade limit: $100</li>
+          <li>Daily limit: $500</li>
+          <li>Daily trade count: 50 trades</li>
+        </ul>
+
+        <div class="warning-box">
+          <p><strong>⚠️ Important:</strong> These limits protect against runaway agent behavior. Adjust only after thorough testing.</p>
+        </div>
+
+        <h2>📚 Recommended Skills</h2>
+        <ul>
+          <li><code>polymarket-weather-trader</code> — Weather prediction arbitrage using NOAA data</li>
+          <li><code>polymarket-copytrading</code> — Track and mirror high-signal wallets</li>
+          <li><code>polymarket-mert-sniper</code> — Near-expiry conviction trades</li>
+          <li><code>polymarket-signal-sniper</code> — Event-driven news arbitrage</li>
+        </ul>
+
+        <h2>🔧 Environment Setup</h2>
+        <pre><code># Set your API key
+export SIMMER_API_KEY="sk_live_your_key_here"
+
+# Choose venue (default: simmer for paper trading)
+export TRADING_VENUE=simmer
+
+# For live trading on Polymarket
+export TRADING_VENUE=polymarket</code></pre>
+
+        <h2>📈 Example: Place a Trade</h2>
+        <pre><code>curl -X POST https://api.simmer.markets/api/sdk/orders \
+  -H "Authorization: Bearer $SIMMER_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "market": "will-btc-reach-100k-in-2026",
+    "side": "YES",
+    "amount": 50,
+    "venue": "polymarket"
+  }'</code></pre>
+
+        <h2>🔗 Related Resources</h2>
+        <ul>
+          <li><a href="https://simmer.markets/docs.md" target="_blank" style="color: var(--accent)">Simmer Full API Documentation</a></li>
+          <li><a href="/en/knowledge-base/strategies/mert-sniper/" style="color: var(--accent)">Mert Sniper Strategy</a></li>
+          <li><a href="/en/knowledge-base/tutorials/wallet-setup/" style="color: var(--accent)">Wallet Setup Guide</a></li>
+          <li><a href="/en/reports/simmer/" style="color: var(--accent)">Simmer Trading Logs</a></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>
+        <time datetime="2026-03-07">Created: 2026-03-07</time> · 
+        <span>Source: Simmer Documentation</span>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

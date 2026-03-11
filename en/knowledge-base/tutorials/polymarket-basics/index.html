@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polymarket Basics | Prediction Market 101</title>
+  <link rel="canonical" href="https://www.pred101.com/en/knowledge-base/tutorials/polymarket-basics/">
+  <link rel="alternate" hreflang="zh" href="https://www.pred101.com/zh/knowledge-base/tutorials/polymarket-basics/">
+  <style>
+    :root { --bg:#0b1020; --surface:rgba(18,25,45,.84); --text:#f5f7ff; --text-secondary:#9ba7c4; --border:rgba(162,182,255,.14); --accent:#6f7cff; --accent-2:#38d0ff; --success:#28d17c; --warning:#ffb020; --shadow:0 20px 60px rgba(0,0,0,.35); --radius:22px; --max:1100px; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif; background: linear-gradient(180deg, #08101f 0%, #0b1020 100%); color: var(--text); line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+    header { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(18px); background: rgba(8,12,24,.72); border-bottom: 1px solid var(--border); }
+    header .container { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .logo { font-weight: 800; font-size: 1.06rem; letter-spacing: -.03em; }
+    .logo .mark { color: var(--accent-2); }
+    nav { display: flex; gap: 18px; flex-wrap: wrap; }
+    nav a { color: var(--text-secondary); font-size: .95rem; }
+    nav a:hover, nav a.active { color: var(--text); }
+    main { padding: 72px 0 80px; }
+    .breadcrumb { color: var(--text-secondary); font-size: .85rem; margin-bottom: 16px; }
+    .breadcrumb a { color: var(--accent); }
+    .page-header { margin-bottom: 32px; }
+    .page-header h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1; letter-spacing: -.04em; margin-bottom: 12px; }
+    .page-header .meta { color: var(--text-secondary); font-size: .9rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .tag { display: inline-block; font-size: .78rem; font-weight: 700; color: var(--accent-2); background: rgba(56, 208, 255, .12); padding: 5px 11px; border-radius: 999px; }
+    .content { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); margin-bottom: 24px; }
+    .content h2 { font-size: 1.5rem; margin: 28px 0 16px; letter-spacing: -.03em; }
+    .content h2:first-child { margin-top: 0; }
+    .content h3 { font-size: 1.1rem; margin: 20px 0 12px; color: var(--accent-2); }
+    .content p { margin: 14px 0; color: var(--text-secondary); }
+    .content ul, .content ol { margin: 14px 0 14px 24px; color: var(--text-secondary); }
+    .content li { margin: 8px 0; }
+    .info-box { background: rgba(56, 208, 255, .10); border-left: 4px solid var(--accent-2); padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; }
+    .info-box p { margin: 0; }
+    .warning-box { background: rgba(255, 176, 32, .10); border-left: 4px solid var(--warning); padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; }
+    .warning-box ul { margin: 0; padding-left: 20px; }
+    .tip-box { background: rgba(40, 209, 124, .10); border-left: 4px solid var(--success); padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; }
+    .tip-box p { margin: 0; }
+    table { width: 100%; border-collapse: collapse; margin: 24px 0; }
+    th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+    th { color: var(--accent-2); font-weight: 700; font-size: .85rem; text-transform: uppercase; letter-spacing: .08em; background: rgba(18,25,45,.6); }
+    td { color: var(--text-secondary); }
+    footer { padding: 40px 0; border-top: 1px solid var(--border); text-align: center; color: var(--text-secondary); font-size: .85rem; }
+    @media (max-width: 760px) {
+      .content { padding: 22px 18px; }
+      table { font-size: .9rem; }
+      th, td { padding: 10px 12px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/en/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a>
+      <nav>
+        <a href="/en/">Home</a>
+        <a href="/en/learn/">7-Day Path</a>
+        <a href="/en/knowledge-base/" class="active">Library</a>
+        <a href="/en/reports/">Reports</a>
+        <a href="/en/about.html">About</a>
+        <div class="lang-switch" style="margin-left: 12px; padding-left: 12px; border-left: 1px solid var(--border);">
+          <a href="/en/knowledge-base/tutorials/polymarket-basics/" class="active">EN</a>
+          <a href="/zh/knowledge-base/tutorials/polymarket-basics/" style="color: var(--text-secondary)">中文</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/en/knowledge-base/">Library</a> › <a href="../">Tutorials</a> › Polymarket Basics
+      </div>
+
+      <div class="page-header">
+        <h1>📖 Polymarket Basics</h1>
+        <div class="meta">
+          <span>Last updated: <time datetime="2026-03-07">2026-03-07</time></span> · 
+          <span>Source: Polymarket Documentation</span>
+        </div>
+        <div class="tags">
+          <span class="tag">Beginner</span>
+          <span class="tag">Prediction Markets</span>
+          <span class="tag">Getting Started</span>
+        </div>
+      </div>
+
+      <div class="content">
+        <h2>📌 What is Polymarket</h2>
+        <p>Polymarket is the world's largest decentralized prediction market platform, where users trade on real-world event outcomes. Each market represents a binary event (Yes/No), and prices reflect the market's consensus probability of the event occurring.</p>
+
+        <div class="info-box">
+          <p><strong>💡 Core concept:</strong> Market price = event probability. A market priced at $0.60 means the market believes there's a 60% chance of the event happening.</p>
+        </div>
+
+        <h2>🎯 Market Types</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Description</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Binary</td>
+              <td>Yes/No outcomes</td>
+              <td>"Will BTC reach $100K in 2026?"</td>
+            </tr>
+            <tr>
+              <td>Multiple Choice</td>
+              <td>Several possible outcomes</td>
+              <td>"Who will win the 2026 Super Bowl?"</td>
+            </tr>
+            <tr>
+              <td>Numerical</td>
+              <td>Value range predictions</td>
+              <td>"What will the Fed rate be in 2026?"</td>
+            </tr>
+            <tr>
+              <td>Sprint</td>
+              <td>Short-term fast settlement (5-15 min)</td>
+              <td>"Will BTC go up in the next 5 minutes?"</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>💰 Order Types</h2>
+        <h3>Market Order</h3>
+        <ul>
+          <li>Executes immediately at the best available price</li>
+          <li>Best for quick entry, but may have slippage</li>
+          <li>Example: Buy 100 YES shares at $0.55</li>
+        </ul>
+
+        <h3>Limit Order</h3>
+        <ul>
+          <li>Set a specific price and wait for execution</li>
+          <li>Best for large orders to reduce slippage</li>
+          <li>May not fill if price doesn't reach your level</li>
+        </ul>
+
+        <h2>📊 Fee Structure</h2>
+        <ul>
+          <li><strong>Maker fee:</strong> 0% (providing liquidity with limit orders)</li>
+          <li><strong>Taker fee:</strong> 2% (removing liquidity with market orders)</li>
+          <li><strong>Gas fee:</strong> Polygon network fees (~$0.01-$0.10 per transaction)</li>
+        </ul>
+
+        <div class="tip-box">
+          <p><strong>💡 Pro tip:</strong> Use limit orders to become a Maker and avoid the 2% fee. Especially valuable for large trades.</p>
+        </div>
+
+        <h2>🏆 Settlement Process</h2>
+        <ol>
+          <li>Event occurs → Polymarket fetches official result</li>
+          <li>Oracle (UMA) verifies the outcome</li>
+          <li>Winning shares automatically redeem at $1.00/share</li>
+          <li>Losing shares become worthless</li>
+          <li>Funds automatically return to your wallet</li>
+        </ol>
+
+        <h2>⚠️ Risk Warnings</h2>
+        <div class="warning-box">
+          <ul>
+            <li>Prediction markets carry risk of principal loss; you can lose your entire investment</li>
+            <li>Low-liquidity markets may be difficult to exit</li>
+            <li>Settlement can be delayed (waiting for oracle confirmation)</li>
+            <li>Never invest more than you can afford to lose</li>
+          </ul>
+        </div>
+
+        <h2>📚 Related Resources</h2>
+        <ul>
+          <li><a href="https://polymarket.com" target="_blank" style="color: var(--accent)">Polymarket Official Site</a></li>
+          <li><a href="https://docs.polymarket.com" target="_blank" style="color: var(--accent)">Polymarket Developer Docs</a></li>
+          <li><a href="https://help.polymarket.com" target="_blank" style="color: var(--accent)">Polymarket Help Center</a></li>
+          <li><a href="/en/knowledge-base/tutorials/wallet-setup/" style="color: var(--accent)">Wallet Setup Guide</a></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>
+        <time datetime="2026-03-07">Created: 2026-03-07</time> · 
+        <span>Source: Polymarket Documentation</span>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -7,12 +7,12 @@
     {
       "source": "/knowledge-base/:path*",
       "destination": "/en/knowledge-base/:path*",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/reports/:path*",
       "destination": "/en/reports/:path*",
-      "permanent": false
+      "permanent": true
     }
   ],
   "headers": [

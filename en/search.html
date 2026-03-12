@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- TIMESTAMP: created=2026-02-27T10:00:00+09:00 updated=2026-03-05T19:23+09:00 -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site Search | Prediction Market 101</title>
+  <meta name="description" content="Prediction Market 101 site search for knowledge base, reports, and strategies.">
+  <link rel="canonical" href="https://www.pred101.com/en/search.html">
+  <link rel="alternate" hreflang="en" href="https://www.pred101.com/en/search.html">
+  <link rel="alternate" hreflang="zh" href="https://www.pred101.com/zh/search.html">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔍</text></svg>">
+  <style>
+    .search-box {
+      position: relative;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .search-input {
+      width: 100%;
+      padding: 16px 20px;
+      font-size: 1.1rem;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .search-input:focus {
+      border-color: #6366f1;
+    }
+    .search-results {
+      margin-top: 20px;
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px;
+      display: none;
+    }
+    .search-hint {
+      color: #64748b;
+      font-size: 0.875rem;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/en/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a>
+      <nav>
+        <a href="/en/">Overview</a>
+        <a href="/en/learn/">7-Day Path</a>
+        <a href="/en/strategies/">Strategies</a>
+        <a href="/en/kol/">KOLs</a>
+        <a href="/en/resources/">Resources</a>
+        <div class="lang-switch"><a href="/en/" class="active">EN</a><a href="/zh/">中文</a></div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1 class="page-title">🔍 Site Search</h1>
+      <p class="page-description">Search knowledge base, reports, and strategy content</p>
+
+      <div style="margin-top: 30px;">
+        <div class="search-box">
+          <input 
+            type="text" 
+            id="search-input" 
+            class="search-input" 
+            placeholder="Enter keywords to search... (min 2 characters)"
+            autocomplete="off"
+          >
+          <p class="search-hint">Try: arbitrage, OpenClaw, Maker, risk management</p>
+        </div>
+
+        <div id="search-results" class="search-results"></div>
+      </div>
+
+      <section style="margin-top: 50px;">
+        <h2 style="font-size: 1.25rem; margin-bottom: 16px;">📂 Browse Categories</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px;">
+          <a href="/en/kol/" style="text-decoration: none; color: inherit;">
+            <div style="background: var(--surface); padding: 16px; border-radius: 8px; text-align: center; border: 1px solid var(--border);">
+              <div style="font-size: 1.5rem;">👥</div>
+              <div style="font-size: 0.875rem; margin-top: 4px;">KOL Research</div>
+            </div>
+          </a>
+          <a href="/en/knowledge-base/" style="text-decoration: none; color: inherit;">
+            <div style="background: var(--surface); padding: 16px; border-radius: 8px; text-align: center; border: 1px solid var(--border);">
+              <div style="font-size: 1.5rem;">🗺️</div>
+              <div style="font-size: 0.875rem; margin-top: 4px;">Knowledge Map</div>
+            </div>
+          </a>
+          <a href="/en/resources/" style="text-decoration: none; color: inherit;">
+            <div style="background: var(--surface); padding: 16px; border-radius: 8px; text-align: center; border: 1px solid var(--border);">
+              <div style="font-size: 1.5rem;">🛠️</div>
+              <div style="font-size: 0.875rem; margin-top: 4px;">Resources</div>
+            </div>
+          </a>
+          <a href="/en/reports/" style="text-decoration: none; color: inherit;">
+            <div style="background: var(--surface); padding: 16px; border-radius: 8px; text-align: center; border: 1px solid var(--border);">
+              <div style="font-size: 1.5rem;">📰</div>
+              <div style="font-size: 0.875rem; margin-top: 4px;">Reports</div>
+            </div>
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p><span class="mark">pred101</span> · Prediction Market 101 | English Search Layer</p>
+    </div>
+  </footer>
+
+  <script src="/js/search.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      MuskCollective.initSearch('search-input', 'search-results');
+      
+      // Auto-focus search input
+      document.getElementById('search-input').focus();
+    });
+  </script>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>
+        <span class="timestamp">
+          <time datetime="2026-02-27T10:00:00+09:00">创建: 2026-02-27</time> | 
+          <time datetime="2026-03-05T19:23+09:00">更新: 2026-03-05</time>
+        </span>
+        <span class="source">来源: <a href="https://www.pred101.com/search" target="_blank" rel="noopener">https://www.pred101.com/search</a></span>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

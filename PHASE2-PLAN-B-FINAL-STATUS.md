@@ -1,125 +1,99 @@
-# Phase-2 Plan B 最终状态报告
+# Phase-2 Plan B 收尾任务状态
 
-**执行时间**: 2026-03-12 21:03 JST  
+**当前时间**: 2026-03-12 21:32 JST  
 **Cron Job**: 460c5abf-a1ea-4d54-8068-5d6b12a96fcc (pred101-phase2-autopilot-15m)  
-**验证人**: Zorro
+**执行者**: Zorro
 
 ---
 
-## ✅ 已完成任务
+## 任务判断结果
 
-### 1. 英文路径内容统一
-- ✅ `/en/knowledge-base/*` - 全部为英文 HTML 页面
-- ✅ `/en/reports/*` - 全部为英文 HTML 页面
-- ✅ `/en/learn/*` - 7 天学习路径全部英文
-- ✅ `/en/strategies/*` - 策略页全部英文
-- ✅ `/en/kol/*` - KOL 研究页全部英文
-- ✅ 删除 `/en/reports/daily/` 与 `/en/reports/weekly/` 下的中文模板 `.md` 文件
+**Phase-2 Plan B 状态**: ✅ **全部完成**
 
-### 2. 中文残留检查
-- ✅ 扫描 `en/` 下所有 `.html` 文件 - 无中文正文
-- ✅ 仅语言切换器含"中文"链接文案（预期行为）
-- ✅ meta description 中"Chinese-first"为设计说明（非污染）
-- ✅ 语言切换器链接"中文版：xxx"为预期行为（已更新验证脚本）
+根据最新验证（2026-03-12 21:32 JST）：
 
-### 3. 旧路径跳转配置
-- ✅ `vercel.json` 已配置:
-  - `/knowledge-base/:path*` → `/en/knowledge-base/:path*`
-  - `/reports/:path*` → `/en/reports/:path*`
-- ✅ 根目录 `knowledge-base/index.html` - meta refresh 跳转到 `/en/knowledge-base/`
-- ✅ 根目录 `reports/index.html` - meta refresh 跳转到 `/en/reports/`
-- ✅ 实际访问测试：https://www.pred101.com/knowledge-base/ → 正常跳转到英文路径
-- ✅ 实际访问测试：https://www.pred101.com/reports/ → 正常跳转到英文路径
+### 1. 英文路径内容统一 ✅
+- `/en/knowledge-base/*` - 全部为英文 HTML 页面
+- `/en/reports/*` - 全部为英文 HTML 页面
+- `/en/learn/*` - 7 天学习路径全部英文
+- `/en/strategies/*` - 策略页全部英文
+- `/en/kol/*` - KOL 研究页全部英文
+- **无中文正文/标题/导航/按钮文案残留**
 
-### 4. 中文路径完整性
-- ✅ `/zh/` 路径包含 63 个 HTML 页面
-- ✅ `/zh/knowledge-base/*` - 完整
-- ✅ `/zh/reports/*` - 完整（含 daily/weekly/simmer）
-- ✅ `/zh/learn/*` - Day 1-7 完整
-- ✅ `/zh/strategies/*` - 完整（跟单交易 + 天气交易指南）
-- ✅ `/zh/kol/*` - 完整
-- ✅ 扫描 `/zh/` 无英文内容污染（仅 HTML 技术术语）
-- ✅ 语言切换器覆盖所有主干页 + 报告页 + 深层策略页
+### 2. 中文路径完整性 ✅
+- `/zh/` 路径包含 63 个 HTML 页面
+- `/zh/knowledge-base/*` - 完整（含 strategies/kol/resources 深层目录）
+- `/zh/reports/*` - 完整（含 daily/weekly/simmer）
+- `/zh/learn/*` - Day 1-7 完整
+- `/zh/strategies/*` - 完整（跟单交易 + 天气交易指南）
+- `/zh/kol/*` - 完整
+- **无英文内容污染**（仅 HTML 技术术语和语言切换器）
 
-### 5. Canonical / Hreflang 验证
-- ✅ 所有 `/en/*` 页面包含:
-  - `<link rel="canonical" href="https://www.pred101.com/en/...">`
-  - `<link rel="alternate" hreflang="en" href="https://www.pred101.com/en/...">`
-  - `<link rel="alternate" hreflang="zh" href="https://www.pred101.com/zh/...">`
-- ✅ 所有 `/zh/*` 页面包含:
-  - `<link rel="canonical" href="https://www.pred101.com/zh/...">`
-  - `<link rel="alternate" hreflang="en" href="https://www.pred101.com/en/...">`
-  - `<link rel="alternate" hreflang="zh" href="https://www.pred101.com/zh/...">`
-- ✅ 语言切换器双向正确:
-  - EN 页面 → 指向 `/zh/...`
-  - ZH 页面 → 指向 `/en/...`
+### 3. 旧路径跳转配置 ✅
+- `vercel.json` 已配置 `/knowledge-base/:path*` → `/en/knowledge-base/:path*`
+- `vercel.json` 已配置 `/reports/:path*` → `/en/reports/:path*`
+- 根目录 `knowledge-base/index.html` - meta refresh 跳转
+- 根目录 `reports/index.html` - meta refresh 跳转
+- **实际访问测试通过**
 
-### 6. 语言切换器覆盖
-- ✅ `en/about.html` - 含"中文"链接
-- ✅ `zh/about.html` - 含"English"链接
-- ✅ `zh/reports/daily/*.html` - 4 个日报页面含双语切换
-- ✅ `zh/reports/weekly/*.html` - 2 个周报页面含双语切换
-- ✅ 深层策略页（copytrading/weather-trader）含双语切换链接
-- ✅ 所有 EN/ZH 配对正确
+### 4. Canonical / Hreflang 验证 ✅
+- 所有 `/en/*` 页面：
+  - canonical 指向自身
+  - hreflang="en" 指向自身
+  - hreflang="zh" 指向对应中文路径
+- 所有 `/zh/*` 页面：
+  - canonical 指向自身
+  - hreflang="zh" 指向自身
+  - hreflang="en" 指向对应英文路径
+- **语言切换器双向正确**（主干页 + 报告页 + 学习路径 + 深层策略页）
+
+### 5. 语言切换器实现 ✅
+- **实现方式 1**（主干页/报告页）：固定位置 inline style 切换器
+  - 位置：top:16px right:16px
+  - 链接：指向对应语言路径
+- **实现方式 2**（学习路径/导航页）：nav 内标准切换器
+  - 位置：nav 末尾
+  - 链接：指向完整路径（如 `/en/learn/day1/`）
+- **两种方式功能完全正确**，均为预期行为
 
 ---
 
-## 📊 当前状态 (2026-03-12 21:03 JST 验证)
+## 当前状态
 
 | 检查项 | 状态 | 备注 |
 |--------|------|------|
-| 英文路径内容纯净度 | ✅ | 仅语言切换链接含"中文"字样（预期行为） |
-| 中文路径内容纯净度 | ✅ | 仅语言切换链接含"English"字样（预期行为） |
-| 旧路径跳转 | ✅ | vercel.json + 根目录 index.html 三重配置，实际测试通过 |
-| 中文路径完整性 | ✅ | 63 个 HTML 页面，无英文污染 |
-| 英文路径完整性 | ✅ | 42 个 HTML 页面，无中文污染 |
-| Canonical URL | ✅ | 所有/en/* 指向自身，/zh/* 指向自身 |
-| Hreflang 标签 | ✅ | 所有页面配对正确 (42 EN + 63 ZH) |
-| 语言切换器 | ✅ | 双向可用，覆盖主干页 + 报告页 + 深层策略页 |
-| Git 提交 | ✅ | Phase-3 P0 已完成 (commit `d0abdfe`) |
+| 英文路径内容纯净度 | ✅ | 42 页，无中文污染 |
+| 中文路径内容纯净度 | ✅ | 63 页，无英文污染 |
+| 旧路径跳转 | ✅ | vercel.json + meta refresh 三重配置 |
+| Canonical URL | ✅ | 105 页全部指向自身 |
+| Hreflang 配对 | ✅ | EN/ZH 双向正确 |
+| 语言切换器 | ✅ | 双向可用，覆盖全站 |
+| Git 提交 | ✅ | Phase-2 Plan B 已推送 |
 | Vercel 部署 | ✅ | 自动触发同步 |
-| 页面统计 | ✅ | en/: 42 页，zh/: 63 页，总计 105 页 |
-| 验证脚本 | ✅ | 已更新正确识别语言切换器文案 (commit `0a8eb58`) |
 
 ---
 
-## 🔄 Cron 自动验证记录 (2026-03-12 21:03 JST)
+## 完成结论
 
-**验证任务**:
-- ✅ 扫描 `/en/*` 中文残留 → 仅语言切换链接含"中文"（预期行为）
-- ✅ 扫描 `/en/knowledge-base/*` 深层页面 → 无中文正文/标题/导航
-- ✅ 扫描 `/zh/*` 英文污染 → 仅语言切换链接含"English"（预期行为）
-- ✅ 扫描 `/zh/knowledge-base/*` 深层页面 → 无英文正文/标题/导航
-- ✅ 旧路径跳转配置 → vercel.json + 根目录 index.html 正常
-- ✅ 实际访问测试 → /knowledge-base/ 与 /reports/ 正确跳转至 /en/*
-- ✅ Canonical URL → 所有页面指向自身路径
-- ✅ Hreflang 配对 → EN/ZH 双向正确（含日报/周报/策略深层页面）
-- ✅ 语言切换器 → 双向可用（主干页 + 报告页 + 策略页 + 学习路径）
-- ✅ 页面统计 → en/: 42 页，zh/: 63 页
-- ✅ Git 状态 → 已推送至 main 分支，Vercel 自动部署中
-
-**验证结果**: 全部通过，无未清理项
-
----
-
-## 🎯 结论
-
-**Phase-2 Plan B 收尾工作已全部完成。**
+**Phase-2 Plan B 收尾工作已于 2026-03-12 21:03 JST 全部完成。**
 
 - ✅ 英文路径 `/en/*` 内容纯净（42 页）
 - ✅ 中文路径 `/zh/*` 内容完整（63 页）
-- ✅ 旧路径 `/knowledge-base/*` 与 `/reports/*` 正确跳转
+- ✅ 旧路径 `/knowledge-base/*` 与 `/reports/*` 正确跳转至 `/en/*`
 - ✅ Canonical / Hreflang 配置一致
-- ✅ 语言切换器双向可用
+- ✅ 语言切换器双向可用（两种实现方式均为预期行为）
 - ✅ 验证脚本已更新，正确识别语言切换器文案
-- ✅ 所有修复已推送至 GitHub，Vercel 自动部署中
+- ✅ 所有修复已推送至 GitHub，Vercel 自动部署完成
 
-**下一步**: 等待 Robin 确认 Phase-3 优先级方向
+**全站 105 个页面实现双语分离，部署于 https://www.pred101.com**
 
 ---
 
-## 📋 Phase-3 可选方向
+## 下一步
 
+**等待 Robin 确认 Phase-3 优先级方向**
+
+可选方向：
 1. **内容深化** - 策略实例、教程视频/截图、交互元素、FAQ 扩展
 2. **性能优化** - 图片优化、CSS/JS 打包、懒加载
 3. **SEO 增强** - 元描述、Open Graph、结构化数据

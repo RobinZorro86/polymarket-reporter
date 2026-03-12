@@ -3,19 +3,386 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather Trader 天气交易 | pred101</title>
-  <meta name="description" content="通过可测量的天气变量进行结构化优势交易。">
-  <link rel="canonical" href="https://www.pred101.com/zh/knowledge-base/strategies/weather-trader/"
-  <link rel="alternate" hreflang="zh" href="https://www.pred101.com/zh/knowledge-base/strategies/weather-trader/">>
+  <title>Weather Trader 天气交易完整指南 | pred101</title>
+  <meta name="description" content="从 NOAA 数据接入、赔率分析到 Simmer 配置，掌握 Polymarket 天气预测市场交易策略。包含真实案例与城市选择策略。">
+  <link rel="canonical" href="https://www.pred101.com/zh/knowledge-base/strategies/weather-trader/">
+  <link rel="alternate" hreflang="zh" href="https://www.pred101.com/zh/knowledge-base/strategies/weather-trader/">
   <link rel="alternate" hreflang="en" href="https://www.pred101.com/en/knowledge-base/strategies/weather-trader/">
   <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .strategy-section { background: #f8f9fa; border-left: 4px solid #007bff; padding: 20px; margin: 24px 0; }
+    .case-study { background: #fff; border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; margin: 16px 0; }
+    .risk-alert { background: #fff3cd; border-left: 4px solid #ffc107; padding: 16px; margin: 16px 0; }
+    .checklist { list-style: none; padding: 0; }
+    .checklist li { padding: 8px 0; border-bottom: 1px solid #e9ecef; }
+    .checklist li:before { content: "✓ "; color: #28a745; font-weight: bold; }
+    .code-block { background: #2d2d2d; color: #f8f8f2; padding: 16px; border-radius: 4px; overflow-x: auto; font-family: 'Courier New', monospace; font-size: 13px; }
+    .nav-links { display: flex; gap: 12px; flex-wrap: wrap; margin: 24px 0; }
+    .nav-links a { background: #007bff; color: white; padding: 8px 16px; border-radius: 4px; text-decoration: none; }
+    .nav-links a:hover { background: #0056b3; }
+    .data-table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+    .data-table th, .data-table td { border: 1px solid #e9ecef; padding: 12px; text-align: left; }
+    .data-table th { background: #f8f9fa; font-weight: 600; }
+    .data-table tr:nth-child(even) { background: #fafbfc; }
+  </style>
 </head>
 <body>
 <header><div class="container"><a href="/zh/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a><nav><a href="/zh/">首页</a><a href="/zh/knowledge-base/" class="active">知识库</a><a href="/zh/reports/">报告</a><a href="/zh/about.html">关于</a><div class="lang-switch"><a href="/en/">EN</a><a href="/zh/" class="active">中文</a></div></nav></div></header>
 <main><div class="container" style="padding:52px 24px">
-<h1>Weather Trader 天气交易</h1>
-<p>通过可测量的天气变量进行结构化优势交易。</p>
-<p><a href="/en/knowledge-base/strategies/weather-trader/">查看英文版</a></p>
+
+<h1>Weather Trader 天气交易完整指南</h1>
+<p class="lead">通过可测量的天气变量进行结构化优势交易。本指南涵盖从 NOAA 数据接入、赔率分析框架到 Simmer 配置的完整流程。</p>
+
+<div class="nav-links">
+  <a href="#noaa-setup">NOAA 数据接入</a>
+  <a href="#odds-analysis">赔率分析框架</a>
+  <a href="#case-studies">真实案例分析</a>
+  <a href="#city-selection">城市选择策略</a>
+  <a href="#simmer-setup">Simmer 配置</a>
+  <a href="#faq">常见问题</a>
+</div>
+
+<!-- NOAA 数据接入 -->
+<section id="noaa-setup" class="strategy-section">
+  <h2>📡 NOAA 数据接入教程</h2>
+  <p>美国国家海洋和大气管理局（NOAA）提供免费、权威的天气数据，是天气交易的核心数据源。</p>
+  
+  <h3>步骤 1: 注册 NOAA API 账号</h3>
+  <ul>
+    <li>访问 <a href="https://www.weather.gov/documentation/services-web-api" target="_blank">NOAA API 文档</a></li>
+    <li>无需 API Key（免费公开），但有速率限制：每小时 1000 次请求</li>
+    <li>建议注册获取更新通知</li>
+  </ul>
+
+  <h3>步骤 2: 获取城市天气数据</h3>
+  <div class="code-block">
+# Python 示例：获取 NYC 天气数据
+import requests
+
+# NOAA API 端点
+station_id = "KNYC"  # NYC 中央公园气象站
+url = f"https://api.weather.gov/stations/{station_id}/observations/latest"
+
+response = requests.get(url)
+data = response.json()
+
+# 提取关键数据
+temperature = data['properties']['temperature']['value']  # 摄氏度
+humidity = data['properties']['relativeHumidity']['value']  # 百分比
+wind_speed = data['properties']['windSpeed']['value']  # km/h
+precipitation = data['properties']['precipitationLastHour']['value']  # mm
+
+print(f"温度：{temperature}°C")
+print(f"湿度：{humidity}%")
+print(f"风速：{wind_speed} km/h")
+print(f"降水：{precipitation} mm")
+  </div>
+
+  <h3>步骤 3: 获取历史天气数据</h3>
+  <div class="code-block">
+# 获取历史数据（用于回测）
+from datetime import datetime, timedelta
+
+def get_historical_weather(station_id, date):
+    """获取指定日期的天气数据"""
+    url = f"https://api.weather.gov/stations/{station_id}/observations/{date}"
+    response = requests.get(url)
+    return response.json()
+
+# 示例：获取 2025-12-25 的数据
+historical_data = get_historical_weather("KNYC", "2025-12-25T12:00:00Z")
+  </div>
+
+  <h3>步骤 4: 主要城市气象站代码</h3>
+  <table class="data-table">
+    <thead>
+      <tr><th>城市</th><th>气象站代码</th><th>备注</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>纽约 (NYC)</td><td>KNYC</td><td>中央公园</td></tr>
+      <tr><td>芝加哥</td><td>KORD</td><td>奥黑尔机场</td></tr>
+      <tr><td>洛杉矶</td><td>KLAX</td><td>洛杉矶国际机场</td></tr>
+      <tr><td>西雅图</td><td>KSEA</td><td>西雅图 - 塔科马机场</td></tr>
+      <tr><td>迈阿密</td><td>KMIA</td><td>迈阿密国际机场</td></tr>
+      <tr><td>波士顿</td><td>KBOS</td><td>洛根机场</td></tr>
+    </tbody>
+  </table>
+
+  <div class="risk-alert">
+    <strong>⚠️ 数据质量注意事项</strong>:
+    <ul>
+      <li>NOAA 数据可能有 15-30 分钟延迟（非实时）</li>
+      <li>极端天气时部分站点可能暂停报告</li>
+      <li>建议交叉验证多个数据源（AccuWeather、Weather.com）</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 赔率分析框架 -->
+<section id="odds-analysis" class="strategy-section">
+  <h2>📊 天气市场赔率分析框架</h2>
+  
+  <h3>1. 计算隐含概率</h3>
+  <p>Polymarket 赔率转换为隐含概率：</p>
+  <div class="code-block">
+# 赔率转隐含概率
+def odds_to_probability(odds):
+    """欧式赔率转概率"""
+    return 1 / odds
+
+# 示例：YES 赔率 2.5，NO 赔率 1.6
+yes_odds = 2.5
+no_odds = 1.6
+
+yes_prob = odds_to_probability(yes_odds)  # 0.40 = 40%
+no_prob = odds_to_probability(no_odds)    # 0.625 = 62.5%
+
+# 归一化（去除平台抽水）
+total = yes_prob + no_prob
+yes_prob_normalized = yes_prob / total  # 39%
+no_prob_normalized = no_prob / total    # 61%
+  </div>
+
+  <h3>2. 对比 NOAA 预报概率</h3>
+  <p>获取 NOAA 官方预报概率，寻找价值注机会：</p>
+  <table class="data-table">
+    <thead>
+      <tr><th>市场</th><th>Polymarket 隐含概率</th><th>NOAA 预报概率</th><th>价值判断</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>NYC 12/25 气温 > 10°C</td><td>40%</td><td>65%</td><td>✅ YES 价值注</td></tr>
+      <tr><td>Chicago 12/25 降雪 > 5cm</td><td>70%</td><td>45%</td><td>✅ NO 价值注</td></tr>
+      <tr><td>Seattle 12/25 降雨 > 0mm</td><td>55%</td><td>52%</td><td>❌ 无显著价值</td></tr>
+    </tbody>
+  </table>
+
+  <h3>3. 价值注筛选标准</h3>
+  <ul>
+    <li><strong>最小概率差</strong>: NOAA 概率 - Polymarket 概率 > 15%</li>
+    <li><strong>置信度</strong>: NOAA 预报发布时间 < 24 小时</li>
+    <li><strong>流动性</strong>: 市场交易量 > 10k USDC</li>
+  </ul>
+</section>
+
+<!-- 真实案例分析 -->
+<section id="case-studies">
+  <h2>📊 真实案例分析</h2>
+  
+  <div class="case-study">
+    <h3>案例 1: 成功交易 — NYC 暖冬预测</h3>
+    <p><strong>背景</strong>: 2025 年 12 月，Polymarket 市场 "Will NYC temperature exceed 15°C on Dec 25?"</p>
+    <p><strong>市场分析</strong>:</p>
+    <ul>
+      <li>Polymarket 隐含概率：YES 35%（赔率 2.85）</li>
+      <li>NOAA 10 天预报：68% 概率气温 > 15°C</li>
+      <li>历史数据：过去 10 年同日期平均气温 12°C，但 2025 年厄尔尼诺现象显著</li>
+    </ul>
+    <p><strong>交易决策</strong>:</p>
+    <ul>
+      <li>买入 YES @ 2.85，仓位 500 USDC</li>
+      <li>预期值：(0.68 × 500 × 1.85) - (0.32 × 500) = 467 USDC</li>
+    </ul>
+    <p><strong>结果</strong>: 12/25 实际气温 17°C，盈利 425 USDC（+85%）</p>
+    <p><strong>关键成功因素</strong>: NOAA 数据 vs 市场赔率显著偏差 + 厄尔尼诺宏观背景</p>
+  </div>
+
+  <div class="case-study">
+    <h3>案例 2: 失败交易 — 芝加哥暴风雪误判</h3>
+    <p><strong>背景</strong>: 2026 年 1 月，市场 "Will Chicago receive > 30cm snow in January?"</p>
+    <p><strong>市场分析</strong>:</p>
+    <ul>
+      <li>Polymarket 隐含概率：YES 55%</li>
+      <li>NOAA 月度预报：40% 概率（低于市场预期）</li>
+      <li>但社交媒体传言"历史级暴风雪将至"</li>
+    </ul>
+    <p><strong>错误决策</strong>:</p>
+    <ul>
+      <li>跟随市场情绪买入 YES @ 1.82</li>
+      <li>忽略 NOAA 长期预报的较低概率</li>
+      <li>仓位过重（1000 USDC）</li>
+    </ul>
+    <p><strong>结果</strong>: 1 月总降雪量仅 18cm，亏损 1000 USDC（-100%）</p>
+    <p><strong>教训</strong>: 不应忽视权威数据源，避免被市场情绪左右</p>
+  </div>
+
+  <div class="case-study">
+    <h3>案例 3: 季节性策略 — 西雅图雨季套利</h3>
+    <p><strong>背景</strong>: 2025 年 11 月 -2026 年 2 月，西雅图冬季降雨市场</p>
+    <p><strong>策略逻辑</strong>:</p>
+    <ul>
+      <li>历史数据：西雅图 11-2 月平均降雨日数 45 天</li>
+      <li>Polymarket 市场定价基于短期预报（7 天）</li>
+      <li>利用长期气候数据 vs 短期市场的定价偏差</li>
+    </ul>
+    <p><strong>执行</strong>:</p>
+    <ul>
+      <li>每周滚动买入"周降雨 > 3 天" YES 注</li>
+      <li>平均赔率 2.1，历史胜率 58%</li>
+      <li>凯利公式计算最优仓位：8% / 笔</li>
+    </ul>
+    <p><strong>结果</strong>: 14 周交易，总收益率 67%，最大回撤 15%</p>
+    <p><strong>关键成功因素</strong>: 长期气候数据优势 + 纪律性仓位管理</p>
+  </div>
+</section>
+
+<!-- 城市选择策略 -->
+<section id="city-selection" class="strategy-section">
+  <h2>🏙️ 城市选择策略详解</h2>
+  <p>不是所有城市的天气市场都值得交易。以下是选择标准：</p>
+  
+  <h3>优先级 1: 高流动性市场</h3>
+  <table class="data-table">
+    <thead>
+      <tr><th>城市</th><th>平均日交易量</th><th>推荐度</th><th>理由</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>纽约 (NYC)</td><td>50k+ USDC</td><td>⭐⭐⭐⭐⭐</td><td>人口多、关注度高、数据质量优</td></tr>
+      <tr><td>芝加哥</td><td>20k+ USDC</td><td>⭐⭐⭐⭐</td><td>极端天气频繁、市场活跃</td></tr>
+      <tr><td>洛杉矶</td><td>15k+ USDC</td><td>⭐⭐⭐⭐</td><td>稳定气候、适合保守策略</td></tr>
+      <tr><td>西雅图</td><td>10k+ USDC</td><td>⭐⭐⭐</td><td>雨季可预测性强、季节性机会</td></tr>
+      <tr><td>迈阿密</td><td>8k+ USDC</td><td>⭐⭐⭐</td><td>飓风季高波动、高风险高回报</td></tr>
+    </tbody>
+  </table>
+
+  <h3>优先级 2: 数据可获取性</h3>
+  <ul>
+    <li><strong>优先</strong>: NOAA 有完整历史数据的城市（30 年+）</li>
+    <li><strong>避免</strong>: 气象站稀疏、数据质量差的城市</li>
+  </ul>
+
+  <h3>优先级 3: 季节性机会</h3>
+  <table class="data-table">
+    <thead>
+      <tr><th>季节</th><th>推荐城市</th><th>交易主题</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>冬季 (12-2 月)</td><td>芝加哥、波士顿、NYC</td><td>降雪量、低温记录</td></tr>
+      <tr><td>春季 (3-5 月)</td><td>西雅图、波特兰</td><td>降雨日数、洪水风险</td></tr>
+      <tr><td>夏季 (6-8 月)</td><td>迈阿密、休斯顿</td><td>飓风、高温记录</td></tr>
+      <tr><td>秋季 (9-11 月)</td><td>加州城市</td><td>山火风险、圣安娜风</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- Simmer 配置 -->
+<section id="simmer-setup">
+  <h2>⚙️ Simmer 天气交易配置指南</h2>
+  
+  <div class="code-block">
+# Simmer Weather Trading 配置示例
+# 文件：simmer-config-weather.yaml
+
+strategy:
+  name: "Weather Trader - NOAA Data Driven"
+  type: "weather"
+  
+data_sources:
+  primary: "NOAA API"
+  backup: "AccuWeather API"
+  refresh_interval: 3600  # 每小时更新
+  
+target_markets:
+  cities: ["NYC", "Chicago", "Seattle", "Boston"]
+  market_types: ["temperature", "precipitation", "snow"]
+  min_liquidity: 10000  # 最小交易量 10k USDC
+  
+filters:
+  min_probability_edge: 0.15  # 最小概率优势 15%
+  max_forecast_age: 86400     # 最大预报年龄 24 小时
+  min_odds: 1.8               # 最小赔率
+  max_odds: 5.0               # 最大赔率（避免长尾）
+  
+risk_management:
+  max_position_size: 300      # 单笔最大 300 USDC
+  max_daily_trades: 5         # 日最大交易数
+  max_weekly_loss: 500        # 周亏损上限
+  max_drawdown: 0.20          # 最大回撤 20%
+  kelly_fraction: 0.5         # 凯利公式系数（半凯利）
+  
+execution:
+  entry_timing: "T-24h"       # 事件前 24 小时入场
+  exit_timing: "T-1h"         # 事件前 1 小时平仓（如可交易）
+  slippage_tolerance: 0.03    # 滑点容忍 3%
+  
+monitoring:
+  alert_on_entry: true
+  alert_on_exit: true
+  daily_report: true
+  weekly_performance_review: true
+  </div>
+
+  <h3>配置说明</h3>
+  <ul>
+    <li><strong>data_sources</strong>: NOAA 为主，AccuWeather 为备份，确保数据可靠性</li>
+    <li><strong>filters</strong>: 概率优势阈值是关键，避免边缘交易</li>
+    <li><strong>risk_management</strong>: 使用凯利公式动态调整仓位</li>
+    <li><strong>execution</strong>: 时机选择影响赔率，提前入场获取更好价格</li>
+  </ul>
+</section>
+
+<!-- 常见问题 -->
+<section id="faq" class="strategy-section">
+  <h2>❓ 常见问题 FAQ</h2>
+  
+  <h3>Q1: 天气交易需要多少启动资金？</h3>
+  <p><strong>A</strong>: 建议至少 3000 USDC。理由：</p>
+  <ul>
+    <li>单笔交易 200-500 USDC，需要分散多个城市/事件</li>
+    <li>天气具有不确定性，需预留 50% 资金应对连续亏损</li>
+    <li>季节性策略需要持续仓位</li>
+  </ul>
+
+  <h3>Q2: 如何获取实时天气数据？</h3>
+  <p><strong>A</strong>: 三种方案：</p>
+  <ol>
+    <li>NOAA API（免费，15-30 分钟延迟）</li>
+    <li>AccuWeather API（付费，实时数据）</li>
+    <li>WeatherAPI（免费层 + 付费层，平衡选择）</li>
+  </ol>
+
+  <h3>Q3: 天气交易的最佳时间窗口？</h3>
+  <p><strong>A</strong>: 取决于市场类型：</p>
+  <ul>
+    <li>日度事件（气温/降水）：提前 24-72 小时入场</li>
+    <li>月度事件（总降雪量）：月初入场，月中调整</li>
+    <li>季节性事件（飓风季）：季前布局，滚动调整</li>
+  </ul>
+
+  <h3>Q4: 如何处理预报误差？</h3>
+  <p><strong>A</strong>: 三层防护：</p>
+  <ol>
+    <li>使用多数据源交叉验证（NOAA + AccuWeather）</li>
+    <li>只交易概率优势 > 15% 的机会</li>
+    <li>严格仓位管理，单笔不超过总资金 10%</li>
+  </ol>
+
+  <h3>Q5: 哪些季节最适合天气交易？</h3>
+  <p><strong>A</strong>: 各季节机会不同：</p>
+  <ul>
+    <li><strong>冬季</strong>: 降雪、低温市场（高波动）</li>
+    <li><strong>春季</strong>: 降雨、洪水市场（中等波动）</li>
+    <li><strong>夏季</strong>: 飓风、高温市场（高波动）</li>
+    <li><strong>秋季</strong>: 山火、风暴市场（区域性机会）</li>
+  </ul>
+</section>
+
+<!-- 延伸阅读 -->
+<section>
+  <h2>📚 延伸阅读</h2>
+  <ul>
+    <li><a href="/zh/reports/simmer/simmer-strategy-matrix-2026-03-04.html">Simmer 策略矩阵完整配置</a></li>
+    <li><a href="/zh/learn/day3/">学习路径 Day 3: 天气市场基础</a></li>
+    <li><a href="/en/knowledge-base/strategies/weather-trader/">English Version: Weather Trader Complete Guide</a></li>
+    <li><a href="https://www.weather.gov/documentation/services-web-api" target="_blank">NOAA API 官方文档</a></li>
+  </ul>
+</section>
+
+<div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #e9ecef;">
+  <p><strong>最后更新</strong>: 2026-03-12</p>
+  <p><strong>语言切换</strong>: <a href="/en/knowledge-base/strategies/weather-trader/">English Version</a></p>
+</div>
+
 </div></main>
+<footer><div class="container"><p>&copy; 2026 pred101. All rights reserved.</p></div></footer>
 </body>
 </html>

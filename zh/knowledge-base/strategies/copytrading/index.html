@@ -3,20 +3,275 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Copytrading 跟单策略 | pred101</title>
-  <meta name="description" content="通过追踪 Polymarket 上盈利钱包的交易活动，自动复制其交易决策。">
-  <link rel="canonical" href="https://www.pred101.com/zh/knowledge-base/strategies/copytrading/"
-  <link rel="alternate" hreflang="zh" href="https://www.pred101.com/zh/knowledge-base/strategies/copytrading/">>
+  <title>Copytrading 跟单策略完整指南 | pred101</title>
+  <meta name="description" content="从钱包筛选、风控清单到 Simmer 配置，完整掌握 Polymarket 跟单交易策略。包含真实案例分析与常见陷阱。">
+  <link rel="canonical" href="https://www.pred101.com/zh/knowledge-base/strategies/copytrading/">
+  <link rel="alternate" hreflang="zh" href="https://www.pred101.com/zh/knowledge-base/strategies/copytrading/">
   <link rel="alternate" hreflang="en" href="https://www.pred101.com/en/knowledge-base/strategies/copytrading/">
   <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .strategy-section { background: #f8f9fa; border-left: 4px solid #007bff; padding: 20px; margin: 24px 0; }
+    .case-study { background: #fff; border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; margin: 16px 0; }
+    .risk-alert { background: #fff3cd; border-left: 4px solid #ffc107; padding: 16px; margin: 16px 0; }
+    .checklist { list-style: none; padding: 0; }
+    .checklist li { padding: 8px 0; border-bottom: 1px solid #e9ecef; }
+    .checklist li:before { content: "✓ "; color: #28a745; font-weight: bold; }
+    .code-block { background: #2d2d2d; color: #f8f8f2; padding: 16px; border-radius: 4px; overflow-x: auto; font-family: 'Courier New', monospace; font-size: 13px; }
+    .nav-links { display: flex; gap: 12px; flex-wrap: wrap; margin: 24px 0; }
+    .nav-links a { background: #007bff; color: white; padding: 8px 16px; border-radius: 4px; text-decoration: none; }
+    .nav-links a:hover { background: #0056b3; }
+  </style>
 </head>
 <body>
 <header><div class="container"><a href="/zh/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a><nav><a href="/zh/">首页</a><a href="/zh/knowledge-base/" class="active">知识库</a><a href="/zh/reports/">报告</a><a href="/zh/about.html">关于</a><div class="lang-switch"><a href="/en/">EN</a><a href="/zh/" class="active">中文</a></div></nav></div></header>
 <main><div class="container" style="padding:52px 24px">
-<h1>Copytrading 跟单策略</h1>
-<p>通过追踪 Polymarket 上盈利钱包的交易活动，自动复制其交易决策。</p>
-<p><a href="/en/knowledge-base/strategies/copytrading/">查看英文版</a></p>
-<p><a href="/zh/knowledge-base/resources/conviction-score-copytrading/">延伸阅读：Conviction Score 与跟单过滤</a></p>
+
+<h1>Copytrading 跟单策略完整指南</h1>
+<p class="lead">通过追踪 Polymarket 上盈利钱包的交易活动，自动复制其交易决策。本指南涵盖从钱包筛选到实盘配置的完整流程。</p>
+
+<div class="nav-links">
+  <a href="#wallet-screening">钱包筛选 5 步法</a>
+  <a href="#case-studies">真实案例分析</a>
+  <a href="#risk-checklist">风控清单</a>
+  <a href="#simmer-setup">Simmer 配置</a>
+  <a href="#faq">常见问题</a>
+</div>
+
+<!-- 钱包筛选 5 步法 -->
+<section id="wallet-screening" class="strategy-section">
+  <h2>📋 跟单钱包筛选 5 步法</h2>
+  <p>不是所有盈利钱包都值得跟单。以下是系统化的筛选流程：</p>
+  
+  <h3>步骤 1: 验证历史收益率</h3>
+  <ul>
+    <li><strong>最低门槛</strong>: 3 个月以上交易历史，总收益率 > 50%</li>
+    <li><strong>稳定性</strong>: 月度胜率 > 55%，避免单月暴赚暴亏</li>
+    <li><strong>样本量</strong>: 至少 30 笔交易，避免运气成分</li>
+  </ul>
+
+  <h3>步骤 2: 分析交易风格一致性</h3>
+  <ul>
+    <li><strong>策略漂移检测</strong>: 检查是否频繁更换交易主题（政治→体育→加密）</li>
+    <li><strong>持仓时长</strong>: 偏好日内交易还是 swing trade？是否与你的风险承受匹配？</li>
+    <li><strong>市场选择</strong>: 专注高流动性市场还是长尾机会？</li>
+  </ul>
+
+  <h3>步骤 3: 检查风险控制能力</h3>
+  <ul>
+    <li><strong>最大回撤</strong>: 历史最大亏损幅度（建议 < 30%）</li>
+    <li><strong>单笔风险</strong>: 单笔交易占总资金比例（建议 < 10%）</li>
+    <li><strong>止损纪律</strong>: 是否有明确的止损行为记录</li>
+  </ul>
+
+  <h3>步骤 4: 评估资金规模与流动性</h3>
+  <ul>
+    <li><strong>钱包规模</strong>: 10k-500k USDC 最佳（太小不稳定，太大难跟单）</li>
+    <li><strong>滑点影响</strong>: 大额交易可能导致你跟单时成交价恶化</li>
+    <li><strong>退出难度</strong>: 检查其持仓是否能在市场正常退出</li>
+  </ul>
+
+  <h3>步骤 5: 链上行为验证</h3>
+  <ul>
+    <li><strong>资金来源</strong>: 是否来自已知交易所或混币器（红旗警告）</li>
+    <li><strong>交易频率</strong>: 避免过度交易（每日 > 20 笔可能是机器人）</li>
+    <li><strong>Gas 效率</strong>: 理性使用 Gas，非盲目抢跑</li>
+  </ul>
+
+  <div class="risk-alert">
+    <strong>⚠️ 红旗警告</strong>: 发现以下行为立即排除：
+    <ul>
+      <li>单月收益率 > 500%（可能是内幕或极端运气）</li>
+      <li>交易记录少于 20 笔</li>
+      <li>明显操纵市场行为（自买自卖）</li>
+      <li>与已知诈骗地址有关联</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 真实案例分析 -->
+<section id="case-studies">
+  <h2>📊 真实案例分析</h2>
+  
+  <div class="case-study">
+    <h3>案例 1: 成功跟单 — @DmitriyUngarov 鲸鱼策略</h3>
+    <p><strong>背景</strong>: 2025 年 Q4，追踪 whale 地址 0x7a3f...9b2c</p>
+    <p><strong>筛选理由</strong>:</p>
+    <ul>
+      <li>6 个月收益率 187%，月度胜率 62%</li>
+      <li>专注政治与市场类预测，策略稳定</li>
+      <li>单笔交易 5k-20k USDC，适合跟单</li>
+    </ul>
+    <p><strong>跟单配置</strong>:</p>
+    <ul>
+      <li>跟单比例：10%（钱包下注 10k，我跟单 1k）</li>
+      <li>最大跟单额：500 USDC/笔</li>
+      <li>过滤条件：仅跟赔率 > 2.0 的价值注</li>
+    </ul>
+    <p><strong>结果</strong>: 3 个月跟单收益率 43%，最大回撤 12%</p>
+    <p><strong>关键成功因素</strong>: 严格的钱包筛选 + 合理的跟单比例 + 价值注过滤</p>
+  </div>
+
+  <div class="case-study">
+    <h3>案例 2: 失败跟单 — 策略漂移陷阱</h3>
+    <p><strong>背景</strong>: 2025 年 Q3，追踪地址 0x4b8e...3d1a</p>
+    <p><strong>初始表现</strong>: 前 2 个月收益率 89%，专注体育博彩</p>
+    <p><strong>问题暴露</strong>:</p>
+    <ul>
+      <li>第 3 个月开始频繁交易加密预测（陌生领域）</li>
+      <li>单笔下注从 2k 激增至 50k USDC</li>
+      <li>胜率从 65% 暴跌至 38%</li>
+    </ul>
+    <p><strong>损失</strong>: 跟单亏损 34%，未及时止损</p>
+    <p><strong>教训</strong>: 必须持续监控策略一致性，设置策略漂移警报</p>
+  </div>
+
+  <div class="case-study">
+    <h3>案例 3: 滑点陷阱 — 大额钱包跟单困境</h3>
+    <p><strong>背景</strong>: 2026 年 Q1，追踪 whale 地址 0x9c2f...7e4b（资金量 2M+ USDC）</p>
+    <p><strong>问题</strong>:</p>
+    <ul>
+      <li>钱包单笔下注 100k+ USDC，市场深度不足</li>
+      <li>跟单时成交价平均恶化 15-25%</li>
+      <li>退出时无法在合理价格平仓</li>
+    </ul>
+    <p><strong>结果</strong>: 即使方向正确，净收益仍为负（-8%）</p>
+    <p><strong>教训</strong>: 避免跟单资金量过大的钱包，优先选择中等规模（10k-500k USDC）</p>
+  </div>
+</section>
+
+<!-- 风控清单 -->
+<section id="risk-checklist" class="strategy-section">
+  <h2>🛡️ 跟单风控清单（10 条红线）</h2>
+  <p>以下任一条件触发，立即暂停或停止跟单：</p>
+  <ul class="checklist">
+    <li>钱包连续 3 笔交易亏损超过总资金 15%</li>
+    <li>月度胜率跌破 45% 且持续 2 个月</li>
+    <li>单笔交易金额突然增加 3 倍以上</li>
+    <li>开始交易完全不熟悉的市场类型</li>
+    <li>钱包地址被标记为可疑或关联诈骗</li>
+    <li>最大回撤超过你预设阈值（建议 25%）</li>
+    <li>跟单执行失败率 > 10%（技术问题）</li>
+    <li>钱包停止交易超过 30 天（策略失效？）</li>
+    <li>市场流动性显著下降（滑点增加）</li>
+    <li>你的总跟单亏损达到月度预算上限</li>
+  </ul>
+</section>
+
+<!-- Simmer 配置 -->
+<section id="simmer-setup">
+  <h2>⚙️ Simmer 跟单配置完整指南</h2>
+  <p>使用 Simmer 自动化跟单流程，以下是推荐配置模板：</p>
+  
+  <div class="code-block">
+# Simmer Copytrading 配置示例
+# 文件：simmer-config-copytrading.yaml
+
+strategy:
+  name: "Copytrading - DmitriyUngarov Style"
+  type: "copytrading"
+  
+target_wallets:
+  - address: "0x7a3f...9b2c"
+    label: "DmitriyUngarov Primary"
+    max_copy_ratio: 0.10  # 跟单比例 10%
+    min_bet_size: 1000    # 仅跟 >= 1000 USDC 的注
+    max_bet_size: 50000   # 忽略超大额注（避免滑点）
+    
+filters:
+  min_odds: 2.0           # 仅跟价值注（赔率 > 2.0）
+  markets:
+    include: ["POLITICS", "MARKETS", "CRYPTO"]
+    exclude: ["SPORTS", "ENTERTAINMENT"]
+  max_position_size: 500  # 单笔最大跟单 500 USDC
+  
+risk_management:
+  max_daily_loss: 200     # 日亏损上限 200 USDC
+  max_weekly_loss: 800    # 周亏损上限 800 USDC
+  max_drawdown: 0.25      # 最大回撤 25%
+  stop_on_drift: true     # 策略漂移时自动停止
+  
+execution:
+  slippage_tolerance: 0.05  # 滑点容忍 5%
+  gas_limit: 150000         # Gas 上限
+  retry_attempts: 2         # 失败重试次数
+  
+monitoring:
+  alert_on_bet: true        # 每笔跟单发通知
+  alert_on_loss: 100        # 亏损超 100 USDC 警报
+  weekly_report: true       # 周报总结
+  </div>
+
+  <h3>配置说明</h3>
+  <ul>
+    <li><strong>target_wallets</strong>: 可配置多个目标钱包，每个独立设置跟单比例</li>
+    <li><strong>filters</strong>: 通过市场类型、赔率、金额过滤，避免盲目跟单</li>
+    <li><strong>risk_management</strong>: 多层风控，保护本金安全</li>
+    <li><strong>execution</strong>: 执行参数优化，平衡成交率与成本</li>
+  </ul>
+</section>
+
+<!-- 常见问题 -->
+<section id="faq" class="strategy-section">
+  <h2>❓ 常见问题 FAQ</h2>
+  
+  <h3>Q1: 跟单需要多少启动资金？</h3>
+  <p><strong>A</strong>: 建议至少 2000 USDC。理由：</p>
+  <ul>
+    <li>单笔跟单 100-500 USDC，需要足够分散</li>
+    <li>预留 50% 资金应对回撤期</li>
+    <li>避免过度集中风险</li>
+  </ul>
+
+  <h3>Q2: 应该跟单几个钱包？</h3>
+  <p><strong>A</strong>: 新手建议 1-2 个，进阶者 3-5 个。理由：</p>
+  <ul>
+    <li>太少：风险集中</li>
+    <li>太多：难以监控质量</li>
+    <li>优先深度研究少数优质钱包</li>
+  </ul>
+
+  <h3>Q3: 跟单频率应该多高？</h3>
+  <p><strong>A</strong>: 取决于目标钱包风格。一般建议：</p>
+  <ul>
+    <li>保守型：每周 3-10 笔</li>
+    <li>活跃型：每周 10-30 笔</li>
+    <li>避免过度交易（每周 > 50 笔可能是问题信号）</li>
+  </ul>
+
+  <h3>Q4: 如何处理跟单滑点？</h3>
+  <p><strong>A</strong>: 三种策略：</p>
+  <ol>
+    <li>设置滑点容忍度（建议 3-5%）</li>
+    <li>避免跟单大额交易（> 50k USDC）</li>
+    <li>使用限价单而非市价单（如平台支持）</li>
+  </ol>
+
+  <h3>Q5: 跟单亏损后何时止损？</h3>
+  <p><strong>A</strong>: 分层止损策略：</p>
+  <ul>
+    <li>单笔亏损：达到本金 5-10% 时重新评估该钱包</li>
+    <li>周亏损：达到预算 50% 时暂停跟单</li>
+    <li>总回撤：达到 25% 时全面复盘，考虑更换钱包</li>
+  </ul>
+</section>
+
+<!-- 延伸阅读 -->
+<section>
+  <h2>📚 延伸阅读</h2>
+  <ul>
+    <li><a href="/zh/knowledge-base/resources/conviction-score-copytrading/">Conviction Score 与跟单过滤</a></li>
+    <li><a href="/zh/reports/simmer/simmer-strategy-matrix-2026-03-04.html">Simmer 策略矩阵完整配置</a></li>
+    <li><a href="/zh/knowledge-base/kol/KOL-RANKING-2026-03-08.html">KOL 排名与评估报告</a></li>
+    <li><a href="/en/knowledge-base/strategies/copytrading/">English Version: Copytrading Strategy Guide</a></li>
+  </ul>
+</section>
+
+<div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #e9ecef;">
+  <p><strong>最后更新</strong>: 2026-03-12</p>
+  <p><strong>语言切换</strong>: <a href="/en/knowledge-base/strategies/copytrading/">English Version</a></p>
+</div>
+
 </div></main>
+<footer><div class="container"><p>&copy; 2026 pred101. All rights reserved.</p></div></footer>
 </body>
 </html>

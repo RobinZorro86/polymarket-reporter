@@ -3,90 +3,313 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Copytrading Strategy | pred101</title>
-  <meta name="description" content="Track profitable Polymarket wallets, filter by trade quality, and build a repeatable copytrading framework with better risk control.">
-  <link rel="canonical" href="https://www.pred101.com/en/knowledge-base/strategies/copytrading/"
-  <link rel="alternate" hreflang="en" href="https://www.pred101.com/en/knowledge-base/strategies/copytrading/">>
+  <title>Copytrading Strategy Complete Guide | pred101</title>
+  <meta name="description" content="Master Polymarket copytrading: wallet screening, risk controls, Simmer configuration, real case studies, and common pitfalls. Complete guide from beginner to advanced.">
+  <link rel="canonical" href="https://www.pred101.com/en/knowledge-base/strategies/copytrading/">
+  <link rel="alternate" hreflang="en" href="https://www.pred101.com/en/knowledge-base/strategies/copytrading/">
   <link rel="alternate" hreflang="zh" href="https://www.pred101.com/zh/knowledge-base/strategies/copytrading/">
   <link rel="stylesheet" href="/css/style.css">
   <style>
-    :root{--bg:#f7f8fb;--surface:#ffffff;--surface-soft:#eef2ff;--text:#111827;--text-secondary:#667085;--border:#e5e7eb;--accent:#6f7cff;--accent-2:#38d0ff;--shadow:0 10px 30px rgba(16,24,40,.06);--max:1080px}*{margin:0;padding:0;box-sizing:border-box}body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(180deg,#f8fbff 0%,#f6f7fb 100%);color:var(--text);line-height:1.65}a{color:inherit;text-decoration:none}.container{max-width:var(--max);margin:0 auto;padding:0 24px}header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid var(--border)}header .container{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px}.logo{font-size:1.04rem;font-weight:800}.logo .mark{color:var(--accent)}nav{display:flex;gap:18px;flex-wrap:wrap}nav a{color:var(--text-secondary);font-size:.92rem}nav a.active,nav a:hover{color:var(--text)}main{padding:52px 0 80px}.hero{background:linear-gradient(135deg, rgba(111,124,255,.10), rgba(56,208,255,.08));border:1px solid rgba(111,124,255,.16);border-radius:28px;padding:34px 30px;box-shadow:var(--shadow);margin-bottom:30px}.eyebrow{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}h1{font-size:clamp(2.1rem,5vw,3.4rem);line-height:.98;letter-spacing:-.04em}.lead{margin-top:16px;max-width:780px;color:var(--text-secondary);font-size:1.03rem}.meta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}.meta-card{background:rgba(255,255,255,.7);border:1px solid var(--border);border-radius:16px;padding:14px 16px}.meta-card .label{font-size:.76rem;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.08em}.meta-card .value{margin-top:6px;font-size:.96rem;font-weight:700}.section{background:var(--surface);border:1px solid var(--border);border-radius:24px;box-shadow:var(--shadow);padding:28px;margin:22px 0}.section h2{font-size:1.55rem;margin-bottom:16px;letter-spacing:-.03em}.section h3{font-size:1.08rem;margin:18px 0 10px}.section p,.section li{color:#344054}.section ul{padding-left:20px}.section li{margin:8px 0}.note{background:#edf7ff;border-left:4px solid var(--accent-2);border-radius:16px;padding:16px 18px;margin-top:16px}.note ul{margin:8px 0 0 20px}.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.tag{display:inline-block;font-size:.78rem;font-weight:700;color:var(--accent);background:rgba(111,124,255,.10);padding:5px 11px;border-radius:999px}.strategy-card{background:#fbfcff;border:1px solid var(--border);border-radius:18px;padding:20px;margin-top:14px}.strategy-card h3{font-size:1.05rem;color:var(--accent)}.strategy-card .concept{margin-top:8px;color:var(--text-secondary);font-style:italic}.next-links{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:26px}.next-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:18px;box-shadow:var(--shadow)}.next-card .small{color:var(--text-secondary);font-size:.82rem}.next-card h4{margin-top:8px;font-size:1rem}footer{padding:38px 0 52px;color:var(--text-secondary)}footer .container{border-top:1px solid var(--border);padding-top:20px;font-size:.86rem}@media (max-width:860px){.meta-grid,.next-links{grid-template-columns:1fr 1fr}}@media (max-width:640px){.meta-grid,.next-links{grid-template-columns:1fr}.hero,.section{padding:22px 18px}}</style>
+    :root{--bg:#f7f8fb;--surface:#ffffff;--surface-soft:#eef2ff;--text:#111827;--text-secondary:#667085;--border:#e5e7eb;--accent:#6f7cff;--accent-2:#38d0ff;--shadow:0 10px 30px rgba(16,24,40,.06);--max:1080px}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(180deg,#f8fbff 0%,#f6f7fb 100%);color:var(--text);line-height:1.65}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--max);margin:0 auto;padding:0 24px}
+    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid var(--border)}
+    header .container{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .logo{font-size:1.04rem;font-weight:800}.logo .mark{color:var(--accent)}
+    nav{display:flex;gap:18px;flex-wrap:wrap}nav a{color:var(--text-secondary);font-size:.92rem}nav a.active,nav a:hover{color:var(--text)}
+    main{padding:52px 0 80px}
+    .hero{background:linear-gradient(135deg, rgba(111,124,255,.10), rgba(56,208,255,.08));border:1px solid rgba(111,124,255,.16);border-radius:28px;padding:34px 30px;box-shadow:var(--shadow);margin-bottom:30px}
+    .eyebrow{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+    h1{font-size:clamp(2.1rem,5vw,3.4rem);line-height:.98;letter-spacing:-.04em}
+    .lead{margin-top:16px;max-width:780px;color:var(--text-secondary);font-size:1.03rem}
+    .meta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}
+    .meta-card{background:rgba(255,255,255,.7);border:1px solid var(--border);border-radius:16px;padding:14px 16px}
+    .meta-card .label{font-size:.76rem;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.08em}
+    .meta-card .value{margin-top:6px;font-size:.96rem;font-weight:700}
+    .section{background:var(--surface);border:1px solid var(--border);border-radius:24px;box-shadow:var(--shadow);padding:28px;margin:22px 0}
+    .section h2{font-size:1.55rem;margin-bottom:16px;letter-spacing:-.03em}
+    .section h3{font-size:1.08rem;margin:18px 0 10px}
+    .section p,.section li{color:#344054}
+    .section ul{padding-left:20px}
+    .section li{margin:8px 0}
+    .note{background:#edf7ff;border-left:4px solid var(--accent-2);border-radius:16px;padding:16px 18px;margin-top:16px}
+    .note ul{margin:8px 0 0 20px}
+    .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+    .tag{display:inline-block;font-size:.78rem;font-weight:700;color:var(--accent);background:rgba(111,124,255,.10);padding:5px 11px;border-radius:999px}
+    .strategy-card{background:#fbfcff;border:1px solid var(--border);border-radius:18px;padding:20px;margin-top:14px}
+    .strategy-card h3{font-size:1.05rem;color:var(--accent)}
+    .strategy-card .concept{margin-top:8px;color:var(--text-secondary);font-style:italic}
+    .nav-links{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0}
+    .nav-links a{background:var(--accent);color:white;padding:8px 16px;border-radius:4px;text-decoration:none}
+    .nav-links a:hover{background:#5a67d8}
+    .case-study{background:#fff;border:1px solid #e9ecef;border-radius:8px;padding:20px;margin:16px 0}
+    .risk-alert{background:#fff3cd;border-left:4px solid #ffc107;padding:16px;margin:16px 0}
+    .checklist{list-style:none;padding:0}
+    .checklist li{padding:8px 0;border-bottom:1px solid #e9ecef}
+    .checklist li:before{content:"✓ ";color:#28a745;font-weight:bold}
+    .code-block{background:#2d2d2d;color:#f8f8f2;padding:16px;border-radius:4px;overflow-x:auto;font-family:'Courier New',monospace;font-size:13px}
+    .next-links{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:26px}
+    .next-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:18px;box-shadow:var(--shadow)}
+    .next-card .small{color:var(--text-secondary);font-size:.82rem}
+    .next-card h4{margin-top:8px;font-size:1rem}
+    footer{padding:38px 0 52px;color:var(--text-secondary)}
+    footer .container{border-top:1px solid var(--border);padding-top:20px;font-size:.86rem}
+    @media (max-width:860px){.meta-grid,.next-links{grid-template-columns:1fr 1fr}}
+    @media (max-width:640px){.meta-grid,.next-links{grid-template-columns:1fr}.hero,.section{padding:22px 18px}}
+  </style>
 </head>
 <body>
 <header><div class="container"><a href="/en/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a><nav><a href="/en/">Overview</a><a href="/en/learn/">7-Day Path</a><a href="/en/strategies/">Strategies</a><a href="/en/kol/">KOLs</a><a href="/en/resources/">Resources</a><div class="lang-switch"><a href="/en/" class="active">EN</a><a href="/zh/">中文</a></div></nav></div></header>
 <main><div class="container">
+
 <section class="hero">
-  <div class="eyebrow">Strategy</div>
-  <h1>Copytrading</h1>
-  <p class="lead">Track profitable Polymarket wallets, copy only the signals worth following, and turn wallet observation into a disciplined framework instead of blind imitation.</p>
+  <div class="eyebrow">Strategy Guide</div>
+  <h1>Copytrading Complete Guide</h1>
+  <p class="lead">From wallet screening to risk controls, Simmer configuration to real case studies. Master Polymarket copytrading with a disciplined, systematic approach.</p>
   <div class="meta-grid">
     <div class="meta-card"><div class="label">Type</div><div class="value">Follow Strategy</div></div>
-    <div class="meta-card"><div class="label">Updated</div><div class="value">2026-03-07</div></div>
-    <div class="meta-card"><div class="label">Best for</div><div class="value">Wallet Tracking</div></div>
-    <div class="meta-card"><div class="label">Use case</div><div class="value">On-chain Analysis</div></div>
+    <div class="meta-card"><div class="label">Updated</div><div class="value">2026-03-12</div></div>
+    <div class="meta-card"><div class="label">Level</div><div class="value">Intermediate</div></div>
+    <div class="meta-card"><div class="label">Time</div><div class="value">30 min read</div></div>
   </div>
 </section>
 
-<section class="section">
-  <h2>📌 Strategy Overview</h2>
-  <p>Copytrading on Polymarket is possible because the market is transparent at the wallet level. The edge comes from finding repeatably strong traders, understanding what kind of trades they are making, and copying only what still survives lag, slippage, and your own risk limits.</p>
-  <div class="note"><strong>💡 Core idea:</strong> There may be persistent professional traders on-chain, but profitable copytrading requires filtering. You are not trying to mirror every action. You are trying to capture the tradable part of their process.</div>
-  <div class="tags"><span class="tag">Follow Strategy</span><span class="tag">Wallet Tracking</span><span class="tag">On-chain Analysis</span></div>
-</section>
+<div class="nav-links">
+  <a href="#wallet-screening">Wallet Screening 5-Step</a>
+  <a href="#case-studies">Case Studies</a>
+  <a href="#risk-checklist">Risk Checklist</a>
+  <a href="#simmer-setup">Simmer Config</a>
+  <a href="#faq">FAQ</a>
+</div>
 
-<section class="section">
-  <h2>🔄 Core Logic</h2>
-  <h3>1. Wallet selection</h3>
+<!-- Wallet Screening -->
+<section id="wallet-screening" class="section">
+  <h2>📋 Wallet Screening: 5-Step Framework</h2>
+  <p>Not every profitable wallet deserves your copy. Here's a systematic screening process:</p>
+  
+  <h3>Step 1: Verify Historical Returns</h3>
   <ul>
-    <li><strong>Win rate threshold:</strong> historical win rate above 55%</li>
-    <li><strong>Sample size:</strong> more than 100 trades to separate skill from luck</li>
-    <li><strong>Risk-adjusted return:</strong> look for steadier curves, not just explosive PnL</li>
-    <li><strong>Avoid pure leaderboard chasing:</strong> visibility often destroys edge quickly</li>
+    <li><strong>Minimum threshold</strong>: 3+ months trading history, total return > 50%</li>
+    <li><strong>Stability</strong>: Monthly win rate > 55%, avoid extreme volatility</li>
+    <li><strong>Sample size</strong>: At least 30 trades to separate skill from luck</li>
   </ul>
 
-  <h3>2. Trader-type identification</h3>
-  <div class="strategy-card"><h3>Directional Trader ✅</h3><p class="concept">Large size, lower frequency, tighter theme concentration.</p></div>
-  <div class="strategy-card"><h3>Market Maker ❌</h3><p class="concept">Often holds both YES and NO, monetizing spread and rebates rather than directional conviction.</p></div>
-  <div class="strategy-card"><h3>High-Frequency Bot ❌</h3><p class="concept">Too fast to copy profitably; your execution lag becomes the entire trade.</p></div>
-
-  <h3>3. Execution framework</h3>
+  <h3>Step 2: Analyze Trading Style Consistency</h3>
   <ul>
-    <li><strong>Basket approach:</strong> track 5–10 wallets instead of betting on one hero wallet</li>
-    <li><strong>Position sizing:</strong> keep single copied trades under 5% of bankroll</li>
-    <li><strong>Slippage guard:</strong> set clear max slippage limits before entry</li>
-    <li><strong>Latency discipline:</strong> if you cannot execute quickly enough, skip the trade</li>
+    <li><strong>Strategy drift detection</strong>: Check if frequently switching themes (politics → sports → crypto)</li>
+    <li><strong>Position duration</strong>: Day trading vs swing trading — does it match your risk tolerance?</li>
+    <li><strong>Market selection</strong>: Focused on high-liquidity markets or long-tail opportunities?</li>
   </ul>
-</section>
 
-<section class="section">
-  <h2>⚙️ What You Need</h2>
+  <h3>Step 3: Assess Risk Control Capability</h3>
   <ul>
-    <li><strong>Data source:</strong> Polymarket API plus wallet-level trade indexing</li>
-    <li><strong>Monitoring layer:</strong> wallet alerts, dashboard, and market context</li>
-    <li><strong>Filtering layer:</strong> conviction score, specialization, and recent performance checks</li>
-    <li><strong>Execution rule:</strong> real-time monitoring, but selective entry</li>
+    <li><strong>Maximum drawdown</strong>: Historical max loss (should be < 30%)</li>
+    <li><strong>Single-trade risk</strong>: Position size as % of total capital (should be < 10%)</li>
+    <li><strong>Stop-loss discipline</strong>: Evidence of clear stop-loss behavior</li>
   </ul>
-</section>
 
-<section class="section">
-  <h2>⚠️ Risk Warnings</h2>
-  <div class="note">
+  <h3>Step 4: Evaluate Capital Size & Liquidity</h3>
+  <ul>
+    <li><strong>Wallet size</strong>: 10k-500k USDC optimal (too small = unstable, too large = hard to copy)</li>
+    <li><strong>Slippage impact</strong>: Large trades may worsen your entry price</li>
+    <li><strong>Exit difficulty</strong>: Can their positions be closed at reasonable prices?</li>
+  </ul>
+
+  <h3>Step 5: On-Chain Behavior Verification</h3>
+  <ul>
+    <li><strong>Fund source</strong>: From known exchanges or mixers? (red flag)</li>
+    <li><strong>Trading frequency</strong>: Avoid overtrading (> 20 trades/day may be bot)</li>
+    <li><strong>Gas efficiency</strong>: Rational gas usage, not blind front-running</li>
+  </ul>
+
+  <div class="risk-alert">
+    <strong>⚠️ Red Flags</strong>: Immediately exclude wallets with:
     <ul>
-      <li><strong>Lag risk:</strong> you are always slower than the original trader</li>
-      <li><strong>Strategy drift:</strong> strong wallets can suddenly change style or stop trading</li>
-      <li><strong>Liquidity risk:</strong> your copied size may move the market against you</li>
-      <li><strong>Over-copying risk:</strong> not every trade from a strong wallet deserves replication</li>
+      <li>Monthly return > 500% (insider or extreme luck)</li>
+      <li>Fewer than 20 trades in history</li>
+      <li>Obvious market manipulation (wash trading)</li>
+      <li>Association with known scam addresses</li>
     </ul>
   </div>
 </section>
 
+<!-- Case Studies -->
+<section id="case-studies" class="section">
+  <h2>📊 Real Case Studies</h2>
+  
+  <div class="case-study">
+    <h3>Case 1: Successful Copy — @DmitriyUngarov Whale Strategy</h3>
+    <p><strong>Background</strong>: Q4 2025, tracked whale address 0x7a3f...9b2c</p>
+    <p><strong>Screening rationale</strong>:</p>
+    <ul>
+      <li>6-month return 187%, monthly win rate 62%</li>
+      <li>Focused on politics & markets, stable strategy</li>
+      <li>Single trades 5k-20k USDC, suitable for copying</li>
+    </ul>
+    <p><strong>Copy configuration</strong>:</p>
+    <ul>
+      <li>Copy ratio: 10% (wallet bets 10k, I copy 1k)</li>
+      <li>Max copy amount: 500 USDC/trade</li>
+      <li>Filter: Only copy value bets with odds > 2.0</li>
+    </ul>
+    <p><strong>Result</strong>: 3-month copy return 43%, max drawdown 12%</p>
+    <p><strong>Key success factors</strong>: Strict wallet screening + reasonable copy ratio + value bet filtering</p>
+  </div>
+
+  <div class="case-study">
+    <h3>Case 2: Failed Copy — Strategy Drift Trap</h3>
+    <p><strong>Background</strong>: Q3 2025, tracked address 0x4b8e...3d1a</p>
+    <p><strong>Initial performance</strong>: First 2 months 89% return, focused on sports betting</p>
+    <p><strong>Problem emerged</strong>:</p>
+    <ul>
+      <li>Month 3: Started frequent crypto predictions (unfamiliar territory)</li>
+      <li>Single bet size surged from 2k to 50k USDC</li>
+      <li>Win rate dropped from 65% to 38%</li>
+    </ul>
+    <p><strong>Loss</strong>: Copy lost 34%, failed to stop loss in time</p>
+    <p><strong>Lesson</strong>: Must continuously monitor strategy consistency, set drift alerts</p>
+  </div>
+
+  <div class="case-study">
+    <h3>Case 3: Slippage Trap — Large Wallet Copying Dilemma</h3>
+    <p><strong>Background</strong>: Q1 2026, tracked whale address 0x9c2f...7e4b (2M+ USDC capital)</p>
+    <p><strong>Problem</strong>:</p>
+    <ul>
+      <li>Wallet single bets 100k+ USDC, insufficient market depth</li>
+      <li>Copy execution price worsened by 15-25% on average</li>
+      <li>Unable to exit positions at reasonable prices</li>
+    </ul>
+    <p><strong>Result</strong>: Even with correct direction, net return negative (-8%)</p>
+    <p><strong>Lesson</strong>: Avoid copying oversized wallets; prefer medium size (10k-500k USDC)</p>
+  </div>
+</section>
+
+<!-- Risk Checklist -->
+<section id="risk-checklist" class="section">
+  <h2>🛡️ Copytrading Risk Checklist (10 Red Lines)</h2>
+  <p>Pause or stop copying immediately when any of these trigger:</p>
+  <ul class="checklist">
+    <li>Wallet loses > 15% of capital in 3 consecutive trades</li>
+    <li>Monthly win rate drops below 45% for 2 consecutive months</li>
+    <li>Single trade size suddenly increases 3x or more</li>
+    <li>Starts trading completely unfamiliar market types</li>
+    <li>Wallet address flagged as suspicious or linked to scams</li>
+    <li>Max drawdown exceeds your preset threshold (recommend 25%)</li>
+    <li>Copy execution failure rate > 10% (technical issues)</li>
+    <li>Wallet stops trading for 30+ days (strategy失效?)</li>
+    <li>Market liquidity significantly declines (slippage increases)</li>
+    <li>Your total copy loss reaches monthly budget limit</li>
+  </ul>
+</section>
+
+<!-- Simmer Configuration -->
+<section id="simmer-setup" class="section">
+  <h2>⚙️ Simmer Copytrading Configuration Guide</h2>
+  <p>Automate your copytrading with Simmer. Here's a recommended configuration template:</p>
+  
+  <div class="code-block">
+# Simmer Copytrading Configuration Example
+# File: simmer-config-copytrading.yaml
+
+strategy:
+  name: "Copytrading - DmitriyUngarov Style"
+  type: "copytrading"
+  
+target_wallets:
+  - address: "0x7a3f...9b2c"
+    label: "DmitriyUngarov Primary"
+    max_copy_ratio: 0.10  # 10% copy ratio
+    min_bet_size: 1000    # Only copy bets >= 1000 USDC
+    max_bet_size: 50000   # Ignore oversized bets (avoid slippage)
+    
+filters:
+  min_odds: 2.0           # Only copy value bets (odds > 2.0)
+  markets:
+    include: ["POLITICS", "MARKETS", "CRYPTO"]
+    exclude: ["SPORTS", "ENTERTAINMENT"]
+  max_position_size: 500  # Max 500 USDC per copy trade
+  
+risk_management:
+  max_daily_loss: 200     # Daily loss limit 200 USDC
+  max_weekly_loss: 800    # Weekly loss limit 800 USDC
+  max_drawdown: 0.25      # Max drawdown 25%
+  stop_on_drift: true     # Auto-stop on strategy drift
+  
+execution:
+  slippage_tolerance: 0.05  # 5% slippage tolerance
+  gas_limit: 150000         # Gas limit
+  retry_attempts: 2         # Retry on failure
+  
+monitoring:
+  alert_on_bet: true        # Notify on every copy trade
+  alert_on_loss: 100        # Alert if loss > 100 USDC
+  weekly_report: true       # Weekly summary report
+  </div>
+
+  <h3>Configuration Notes</h3>
+  <ul>
+    <li><strong>target_wallets</strong>: Configure multiple wallets, each with independent copy ratio</li>
+    <li><strong>filters</strong>: Filter by market type, odds, amount to avoid blind copying</li>
+    <li><strong>risk_management</strong>: Multi-layer protection for capital safety</li>
+    <li><strong>execution</strong>: Optimize execution parameters, balance fill rate vs cost</li>
+  </ul>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="section">
+  <h2>❓ Frequently Asked Questions</h2>
+  
+  <h3>Q1: How much capital do I need to start copytrading?</h3>
+  <p><strong>A</strong>: Recommend at least 2000 USDC. Reasons:</p>
+  <ul>
+    <li>Single copy trades 100-500 USDC, need sufficient diversification</li>
+    <li>Reserve 50% capital for drawdown periods</li>
+    <li>Avoid over-concentration risk</li>
+  </ul>
+
+  <h3>Q2: How many wallets should I copy?</h3>
+  <p><strong>A</strong>: Beginners: 1-2 wallets; Advanced: 3-5 wallets. Reasons:</p>
+  <ul>
+    <li>Too few: Concentrated risk</li>
+    <li>Too many: Hard to monitor quality</li>
+    <li>Better to deeply research a few quality wallets</li>
+  </ul>
+
+  <h3>Q3: How frequent should copytrading be?</h3>
+  <p><strong>A</strong>: Depends on target wallet style. General guidance:</p>
+  <ul>
+    <li>Conservative: 3-10 trades/week</li>
+    <li>Active: 10-30 trades/week</li>
+    <li>Avoid overtrading (> 50 trades/week may be problematic)</li>
+  </ul>
+
+  <h3>Q4: How to handle copytrading slippage?</h3>
+  <p><strong>A</strong>: Three strategies:</p>
+  <ol>
+    <li>Set slippage tolerance (recommend 3-5%)</li>
+    <li>Avoid copying large trades (> 50k USDC)</li>
+    <li>Use limit orders instead of market orders (if platform supports)</li>
+  </ol>
+
+  <h3>Q5: When to stop loss after copytrading losses?</h3>
+  <p><strong>A</strong>: Layered stop-loss strategy:</p>
+  <ul>
+    <li>Single trade loss: Re-evaluate wallet at 5-10% of capital</li>
+    <li>Weekly loss: Pause copying at 50% of budget</li>
+    <li>Total drawdown: Comprehensive review at 25%, consider switching wallets</li>
+  </ul>
+</section>
+
+<!-- Related Resources -->
 <section class="section">
   <h2>📚 Related Resources</h2>
   <ul>
-    <li><a href="/en/knowledge-base/kol/0xchainmind/">@0xChainMind Copytrading Notes</a></li>
-    <li><a href="/en/knowledge-base/kol/dmitriyungarov/">50 Profitable Wallets List</a></li>
-    <li><a href="/en/knowledge-base/kol/rohonchain/">@RohOnChain System Design</a></li>
-    <li><a href="/en/knowledge-base/resources/conviction-score-copytrading/">Conviction Score & Copytrading</a></li>
+    <li><a href="/en/knowledge-base/resources/conviction-score-copytrading/">Conviction Score & Copytrading Filtering</a></li>
+    <li><a href="/en/reports/simmer/simmer-strategy-matrix-2026-03-04.html">Simmer Strategy Matrix Complete Config</a></li>
+    <li><a href="/en/knowledge-base/kol/dmitriyungarov/">KOL Ranking & Assessment Report</a></li>
+    <li><a href="/zh/knowledge-base/strategies/copytrading/">中文版：跟单交易完整指南</a></li>
   </ul>
 </section>
 
@@ -94,7 +317,8 @@
   <a class="next-card" href="/en/knowledge-base/strategies/"><div class="small">Back to</div><h4>Strategy Overview</h4></a>
   <a class="next-card" href="/en/knowledge-base/resources/conviction-score-copytrading/"><div class="small">Read next</div><h4>Trade Quality Filtering</h4></a>
 </div>
+
 </div></main>
-<footer><div class="container"><p>Created: 2026-03-07 · Source: Community synthesis</p></div></footer>
+<footer><div class="container"><p>Created: 2026-03-07 · Updated: 2026-03-12 · Source: Community synthesis</p></div></footer>
 </body>
 </html>

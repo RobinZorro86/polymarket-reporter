@@ -1,6 +1,6 @@
 # Phase-2 Plan B 自动验证报告
 
-**验证时间**: 2026-03-12 16:03 JST（自动验证更新）  
+**验证时间**: 2026-03-12 18:18 JST（最终收尾验证）  
 **Cron Job**: 460c5abf-a1ea-4d54-8068-5d6b12a96fcc (pred101-phase2-autopilot-15m)  
 **验证人**: Zorro
 
@@ -14,16 +14,18 @@
 - ✅ 无中文标题、正文、导航或按钮残留
 
 ### 2. 中文路径完整性
-- ✅ `/zh/` 下 61 个 HTML 页面全部完整
-- ✅ 无英文内容污染（仅 HTML 技术术语）
+- ✅ `/zh/` 下 63 个 HTML 页面全部完整
+- ✅ 无英文内容污染（引用内容除外：GitHub 项目名、Reddit 帖子标题）
 - ✅ 报告页（daily/weekly）全部含双语切换器
+- ✅ **新增**: `zh/strategies/index.html` 已创建
+- ✅ **新增**: `zh/kol/index.html` 已创建
 
 ### 3. 旧路径跳转
 - ✅ `vercel.json` 配置正确
 - ✅ 根目录 `knowledge-base/index.html` meta refresh 跳转正常
 - ✅ 根目录 `reports/index.html` meta refresh 跳转正常
-- ✅ 实际访问测试: https://www.pred101.com/knowledge-base/ → HTTP 200 + meta refresh 到 `/en/knowledge-base/`
-- ✅ 实际访问测试: https://www.pred101.com/reports/ → HTTP 200 + meta refresh 到 `/en/reports/`
+- ✅ 实际访问测试：https://www.pred101.com/knowledge-base/ → HTTP 200 + meta refresh 到 `/en/knowledge-base/`
+- ✅ 实际访问测试：https://www.pred101.com/reports/ → HTTP 200 + meta refresh 到 `/en/reports/`
 
 ### 4. Canonical / Hreflang
 - ✅ EN 页面：canonical 指向 `/en/*`, hreflang="zh" 指向 `/zh/*`
@@ -32,7 +34,7 @@
 ### 5. 语言切换器
 - ✅ EN 页面 → 含"中文"链接指向对应 ZH 页面
 - ✅ ZH 页面 → 含"English"链接指向对应 EN 页面
-- ✅ 覆盖主干页 + 报告页（daily/weekly）
+- ✅ 覆盖主干页 + 报告页（daily/weekly）+ 策略页 + KOL 页
 
 ---
 
@@ -41,8 +43,8 @@
 | 路径 | HTML 页面数 | 状态 |
 |------|------------|------|
 | `/en/*` | 42 | ✅ 纯净 |
-| `/zh/*` | 61 | ✅ 完整 |
-| **总计** | **103** | ✅ 正常 |
+| `/zh/*` | 63 | ✅ 完整 |
+| **总计** | **105** | ✅ 正常 |
 
 ---
 
@@ -58,20 +60,26 @@
 **2026-03-12 14:03 JST 自动验证**：
 - ✅ 运行自动化验证脚本 `scripts/verify-phase2-planb.py`
 - ✅ 确认无未清理项
+
+**2026-03-12 18:18 JST 最终收尾验证**（本次运行）：
+- ✅ 补全 `zh/strategies/index.html`（中文策略页）
+- ✅ 补全 `zh/kol/index.html`（中文 KOL 研究页）
+- ✅ 运行最终验证脚本 `scripts/final-sweep-check-v3.py`
 - ✅ 确认无中文残留（英文路径）
-- ✅ 确认无英文污染（中文路径）
+- ✅ 确认无英文污染（中文路径，引用内容除外）
 - ✅ 确认旧路径跳转正常
-- ✅ 确认 Canonical / Hreflang 配置一致（含 self-reference）
-- ✅ 确认语言切换器双向可用（103/103 页面覆盖）
+- ✅ 确认 Canonical / Hreflang 配置一致
+- ✅ 确认语言切换器双向可用（105/105 页面覆盖）
+- ✅ Git 提交：`476d660` 已推送
 
 ---
 
 ## 📋 下一步
 
-**等待 Robin 确认 Phase-3 优先级方向**
+**Phase-2 Plan B 全部完成，等待 Robin 确认 Phase-3 优先级方向**
 
 可选方向：
-1. **内容深化** - 策略实例、教程视频/截图、交互元素
+1. **内容深化** - 策略实例、教程视频/截图、交互元素（已启动）
 2. **性能优化** - 图片优化、CSS/JS 打包、懒加载
 3. **SEO 增强** - 元描述、Open Graph、结构化数据
 4. **新模块开发** - 待定

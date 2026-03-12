@@ -1,6 +1,6 @@
 # Phase-2 Plan B 最终状态报告
 
-**执行时间**: 2026-03-12 20:48 JST  
+**执行时间**: 2026-03-12 21:03 JST  
 **Cron Job**: 460c5abf-a1ea-4d54-8068-5d6b12a96fcc (pred101-phase2-autopilot-15m)  
 **验证人**: Zorro
 
@@ -20,6 +20,7 @@
 - ✅ 扫描 `en/` 下所有 `.html` 文件 - 无中文正文
 - ✅ 仅语言切换器含"中文"链接文案（预期行为）
 - ✅ meta description 中"Chinese-first"为设计说明（非污染）
+- ✅ 语言切换器链接"中文版：xxx"为预期行为（已更新验证脚本）
 
 ### 3. 旧路径跳转配置
 - ✅ `vercel.json` 已配置:
@@ -27,8 +28,8 @@
   - `/reports/:path*` → `/en/reports/:path*`
 - ✅ 根目录 `knowledge-base/index.html` - meta refresh 跳转到 `/en/knowledge-base/`
 - ✅ 根目录 `reports/index.html` - meta refresh 跳转到 `/en/reports/`
-- ✅ 实际访问测试: https://www.pred101.com/knowledge-base/ → 正常跳转到英文路径
-- ✅ 实际访问测试: https://www.pred101.com/reports/ → 正常跳转到英文路径
+- ✅ 实际访问测试：https://www.pred101.com/knowledge-base/ → 正常跳转到英文路径
+- ✅ 实际访问测试：https://www.pred101.com/reports/ → 正常跳转到英文路径
 
 ### 4. 中文路径完整性
 - ✅ `/zh/` 路径包含 63 个 HTML 页面
@@ -43,10 +44,12 @@
 ### 5. Canonical / Hreflang 验证
 - ✅ 所有 `/en/*` 页面包含:
   - `<link rel="canonical" href="https://www.pred101.com/en/...">`
+  - `<link rel="alternate" hreflang="en" href="https://www.pred101.com/en/...">`
   - `<link rel="alternate" hreflang="zh" href="https://www.pred101.com/zh/...">`
 - ✅ 所有 `/zh/*` 页面包含:
   - `<link rel="canonical" href="https://www.pred101.com/zh/...">`
   - `<link rel="alternate" hreflang="en" href="https://www.pred101.com/en/...">`
+  - `<link rel="alternate" hreflang="zh" href="https://www.pred101.com/zh/...">`
 - ✅ 语言切换器双向正确:
   - EN 页面 → 指向 `/zh/...`
   - ZH 页面 → 指向 `/en/...`
@@ -61,7 +64,7 @@
 
 ---
 
-## 📊 当前状态 (2026-03-12 20:48 JST 验证)
+## 📊 当前状态 (2026-03-12 21:03 JST 验证)
 
 | 检查项 | 状态 | 备注 |
 |--------|------|------|
@@ -76,10 +79,11 @@
 | Git 提交 | ✅ | Phase-3 P0 已完成 (commit `d0abdfe`) |
 | Vercel 部署 | ✅ | 自动触发同步 |
 | 页面统计 | ✅ | en/: 42 页，zh/: 63 页，总计 105 页 |
+| 验证脚本 | ✅ | 已更新正确识别语言切换器文案 (commit `0a8eb58`) |
 
 ---
 
-## 🔄 Cron 自动验证记录 (2026-03-12 20:48 JST)
+## 🔄 Cron 自动验证记录 (2026-03-12 21:03 JST)
 
 **验证任务**:
 - ✅ 扫描 `/en/*` 中文残留 → 仅语言切换链接含"中文"（预期行为）
@@ -92,7 +96,7 @@
 - ✅ Hreflang 配对 → EN/ZH 双向正确（含日报/周报/策略深层页面）
 - ✅ 语言切换器 → 双向可用（主干页 + 报告页 + 策略页 + 学习路径）
 - ✅ 页面统计 → en/: 42 页，zh/: 63 页
-- ✅ Git 状态 → 已推送至 main 分支，Vercel 自动部署
+- ✅ Git 状态 → 已推送至 main 分支，Vercel 自动部署中
 
 **验证结果**: 全部通过，无未清理项
 
@@ -107,6 +111,7 @@
 - ✅ 旧路径 `/knowledge-base/*` 与 `/reports/*` 正确跳转
 - ✅ Canonical / Hreflang 配置一致
 - ✅ 语言切换器双向可用
+- ✅ 验证脚本已更新，正确识别语言切换器文案
 - ✅ 所有修复已推送至 GitHub，Vercel 自动部署中
 
 **下一步**: 等待 Robin 确认 Phase-3 优先级方向

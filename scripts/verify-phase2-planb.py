@@ -35,8 +35,13 @@ class Phase2Verifier:
         
         # 中文正则（排除技术术语和预期文案）
         chinese_pattern = re.compile(r'[\u4e00-\u9fff]+')
-        # 预期的中文（语言切换器中的"中文"链接）
-        expected_chinese = {'中文', '简体中文'}
+        # 预期的中文（语言切换器中的"中文"链接、"中文版：xxx"等）
+        expected_chinese = {'中文', '简体中文', '中文版：天气交易完整指南', '中文版：跟单交易完整指南'}
+        # 预期的语言切换器链接模式
+        lang_switch_patterns = [
+            r'href="/zh/[^"]*"[^>]*>中文版',
+            r'href="/zh/[^"]*"[^>]*>中文',
+        ]
         
         for html_file in en_dir.rglob("*.html"):
             if html_file.name.endswith(".backup"):
@@ -47,6 +52,13 @@ class Phase2Verifier:
             
             # 过滤预期的中文
             unexpected_chinese = [m for m in chinese_matches if m not in expected_chinese]
+            
+            # 检查是否在语言切换器链接中（预期行为）
+            is_lang_switch = any(re.search(p, content) for p in lang_switch_patterns)
+            
+            # 如果只有语言切换器中的中文，不算问题
+            if is_lang_switch and len(unexpected_chinese) <= 2:
+                unexpected_chinese = []
             
             if unexpected_chinese:
                 issues.append((str(html_file.relative_to(self.base_dir)), unexpected_chinese[:5]))

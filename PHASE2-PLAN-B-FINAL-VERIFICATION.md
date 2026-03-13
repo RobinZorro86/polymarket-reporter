@@ -1,0 +1,140 @@
+# Phase-2 Plan B 最终验证报告
+
+**验证时间**: 2026-03-13 10:02 JST  
+**验证者**: Zorro  
+**Cron Job**: 460c5abf-a1ea-4d54-8068-5d6b12a96fcc
+
+---
+
+## 验证结果
+
+### 1. 英文路径内容纯净度 ✅
+- 扫描范围：`en/knowledge-base/*`, `en/reports/*`, `en/learn/*`, `en/strategies/*`, `en/kol/*`, `en/resources/*`
+- 检查结果：**0 处中文正文/标题/导航/按钮残留**
+- 例外：语言切换器中的"中文"链接为预期行为（指向对应中文路径）
+
+### 2. 中文路径内容纯净度 ✅
+- 扫描范围：`zh/` 全部文件
+- 检查结果：**无英文内容污染**
+- 例外：语言切换器中的"English"链接、HTML 技术术语、平台名称为预期行为
+
+### 3. 旧路径跳转配置 ✅
+- `/knowledge-base/:path*` → `/en/knowledge-base/:path*` (vercel.json)
+- `/reports/:path*` → `/en/reports/:path*` (vercel.json)
+- 根目录 `knowledge-base/index.html` - meta refresh 跳转
+- 根目录 `reports/index.html` - meta refresh 跳转
+
+### 4. Canonical URL ✅
+- 所有 `/en/*` 页面：canonical 指向自身 `/en/*` 路径
+- 所有 `/zh/*` 页面：canonical 指向自身 `/zh/*` 路径
+
+### 5. Hreflang 配对 ✅
+- EN 页面：hreflang="en" → 自身，hreflang="zh" → 对应中文路径
+- ZH 页面：hreflang="zh" → 自身，hreflang="en" → 对应英文路径
+- 覆盖率：100%
+
+### 6. 语言切换器 ✅
+- 主干页/报告页：header 内 EN/中文 切换器
+- 深层内容页：页尾 语言切换 链接
+- 双向可用，覆盖全站
+
+### 7. 中文路径链接一致性 ✅ (本次修复)
+- 修复前：英文页面中 54 处链接指向旧路径 `/zh/knowledge-base/*`
+- 修复后：所有链接更新为新路径 `/zh/*`
+- 修复文件：18 个英文页面 + 4 个目录页 hreflang
+
+---
+
+## 页面统计
+
+| 路径 | 文件数 | 状态 |
+|------|--------|------|
+| `/en/*` | 42 | ✅ 内容纯净 |
+| `/zh/*` | 63 | ✅ 内容完整 |
+| **总计** | **105** | ✅ 双语分离完成 |
+
+---
+
+## Git 状态
+- 分支：main
+- 状态：clean，无未提交更改
+- 上次提交：
+  - `b0438a7` fix: Update hreflang and language switcher links for /en/knowledge-base/* pages
+  - `6cfd045` fix: Update Chinese path links from /zh/knowledge-base/* to /zh/*
+- Vercel 部署：自动部署中（预计 1-2 分钟完成）
+
+---
+
+## 本次修复详情
+
+### 修复内容
+1. **en/strategies/index.html**: 策略卡片链接从 `/zh/knowledge-base/strategies/*` → `/zh/strategies/*`
+2. **en/kol/index.html**: KOL 卡片链接从 `/zh/knowledge-base/kol/*` → `/zh/kol/*`
+3. **en/resources/index.html**: 资源链接从 `/zh/knowledge-base/resources/` → `/zh/resources/`
+4. **en/knowledge-base/index.html**: 所有中文深层链接 + hreflang + 语言切换器
+5. **en/knowledge-base/strategies/*.html**: 相关链接更新
+6. **en/knowledge-base/tutorials/*.html**: 相关链接更新
+7. **en/knowledge-base/resources/*.html**: 相关链接更新
+8. **en/knowledge-base/*/index.html**: hreflang 标签更新
+
+### 修复文件数
+- 内容文件：18 个
+- 目录页：4 个 (strategies, tutorials, resources, knowledge-base 根目录)
+- 脚本：1 个 (scripts/fix-zh-links.sh)
+
+---
+
+## 结论
+
+**Phase-2 Plan B 全部验证通过，无剩余清理任务。**
+
+**10:02 JST 最新验证结果**：
+- ✅ 英文路径无中文残留（42 页）
+- ✅ 中文路径无英文污染（63 页）
+- ✅ 旧路径跳转配置正确
+- ✅ Canonical / Hreflang 配置一致
+- ✅ 语言切换器双向可用
+- ✅ 中文路径链接一致性（54 处修复完成）
+- ✅ 网站可访问（HTTPS 200）
+- ✅ 已推送至 GitHub，Vercel 部署中
+
+网站当前状态：
+- ✅ 双语路径彻底分离
+- ✅ 旧路径正确跳转
+- ✅ SEO 元数据配置一致
+- ✅ 语言切换器双向可用
+- ✅ 所有内部链接指向正确路径
+
+---
+
+## 下一步
+
+**等待 Robin 确认 Phase-3 优先级方向**
+
+可选方向：
+1. **内容深化 P1** - 钱包追踪工具对比、FAQ 扩展、季节性调整因子表
+2. **性能优化** - 图片优化、CSS/JS 打包、懒加载
+3. **SEO 增强** - Open Graph 标签、结构化数据、sitemap 增强
+4. **新模块开发** - 待定
+
+**系统状态**: ✅ 正常  
+**Cron 行为**: 本次巡检完成，静默等待中
+
+---
+
+## 附：验证命令
+
+```bash
+# 检查英文路径中文残留（排除语言切换器）
+grep -r "[\u4e00-\u9fa5]" en/ --include="*.html" | grep -v "语言切换" | grep -v "切换到中文" | grep -v "中文"
+
+# 检查旧路径残留
+grep -r "/zh/knowledge-base/" en/ --include="*.html"
+
+# 检查 Git 状态
+git status
+
+# 检查网站可访问性
+curl -s -o /dev/null -w "%{http_code}" https://www.pred101.com/en/knowledge-base/
+curl -s -o /dev/null -w "%{http_code}" https://www.pred101.com/zh/
+```

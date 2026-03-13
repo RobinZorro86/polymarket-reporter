@@ -1,6 +1,6 @@
 # Phase-2 Plan B 最新验证报告
 
-**验证时间**: 2026-03-13 07:17 JST  
+**验证时间**: 2026-03-13 08:32 JST  
 **验证者**: Zorro  
 **Cron Job**: 460c5abf-a1ea-4d54-8068-5d6b12a96fcc
 
@@ -11,12 +11,12 @@
 ### 1. 英文路径内容纯净度 ✅
 - 扫描范围：`en/knowledge-base/*`, `en/reports/*`, `en/learn/*`, `en/strategies/*`, `en/kol/*`
 - 检查结果：**0 处中文残留**
-- 例外：跨语言链接（如"中文版：跟单交易完整指南"）为预期行为
+- 例外：语言切换器中的"中文"链接为预期行为
 
 ### 2. 中文路径内容纯净度 ✅
 - 扫描范围：`zh/` 全部文件
 - 检查结果：**无英文内容污染**
-- 例外：HTML 技术术语、平台名称（Polymarket/NOAA）、KOL 名称为预期行为
+- 例外：语言切换器中的"English"链接、HTML 技术术语、平台名称为预期行为
 
 ### 3. 旧路径跳转配置 ✅
 - `/knowledge-base/:path*` → `/en/knowledge-base/:path*` (vercel.json)
@@ -27,12 +27,11 @@
 ### 4. Canonical URL ✅
 - 所有 `/en/*` 页面：canonical 指向自身 `/en/*` 路径
 - 所有 `/zh/*` 页面：canonical 指向自身 `/zh/*` 路径
-- 示例：`en/knowledge-base/index.html` → `https://www.pred101.com/en/knowledge-base/`
 
 ### 5. Hreflang 配对 ✅
 - EN 页面：hreflang="en" → 自身，hreflang="zh" → 对应中文路径
 - ZH 页面：hreflang="zh" → 自身，hreflang="en" → 对应英文路径
-- 覆盖率：99/99 页面
+- 覆盖率：100%
 
 ### 6. 语言切换器 ✅
 - 主干页/报告页：header 内 EN/中文 切换器
@@ -45,9 +44,9 @@
 
 | 路径 | 文件数 | 状态 |
 |------|--------|------|
-| `/en/*` | 45 | ✅ 内容纯净 |
-| `/zh/*` | 77 | ✅ 内容完整 |
-| **总计** | **122** | ✅ 双语分离完成 |
+| `/en/*` | 43 | ✅ 内容纯净 |
+| `/zh/*` | 60 | ✅ 内容完整 |
+| **总计** | **103** | ✅ 双语分离完成 |
 
 ---
 

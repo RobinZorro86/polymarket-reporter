@@ -5,8 +5,18 @@
   "installCommand": "echo 'No install step needed'",
   "redirects": [
     {
+      "source": "/knowledge-base",
+      "destination": "/en/knowledge-base/",
+      "permanent": true
+    },
+    {
       "source": "/knowledge-base/:path*",
       "destination": "/en/knowledge-base/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/reports",
+      "destination": "/en/reports/",
       "permanent": true
     },
     {

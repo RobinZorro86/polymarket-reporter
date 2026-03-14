@@ -23,6 +23,11 @@
       "source": "/reports/:path*",
       "destination": "/en/reports/:path*",
       "permanent": true
+    },
+    {
+      "source": "/about.html",
+      "destination": "/en/about.html",
+      "permanent": true
     }
   ],
   "headers": [

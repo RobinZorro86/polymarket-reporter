@@ -181,22 +181,29 @@ def check_vercel_redirects():
     
     return issues
 
-def check_old_paths_exist():
-    """Check that old root paths don't exist as directories"""
+def check_old_paths_redirect():
+    """Check that old root paths have proper HTML redirect pages"""
     issues = []
     
-    old_paths = [
-        BASE_DIR / "knowledge-base",
-        BASE_DIR / "reports",
-        BASE_DIR / "learn",
-        BASE_DIR / "strategies",
-        BASE_DIR / "kol",
-        BASE_DIR / "resources"
-    ]
+    old_paths = {
+        "knowledge-base": "/en/knowledge-base/",
+        "reports": "/en/reports/",
+        "learn": "/en/learn/",
+        "strategies": "/en/strategies/",
+        "kol": "/en/kol/",
+        "resources": "/en/resources/"
+    }
     
-    for path in old_paths:
-        if path.exists() and path.is_dir():
-            issues.append(f"OLD_PATH_EXISTS: {path.name}")
+    for path_name, expected_redirect in old_paths.items():
+        index_path = BASE_DIR / path_name / "index.html"
+        if not index_path.exists():
+            issues.append(f"OLD_PATH_REDIRECT_MISSING: {path_name}/index.html")
+        else:
+            # Check the redirect page points to correct destination
+            html = read_file(index_path)
+            if html:
+                if expected_redirect not in html:
+                    issues.append(f"OLD_PATH_REDIRECT_WRONG: {path_name} should redirect to {expected_redirect}")
     
     return issues
 
@@ -232,14 +239,14 @@ def main():
     
     all_issues = defaultdict(list)
     
-    # 1. Check old paths don't exist
-    print("📁 [1/5] Checking old root paths removed...")
-    old_path_issues = check_old_paths_exist()
+    # 1. Check old paths have proper redirect pages
+    print("📁 [1/5] Checking old root paths redirect pages...")
+    old_path_issues = check_old_paths_redirect()
     if old_path_issues:
         all_issues["OLD_PATHS"].extend(old_path_issues)
         print(f"   ⚠️  {len(old_path_issues)} issues")
     else:
-        print("   ✅ Old paths removed")
+        print("   ✅ Old paths have proper redirect pages")
     
     # 2. Check vercel.json redirects
     print("📁 [2/5] Checking redirect configuration...")

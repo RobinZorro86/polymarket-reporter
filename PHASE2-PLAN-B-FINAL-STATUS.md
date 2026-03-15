@@ -103,8 +103,8 @@ hreflang/switcher 不匹配：0 页
 
 **说明**: vercel.json 已配置 301 永久重定向，无需保留 meta refresh 文件。删除后可避免潜在的重定向循环或 SEO 混淆。
 
-**Git 提交**: 待提交  
-**推送状态**: 待推送
+**Git 提交**: `d256a06` - chore: remove legacy meta refresh files (vercel.json 301 redirects are sufficient)  
+**推送状态**: ✅ 已推送到 origin/main
 
 ---
 
@@ -113,9 +113,9 @@ hreflang/switcher 不匹配：0 页
 | 检查项 | 状态 | 详情 |
 |--------|------|------|
 | 分支 | ✅ | main |
-| 工作树 | 🔄 | 有未提交更改 (旧路径 meta refresh 文件清理) |
-| 远程同步 | ⏳ | 待推送 |
-| 最新提交 | ✅ | `e212891` - fix: correct hreflang/switcher mismatches |
+| 工作树 | ✅ | 干净 (提交后) |
+| 远程同步 | ✅ | up to date with 'origin/main' |
+| 最新提交 | ✅ | `d256a06` - chore: remove legacy meta refresh files |
 
 ---
 

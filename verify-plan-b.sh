@@ -71,31 +71,32 @@ else:
 
 # 2. Check ZH pages - just count, most English is legitimate
 zh_count = sum(1 for r, d, fs in os.walk('./zh') for f in fs if f.endswith('.html'))
+en_count = sum(1 for r, d, fs in os.walk('./en') for f in fs if f.endswith('.html'))
 
 print("")
 print("2. 检查中文路径完整性...")
 print(f"   中文路径页面数：{zh_count}")
 print("   ✅ 中文路径内容完整（英文专有名词为合法内容）")
 
-# 3. Check old path redirects
+# 3. Check old path redirects (vercel.json 301 redirects)
 print("")
 print("3. 检查旧路径跳转配置...")
-old_paths = ['index.html', 'knowledge-base/index.html', 'reports/index.html', 
-             'learn/index.html', 'strategies/index.html', 'kol/index.html', 'resources/index.html']
-redirect_ok = 0
-for path in old_paths:
-    try:
-        with open(f'./{path}', 'r', encoding='utf-8') as f:
-            content = f.read()
-            if 'meta http-equiv="refresh"' in content and '/en/' in content:
-                redirect_ok += 1
-    except:
-        pass
-print(f"   旧路径跳转配置数：{redirect_ok}/{len(old_paths)}")
-if redirect_ok == len(old_paths):
-    print("   ✅ 旧路径跳转配置正确")
-else:
-    print("   ⚠️ 部分旧路径跳转缺失")
+try:
+    with open('./vercel.json', 'r', encoding='utf-8') as f:
+        vercel_content = f.read()
+    # Check for 7 key redirect rules (base paths)
+    redirect_patterns = [
+        '"/knowledge-base"', '"/reports"', '"/learn"', 
+        '"/strategies"', '"/kol"', '"/resources"', '"/about.html"'
+    ]
+    redirect_ok = sum(1 for p in redirect_patterns if p in vercel_content)
+    print(f"   旧路径跳转配置数：{redirect_ok}/{len(redirect_patterns)}")
+    if redirect_ok == len(redirect_patterns):
+        print("   ✅ 旧路径跳转配置正确 (vercel.json 301)")
+    else:
+        print("   ⚠️ 部分旧路径跳转缺失")
+except Exception as e:
+    print(f"   ⚠️ 无法读取 vercel.json: {e}")
 
 # 4. Check Canonical / Hreflang
 en_canonical = en_hreflang = zh_canonical = zh_hreflang = 0
@@ -128,7 +129,9 @@ for root, dirs, files in os.walk('./en'):
     for f in files:
         if f.endswith('.html'):
             with open(os.path.join(root, f), 'r', encoding='utf-8') as fp:
-                if 'lang-switch' in fp.read() or '切换' in fp.read() or 'Chinese' in fp.read():
+                content = fp.read()
+                # Check for lang-switch class or language switcher patterns
+                if 'lang-switch' in content or '切换' in content or 'Chinese' in content:
                     en_switcher += 1
 
 for root, dirs, files in os.walk('./zh'):
@@ -141,8 +144,8 @@ for root, dirs, files in os.walk('./zh'):
 
 print("")
 print("5. 检查语言切换器覆盖...")
-print(f"   英文页面语言切换器：{en_switcher}")
-print(f"   中文页面语言切换器：{zh_switcher}")
+print(f"   英文页面语言切换器：{en_switcher}/{en_count}")
+print(f"   中文页面语言切换器：{zh_switcher}/{zh_count}")
 
 # Summary
 en_count = sum(1 for r, d, fs in os.walk('./en') for f in fs if f.endswith('.html'))

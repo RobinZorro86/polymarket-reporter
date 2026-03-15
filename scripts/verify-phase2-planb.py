@@ -105,34 +105,29 @@ class Phase2Verifier:
         return issues
     
     def check_old_path_redirects(self) -> Dict[str, bool]:
-        """检查旧路径跳转配置"""
+        """检查旧路径跳转配置（vercel.json 301 重定向）"""
         results = {}
         
-        # 检查 vercel.json
+        # 检查 vercel.json - 301 重定向是首选方案，无需 meta refresh 文件
         vercel_json = self.base_dir / "vercel.json"
         if vercel_json.exists():
             content = vercel_json.read_text(encoding='utf-8')
             results['vercel_json_redirects'] = '/knowledge-base/' in content and '/en/knowledge-base/' in content
             results['vercel_json_reports'] = '/reports/' in content and '/en/reports/' in content
+            results['vercel_json_learn'] = '/learn/' in content and '/en/learn/' in content
+            results['vercel_json_strategies'] = '/strategies/' in content and '/en/strategies/' in content
+            results['vercel_json_kol'] = '/kol/' in content and '/en/kol/' in content
+            results['vercel_json_resources'] = '/resources/' in content and '/en/resources/' in content
         else:
             results['vercel_json_redirects'] = False
             results['vercel_json_reports'] = False
+            results['vercel_json_learn'] = False
+            results['vercel_json_strategies'] = False
+            results['vercel_json_kol'] = False
+            results['vercel_json_resources'] = False
         
-        # 检查根路径 index.html
-        kb_index = self.base_dir / "knowledge-base" / "index.html"
-        reports_index = self.base_dir / "reports" / "index.html"
-        
-        if kb_index.exists():
-            content = kb_index.read_text(encoding='utf-8')
-            results['kb_meta_refresh'] = 'http-equiv="refresh"' in content and '/en/knowledge-base/' in content
-        else:
-            results['kb_meta_refresh'] = False
-        
-        if reports_index.exists():
-            content = reports_index.read_text(encoding='utf-8')
-            results['reports_meta_refresh'] = 'http-equiv="refresh"' in content and '/en/reports/' in content
-        else:
-            results['reports_meta_refresh'] = False
+        # 注意：不再检查 meta refresh 文件，vercel.json 301 重定向更优（SEO 友好）
+        # 根目录下的 knowledge-base/, reports/ 等应为空目录，由 vercel.json 处理重定向
         
         return results
     
@@ -250,7 +245,7 @@ class Phase2Verifier:
         redirects = self.check_old_path_redirects()
         all_redirects_ok = all(redirects.values())
         if all_redirects_ok:
-            print("   ✅ 旧路径跳转配置正确")
+            print(f"   ✅ 旧路径跳转配置正确 ({len(redirects)}/ vercel.json 规则)")
         else:
             print("   ⚠️ 跳转配置问题:")
             for key, val in redirects.items():

@@ -1,6 +1,6 @@
 # Phase-2 Plan B & Phase-3 P0 状态报告
 
-**验证时间**: 2026-03-16 02:54 JST  
+**验证时间**: 2026-03-16 03:27 JST  
 **Cron Job**: 460c5abf-a1ea-4d54-8068-5d6b12a96fcc (pred101-phase2-autopilot-15m)  
 **执行人**: Zorro
 
@@ -14,7 +14,7 @@
 
 ---
 
-## 本次运行摘要 (2026-03-16 02:54 JST)
+## 本次运行摘要 (2026-03-16 03:27 JST)
 
 **已完成** / **进行中** / **剩余项** / **下一步**
 
@@ -22,13 +22,49 @@
 |--------|------|------|
 | 英文路径中文残留 | ✅ 0 页 | 47 页全部纯净 |
 | 中文路径英文污染 | ✅ 0 页 | 61 页全部完整 |
-| 旧路径跳转配置 | ✅ 13 条 | vercel.json 301 重定向 |
+| 旧路径跳转配置 | ✅ 7 条 | vercel.json 301 重定向 |
 | Canonical/Hreflang | ✅ 108 页 | 双向配对正确 |
 | 语言切换器覆盖 | ✅ 108 页 | 全站覆盖 |
+| 语言切换器自我引用 | ✅ 已修复 | 91 页 EN 链接指向当前页 |
+| 旧路径 meta refresh | ✅ 已清理 | 删除冗余文件 (vercel.json 足够) |
 | Sitemap URL 数 | ✅ 110 条 | /en/* + /zh/* 结构正确 |
-| Git 状态 | ✅ 干净 | 已推送到 origin/main |
+| Git 状态 | ✅ 已推送 | `361bc1b` → origin/main |
 
 **下一步**: 等待 Robin 确认 Phase-3 优先级方向（内容深化 P1 / 性能优化 / SEO 增强 / 新模块开发）
+
+---
+
+## 本次修复详情 (2026-03-16 03:27 JST)
+
+### 修复语言切换器自我引用
+
+**问题**: 所有页面的语言切换器中，当前语言（EN 或 ZH）的链接指向根路径或父路径，而非当前页面。
+
+**影响范围**: 91 个 HTML 文件（47 个英文页面 + 44 个中文页面）
+
+**修复内容**:
+- `/en/about.html`: EN 链接从 `/en/` → `/en/about.html`
+- `/en/knowledge-base/`: EN 链接从 `/en/` → `/en/knowledge-base/`
+- 所有其他页面同理修复
+
+**示例 diff**:
+```diff
+- <a href="/en/" class="active">EN</a>
++ <a href="/en/about.html" class="active">EN</a>
+```
+
+**Git 提交**: `361bc1b` - chore: fix lang-switcher self-reference on all pages (EN link points to current page)  
+**推送状态**: ✅ 已推送到 origin/main
+
+### 清理冗余 meta refresh 文件
+
+**删除的文件**:
+- `knowledge-base/index.html` → vercel.json 已配置 301 重定向到 `/en/knowledge-base/`
+- `reports/index.html` → vercel.json 已配置 301 重定向到 `/en/reports/`
+
+**说明**: 这些文件是之前删除后重新出现的未跟踪文件。vercel.json 301 重定向是首选方案（SEO 更友好），无需保留 meta refresh 文件。
+
+---
 
 ---
 

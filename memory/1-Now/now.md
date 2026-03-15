@@ -1,18 +1,18 @@
 # 当前状态 - Now
 
-**更新时间:** 2026-03-15 21:55 JST  
-**阶段:** Phase-2 Plan B ✅ 已完成 / Phase-3 P0 ✅ 已完成 / hreflang 收尾修复 ✅ 已完成  
+**更新时间:** 2026-03-15 22:25 JST  
+**阶段:** Phase-2 Plan B ✅ 已完成 / Phase-3 P0 ✅ 已完成 / hreflang 收尾修复 ✅ 已完成 / 旧路径 meta refresh 清理 ✅ 已完成  
 **下次检查:** 等待 Robin Phase-3 P1 优先级确认
-**Cron 验证:** 2026-03-15 21:55 JST - 全站状态正常，无剩余清理任务
+**Cron 验证:** 2026-03-15 22:25 JST - 全站状态正常，无剩余清理任务
 
 ---
 
 ## 当前状态
 
 ### Phase-2 Plan B 收尾工作
-- **状态:** ✅ 全部完成（含 hreflang/switcher 一致性修复）
-- **完成时间:** 2026-03-12 21:03 JST（主体） / 2026-03-15 21:55 JST（最终收尾）
-- **部署状态:** ✅ 已推送 main (commit `e212891`) / Vercel 自动部署中
+- **状态:** ✅ 全部完成（含 hreflang/switcher 一致性修复 + 旧路径 meta refresh 文件清理）
+- **完成时间:** 2026-03-12 21:03 JST（主体） / 2026-03-15 21:55 JST（hreflang 修复） / 2026-03-15 22:25 JST（meta refresh 清理）
+- **部署状态:** ✅ 已推送 main (commit `d256a06`) / Vercel 自动部署中
 - **主域名:** https://www.pred101.com
 
 ### Phase-3 P0 内容深化
@@ -23,12 +23,12 @@
 - **Commit:** `d0abdfe`
 
 ### 已完成任务
-1. **英文路径 `/en/*`** - 42 页，无中文残留（仅跨语言链接）
-2. **中文路径 `/zh/*`** - 63 页，无英文污染（仅技术术语/专有名词）
-3. **旧路径跳转** - `/knowledge-base/*` 与 `/reports/*` 正确跳转至 `/en/*`
-4. **Canonical / Hreflang** - 105 页全部配置一致
+1. **英文路径 `/en/*`** - 47 页，无中文残留（仅跨语言链接）
+2. **中文路径 `/zh/*`** - 61 页，无英文污染（仅技术术语/专有名词）
+3. **旧路径跳转** - vercel.json 301 重定向配置完成（7 条规则）
+4. **Canonical / Hreflang** - 108 页全部配置一致
 5. **语言切换器** - 双向可用，覆盖全站
-6. **旧路径 301 修复** - 删除 `knowledge-base/index.html` 与 `reports/index.html`，启用 vercel.json 301 重定向
+6. **旧路径 meta refresh 清理** - 删除 6 个冗余文件 (knowledge-base/, reports/, strategies/, kol/, resources/, learn/)
 7. **教程详情页面** - 4 页
 8. **报告样本页面** - 2 页 (日报 + 周报)
 9. **全站修复** - Canonical URL (49 页) + 结构入口链接统一 (24 页 ZH)

@@ -1,6 +1,6 @@
 # Phase-2 Plan B & Phase-3 P0 状态报告
 
-**验证时间**: 2026-03-16 03:54 JST  
+**验证时间**: 2026-03-16 04:24 JST  
 **Cron Job**: 460c5abf-a1ea-4d54-8068-5d6b12a96fcc (pred101-phase2-autopilot-15m)  
 **执行人**: Zorro
 
@@ -14,7 +14,7 @@
 
 ---
 
-## 本次运行摘要 (2026-03-16 03:54 JST)
+## 本次运行摘要 (2026-03-16 04:24 JST)
 
 **已完成** / **进行中** / **剩余项** / **下一步**
 
@@ -26,7 +26,12 @@
 | Canonical/Hreflang | ✅ 108 页 | 双向配对正确 |
 | 语言切换器覆盖 | ✅ 108 页 | 全站覆盖 |
 | Sitemap URL 数 | ✅ 110 条 | /en/* + /zh/* 结构正确 |
-| Git 状态 | ✅ 已推送 | `ed82539` → origin/main |
+| Git 状态 | ✅ 已推送 | `1ef96b5` → origin/main |
+
+**本次清理** (04:14-04:24 JST):
+- 删除旧路径 meta refresh 目录 6 个 (knowledge-base/, reports/, strategies/, kol/, resources/, learn/)
+- 统一日报文件名格式 (daily-20260309.html → daily-2026-03-09.html)
+- vercel.json 301 重定向为唯一旧路径处理方案
 
 **下一步**: 等待 Robin 确认 Phase-3 优先级方向（内容深化 P1 / 性能优化 / SEO 增强 / 新模块开发）
 

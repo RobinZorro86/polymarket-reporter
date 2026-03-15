@@ -1,6 +1,6 @@
 # Phase-2 Plan B & Phase-3 P0 状态报告
 
-**验证时间**: 2026-03-15 21:55 JST  
+**验证时间**: 2026-03-15 22:00 JST  
 **Cron Job**: 460c5abf-a1ea-4d54-8068-5d6b12a96fcc (pred101-phase2-autopilot-15m)  
 **执行人**: Zorro
 
@@ -8,13 +8,13 @@
 
 ## 任务判断结果
 
-**Phase-2 Plan B 状态**: ✅ **全部完成** (最终验证通过 + 收尾修复完成)  
+**Phase-2 Plan B 状态**: ✅ **全部完成** (最终验证通过 + 收尾修复完成 + hreflang 修复)  
 **Phase-3 P0 状态**: ✅ **全部完成**  
 **当前剩余任务**: **0 项**
 
 ---
 
-## 最新验证结果 (2026-03-15 21:55 JST)
+## 最新验证结果 (2026-03-15 22:00 JST)
 
 ### 自动验证脚本输出
 
@@ -68,6 +68,21 @@ hreflang/switcher 不匹配：0 页
 | KOL 排名页 (4 页) | hreflang-en 指向不存在的详情页 | → 指向父级 `/en/kol/` (无 EN  counterpart 的合理回退) |
 
 **Git 提交**: `e212891` - fix: correct hreflang/switcher mismatches in nested ZH pages  
+**推送状态**: ✅ 已推送到 origin/main
+
+---
+
+## 本次修复详情 (2026-03-15 22:00 JST)
+
+### 修复的 hreflang 配对问题
+
+| 文件 | 问题 | 修复 |
+|------|------|------|
+| `en/resources/index.html` | hreflang-zh 指向 `/zh/knowledge-base/resources/` (深层目录) | → 指向 `/zh/resources/` (对等薄入口页) |
+
+**说明**: 英文薄入口页 `/en/resources/` 应与中文薄入口页 `/zh/resources/` 配对，而非与中文深层目录 `/zh/knowledge-base/resources/` 配对。语言切换器仍可指向更丰富的中文内容（UX 决策），但 hreflang 应保持语义正确（SEO 要求）。
+
+**Git 提交**: `0aa9a46` - fix: correct hreflang-zh in en/resources/index.html  
 **推送状态**: ✅ 已推送到 origin/main
 
 ---

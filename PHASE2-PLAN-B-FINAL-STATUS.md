@@ -1,6 +1,6 @@
 # Phase-2 Plan B & Phase-3 P0 状态报告
 
-**验证时间**: 2026-03-15 22:00 JST  
+**验证时间**: 2026-03-15 22:25 JST  
 **Cron Job**: 460c5abf-a1ea-4d54-8068-5d6b12a96fcc (pred101-phase2-autopilot-15m)  
 **执行人**: Zorro
 
@@ -8,7 +8,7 @@
 
 ## 任务判断结果
 
-**Phase-2 Plan B 状态**: ✅ **全部完成** (最终验证通过 + 收尾修复完成 + hreflang 修复)  
+**Phase-2 Plan B 状态**: ✅ **全部完成** (最终验证通过 + 收尾修复完成 + hreflang 修复 + 自动验证确认 + 旧路径 meta refresh 文件清理)  
 **Phase-3 P0 状态**: ✅ **全部完成**  
 **当前剩余任务**: **0 项**
 
@@ -87,13 +87,34 @@ hreflang/switcher 不匹配：0 页
 
 ---
 
+## 本次修复详情 (2026-03-15 22:25 JST)
+
+### 清理旧路径 meta refresh 文件
+
+**问题**: 根目录下存在旧路径的 meta refresh 文件，与 vercel.json 301 重定向冗余。
+
+**删除的文件**:
+- `knowledge-base/index.html` → 重定向到 `/en/knowledge-base/`
+- `reports/index.html` → 重定向到 `/en/reports/`
+- `strategies/index.html` → 重定向到 `/en/strategies/`
+- `kol/index.html` → 重定向到 `/en/kol/`
+- `resources/index.html` → 重定向到 `/en/resources/`
+- `learn/index.html` → 重定向到 `/en/learn/`
+
+**说明**: vercel.json 已配置 301 永久重定向，无需保留 meta refresh 文件。删除后可避免潜在的重定向循环或 SEO 混淆。
+
+**Git 提交**: 待提交  
+**推送状态**: 待推送
+
+---
+
 ## Git 状态
 
 | 检查项 | 状态 | 详情 |
 |--------|------|------|
 | 分支 | ✅ | main |
-| 工作树 | ✅ | 干净 (提交后) |
-| 远程同步 | ✅ | up to date with 'origin/main' |
+| 工作树 | 🔄 | 有未提交更改 (旧路径 meta refresh 文件清理) |
+| 远程同步 | ⏳ | 待推送 |
 | 最新提交 | ✅ | `e212891` - fix: correct hreflang/switcher mismatches |
 
 ---

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KOL Rankings &amp; Evaluation | pred101</title>
+  <meta name="description" content="pred101 KOL rankings and evaluation: research entry points organized by methodology, actionability, authenticity, and risk fit.">
+  <link rel="canonical" href="https://www.pred101.com/en/knowledge-base/kol/rankings/">
+  <link rel="alternate" hreflang="en" href="https://www.pred101.com/en/knowledge-base/kol/rankings/">
+  <link rel="alternate" hreflang="zh" href="https://www.pred101.com/zh/knowledge-base/kol/rankings/">
+  <style>
+    :root { --bg:#0b1020; --surface:rgba(18,25,45,.84); --text:#f5f7ff; --text-secondary:#9ba7c4; --border:rgba(162,182,255,.14); --accent:#6f7cff; --accent-2:#38d0ff; --shadow:0 10px 30px rgba(0,0,0,.35); --max:1100px; }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(180deg,#08101f 0%,#0b1020 100%);color:var(--text);line-height:1.65}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--max);margin:0 auto;padding:0 24px}
+    header{position:sticky;top:0;z-index:50;background:rgba(8,12,24,.82);backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid var(--border)}
+    header .container{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .logo{font-size:1.04rem;font-weight:800}
+    .logo .mark{color:var(--accent)}
+    nav{display:flex;gap:18px;flex-wrap:wrap}
+    nav a{color:var(--text-secondary);font-size:.92rem}
+    nav a.active,nav a:hover{color:var(--text)}
+    main{padding:52px 0 80px}
+    .hero{background:linear-gradient(135deg, rgba(111,124,255,.16), rgba(56,208,255,.10));border:1px solid rgba(111,124,255,.16);border-radius:28px;padding:34px 30px;box-shadow:var(--shadow);margin-bottom:30px}
+    .eyebrow{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-2);margin-bottom:14px}
+    h1{font-size:clamp(2.1rem,5vw,3.4rem);line-height:.98;letter-spacing:-.04em}
+    .lead{margin-top:16px;max-width:780px;color:var(--text-secondary);font-size:1.03rem}
+    .meta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}
+    .meta-card{background:rgba(18,25,45,.6);border:1px solid var(--border);border-radius:16px;padding:14px 16px}
+    .meta-card .label{font-size:.76rem;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.08em}
+    .meta-card .value{margin-top:6px;font-size:.96rem;font-weight:700}
+    .section{background:var(--surface);border:1px solid var(--border);border-radius:24px;box-shadow:var(--shadow);padding:28px;margin:22px 0}
+    .section h2{font-size:1.55rem;margin-bottom:16px;letter-spacing:-.03em}
+    .section p,.section li{color:var(--text-secondary)}
+    .section ul{padding-left:20px}
+    .section li{margin:8px 0}
+    .note{background:rgba(111,124,255,.12);border-left:4px solid var(--accent);border-radius:16px;padding:16px 18px;margin-top:16px}
+    .card-list{display:grid;gap:16px}
+    .report-card{display:block;background:rgba(18,25,45,.5);border:1px solid var(--border);border-radius:18px;padding:20px;box-shadow:var(--shadow)}
+    .report-card:hover{border-color:var(--accent)}
+    .report-card .top{display:flex;justify-content:space-between;gap:16px;align-items:start}
+    .report-card h3{font-size:1.08rem}
+    .report-card .date{font-size:.84rem;color:var(--text-secondary)}
+    .report-card p{margin-top:10px;color:var(--text-secondary)}
+    .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+    .tag{display:inline-block;font-size:.78rem;font-weight:700;color:var(--accent-2);background:rgba(111,124,255,.10);padding:5px 11px;border-radius:999px}
+    .next-links{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:26px}
+    .next-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:18px;box-shadow:var(--shadow)}
+    .next-card .small{color:var(--text-secondary);font-size:.82rem}
+    .next-card h4{margin-top:8px;font-size:1rem}
+    footer{padding:38px 0 52px;color:var(--text-secondary)}
+    footer .container{border-top:1px solid var(--border);padding-top:20px;font-size:.86rem}
+    @media (max-width:860px){.meta-grid,.next-links{grid-template-columns:1fr 1fr}}
+    @media (max-width:640px){.meta-grid,.next-links{grid-template-columns:1fr}.hero,.section{padding:22px 18px}.report-card .top{flex-direction:column}}
+  </style>
+</head>
+<body>
+  <header><div class="container"><a href="/en/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a><nav><a href="/en/">Overview</a><a href="/en/learn/">7-Day Path</a><a href="/en/strategies/">Strategies</a><a href="/en/kol/">KOLs</a><a href="/en/resources/">Resources</a><div class="lang-switch"><a href="/en/knowledge-base/kol/rankings/" class="active">EN</a><a href="/zh/knowledge-base/kol/rankings/">中文</a></div></nav></div></header>
+  <main>
+    <div class="container">
+      <section class="hero">
+        <div class="eyebrow">KOL rankings</div>
+        <h1>KOL rankings &amp; evaluation</h1>
+        <p class="lead">This is not a "who tweets best" leaderboard. It's a research entry map organized by "whose methods are worth learning." Judged by actionability, authenticity, strategic effectiveness, and risk fit—not entertainment value.</p>
+        <div class="meta-grid">
+          <div class="meta-card"><div class="label">Update frequency</div><div class="value">Bi-weekly</div></div>
+          <div class="meta-card"><div class="label">Coverage</div><div class="value">11 KOLs</div></div>
+          <div class="meta-card"><div class="label">Primary use</div><div class="value">Research / Filtering</div></div>
+          <div class="meta-card"><div class="label">Core question</div><div class="value">Who's worth deep study</div></div>
+        </div>
+      </section>
+      <section class="section">
+        <h2>📚 Current rankings &amp; archives</h2>
+        <p style="margin-bottom:16px">Full rankings and detailed analysis remain in Chinese. These are the primary source documents.</p>
+        <div class="card-list">
+          <a href="/zh/knowledge-base/kol/rankings/KOL-RANKING-20260308.html" class="report-card"><div class="top"><h3>📊 KOL Comprehensive Evaluation &amp; Recommendation Ranking</h3><div class="date">2026-03-08</div></div><p>First comprehensive evaluation of 11 Polymarket KOLs, establishing overall ranking, methodology, and recommendation order.</p><div class="tags"><span class="tag">Overall ranking</span><span class="tag">11 KOLs</span><span class="tag">Composite score</span></div></a>
+          <a href="/zh/knowledge-base/kol/rankings/KOL-BIWEEKLY-20260308.html" class="report-card"><div class="top"><h3>📱 KOL Bi-weekly Tweet Summary (2/22–3/8)</h3><div class="date">2026-03-08</div></div><p>Scanned 5 high-signal KOLs' tweets from the past 2 weeks, extracting key insights, strategic moves, and actionability.</p><div class="tags"><span class="tag">Bi-weekly summary</span><span class="tag">Tweet analysis</span><span class="tag">High-frequency updates</span></div></a>
+          <a href="/zh/knowledge-base/kol/rankings/runes-leo-biweekly-20260308.html" class="report-card"><div class="top"><h3>📱 @runes_leo Bi-weekly Special Summary</h3><div class="date">2026-03-08</div></div><p>15 tweets deep analysis, focusing on Claude Code workflow, AI Chief of Staff, and Pre-Market validation.</p><div class="tags"><span class="tag">Special summary</span><span class="tag">AI workflow</span><span class="tag">Case study</span></div></a>
+        </div>
+        <div class="note"><strong>Judgment criteria:</strong> Rankings serve "research priority," not entertainment. Prioritize learning from KOLs with clear frameworks, reproducibility, verifiability, and well-defined risk.</div>
+      </section>
+      <section class="section">
+        <h2>📈 Evaluation methodology</h2>
+        <ul>
+          <li><strong>Importance (25%)</strong>: Method influence and uniqueness</li>
+          <li><strong>Actionability (25%)</strong>: Can ordinary people understand and replicate</li>
+          <li><strong>Information authenticity (20%)</strong>: Are data and conclusions verifiable</li>
+          <li><strong>Strategic effectiveness (15%)</strong>: Long-term method value vs single-event results</li>
+          <li><strong>Learning curve (10%)</strong>: Onboarding cost and learning threshold</li>
+          <li><strong>Risk level (5%)</strong>: Whether the cost of method failure is controllable</li>
+        </ul>
+      </section>
+      <section class="section">
+        <h2>🔗 Continue reading</h2>
+        <div class="next-links">
+          <a class="next-card" href="/en/knowledge-base/kol/"><div class="small">Back to</div><h4>KOL research directory</h4></a>
+          <a class="next-card" href="/zh/knowledge-base/kol/vladic_eth/"><div class="small">Sample profile</div><h4>@vladic_eth detailed analysis (ZH)</h4></a>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer><div class="container"><p>pred101.com · KOL ranking layer · Updated 2026-03-08</p></div></footer>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tools Directory | Prediction Market 101</title>
+  <link rel="canonical" href="https://www.pred101.com/en/knowledge-base/resources/tools/">
+  <link rel="alternate" hreflang="en" href="https://www.pred101.com/en/knowledge-base/resources/tools/">
+  <link rel="alternate" hreflang="zh" href="https://www.pred101.com/zh/knowledge-base/resources/tools/">
+  <style>
+    :root { --accent: #6f7cff; --accent-2: #38d0ff; --bg: #0b1020; --surface: rgba(18,25,45,.84); --text: #f5f7ff; --text-secondary: #9ba7c4; --border: rgba(162,182,255,.14); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: linear-gradient(180deg,#08101f 0%,#0b1020 100%); color: var(--text); line-height: 1.47059; }
+    .container { max-width: 980px; margin: 0 auto; padding: 0 22px; }
+    header { background: rgba(8,12,24,.82); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    header .container { display: flex; justify-content: space-between; align-items: center; height: 52px; }
+    .logo { font-size: 21px; font-weight: 600; color: var(--text); text-decoration: none; }
+    .logo .mark { color: var(--accent); }
+    nav a { color: var(--text-secondary); text-decoration: none; margin-left: 24px; font-size: 12px; transition: color 0.2s; }
+    nav a:hover { color: var(--text); }
+    nav a.active { color: var(--text); }
+    main { padding: 60px 0 80px; }
+    .breadcrumb { font-size: 12px; color: var(--text-secondary); margin-bottom: 16px; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .page-header { margin-bottom: 40px; }
+    .page-header h1 { font-size: 40px; font-weight: 600; margin-bottom: 12px; }
+    .page-header .meta { font-size: 13px; color: var(--text-secondary); }
+    .content { background: var(--surface); border-radius: 18px; padding: 32px; margin-bottom: 24px; border: 1px solid var(--border); }
+    .content h2 { font-size: 24px; font-weight: 600; margin: 32px 0 16px; }
+    .content h2:first-child { margin-top: 0; }
+    .content p { margin: 16px 0; font-size: 15px; color: var(--text-secondary); }
+    .content ul { margin: 16px 0 16px 24px; }
+    .content li { margin: 8px 0; font-size: 15px; color: var(--text-secondary); }
+    .content pre { background: #1d1d1f; color: #e2e8f0; padding: 20px; border-radius: 12px; overflow-x: auto; font-size: 13px; margin: 16px 0; }
+    .content code { font-family: 'SF Mono', Monaco, monospace; }
+    .tag { display: inline-block; font-size: 12px; font-weight: 500; color: var(--accent-2); background: rgba(111,124,255,.10); padding: 4px 12px; border-radius: 12px; margin: 4px 8px 4px 0; }
+    .info-box { background: rgba(111,124,255,.12); border-left: 4px solid var(--accent); padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; }
+    .tool-card { background: rgba(18,25,45,.5); border: 1px solid var(--border); border-radius: 14px; padding: 20px; margin: 16px 0; }
+    .tool-card h3 { font-size: 18px; font-weight: 600; margin-bottom: 8px; color: var(--text); }
+    .tool-card .link { color: var(--accent); text-decoration: none; font-size: 14px; }
+    .tool-card .link:hover { text-decoration: underline; }
+    footer { border-top: 1px solid var(--border); padding: 40px 0; text-align: center; }
+    footer p { font-size: 12px; color: var(--text-secondary); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/en/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a>
+      <nav>
+        <a href="/en/">Overview</a>
+        <a href="/en/knowledge-base/">Library</a>
+        <a href="/en/reports/">Reports</a>
+        <a href="/en/about.html">About</a>
+        <div class="lang-switch"><a href="/en/knowledge-base/resources/tools/" class="active">EN</a><a href="/zh/knowledge-base/resources/tools/">中文</a></div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/en/knowledge-base/">Library</a> › <a href="../">Resources</a> › Tools
+      </div>
+
+      <div class="page-header">
+        <h1>🧰 Tools directory</h1>
+        <div class="meta">
+          <span>Last updated: <time datetime="2026-03-07">2026-03-07</time></span> · 
+          <span>Source: Community curated</span>
+        </div>
+        <div style="margin-top: 12px;">
+          <span class="tag">Directory</span>
+          <span class="tag">CLI</span>
+          <span class="tag">API</span>
+        </div>
+      </div>
+
+      <div class="content">
+        <h2>📌 Core tools</h2>
+
+        <div class="tool-card">
+          <h3>🦞 OpenClaw</h3>
+          <p>AI agent execution framework with skill extensions, automated tool calling, and multi-platform messaging integration.</p>
+          <p style="margin-top: 12px;">
+            <a href="https://github.com/openclaw/openclaw" target="_blank" class="link">GitHub →</a> · 
+            <a href="https://docs.openclaw.ai" target="_blank" class="link">Docs →</a>
+          </p>
+          <pre style="margin-top: 12px;"><code>npm install -g openclaw
+openclaw onboard</code></pre>
+        </div>
+
+        <div class="tool-card">
+          <h3>📊 polymarket-cli</h3>
+          <p>Official Polymarket CLI tool for market queries, order management, and CLOB data access.</p>
+          <p style="margin-top: 12px;">
+            <a href="https://github.com/Polymarket/polymarket-cli" target="_blank" class="link">GitHub →</a> · 
+            <a href="https://docs.polymarket.com" target="_blank" class="link">Docs →</a>
+          </p>
+          <pre style="margin-top: 12px;"><code># Install (Homebrew)
+brew tap Polymarket/polymarket-cli
+brew install polymarket
+
+# Install (script)
+curl -sSL https://raw.githubusercontent.com/Polymarket/polymarket-cli/main/install.sh | sh
+
+# Query markets
+polymarket markets list --limit 10
+polymarket markets get will-trump-win-2024
+
+# CLOB data
+polymarket clob book TOKEN_ID
+polymarket clob price TOKEN_ID --side buy</code></pre>
+        </div>
+
+        <div class="tool-card">
+          <h3>🔮 Simmer SDK</h3>
+          <p>AI Agent trading interface for Polymarket and Kalshi, with self-custody wallets and safety limits.</p>
+          <p style="margin-top: 12px;">
+            <a href="https://simmer.markets" target="_blank" class="link">Website →</a> · 
+            <a href="https://simmer.markets/docs.md" target="_blank" class="link">Docs →</a>
+          </p>
+          <pre style="margin-top: 12px;"><code># Python SDK
+pip install simmer-sdk
+
+# Register Agent
+curl -X POST https://api.simmer.markets/api/sdk/agents/register \
+  -H "Content-Type: application/json" \
+  -d '{"name": "my-agent"}'
+
+# Environment variables
+export SIMMER_API_KEY="sk_live_..."
+export WALLET_PRIVATE_KEY="0x..."</code></pre>
+        </div>
+
+        <div class="tool-card">
+          <h3>🔗 Chainstack</h3>
+          <p>Blockchain RPC node service supporting Polygon, Ethereum, and multi-chain access.</p>
+          <p style="margin-top: 12px;">
+            <a href="https://chainstack.com" target="_blank" class="link">Website →</a>
+          </p>
+          <pre style="margin-top: 12px;"><code># Polygon RPC endpoints
+https://polygon-rpc.com
+https://polygon-mainnet.g.alchemy.com/v2/YOUR_KEY
+
+# Free tier: 3M requests/month</code></pre>
+        </div>
+
+        <h2>🛠️ Auxiliary tools</h2>
+
+        <div class="tool-card">
+          <h3>📝 MetaMask</h3>
+          <p>Crypto wallet supporting Polygon network.</p>
+          <p style="margin-top: 12px;">
+            <a href="https://metamask.io" target="_blank" class="link">Website →</a>
+          </p>
+        </div>
+
+        <div class="tool-card">
+          <h3>🔍 Polygonscan</h3>
+          <p>Polygon block explorer for querying transactions, balances, and contracts.</p>
+          <p style="margin-top: 12px;">
+            <a href="https://polygonscan.com" target="_blank" class="link">Website →</a>
+          </p>
+        </div>
+
+        <div class="tool-card">
+          <h3>🌉 Polygon Bridge</h3>
+          <p>Official bridge tool for Ethereum ↔ Polygon asset transfers.</p>
+          <p style="margin-top: 12px;">
+            <a href="https://bridge.polygon.technology" target="_blank" class="link">Website →</a>
+          </p>
+        </div>
+
+        <h2>📚 Related resources</h2>
+        <ul>
+          <li><a href="/en/knowledge-base/tutorials/openclaw-setup/">OpenClaw setup tutorial</a></li>
+          <li><a href="/en/knowledge-base/tutorials/simmer-guide/">Simmer trading guide</a></li>
+          <li><a href="/en/knowledge-base/resources/apis/">API documentation</a></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>
+        <time datetime="2026-03-07">Created: 2026-03-07</time> · 
+        <span>Source: Community curated</span>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

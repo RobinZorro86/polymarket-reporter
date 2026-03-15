@@ -1,6 +1,6 @@
 # Phase-2 Plan B & Phase-3 P0 状态报告
 
-**验证时间**: 2026-03-15 20:39 JST  
+**验证时间**: 2026-03-15 21:55 JST  
 **Cron Job**: 460c5abf-a1ea-4d54-8068-5d6b12a96fcc (pred101-phase2-autopilot-15m)  
 **执行人**: Zorro
 
@@ -8,19 +8,19 @@
 
 ## 任务判断结果
 
-**Phase-2 Plan B 状态**: ✅ **全部完成** (最终验证通过)  
+**Phase-2 Plan B 状态**: ✅ **全部完成** (最终验证通过 + 收尾修复完成)  
 **Phase-3 P0 状态**: ✅ **全部完成**  
 **当前剩余任务**: **0 项**
 
 ---
 
-## 最新验证结果 (2026-03-15 20:39 JST)
+## 最新验证结果 (2026-03-15 21:55 JST)
 
 ### 自动验证脚本输出
 
 ```
 ============================================================
-Phase-2 Plan B 自动验证 - 2026-03-15 20:39 JST
+Phase-2 Plan B 自动验证 - 2026-03-15 21:55 JST
 ============================================================
 
 1. 检查英文路径中文残留...
@@ -40,7 +40,7 @@ Phase-2 Plan B 自动验证 - 2026-03-15 20:39 JST
    中文页面 - Canonical: 61, Hreflang-en: 61
 
 5. 检查语言切换器覆盖...
-   英文页面语言切换器：46
+   英文页面语言切换器：47
    中文页面语言切换器：61
 
 ============================================================
@@ -49,6 +49,7 @@ Phase-2 Plan B 自动验证 - 2026-03-15 20:39 JST
 英文页面数：47
 中文页面数：61
 英文路径中文残留：0 页
+hreflang/switcher 不匹配：0 页
 ============================================================
 ✅ Phase-2 Plan B 全部验证通过
 ============================================================
@@ -56,18 +57,17 @@ Phase-2 Plan B 自动验证 - 2026-03-15 20:39 JST
 
 ---
 
-## 本次修复详情 (2026-03-15 20:39 JST)
+## 本次修复详情 (2026-03-15 21:55 JST)
 
-### 修复的中文残留问题
+### 修复的 hreflang/语言切换器不匹配问题
 
 | 文件 | 问题 | 修复 |
 |------|------|------|
-| `en/knowledge-base/kol/index.html` | "Research archive 入口." | → "Research archive entry point." |
-| `en/knowledge-base/resources/conviction-score-copytrading/index.html` | "distinguish 试探 positions" | → "distinguish exploratory positions" |
-| `en/knowledge-base/resources/conviction-score-copytrading/index.html` | "behavior:试探 positions" | → "behavior: exploratory positions" |
-| `en/knowledge-base/resources/conviction-score-copytrading/index.html` | "<strong>试探 positions:</strong>" | → "<strong>Exploratory positions:</strong>" |
+| `zh/knowledge-base/kol/index.html` | hreflang-en 指向新结构 `/en/kol/` | → 指向嵌套结构 `/en/knowledge-base/kol/` |
+| `zh/knowledge-base/tutorials/index.html` | 语言切换器指向根路径 `/en/` | → 指向嵌套路径 `/en/knowledge-base/tutorials/` |
+| KOL 排名页 (4 页) | hreflang-en 指向不存在的详情页 | → 指向父级 `/en/kol/` (无 EN  counterpart 的合理回退) |
 
-**Git 提交**: `1c4d2c1` - fix: remove Chinese 残留 from EN pages - kol index and conviction-score-copytrading  
+**Git 提交**: `e212891` - fix: correct hreflang/switcher mismatches in nested ZH pages  
 **推送状态**: ✅ 已推送到 origin/main
 
 ---
@@ -79,7 +79,7 @@ Phase-2 Plan B 自动验证 - 2026-03-15 20:39 JST
 | 分支 | ✅ | main |
 | 工作树 | ✅ | 干净 (提交后) |
 | 远程同步 | ✅ | up to date with 'origin/main' |
-| 最新提交 | ✅ | `1c4d2c1` - fix: remove Chinese 残留 from EN pages |
+| 最新提交 | ✅ | `e212891` - fix: correct hreflang/switcher mismatches |
 
 ---
 

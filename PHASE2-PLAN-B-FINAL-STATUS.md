@@ -1,6 +1,6 @@
 # Phase-2 Plan B & Phase-3 P0 状态报告
 
-**验证时间**: 2026-03-15 22:25 JST  
+**验证时间**: 2026-03-15 22:55 JST  
 **Cron Job**: 460c5abf-a1ea-4d54-8068-5d6b12a96fcc (pred101-phase2-autopilot-15m)  
 **执行人**: Zorro
 
@@ -8,7 +8,7 @@
 
 ## 任务判断结果
 
-**Phase-2 Plan B 状态**: ✅ **全部完成** (最终验证通过 + 收尾修复完成 + hreflang 修复 + 自动验证确认 + 旧路径 meta refresh 文件清理)  
+**Phase-2 Plan B 状态**: ✅ **全部完成** (最终验证通过 + 收尾修复完成 + hreflang 修复 + 自动验证确认 + 旧路径 meta refresh 文件清理 + 验证脚本更新)  
 **Phase-3 P0 状态**: ✅ **全部完成**  
 **当前剩余任务**: **0 项**
 
@@ -105,6 +105,62 @@ hreflang/switcher 不匹配：0 页
 
 **Git 提交**: `d256a06` - chore: remove legacy meta refresh files (vercel.json 301 redirects are sufficient)  
 **推送状态**: ✅ 已推送到 origin/main
+
+---
+
+## 本次修复详情 (2026-03-15 22:55 JST)
+
+### 更新验证脚本以匹配新架构
+
+**问题**: `scripts/verify-phase2-planb.py` 仍检查 meta refresh 文件，但这些文件已按设计删除。
+
+**修复内容**:
+- 移除 `kb_meta_refresh` 和 `reports_meta_refresh` 检查
+- 新增 vercel.json 6 条重定向规则检查（knowledge-base, reports, learn, strategies, kol, resources）
+- 添加注释说明 vercel.json 301 重定向是首选方案（SEO 更友好）
+
+**Git 提交**: `f93a812` - chore: update verify script to use vercel.json 301 redirects (meta refresh files intentionally removed)  
+**推送状态**: ✅ 已推送到 origin/main
+
+---
+
+## 最新验证结果 (2026-03-15 22:55 JST)
+
+### 自动验证脚本输出
+
+```
+============================================================
+Phase-2 Plan B 自动验证 - 2026-03-15 22:55 JST
+============================================================
+
+1. 检查英文路径中文残留...
+   ✅ 英文路径无中文残留
+
+2. 检查中文路径英文污染...
+   ✅ 中文路径无英文污染
+
+3. 检查旧路径跳转配置...
+   ✅ 旧路径跳转配置正确 (6/ vercel.json 规则)
+
+4. 检查 Canonical / Hreflang...
+   ✅ Canonical / Hreflang 配置完整
+
+5. 检查语言切换器覆盖...
+   ✅ 语言切换器全覆盖
+
+============================================================
+统计汇总
+============================================================
+英文页面数：47
+中文页面数：61
+英文路径中文残留：0 页
+中文路径英文污染：0 页
+缺少语言切换器：0 页
+Canonical/Hreflang 问题：0 页
+============================================================
+✅ Phase-2 Plan B 全部验证通过
+============================================================
+```
 
 ---
 

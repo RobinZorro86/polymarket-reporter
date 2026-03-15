@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conviction Score &amp; Copytrading Filters | pred101</title>
+  <meta name="description" content="Why blind copytrading of smart money often fails, and how Conviction Score helps distinguishexploratory positions, hedges, and high-conviction bets.">
+  <link rel="canonical" href="https://www.pred101.com/en/knowledge-base/resources/conviction-score-copytrading/">
+  <link rel="alternate" hreflang="en" href="https://www.pred101.com/en/knowledge-base/resources/conviction-score-copytrading/">
+  <link rel="alternate" hreflang="zh" href="https://www.pred101.com/zh/knowledge-base/resources/conviction-score-copytrading/">
+  <style>
+    :root{--accent:#6f7cff;--accent-2:#38d0ff;--bg:#0b1020;--surface:rgba(18,25,45,.84);--text:#f5f7ff;--text-secondary:#9ba7c4;--border:rgba(162,182,255,.14)}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:Inter,-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Arial,sans-serif;background:linear-gradient(180deg,#08101f 0%,#0b1020 100%);color:var(--text);line-height:1.58}
+    .container{max-width:980px;margin:0 auto;padding:0 22px}
+    header{background:rgba(8,12,24,.82);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50}
+    header .container{display:flex;justify-content:space-between;align-items:center;height:52px}
+    .logo{text-decoration:none;color:var(--text);font-size:21px;font-weight:600}
+    .logo .mark{color:var(--accent)}
+    nav a{color:var(--text-secondary);text-decoration:none;margin-left:24px;font-size:12px}
+    nav a.active,nav a:hover{color:var(--accent)}
+    main{padding:60px 0 80px}
+    .breadcrumb{font-size:12px;color:var(--text-secondary);margin-bottom:16px}
+    .breadcrumb a{color:var(--accent);text-decoration:none}
+    .page-header h1{font-size:40px;font-weight:600;margin-bottom:12px}
+    .meta{font-size:13px;color:var(--text-secondary)}
+    .content{background:var(--surface);border-radius:18px;padding:32px;margin-top:28px;border:1px solid var(--border)}
+    .content h2{font-size:24px;margin:28px 0 16px}
+    .content h2:first-child{margin-top:0}
+    .content p,.content li{font-size:15px;color:var(--text-secondary)}
+    .content p{margin:14px 0}
+    .content ul{margin:14px 0 14px 24px}
+    .content li{margin:8px 0}
+    .info{background:rgba(111,124,255,.12);border-left:4px solid var(--accent);padding:16px 20px;border-radius:0 12px 12px 0;margin:24px 0}
+    .table{width:100%;border-collapse:collapse;margin:20px 0;background:rgba(18,25,45,.5);border-radius:14px;overflow:hidden;border:1px solid var(--border)}
+    .table th,.table td{padding:12px 14px;border-bottom:1px solid var(--border);text-align:left;font-size:14px;color:var(--text-secondary)}
+    .table th{color:var(--text);font-weight:600}
+    .tag{display:inline-block;font-size:12px;color:var(--accent-2);background:rgba(111,124,255,.10);padding:4px 12px;border-radius:999px;margin:4px 8px 4px 0}
+    footer{border-top:1px solid var(--border);padding:40px 0;text-align:center;color:var(--text-secondary);font-size:12px}
+  </style>
+</head>
+<body>
+<header><div class="container"><a href="/en/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a><nav><a href="/en/">Overview</a><a href="/en/knowledge-base/">Library</a><a href="/en/knowledge-base/resources/" class="active">Resources</a><a href="/en/reports/">Reports</a><div class="lang-switch"><a href="/en/knowledge-base/resources/conviction-score-copytrading/" class="active">EN</a><a href="/zh/knowledge-base/resources/conviction-score-copytrading/">中文</a></div></nav></div></header>
+<main><div class="container"><div class="breadcrumb"><a href="/en/">Home</a> → <a href="/en/knowledge-base/">Library</a> → <a href="/en/knowledge-base/resources/">Resources</a> → Conviction Score &amp; Copytrading Filters</div><div class="page-header"><h1>Conviction Score &amp; copytrading filters</h1><p class="meta">Updated: 2026-03-11 · Source: MeetPolyHub</p></div><div class="content"><h2>Core insight</h2><p>Blind copytrading of "smart money" often fails—not because these addresses don't make money, but because you're copying all their behavior: exploratory positions, hedges, low-conviction bets, and the rare high-conviction positions.</p><div class="info"><p><strong>Key understanding:</strong> Effective copytrading is not replication, it's translation. You need to judge how serious each trade is to the original trader.</p></div><h2>Why direct copytrading often fails</h2><ul><li><strong>Exploratory positions:</strong> Small positions testing market temperature, not strong convictions.</li><li><strong>Hedge positions:</strong> Serve risk management, don't necessarily represent directional views.</li><li><strong>Noise trades:</strong> Exploratory, low-conviction bets.</li><li><strong>High-conviction positions:</strong> The minority truly worth following closely.</li></ul><h2>What Conviction Score measures</h2><p>Conviction Score attempts to infer a trader's confidence level from behavioral data. Common reference dimensions include:</p><ul><li>Single bet size relative to account size</li><li>Whether continuously adding to the same market</li><li>Performance of similar historical signals</li><li>Trade timing and position concentration</li></ul><h2>Backtest summary</h2><table class="table"><thead><tr><th>Threshold</th><th>Trade count</th><th>Coverage</th><th>Avg return</th><th>Win rate</th></tr></thead><tbody><tr><td>All (0.0)</td><td>1147</td><td>100%</td><td>$20.35</td><td>75.2%</td></tr><tr><td>≥ 0.2</td><td>715</td><td>62.3%</td><td>$22.18</td><td>77.9%</td></tr><tr><td>≥ 0.4</td><td>448</td><td>39.1%</td><td>$25.93</td><td>81.0%</td></tr><tr><td>≥ 0.6</td><td>358</td><td>31.2%</td><td>$26.99</td><td>80.7%</td></tr></tbody></table><p>Conclusion is direct: stricter filtering usually means higher per-trade quality, but fewer opportunities.</p><h2>How to use in practice</h2><ul><li><strong>0–0.2:</strong> More opportunities, but more noise. Suitable for portfolio replication.</li><li><strong>0.2–0.4:</strong> Balanced quality and frequency. Suitable for most users.</li><li><strong>0.4–0.6:</strong> Fewer signals, but higher marginal efficiency. Suitable for small capital with high selectivity.</li></ul><h2>pred101 implementation recommendations</h2><p>An actionable copytrading framework should first find people, then filter trades. Wallet discovery is just the first step. The real edge often comes from filtering per-trade quality, not indiscriminately copying all on-chain buys.</p><h2>Related pages</h2><ul><li><a href="/en/knowledge-base/strategies/copytrading/">Copytrading strategy</a></li><li><a href="/en/knowledge-base/strategies/signal-sniper/">Signal Sniper</a></li><li><a href="/en/knowledge-base/resources/risk-management/">Risk management</a></li></ul></div><div style="margin:24px 0"><span class="tag">Copytrading</span><span class="tag">Smart money</span><span class="tag">Conviction Score</span><span class="tag">Wallet analysis</span></div></div></main><footer><div class="container"><p>pred101 · Prediction Market 101</p></div></footer></body>
+</html>

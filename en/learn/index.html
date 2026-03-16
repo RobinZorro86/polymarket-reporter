@@ -1,5 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>7-Day Path | pred101</title><link rel="canonical" href="https://www.pred101.com/en/learn/">
-  <link rel="alternate" hreflang="en" href="https://www.pred101.com/en/learn/"><link rel="alternate" hreflang="zh" href="https://www.pred101.com/zh/learn/"><style>:root{--bg:#0b1020;--surface:rgba(18,25,45,.84);--text:#f5f7ff;--text-secondary:#9ba7c4;--border:rgba(162,182,255,.14);--accent:#6f7cff;--accent-2:#38d0ff;--shadow:0 20px 60px rgba(0,0,0,.35);--radius:22px;--max:1180px;}*{box-sizing:border-box;margin:0;padding:0}body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at top left, rgba(111,124,255,.22), transparent 28%),linear-gradient(180deg,#08101f 0%,#0b1020 46%,#0a0f1b 100%);color:var(--text);line-height:1.6}a{text-decoration:none;color:inherit}.container{max-width:var(--max);margin:0 auto;padding:0 24px}header{position:sticky;top:0;z-index:20;backdrop-filter:blur(18px);background:rgba(8,12,24,.72);border-bottom:1px solid var(--border)}header .container{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px}.logo{font-weight:800;font-size:1.06rem;letter-spacing:-.03em}.logo .mark{color:var(--accent-2)}nav{display:flex;gap:18px;flex-wrap:wrap}nav a{color:var(--text-secondary);font-size:.95rem}nav a.active,nav a:hover{color:var(--text)}main{padding:78px 0 54px}.eyebrow{color:var(--accent-2);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}h1{font-size:clamp(2.4rem,6vw,4.8rem);line-height:.96;letter-spacing:-.05em}.lead{margin-top:18px;color:var(--text-secondary);max-width:860px;font-size:1.08rem}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:26px}.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;min-height:190px}.step{color:var(--accent-2);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700}.card h3{margin-top:12px;font-size:1.08rem}.card p{margin-top:8px;color:var(--text-secondary);font-size:.95rem}@media (max-width:1080px){.grid{grid-template-columns:1fr 1fr}}@media (max-width:760px){.grid{grid-template-columns:1fr}}footer{padding:40px 0 54px;color:var(--text-secondary)}footer .container{border-top:1px solid var(--border);padding-top:24px}</style></head>
-<body><header><div class="container"><a href="/en/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a><nav><a href="/en/">Overview</a><a href="/en/learn/">7-Day Path</a><a href="/en/strategies/">Strategies</a><a href="/en/kol/">KOLs</a><a href="/en/resources/">Resources</a><div class="lang-switch"><a href="/en/learn/index.html" class="active">EN</a><a href="/zh/learn/">Chinese</a></div></nav></div></header><main><div class="container"><div class="eyebrow">7-Day path · Ordered learning</div><h1>Learn in the right order.</h1><p class="lead">The path exists to prevent random reading. Start with the concepts, then platforms, strategy, tools, risk, advanced tactics, and finally review.</p><div class="grid"><a class="card" href="/en/learn/day1/"><div class="step">Day 1</div><h3>Basics</h3><p>Understand pricing, contracts, and what markets are really saying.</p></a><a class="card" href="/en/learn/day2/"><div class="step">Day 2</div><h3>Platforms</h3><p>Polymarket, Kalshi, and execution flow.</p></a><a class="card" href="/en/learn/day3/"><div class="step">Day 3</div><h3>Strategies</h3><p>Learn a small number of repeatable setups.</p></a><a class="card" href="/en/learn/day4/"><div class="step">Day 4</div><h3>Tools</h3><p>Data sources, tooling, and content workflow.</p></a><a class="card" href="/en/learn/day5/"><div class="step">Day 5</div><h3>Risk</h3><p>Survive first. Compound later.</p></a><a class="card" href="/en/learn/day6/"><div class="step">Day 6</div><h3>Advanced</h3><p>Cross-market thinking and more disciplined tactics.</p></a><a class="card" href="/en/learn/day7/"><div class="step">Day 7</div><h3>Practice</h3><p>Turn theory into a repeatable review loop.</p></a></div></div></main><footer><div class="container"><p>pred101.com · 7-Day Path</p></div></footer></body></html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>7-Day Learning Path | Prediction Market 101</title>
+  <meta name="description" content="7-day structured learning route from prediction market basics to实战 strategies, 30 minutes per day.">
+  <link rel="canonical" href="https://www.pred101.com/en/learn/">
+  <link rel="alternate" hreflang="en" href="https://www.pred101.com/en/learn/">
+  <link rel="alternate" hreflang="zh" href="https://www.pred101.com/zh/learn/">
+  <style>
+    :root {
+      --bg: #0b1020; --surface: rgba(18, 25, 45, 0.84); --text: #f5f7ff; --text-secondary: #9ba7c4;
+      --border: rgba(162, 182, 255, 0.14); --accent: #6f7cff; --accent-2: #38d0ff; --shadow: 0 20px 60px rgba(0,0,0,.35);
+      --radius: 22px; --max: 1180px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, rgba(111,124,255,.22), transparent 28%), linear-gradient(180deg, #08101f 0%, #0b1020 46%, #0a0f1b 100%);
+      color: var(--text); line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+    header { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(18px); background: rgba(8,12,24,.72); border-bottom: 1px solid var(--border); }
+    header .container { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .logo { font-weight: 800; font-size: 1.06rem; letter-spacing: -0.03em; }
+    .logo .mark { color: var(--accent-2); }
+    nav { display: flex; gap: 18px; flex-wrap: wrap; }
+    nav a { color: var(--text-secondary); font-size: .95rem; }
+    nav a.active, nav a:hover { color: var(--text); }
+    main { padding: 78px 0 54px; }
+    .hero { margin-bottom: 48px; }
+    .eyebrow { color: var(--accent-2); font-size: .82rem; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 14px; }
+    h1 { font-size: clamp(2.4rem, 6vw, 4.8rem); line-height: .96; letter-spacing: -.05em; }
+    .lead { margin-top: 18px; color: var(--text-secondary); max-width: 840px; font-size: 1.08rem; }
+    .notice { margin-top: 22px; padding: 16px 18px; border-radius: 18px; background: linear-gradient(135deg, rgba(111,124,255,.16), rgba(56,208,255,.10)); border: 1px solid var(--border); color: var(--text-secondary); }
+    .timeline { position: relative; padding-left: 24px; }
+    .timeline::before { content: ""; position: absolute; left: 7px; top: 0; bottom: 0; width: 2px; background: var(--border); }
+    .day-card {
+      position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 24px; margin-bottom: 24px; box-shadow: var(--shadow);
+    }
+    .day-card::before {
+      content: ""; position: absolute; left: -21px; top: 28px; width: 12px; height: 12px;
+      background: var(--accent); border-radius: 50%; border: 3px solid var(--bg);
+    }
+    .day-card .day-badge {
+      display: inline-block; background: rgba(111,124,255,.15); color: var(--accent-2);
+      font-size: .75rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; margin-bottom: 12px;
+    }
+    .day-card h2 { font-size: 1.4rem; margin-bottom: 8px; }
+    .day-card p { color: var(--text-secondary); margin-bottom: 16px; }
+    .day-card ul { padding-left: 20px; color: var(--text-secondary); }
+    .day-card li { margin: 6px 0; }
+    .day-card .time { font-size: .85rem; color: var(--accent-2); margin-top: 12px; }
+    .next-steps { margin-top: 48px; padding: 24px; background: var(--surface); border-radius: var(--radius); border: 1px solid var(--border); }
+    .next-steps h3 { font-size: 1.3rem; margin-bottom: 16px; }
+    .next-steps ul { padding-left: 20px; color: var(--text-secondary); }
+    footer { padding: 40px 0 54px; color: var(--text-secondary); }
+    footer .container { border-top: 1px solid var(--border); padding-top: 24px; }
+    @media (max-width: 760px) { .timeline { padding-left: 16px; } .day-card { padding: 18px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/en/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a>
+      <nav>
+        <a href="/en/">Home</a>
+        <a href="/en/learn/" class="active">Learning Path</a>
+        <a href="/en/knowledge-base/">Knowledge Base</a>
+        <a href="/en/reports/">Reports</a>
+        <a href="/en/about.html">About</a>
+        <div class="lang-switch"><a href="/en/learn/" class="active">EN</a><a href="/zh/learn/">Chinese</a></div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container hero">
+      <div class="eyebrow">Learning Route · 7 Days from Zero to实战</div>
+      <h1>7 Days to Prediction Market Trading</h1>
+      <p class="lead">30 minutes per day, from basic concepts to实战 strategies. No finance background required, just curiosity and execution.</p>
+      <div class="notice">
+        <strong>💡 Design Philosophy:</strong> Not "read all materials", but "complete one small task daily". After 7 days, you should be able to execute a trade independently.
+      </div>
+    </div>
+
+    <div class="container timeline">
+      <div class="day-card">
+        <span class="day-badge">Day 1 · 30 min</span>
+        <h2>Prediction Market Basics</h2>
+        <p>Understand what prediction markets are, how to profit, and differences from traditional investing.</p>
+        <ul>
+          <li>Prediction markets vs gambling vs traditional investing</li>
+          <li>Binary markets, probability pricing, Yes/No contracts</li>
+          <li>Resolution mechanisms and settlement logic</li>
+          <li>Risk warning: This is NOT "easy money"</li>
+        </ul>
+        <div class="time">⏱️ Read 15 min + Think 15 min</div>
+      </div>
+
+      <div class="day-card">
+        <span class="day-badge">Day 2 · 40 min</span>
+        <h2>Polymarket Platform Operations</h2>
+        <p>Familiarize with Polymarket interface, market browsing, order flow.</p>
+        <ul>
+          <li>Registration and account setup</li>
+          <li>Browse markets: Politics, Sports, Crypto, Weather</li>
+          <li>Understand market details: Liquidity, Volume, Expiry</li>
+          <li>Simulated order (no actual execution)</li>
+        </ul>
+        <div class="time">⏱️ Read 20 min + Hands-on 20 min</div>
+      </div>
+
+      <div class="day-card">
+        <span class="day-badge">Day 3 · 40 min</span>
+        <h2>Wallet Setup & Security</h2>
+        <p>Set up crypto wallet, fund USDC, security practices.</p>
+        <ul>
+          <li>Choose wallet: MetaMask / Rabby / Others</li>
+          <li>Polygon network configuration</li>
+          <li>Buy and deposit USDC</li>
+          <li>Security checklist: Private keys, phishing, approval management</li>
+        </ul>
+        <div class="time">⏱️ Setup 30 min + Security check 10 min</div>
+      </div>
+
+      <div class="day-card">
+        <span class="day-badge">Day 4 · 30 min</span>
+        <h2>Risk Management Principles</h2>
+        <p>Learn position sizing, stop-loss, avoid common mistakes.</p>
+        <ul>
+          <li>Position sizing: 2-5% of capital per trade</li>
+          <li>Circuit breaker: Daily max loss limit</li>
+          <li>Liquidity risk: Avoid small markets</li>
+          <li>Resolution risk: Understand "unpredictable" scenarios</li>
+        </ul>
+        <div class="time">⏱️ Read 20 min + Create personal rules 10 min</div>
+      </div>
+
+      <div class="day-card">
+        <span class="day-badge">Day 5 · 40 min</span>
+        <h2>Basic Strategy: Signal Sniper</h2>
+        <p>Learn first executable strategy: event-driven quick response.</p>
+        <ul>
+          <li>Strategy logic: Pricing delay after news release</li>
+          <li>Information source prep: Twitter, News RSS, Discord</li>
+          <li>Execution flow: Discover → Verify → Order</li>
+          <li>Case study: Real trade retrospective</li>
+        </ul>
+        <div class="time">⏱️ Learn 25 min + Simulated drill 15 min</div>
+      </div>
+
+      <div class="day-card">
+        <span class="day-badge">Day 6 · 40 min</span>
+        <h2>Advanced Strategy Selection</h2>
+        <p>Choose deep dive based on interest: Fast-Loop / Mert Sniper / Weather Trader.</p>
+        <ul>
+          <li><strong>Fast-Loop:</strong> High-frequency cycles, BTC sprint markets</li>
+          <li><strong>Mert Sniper:</strong> Near-expiry, high-certainty trades</li>
+          <li><strong>Weather Trader:</strong> Alternative data, weather arbitrage</li>
+          <li>Selection advice: Based on your time and risk preference</li>
+        </ul>
+        <div class="time">⏱️ Strategy learn 30 min + Decision 10 min</div>
+      </div>
+
+      <div class="day-card">
+        <span class="day-badge">Day 7 · 60 min</span>
+        <h2>Live Trading & KOL Research</h2>
+        <p>First real trade (small amount) + learn from successful traders.</p>
+        <ul>
+          <li>Execute first real trade (建议 ≤$10)</li>
+          <li>Document trade logic and expectations</li>
+          <li>Research 1-2 KOL trading frameworks</li>
+          <li>Create next week learning plan</li>
+        </ul>
+        <div class="time">⏱️ Live trading 30 min + Retrospective 30 min</div>
+      </div>
+
+      <div class="next-steps">
+        <h3>🎯 After Completing 7 Days, You Should:</h3>
+        <ul>
+          <li>✅ Understand basic prediction market mechanics</li>
+          <li>✅ Have configured wallet with small USDC balance</li>
+          <li>✅ Have personal risk management rules</li>
+          <li>✅ Master at least 1 executable strategy</li>
+          <li>✅ Complete first real trade (profit or loss)</li>
+        </ul>
+        <h3 style="margin-top: 24px;">📚 Next Steps:</h3>
+        <ul>
+          <li><a href="/en/knowledge-base/strategies/" style="color: var(--accent);">Strategy Library Deep Dive</a></li>
+          <li><a href="/en/knowledge-base/kol/" style="color: var(--accent);">KOL Research Pages</a></li>
+          <li><a href="/en/reports/" style="color: var(--accent);">Daily Report Tracking</a></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>pred101 · Prediction Market 101 Learning Path</p>
+      <p style="margin-top: 8px; font-size: .85rem;">Last updated: 2026-03-17</p>
+    </div>
+  </footer>
+</body>
+</html>

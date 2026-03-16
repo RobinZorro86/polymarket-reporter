@@ -1,2 +1,208 @@
-<!DOCTYPE html><html lang="zh"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>学习路径 | pred101 中文主站</title><link rel="canonical" href="https://www.pred101.com/zh/learn/">
-  <link rel="alternate" hreflang="zh" href="https://www.pred101.com/zh/learn/"><link rel="alternate" hreflang="en" href="https://www.pred101.com/en/learn/"><link rel="stylesheet" href="/css/style.css"><style>:root{--accent:#0071e3;--bg:#ffffff;--surface:#f5f5f7;--text:#1d1d1f;--text-secondary:#86868b;--border:#d2d2d7}*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.47}.container{max-width:980px;margin:0 auto;padding:0 22px}header{background:rgba(255,255,255,.8);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}header .container{display:flex;justify-content:space-between;align-items:center;min-height:56px;gap:20px}.logo{font-size:21px;font-weight:600;color:var(--text);text-decoration:none}nav{display:flex;gap:16px;align-items:center;flex-wrap:wrap}nav a{color:var(--text-secondary);text-decoration:none;font-size:12px}.lang-switch{display:inline-flex;gap:6px;padding:4px;background:var(--surface);border-radius:999px}.lang-switch a{padding:4px 10px;border-radius:999px}.lang-switch a.active{background:var(--accent);color:#fff}main{padding:48px 0 80px}h1{font-size:42px;margin-bottom:12px}p.lead,.desc{font-size:18px;color:var(--text-secondary)}.content,.card{background:var(--surface);border-radius:18px;padding:24px;margin-top:24px}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:24px}.card{text-decoration:none;color:inherit;border:1px solid var(--border);background:#fff}.eyebrow{font-size:12px;color:var(--accent);font-weight:600;margin-bottom:8px}footer{border-top:1px solid var(--border);padding:36px 0;text-align:center}footer p{font-size:12px;color:var(--text-secondary);margin:6px 0}@media(max-width:720px){.grid{grid-template-columns:1fr}h1{font-size:34px}}</style></head><body><header><div class="container"><a href="/zh/" class="logo">pred101</a><nav><a href="/zh/learn/" class="active">学习路径</a><a href="/zh/knowledge-base/">知识库</a><a href="/zh/reports/">报告</a><a href="/zh/about.html">关于</a><div class="lang-switch"><a href="/en/learn/">EN</a><a href="/zh/learn/" class="active">中文</a></div></nav></div></header><main><div class="container"><h1>7天学习路径</h1><p class="lead">用最短路径建立对预测市场的系统理解：从概念到平台，从策略到风险，再到实战复盘。</p><div class="grid"><a class="card" href="/zh/learn/day1/"><div class="eyebrow">第1天</div><h3>基础概念</h3><p class="desc">什么是预测市场、赔率与概率如何对应。</p></a><a class="card" href="/zh/learn/day2/"><div class="eyebrow">第2天</div><h3>平台选择</h3><p class="desc">Polymarket、Kalshi 与执行流程差异。</p></a><a class="card" href="/zh/learn/day3/"><div class="eyebrow">第3天</div><h3>基础策略</h3><p class="desc">信号狙击、概率套利、事件驱动。</p></a><a class="card" href="/zh/learn/day4/"><div class="eyebrow">第4天</div><h3>工具体系</h3><p class="desc">CLI、API、面板、自动化抓取。</p></a><a class="card" href="/zh/learn/day5/"><div class="eyebrow">第5天</div><h3>风险管理</h3><p class="desc">Kelly、仓位控制、集中度与回撤。</p></a><a class="card" href="/zh/learn/day6/"><div class="eyebrow">第6天</div><h3>高级战术</h3><p class="desc">跨市场、错价、时机与执行纪律。</p></a><a class="card" href="/zh/learn/day7/"><div class="eyebrow">第7天</div><h3>实战复盘</h3><p class="desc">从观点到入场、管理、退出的完整闭环。</p></a></div></div></main><footer><div class="container"><p>pred101 中文主站 · 预测市场知识体系 / 学习路径 / 策略库 / KOL 评估</p></div></footer></body></html>
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>7 天学习路径 | Prediction Market 101</title>
+  <meta name="description" content="7 天结构化学习路线，从预测市场基础到实战策略，每天 30 分钟循序渐进。">
+  <link rel="canonical" href="https://www.pred101.com/zh/learn/">
+  <link rel="alternate" hreflang="zh" href="https://www.pred101.com/zh/learn/">
+  <link rel="alternate" hreflang="en" href="https://www.pred101.com/en/learn/">
+  <style>
+    :root {
+      --bg: #0b1020; --surface: rgba(18, 25, 45, 0.84); --text: #f5f7ff; --text-secondary: #9ba7c4;
+      --border: rgba(162, 182, 255, 0.14); --accent: #6f7cff; --accent-2: #38d0ff; --shadow: 0 20px 60px rgba(0,0,0,.35);
+      --radius: 22px; --max: 1180px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, rgba(111,124,255,.22), transparent 28%), linear-gradient(180deg, #08101f 0%, #0b1020 46%, #0a0f1b 100%);
+      color: var(--text); line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+    header { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(18px); background: rgba(8,12,24,.72); border-bottom: 1px solid var(--border); }
+    header .container { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .logo { font-weight: 800; font-size: 1.06rem; letter-spacing: -0.03em; }
+    .logo .mark { color: var(--accent-2); }
+    nav { display: flex; gap: 18px; flex-wrap: wrap; }
+    nav a { color: var(--text-secondary); font-size: .95rem; }
+    nav a.active, nav a:hover { color: var(--text); }
+    main { padding: 78px 0 54px; }
+    .hero { margin-bottom: 48px; }
+    .eyebrow { color: var(--accent-2); font-size: .82rem; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 14px; }
+    h1 { font-size: clamp(2.4rem, 6vw, 4.8rem); line-height: .96; letter-spacing: -.05em; }
+    .lead { margin-top: 18px; color: var(--text-secondary); max-width: 840px; font-size: 1.08rem; }
+    .notice { margin-top: 22px; padding: 16px 18px; border-radius: 18px; background: linear-gradient(135deg, rgba(111,124,255,.16), rgba(56,208,255,.10)); border: 1px solid var(--border); color: var(--text-secondary); }
+    .timeline { position: relative; padding-left: 24px; }
+    .timeline::before { content: ""; position: absolute; left: 7px; top: 0; bottom: 0; width: 2px; background: var(--border); }
+    .day-card {
+      position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 24px; margin-bottom: 24px; box-shadow: var(--shadow);
+    }
+    .day-card::before {
+      content: ""; position: absolute; left: -21px; top: 28px; width: 12px; height: 12px;
+      background: var(--accent); border-radius: 50%; border: 3px solid var(--bg);
+    }
+    .day-card .day-badge {
+      display: inline-block; background: rgba(111,124,255,.15); color: var(--accent-2);
+      font-size: .75rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; margin-bottom: 12px;
+    }
+    .day-card h2 { font-size: 1.4rem; margin-bottom: 8px; }
+    .day-card p { color: var(--text-secondary); margin-bottom: 16px; }
+    .day-card ul { padding-left: 20px; color: var(--text-secondary); }
+    .day-card li { margin: 6px 0; }
+    .day-card .time { font-size: .85rem; color: var(--accent-2); margin-top: 12px; }
+    .next-steps { margin-top: 48px; padding: 24px; background: var(--surface); border-radius: var(--radius); border: 1px solid var(--border); }
+    .next-steps h3 { font-size: 1.3rem; margin-bottom: 16px; }
+    .next-steps ul { padding-left: 20px; color: var(--text-secondary); }
+    footer { padding: 40px 0 54px; color: var(--text-secondary); }
+    footer .container { border-top: 1px solid var(--border); padding-top: 24px; }
+    @media (max-width: 760px) { .timeline { padding-left: 16px; } .day-card { padding: 18px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/zh/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a>
+      <nav>
+        <a href="/zh/">首页</a>
+        <a href="/zh/learn/" class="active">学习路径</a>
+        <a href="/zh/knowledge-base/">知识库</a>
+        <a href="/zh/reports/">报告</a>
+        <a href="/zh/about.html">关于</a>
+        <div class="lang-switch"><a href="/en/learn/">EN</a><a href="/zh/learn/" class="active">中文</a></div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container hero">
+      <div class="eyebrow">学习路线 · 7 天从零到实战</div>
+      <h1>7 天学会预测市场交易</h1>
+      <p class="lead">每天 30 分钟，从基础概念到实战策略。不需要金融背景，只需要好奇心和执行力。</p>
+      <div class="notice">
+        <strong>💡 设计理念：</strong>不是"看完所有资料"，而是"每天完成一个小任务"。学完 7 天，你应该能独立执行一笔交易。
+      </div>
+    </div>
+
+    <div class="container timeline">
+      <div class="day-card">
+        <span class="day-badge">Day 1 · 30 分钟</span>
+        <h2>预测市场基础概念</h2>
+        <p>理解什么是预测市场、如何赚钱、与传统投资的区别。</p>
+        <ul>
+          <li>预测市场 vs 赌博 vs 传统投资</li>
+          <li>二元市场、概率定价、Yes/No 合约</li>
+          <li>分辨率机制和结算逻辑</li>
+          <li>风险警告：这不是"轻松赚钱"</li>
+        </ul>
+        <div class="time">⏱️ 阅读 15 分钟 + 思考 15 分钟</div>
+      </div>
+
+      <div class="day-card">
+        <span class="day-badge">Day 2 · 40 分钟</span>
+        <h2>Polymarket 平台操作</h2>
+        <p>熟悉 Polymarket 界面、市场浏览、下单流程。</p>
+        <ul>
+          <li>注册和账户设置</li>
+          <li>浏览市场：政治、体育、加密货币、天气</li>
+          <li>理解市场详情：流动性、交易量、到期时间</li>
+          <li>模拟下单（不实际执行）</li>
+        </ul>
+        <div class="time">⏱️ 阅读 20 分钟 + 实操 20 分钟</div>
+      </div>
+
+      <div class="day-card">
+        <span class="day-badge">Day 3 · 40 分钟</span>
+        <h2>钱包配置与安全</h2>
+        <p>设置加密钱包、充值 USDC、安全实践。</p>
+        <ul>
+          <li>选择钱包：MetaMask / Rabby / 其他</li>
+          <li>Polygon 网络配置</li>
+          <li>购买和充值 USDC</li>
+          <li>安全清单：私钥、钓鱼、授权管理</li>
+        </ul>
+        <div class="time">⏱️ 配置 30 分钟 + 安全检查 10 分钟</div>
+      </div>
+
+      <div class="day-card">
+        <span class="day-badge">Day 4 · 30 分钟</span>
+        <h2>风险管理原则</h2>
+        <p>学习仓位管理、止损、避免常见错误。</p>
+        <ul>
+          <li>仓位 sizing：每笔交易不超过总资金的 2-5%</li>
+          <li>熔断机制：单日最大亏损限制</li>
+          <li>流动性风险：避免小市场</li>
+          <li>决议风险：理解"不可预测"的情况</li>
+        </ul>
+        <div class="time">⏱️ 阅读 20 分钟 + 制定个人规则 10 分钟</div>
+      </div>
+
+      <div class="day-card">
+        <span class="day-badge">Day 5 · 40 分钟</span>
+        <h2>基础策略：Signal Sniper</h2>
+        <p>学习第一个可执行策略：事件驱动快速反应。</p>
+        <ul>
+          <li>策略逻辑：新闻发布后的定价延迟</li>
+          <li>信息源准备：Twitter、新闻 RSS、Discord</li>
+          <li>执行流程：发现 → 验证 → 下单</li>
+          <li>案例研究：实际交易复盘</li>
+        </ul>
+        <div class="time">⏱️ 学习 25 分钟 + 模拟演练 15 分钟</div>
+      </div>
+
+      <div class="day-card">
+        <span class="day-badge">Day 6 · 40 分钟</span>
+        <h2>进阶策略选择</h2>
+        <p>根据兴趣选择深入学习：Fast-Loop / Mert Sniper / Weather Trader。</p>
+        <ul>
+          <li><strong>Fast-Loop：</strong>高频循环、BTC 冲刺市场</li>
+          <li><strong>Mert Sniper：</strong>临近到期、高确定性交易</li>
+          <li><strong>Weather Trader：</strong>另类数据、天气套利</li>
+          <li>选择建议：根据你的时间和风险偏好</li>
+        </ul>
+        <div class="time">⏱️ 策略学习 30 分钟 + 选择决策 10 分钟</div>
+      </div>
+
+      <div class="day-card">
+        <span class="day-badge">Day 7 · 60 分钟</span>
+        <h2>实战复盘与 KOL 研究</h2>
+        <p>第一笔实际交易（小额）+ 学习成功交易者经验。</p>
+        <ul>
+          <li>执行第一笔真实交易（建议≤$10）</li>
+          <li>记录交易逻辑和预期</li>
+          <li>研究 1-2 位 KOL 的交易框架</li>
+          <li>制定下周学习计划</li>
+        </ul>
+        <div class="time">⏱️ 实战 30 分钟 + 复盘 30 分钟</div>
+      </div>
+
+      <div class="next-steps">
+        <h3>🎯 完成 7 天后，你应该：</h3>
+        <ul>
+          <li>✅ 理解预测市场的基本运作机制</li>
+          <li>✅ 有配置好的钱包和少量 USDC</li>
+          <li>✅ 有个人风险管理规则</li>
+          <li>✅ 掌握至少 1 个可执行策略</li>
+          <li>✅ 完成第一笔真实交易（无论盈亏）</li>
+        </ul>
+        <h3 style="margin-top: 24px;">📚 下一步学习：</h3>
+        <ul>
+          <li><a href="/zh/knowledge-base/strategies/" style="color: var(--accent);">策略库深度学习</a></li>
+          <li><a href="/zh/knowledge-base/kol/" style="color: var(--accent);">KOL 研究页</a></li>
+          <li><a href="/zh/reports/" style="color: var(--accent);">每日报告跟踪</a></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>pred101 · Prediction Market 101 学习路径</p>
+      <p style="margin-top: 8px; font-size: .85rem;">最后更新：2026-03-17</p>
+    </div>
+  </footer>
+</body>
+</html>

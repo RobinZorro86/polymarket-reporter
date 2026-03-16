@@ -38,6 +38,66 @@
       "source": "/about.html",
       "destination": "/en/about.html",
       "permanent": true
+    },
+    {
+      "source": "/en/strategies/copytrading.html",
+      "destination": "/en/knowledge-base/strategies/copytrading.html",
+      "permanent": true
+    },
+    {
+      "source": "/zh/strategies/copytrading.html",
+      "destination": "/zh/knowledge-base/strategies/copytrading.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/strategies/weather-trader.html",
+      "destination": "/en/knowledge-base/strategies/weather-trader.html",
+      "permanent": true
+    },
+    {
+      "source": "/zh/strategies/weather-trader.html",
+      "destination": "/zh/knowledge-base/strategies/weather-trader.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/reports/daily/",
+      "destination": "/en/reports/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/reports/daily/",
+      "destination": "/zh/reports/",
+      "permanent": true
+    },
+    {
+      "source": "/en/reports/weekly/",
+      "destination": "/en/reports/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/reports/weekly/",
+      "destination": "/zh/reports/",
+      "permanent": true
+    },
+    {
+      "source": "/en/learn/basics/",
+      "destination": "/en/learn/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/learn/basics/",
+      "destination": "/zh/learn/",
+      "permanent": true
+    },
+    {
+      "source": "/en/learn/advanced/",
+      "destination": "/en/learn/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/learn/advanced/",
+      "destination": "/zh/learn/",
+      "permanent": true
     }
   ]
 }

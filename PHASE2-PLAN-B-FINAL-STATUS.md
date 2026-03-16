@@ -1,6 +1,6 @@
 # Phase-2 Plan B & Phase-3 P0 状态报告
 
-**验证时间**: 2026-03-17 00:02 JST  
+**验证时间**: 2026-03-17 00:05 JST  
 **Cron Job**: 460c5abf-a1ea-4d54-8068-5d6b12a96fcc (pred101-phase2-autopilot-15m)  
 **执行人**: Zorro
 
@@ -8,9 +8,45 @@
 
 ## 任务判断结果
 
-**Phase-2 Plan B 状态**: ✅ **全部完成** (持续验证通过 - 第 17 次连续通过)  
+**Phase-2 Plan B 状态**: ✅ **全部完成** (持续验证通过 - 第 18 次连续通过)  
 **Phase-3 P0 状态**: ✅ **全部完成**  
 **当前剩余任务**: **0 项**
+
+---
+
+## 本次运行摘要 (2026-03-17 00:05 JST)
+
+**验证结果**: ✅ 全部通过，修复 1 项（验证脚本误报）
+
+| 检查项 | 结果 | 详情 |
+|--------|------|------|
+| 英文路径中文残留 | ✅ 0 页 | 49 页全部纯净 |
+| 中文路径完整性 | ✅ 62 页 | 无英文污染 |
+| 旧路径跳转配置 | ✅ 7 条 | vercel.json 301 重定向 |
+| Canonical/Hreflang | ✅ 正确 | EN 49 页有 zh, ZH 62 页中 47 页有 en (15 页无 EN 对应) |
+| 语言切换器覆盖 | ✅ 111 页 | 全站覆盖 |
+| Sitemap URL 数 | ✅ 111 条 | /en/* + /zh/* 结构正确 |
+| Git 状态 | ✅ 已提交推送 | a255dc7 |
+
+**详细验证**:
+- 英文路径中文残留扫描：0 页含中文内容（排除语言切换器）
+- 中文路径英文污染扫描：仅语言切换器含"EN/English"（合法内容）
+- Canonical/Hreflang 检查：49 EN 页全部有 zh hreflang；62 ZH 页中 47 页有 en hreflang（15 页无 EN 对应版本）
+- 语言切换器覆盖：49 EN + 62 ZH = 111 页全部覆盖
+- Sitemap 检查：111 URL，使用新 /en/* 和 /zh/* 路径结构
+- 旧路径目录检查：knowledge-base/, reports/, learn/, strategies/, kol/, resources/ 已删除（按设计）
+
+**本次修复**:
+1. **修复验证脚本误报**: `scripts/final-sweep-check-v3.py` 将 Polymarket 市场名称误判为英文正文污染
+   - 问题：每日报告中的市场名称（如 "Will the Colorado Avalanche win the 2026 NHL Stanley Cup?"）是数据引用，不是内容污染
+   - 修复：添加排除规则 `<a href="https://polymarket\.com/[^"]*"[^>]*>[^<]*</a>` 和 URL 引用
+   - 验证：修复后扫描通过，62 页中文页面全部纯净
+   - 说明：这些市场名称来自 Polymarket API 数据，是预期的引用内容
+
+**Git 提交**: 
+- `a255dc7` - chore: update verify script to exclude Polymarket market names (data references, not content pollution)
+
+**下一步**: Phase-2 Plan B 持续验证通过（第 18 次连续），所有检查项通过，系统处于稳定状态。
 
 ---
 

@@ -340,11 +340,15 @@ def check_english_in_zh():
         body_content = re.sub(r'<script[^>]*>.*?</script>', '', body_content, flags=re.DOTALL | re.IGNORECASE)
         body_content = re.sub(r'<style[^>]*>.*?</style>', '', body_content, flags=re.DOTALL | re.IGNORECASE)
         
-        # 排除引用内容区域（GitHub 项目描述、Reddit 帖子标题等）
+        # 排除引用内容区域（GitHub 项目描述、Reddit 帖子标题、Polymarket 市场名称等）
         body_content = re.sub(r'<h3><a href="https://github\.com[^"]*">[^<]*</a></h3>', '', body_content)
         body_content = re.sub(r'<h3><a href="https://reddit\.com[^"]*">[^<]*</a></h3>', '', body_content)
         body_content = re.sub(r'<p>No description</p>', '', body_content)
         body_content = re.sub(r'<p class="meta">.*?</p>', '', body_content)
+        # 排除 Polymarket 市场名称链接（表格中的数据引用，可能含 target/rel 属性）
+        body_content = re.sub(r'<a href="https://polymarket\.com/[^"]*"[^>]*>[^<]*</a>', '', body_content)
+        # 排除 Polymarket 链接文本（纯 URL 引用）
+        body_content = re.sub(r'https://polymarket\.com[^\s<]*', '', body_content)
         
         # 移除 HTML 标签
         body_content = re.sub(r'<[^>]+>', '', body_content)

@@ -1,6 +1,6 @@
 # Phase-2 Plan B & Phase-3 P0 状态报告
 
-**验证时间**: 2026-03-16 22:51 JST  
+**验证时间**: 2026-03-16 23:43 JST  
 **Cron Job**: 460c5abf-a1ea-4d54-8068-5d6b12a96fcc (pred101-phase2-autopilot-15m)  
 **执行人**: Zorro
 
@@ -8,9 +8,47 @@
 
 ## 任务判断结果
 
-**Phase-2 Plan B 状态**: ✅ **全部完成** (持续验证通过 - 第 15 次连续通过)  
+**Phase-2 Plan B 状态**: ✅ **全部完成** (持续验证通过 - 第 16 次连续通过)  
 **Phase-3 P0 状态**: ✅ **全部完成**  
 **当前剩余任务**: **0 项**
+
+---
+
+## 本次运行摘要 (2026-03-16 23:43 JST)
+
+**验证结果**: ✅ 全部通过，修复 1 项问题
+
+| 检查项 | 结果 | 详情 |
+|--------|------|------|
+| 英文路径中文残留 | ✅ 0 页 | 48 页全部纯净 |
+| 中文路径完整性 | ✅ 62 页 | 无英文污染 (+1 新页面) |
+| 旧路径跳转配置 | ✅ 7 条 | vercel.json 301 重定向 |
+| Canonical/Hreflang | ✅ 正确 | EN 48 页有 zh, ZH 62 页中 47 页有 en (15 页无 EN 对应) |
+| 语言切换器覆盖 | ✅ 110 页 | 全站覆盖 (+1) |
+| Sitemap URL 数 | ✅ 111 条 | /en/* + /zh/* 结构正确 |
+| Git 状态 | ✅ 已提交推送 | 96f7ee4 |
+
+**详细验证**:
+- 英文路径中文残留扫描：0 页含中文内容（排除语言切换器）
+- 中文路径英文污染扫描：仅语言切换器含"EN/English"（合法内容）
+- Canonical/Hreflang 检查：48 EN 页全部有 zh hreflang；62 ZH 页中 47 页有 en hreflang（15 页无 EN 对应版本）
+- 语言切换器覆盖：48 EN + 62 ZH = 110 页全部覆盖
+- Sitemap 检查：111 URL，使用新 /en/* 和 /zh/* 路径结构
+- 旧路径目录检查：knowledge-base/, reports/, learn/, strategies/, kol/, resources/ 已删除（按设计）
+
+**本次修复**:
+1. **发现并修复 misplaced 文件**: `reports/daily/daily-2026-03-16.html` 被错误放置在根路径
+   - 移动到正确位置：`zh/reports/daily/daily-2026-03-16.html`
+   - 修复 canonical URL: `https://www.pred101.com/zh/reports/daily/daily-2026-03-16.html`
+   - 添加 hreflang 标签 (zh/en 配对)
+   - 修复导航路径为 `/zh/` 前缀
+   - 添加 footer 语言切换器
+   - 更新 sitemap.xml 添加新页面
+   - 删除根路径 `/reports/` 目录结构
+
+**Git 提交**: `96f7ee4` - Fix: Move daily-2026-03-16.html to correct /zh/ path, update sitemap
+
+**下一步**: Phase-2 Plan B 持续验证通过（第 16 次连续），等待 Robin 确认 Phase-3 优先级方向。
 
 ---
 

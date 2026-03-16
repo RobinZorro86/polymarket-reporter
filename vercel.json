@@ -5,88 +5,39 @@
   "installCommand": "echo 'No install step needed'",
   "redirects": [
     {
-      "source": "/knowledge-base",
-      "destination": "/en/knowledge-base/",
+      "source": "/knowledge-base/(.*)",
+      "destination": "/en/knowledge-base/$1",
       "permanent": true
     },
     {
-      "source": "/knowledge-base/:path*",
-      "destination": "/en/knowledge-base/:path*",
+      "source": "/reports/(.*)",
+      "destination": "/en/reports/$1",
       "permanent": true
     },
     {
-      "source": "/reports",
-      "destination": "/en/reports/",
+      "source": "/learn/(.*)",
+      "destination": "/en/learn/$1",
       "permanent": true
     },
     {
-      "source": "/reports/:path*",
-      "destination": "/en/reports/:path*",
+      "source": "/strategies/(.*)",
+      "destination": "/en/strategies/$1",
       "permanent": true
     },
     {
-      "source": "/learn",
-      "destination": "/en/learn/",
+      "source": "/kol/(.*)",
+      "destination": "/en/kol/$1",
       "permanent": true
     },
     {
-      "source": "/learn/:path*",
-      "destination": "/en/learn/:path*",
-      "permanent": true
-    },
-    {
-      "source": "/strategies",
-      "destination": "/en/strategies/",
-      "permanent": true
-    },
-    {
-      "source": "/strategies/:path*",
-      "destination": "/en/strategies/:path*",
-      "permanent": true
-    },
-    {
-      "source": "/kol",
-      "destination": "/en/kol/",
-      "permanent": true
-    },
-    {
-      "source": "/kol/:path*",
-      "destination": "/en/kol/:path*",
-      "permanent": true
-    },
-    {
-      "source": "/resources",
-      "destination": "/en/resources/",
-      "permanent": true
-    },
-    {
-      "source": "/resources/:path*",
-      "destination": "/en/resources/:path*",
+      "source": "/resources/(.*)",
+      "destination": "/en/resources/$1",
       "permanent": true
     },
     {
       "source": "/about.html",
       "destination": "/en/about.html",
       "permanent": true
-    }
-  ],
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        },
-        {
-          "key": "X-Frame-Options",
-          "value": "DENY"
-        },
-        {
-          "key": "X-XSS-Protection",
-          "value": "1; mode=block"
-        }
-      ]
     }
   ]
 }

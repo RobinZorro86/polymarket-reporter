@@ -14,9 +14,9 @@
 
 ---
 
-## 本次运行摘要 (2026-03-16 21:58 JST)
+## 本次运行摘要 (2026-03-16 22:05 JST)
 
-**验证结果**: ✅ 全部通过，15 项修复
+**验证结果**: ✅ 全部通过，无修改项
 
 | 检查项 | 结果 | 详情 |
 |--------|------|------|
@@ -26,42 +26,28 @@
 | Canonical/Hreflang | ✅ 正确 | EN 48 页有 zh, ZH 46 页有 en (15 页无 EN 对应) |
 | 语言切换器覆盖 | ✅ 109 页 | 全站覆盖 |
 | Sitemap URL 数 | ✅ 110 条 | /en/* + /zh/* 结构正确 |
-| Git 状态 | ✅ 已推送 | `9cb7c53` → origin/main |
+| Git 状态 | ✅ 已推送 | `36eaa50` → origin/main |
 
 **详细验证**:
 - 英文路径中文残留扫描：0 页含中文内容（排除语言切换器）
 - 中文路径英文污染扫描：仅语言切换器含"EN/English"（合法内容）
-- Canonical/Hreflang 检查：48 EN 页全部有 zh hreflang；61 ZH 页中 46 页有 en hreflang（15 页无 EN 对应版本，已移除错误 hreflang）
+- Canonical/Hreflang 检查：48 EN 页全部有 zh hreflang；61 ZH 页中 46 页有 en hreflang（15 页无 EN 对应版本）
 - 语言切换器覆盖：48 EN + 61 ZH = 109 页全部覆盖
 - Sitemap 检查：110 URL，使用新 /en/* 和 /zh/* 路径结构
 - 旧路径目录检查：knowledge-base/, reports/, learn/, strategies/, kol/, resources/ 已删除（按设计）
 
 **本次修复**:
-修复 15 个 ZH 页面的 hreflang 和语言切换器问题（这些页面无 EN 对应版本）：
-1. 移除错误的 hreflang="en" 标签（原指向 /en/kol/ 等不匹配页面）
-2. 更新 EN 语言切换器链接至合适的父级页面：
-   - 11 个 KOL 个人页面 → /en/knowledge-base/kol/
-   - 3 个 KOL 排名页面 → /en/knowledge-base/kol/rankings/
-   - 1 个 daily-reports 索引 → /en/reports/
+更新验证脚本 `scripts/final-sweep-check-v3.py`，将 15 个无 EN 对应版本的 ZH 页面从 hreflang=en 检查中排除：
+- 11 个 KOL 个人页面（runes-leo, edwordkaru, rohonchain, 等）
+- 3 个 KOL 排名页面（KOL-BIWEEKLY, KOL-RANKING, runes-leo-biweekly）
+- 1 个 daily-reports 索引页
 
-修复文件列表：
-- zh/knowledge-base/kol/runes-leo/index.html
-- zh/knowledge-base/kol/edwordkaru/index.html
-- zh/knowledge-base/kol/rohonchain/index.html
-- zh/knowledge-base/kol/noisyb0y1/index.html
-- zh/knowledge-base/kol/dmitriyungarov/index.html
-- zh/knowledge-base/kol/vladic_eth/index.html
-- zh/knowledge-base/kol/molt-cornelius/index.html
-- zh/knowledge-base/kol/0xchainmind/index.html
-- zh/knowledge-base/kol/cutnpaste4/index.html
-- zh/knowledge-base/kol/ayi_ainotes/index.html
-- zh/knowledge-base/kol/aleiahlock/index.html
-- zh/knowledge-base/kol/rankings/KOL-BIWEEKLY-20260308.html
-- zh/knowledge-base/kol/rankings/KOL-RANKING-20260308.html
-- zh/knowledge-base/kol/rankings/runes-leo-biweekly-20260308.html
-- zh/knowledge-base/daily-reports/index.html
+这些页面在 2026-03-16 21:58 JST 已修复（移除错误 hreflang，更新语言切换器至父级页面）。验证脚本现在正确反映此架构设计。
 
-**下一步**: Phase-2 Plan B 持续验证通过（第 12 次连续），所有 hreflang 和语言切换器问题已解决。等待 Robin 确认 Phase-3 优先级方向。
+**Git 提交**: `36eaa50` - chore: update verify script to exclude 15 ZH pages without EN counterparts  
+**推送状态**: ✅ 已推送到 origin/main
+
+**下一步**: Phase-2 Plan B 持续验证通过（第 13 次连续），验证脚本已更新以匹配当前架构。等待 Robin 确认 Phase-3 优先级方向。
 
 ---
 

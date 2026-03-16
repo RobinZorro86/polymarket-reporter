@@ -419,6 +419,25 @@ def check_canonical_hreflang():
     """检查 Canonical / Hreflang 配置"""
     issues = []
     
+    # ZH 页面中没有 EN 对应版本的页面（KOL 个人页面、KOL 排名页、daily-reports 索引）
+    zh_pages_without_en = {
+        'zh/knowledge-base/daily-reports/index.html',
+        'zh/knowledge-base/kol/runes-leo/index.html',
+        'zh/knowledge-base/kol/edwordkaru/index.html',
+        'zh/knowledge-base/kol/rohonchain/index.html',
+        'zh/knowledge-base/kol/noisyb0y1/index.html',
+        'zh/knowledge-base/kol/dmitriyungarov/index.html',
+        'zh/knowledge-base/kol/vladic_eth/index.html',
+        'zh/knowledge-base/kol/molt-cornelius/index.html',
+        'zh/knowledge-base/kol/0xchainmind/index.html',
+        'zh/knowledge-base/kol/cutnpaste4/index.html',
+        'zh/knowledge-base/kol/ayi_ainotes/index.html',
+        'zh/knowledge-base/kol/aleiahlock/index.html',
+        'zh/knowledge-base/kol/rankings/KOL-BIWEEKLY-20260308.html',
+        'zh/knowledge-base/kol/rankings/KOL-RANKING-20260308.html',
+        'zh/knowledge-base/kol/rankings/runes-leo-biweekly-20260308.html',
+    }
+    
     for html_file in EN_DIR.rglob("*.html"):
         content = html_file.read_text(encoding='utf-8', errors='ignore')
         if 'rel="canonical"' not in content:
@@ -428,10 +447,13 @@ def check_canonical_hreflang():
     
     for html_file in ZH_DIR.rglob("*.html"):
         content = html_file.read_text(encoding='utf-8', errors='ignore')
+        rel_path = str(html_file.relative_to(BASE_DIR))
         if 'rel="canonical"' not in content:
-            issues.append(f"{html_file.relative_to(BASE_DIR)} - 缺少 canonical")
-        if 'hreflang="en"' not in content:
-            issues.append(f"{html_file.relative_to(BASE_DIR)} - 缺少 hreflang=en")
+            issues.append(f"{rel_path} - 缺少 canonical")
+        # 跳过没有 EN 对应版本的 ZH 页面
+        if rel_path not in zh_pages_without_en:
+            if 'hreflang="en"' not in content:
+                issues.append(f"{rel_path} - 缺少 hreflang=en")
     
     return issues
 

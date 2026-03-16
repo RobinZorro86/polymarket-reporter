@@ -1,6 +1,6 @@
 # Phase-2 Plan B & Phase-3 P0 状态报告
 
-**验证时间**: 2026-03-16 09:34 JST  
+**验证时间**: 2026-03-16 09:51 JST  
 **Cron Job**: 460c5abf-a1ea-4d54-8068-5d6b12a96fcc (pred101-phase2-autopilot-15m)  
 **执行人**: Zorro
 
@@ -14,9 +14,9 @@
 
 ---
 
-## 本次运行摘要 (2026-03-16 09:33 JST)
+## 本次运行摘要 (2026-03-16 09:51 JST)
 
-**验证结果**: ✅ 全部通过，2 项清理
+**验证结果**: ✅ 全部通过，3 项修复
 
 | 检查项 | 结果 | 详情 |
 |--------|------|------|
@@ -25,11 +25,12 @@
 | 旧路径跳转配置 | ✅ 7 条 | vercel.json 301 重定向 |
 | Canonical/Hreflang | ✅ 108 页 | 双向配对正确 |
 | 语言切换器覆盖 | ✅ 108 页 | 全站覆盖 |
-| Git 状态 | ✅ 已推送 | `92e1ac3` → origin/main |
+| Git 状态 | ✅ 已推送 | `2d725d5` → origin/main |
 
 **本次修复**:
-1. 删除根目录 `reports/` 冗余 meta refresh 目录（vercel.json 301 已覆盖）
-2. 修复 `en/resources/index.html` 语言切换器（ZH 链接指向对等薄入口页 `/zh/resources/`）
+1. 修复 `en/knowledge-base/resources/glossary/index.html` 语言切换器（添加导航栏内 EN/ZH 切换）
+2. 修复 `en/knowledge-base/resources/risk-management/index.html` 语言切换器（添加导航栏内 EN/ZH 切换）
+3. 修复 `en/knowledge-base/resources/apis/index.html` 语言切换器（添加导航栏内 EN/ZH 切换）
 
 **下一步**: Phase-2 Plan B 持续验证通过，等待 Robin 确认 Phase-3 优先级方向
 

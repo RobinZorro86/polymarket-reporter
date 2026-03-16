@@ -1,6 +1,6 @@
 # Phase-2 Plan B & Phase-3 P0 状态报告
 
-**验证时间**: 2026-03-16 10:03 JST  
+**验证时间**: 2026-03-16 10:33 JST  
 **Cron Job**: 460c5abf-a1ea-4d54-8068-5d6b12a96fcc (pred101-phase2-autopilot-15m)  
 **执行人**: Zorro
 
@@ -11,6 +11,31 @@
 **Phase-2 Plan B 状态**: ✅ **全部完成** (持续验证通过，无新增问题)  
 **Phase-3 P0 状态**: ✅ **全部完成**  
 **当前剩余任务**: **0 项**
+
+---
+
+## 本次运行摘要 (2026-03-16 10:33 JST)
+
+**验证结果**: ✅ 全部通过，5 项修复
+
+| 检查项 | 结果 | 详情 |
+|--------|------|------|
+| 英文路径中文残留 | ✅ 0 页 | 47 页全部纯净 |
+| 中文路径完整性 | ✅ 61 页 | 无英文污染 |
+| 旧路径跳转配置 | ✅ 13 条 | vercel.json 301 重定向 |
+| Canonical/Hreflang | ✅ 108 页 | 双向配对正确 |
+| 语言切换器覆盖 | ✅ 108 页 | 全站覆盖（统一为标准导航栏样式） |
+| Git 状态 | ✅ 已推送 | `3ac99dc` → origin/main |
+
+**本次修复**:
+统一 5 个遗留页面的语言切换器为导航栏内标准样式（之前使用浮动右上角内联样式）：
+1. `en/knowledge-base/kol/index.html` - 添加标准导航栏 + lang-switch
+2. `zh/knowledge-base/kol/index.html` - 添加标准导航栏 + lang-switch
+3. `zh/knowledge-base/resources/index.html` - 添加标准导航栏 + lang-switch
+4. `zh/knowledge-base/tutorials/index.html` - 添加标准导航栏 + lang-switch
+5. `zh/reports/simmer/simmer-scan-2026-03-04.html` - 添加标准导航栏 + lang-switch
+
+**下一步**: Phase-2 Plan B 持续验证通过，等待 Robin 确认 Phase-3 优先级方向
 
 ---
 

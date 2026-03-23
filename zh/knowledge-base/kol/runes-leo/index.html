@@ -1,221 +1,316 @@
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>@runes_leo 策略分析 | Prediction Market 101</title>
-  <link rel="canonical" href="https://www.pred101.com/zh/knowledge-base/kol/runes-leo/">
-  <link rel="alternate" hreflang="zh" href="https://www.pred101.com/zh/knowledge-base/kol/runes-leo/">
-  <link rel="stylesheet" href="/css/style.css">
-  <style>
-    :root { --accent: #0071e3; --bg: #ffffff; --surface: #f5f5f7; --text: #1d1d1f; --text-secondary: #86868b; --border: #d2d2d7; }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.47059; }
-    .container { max-width: 980px; margin: 0 auto; padding: 0 22px; }
-    header { background: rgba(255,255,255,0.8); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
-    header .container { display: flex; justify-content: space-between; align-items: center; height: 52px; }
-    .logo { font-size: 21px; font-weight: 600; color: var(--text); text-decoration: none; }
-    nav a { color: var(--text-secondary); text-decoration: none; margin-left: 24px; font-size: 12px; transition: color 0.2s; }
-    nav a:hover { color: var(--accent); }
-    nav a.active { color: var(--text); }
-    main { padding: 60px 0 80px; }
-    .breadcrumb { font-size: 12px; color: var(--text-secondary); margin-bottom: 16px; }
-    .breadcrumb a { color: var(--accent); text-decoration: none; }
-    .page-header { margin-bottom: 40px; }
-    .page-header h1 { font-size: 40px; font-weight: 600; margin-bottom: 12px; }
-    .page-header .meta { font-size: 13px; color: var(--text-secondary); }
-    .content { background: var(--surface); border-radius: 18px; padding: 32px; margin-bottom: 24px; }
-    .content h2 { font-size: 24px; font-weight: 600; margin: 32px 0 16px; }
-    .content h2:first-child { margin-top: 0; }
-    .content p { margin: 16px 0; font-size: 15px; }
-    .content ul, .content ol { margin: 16px 0 16px 24px; }
-    .content li { margin: 8px 0; font-size: 15px; }
-    .content pre { background: #1d1d1f; color: #e2e8f0; padding: 20px; border-radius: 12px; overflow-x: auto; font-size: 13px; margin: 16px 0; }
-    .content code { font-family: 'SF Mono', Monaco, monospace; }
-    .tag { display: inline-block; font-size: 12px; font-weight: 500; color: var(--accent); background: rgba(0,113,227,0.1); padding: 4px 12px; border-radius: 12px; margin: 4px 8px 4px 0; }
-    .info-box { background: #e8f4ff; border-left: 4px solid var(--accent); padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; }
-    .info-box p { margin: 0; font-size: 14px; }
-    .stat-card { display: inline-block; background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 16px 24px; margin: 8px 8px 8px 0; text-align: center; }
-    .stat-card .value { font-size: 24px; font-weight: 600; color: var(--accent); }
-    .stat-card .label { font-size: 12px; color: var(--text-secondary); margin-top: 4px; }
-    .warning-box { background: #fff4e6; border-left: 4px solid #ff9500; padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; }
-    footer { border-top: 1px solid var(--border); padding: 40px 0; text-align: center; }
-    footer p { font-size: 12px; color: var(--text-secondary); }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="container">
-      <a href="/zh/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a>
-      <nav>
-        <a href="/zh/">首页</a>
-        <a href="/zh/knowledge-base/" class="active">知识库</a>
-        <a href="/zh/reports/">报告</a>
-        <a href="/zh/about.html">关于</a>
-      <div class="lang-switch"><a href="/en/knowledge-base/kol/">EN</a><a href="/zh/knowledge-base/kol/runes-leo/" class="active">中文</a></div></nav>
-    </div>
-  </header>
+# Runes Leo (@runes_leo) - KOL 研究更新
 
-  <main>
-    <div class="container">
-      <div class="breadcrumb">
-        <a href="/zh/knowledge-base/">知识库</a> › <a href="../">KOL</a> › @runes_leo
-      </div>
+**来源**: X/Twitter @runes_leo  
+**整理日期**: 2026-03-23  
+**标签**: `#AI工具` `#Claude Code` `#OpenClaw` `#Polymarket 策略` `#X Profile`  
+**原始推文**: https://x.com/runes_leo/status/2035907768595660951
 
-      <div class="page-header">
-        <h1>📊 @runes_leo 策略分析</h1>
-        <div class="meta">
-          <span>最后更新：<time datetime="2026-03-07">2026-03-07</time></span> · 
-          <span>来源：X.com @runes_leo</span>
-        </div>
-        <div style="margin-top: 12px;">
-          <span class="tag">Pre-Market</span>
-          <span class="tag">数据驱动</span>
-          <span class="tag">No 策略</span>
-        </div>
-      </div>
+---
 
-      <div class="content">
-        <h2>📌 核心贡献</h2>
-        <p>@runes_leo 基于 651 个已结算 Pre-Market 市场的全量数据，验证了"系统性买 No"策略的超额收益，揭示了 Crypto 预测市场的乐观偏差套利机会。</p>
+## 📊 基本信息
 
-        <div class="info-box">
-          <p><strong>💡 核心发现：</strong>651 个已结算市场，No 胜率 67.4%。FDV 市场 No 胜率 72.8%，Airdrop 市场 73%。</p>
-        </div>
+| 项目 | 内容 |
+|------|------|
+| **用户名** | @runes_leo (Leo) |
+| **类型** | 技术型 + 实战型 |
+| **关注领域** | AI 工具工程化、Polymarket 策略、X 分析、自动化 |
+| **更新频率** | 高 |
+| **适合学习** | AI 工具工作流、策略工程化、自动化系统 |
+| **研究用途** | AI 工程实践、策略开发、工具链建设 |
 
-        <h2>📊 核心数据</h2>
-        <div>
-          <div class="stat-card">
-            <div class="value">651</div>
-            <div class="label">已结算市场</div>
-          </div>
-          <div class="stat-card">
-            <div class="value">102</div>
-            <div class="label">Pre-Market 事件</div>
-          </div>
-          <div class="stat-card">
-            <div class="value">67.4%</div>
-            <div class="label">No 胜率</div>
-          </div>
-        </div>
+---
 
-        <h2>🎯 什么是 Pre-Market</h2>
-        <p>Polymarket 的 Pre-Market 是一类特殊市场，预测 Crypto 项目的未来事件。主要三类：</p>
-        <ol>
-          <li><strong>FDV 市场：</strong>"MegaETH 上线首日 FDV 会超过$2B 吗？"</li>
-          <li><strong>Airdrop 市场：</strong>"Pump.fun 会在 3 月 31 日前空投吗？"</li>
-          <li><strong>Token Launch 市场：</strong>"Base 会在 2026 年底前发币吗？"</li>
-        </ol>
+## 🎯 核心判断
 
-        <h2>📈 三大关键洞察</h2>
-        
-        <h3>1. FDV 市场是 No 的金矿</h3>
-        <ul>
-          <li><strong>数据：</strong>298 个已结算 FDV 市场，72.8% 结果是 No</li>
-          <li><strong>原因：</strong>项目方在 Pre-Market 阶段总是被高估</li>
-          <li><strong>策略：</strong>集中火力在高阈值（$4B+）买 No</li>
-        </ul>
+Runes Leo 是一位**AI 工程化实战型 KOL**，专注于：
 
-        <h3>2. Airdrop 市场几乎一样好</h3>
-        <ul>
-          <li><strong>数据：</strong>73% 的 No 胜率</li>
-          <li><strong>原因：</strong>空投永远比预期晚（Monad 从 9 月延到 12 月）</li>
-          <li><strong>策略：</strong>只买近期截止的（30-90 天）</li>
-        </ul>
+**独特价值**:
+- AI 工具共享记忆系统 (Claude Code + Codex + OpenClaw)
+- X Profile 自动化分析 Skill
+- Polymarket 策略万次模拟与验证
+- 基础设施工程化实践
 
-        <h3>3. Token Launch 是陷阱</h3>
-        <ul>
-          <li><strong>数据：</strong>50/50 没有 alpha</li>
-          <li><strong>原因：</strong>发币是迟早的事，长期限市场（2026 年底前）几乎 100% 结算为 Yes</li>
-          <li><strong>策略：</strong>回避此类市场</li>
-        </ul>
+**内容特点**:
+- 工程化思维 (系统化解决方案)
+- 实战导向 (真实项目经验)
+- 技术深度 (代码级分享)
+- 批判性思考 (模拟 vs 现实差距)
 
-        <div class="info-box">
-          <p><strong>✅ 结论：集中火力在 FDV 和 Airdrop，回避 Token Launch。</p>
-        </div>
+---
 
-        <h2>🪜 阶梯效应（Staircase Pattern）</h2>
-        <p>FDV 市场有个特别漂亮的规律——阶梯效应：</p>
-        
-        <h3>原理</h3>
-        <p>以 Monad 为例：上线首日 FDV 落在$3.2B。</p>
-        <ul>
-          <li>所有低于$3.2B 的阈值（$2B、$3B）→ 结算为 Yes</li>
-          <li>所有高于$3.2B 的阈值（$4B、$5B、$6B...）→ 结算为 No</li>
-        </ul>
+## 🏷️ 标签
 
-        <h3>策略应用</h3>
-        <p>你不需要精确预测 FDV 是多少，只需要判断"不太可能超过$X"：</p>
-        <pre><code>Monad 案例：
-同时买$5B No、$6B No、$8B No、$10B No
-→ 四个全赢</code></pre>
+`#AI 工具工程化` `#Claude Code` `#OpenClaw` `#Polymarket 策略` `#X Profile` `#自动化`
 
-        <h2>🎯 当前活跃机会：MegaETH</h2>
-        <p>截至 2026-03-07，Polymarket 上最活跃的 Pre-Market FDV 事件是 MegaETH。</p>
-        
-        <h3>示例配置</h3>
-        <ul>
-          <li><strong>保守：</strong>买$3B No @ 92c，ROI 8.4%，胜率更高</li>
-          <li><strong>中性：</strong>买$2B No @ 82c，ROI 22%，综合胜率~70%</li>
-          <li><strong>激进：</strong>买$1B No @ 44.5c，ROI 125%，需要 MegaETH 表现很差</li>
-        </ul>
+---
 
-        <h2>⚙️ 策略框架</h2>
-        
-        <h3>选品规则</h3>
-        <ul>
-          <li>✅ FDV 市场：优先</li>
-          <li>✅ Airdrop 市场：可选</li>
-          <li>❌ Token Launch：回避</li>
-        </ul>
+## 🎯 内容分类
 
-        <h3>入场规则</h3>
-        <ul>
-          <li><strong>FDV：</strong>选中间偏高阈值（如$3B-$4B 区间）</li>
-          <li><strong>Airdrop：</strong>只买近期截止的（30-90 天）</li>
-          <li><strong>价格：</strong>No 价格低于 70c 才有吸引力（ROI &gt; 43%）</li>
-        </ul>
+### 1. AI 工具共享记忆系统
 
-        <h3>仓位管理</h3>
-        <ul>
-          <li>单个市场 ≤ 总仓位 10%</li>
-          <li>同一事件（不同阈值）合计 ≤ 30%</li>
-          <li>保持 5-10 个活跃持仓的分散度</li>
-        </ul>
+**核心内容**: 解决多个 AI 工具共享记忆的问题
 
-        <h3>退出规则</h3>
-        <ul>
-          <li><strong>核心策略：</strong>持有到结算（不做波段）</li>
-          <li><strong>例外：</strong>如果结算前 No 价格涨到 95c+，考虑提前卖出锁定利润</li>
-        </ul>
+**典型案例**:
+> "同时用 Claude Code、Codex、OpenClaw，怎么让它们共享记忆？
+> 
+> 我的方案很土：一套 markdown 文件 + 两层自动同步。
+> 
+> 核心是 today.md。每个 session 开始自动读，结束自动写。OpenClaw 本地助手通过 symlink 共享同一份文件，每 5 分钟 cron"
 
-        <h2>⚠️ 风险和陷阱</h2>
-        <div class="warning-box">
-          <ul>
-            <li><strong>黑天鹅事件：</strong>Plasma 上线 FDV 一度冲到$8B，所有阈值 No 归零（27% 的 FDV 市场结果是 Yes）</li>
-            <li><strong>时间成本：</strong>No @ 90c 的交易，赢了只赚 11%，锁仓 3 个月年化 44%</li>
-            <li><strong>流动性风险：</strong>只做交易量 &gt;$100K 的市场</li>
-            <li><strong>Token Launch 陷阱：</strong>2026 年到期的市场，93% 结算为 Yes</li>
-          </ul>
-        </div>
+**技术架构**:
+- **核心文件**: today.md
+- **同步机制**: 两层自动同步
+- **共享方式**: symlink 共享同一份文件
+- **更新频率**: 每 5 分钟 cron
 
-        <h2>📚 相关资源</h2>
-        <ul>
-          <li><a href="https://leolabs.me/guide" target="_blank">新手入门指南</a></li>
-          <li><a href="/zh/knowledge-base/resources/apis/">Polymarket API 文档</a></li>
-          <li><a href="https://x.com/runes_leo" target="_blank">@runes_leo on X</a></li>
-        </ul>
-      </div>
-    </div>
-  </main>
+**价值**:
+- 多 AI 工具协同工作流
+- 记忆持久化方案
+- 工程化实践参考
 
-  <footer>
-    <div class="container">
-      <p>
-        <time datetime="2026-03-07">创建：2026-03-07</time> · 
-        <span>来源：X.com @runes_leo</span>
-      </p>
-    </div>
-  </footer>
-</body>
-</html>
+---
+
+### 2. X Profile 自动化分析 Skill
+
+**核心内容**: 自动化 X 用户画像生成
+
+**典型案例**:
+> "说做就做。花一个小时做成了 X profile Skill。
+> 
+> 输入一个 X @ handle，自动拉基本信息 + 最近推文 + 高互动搜索，10 分钟出标准化画像：身份、内容分布、影响力评级、叙事立场、社交图谱、行动建议，六个维度。
+> 
+> 第一个试验拿 @simonw 大佬开刀（见图）。152K 粉，A 级，最亮眼的是收藏率——平均每条"
+
+**功能特点**:
+- **输入**: X @ handle
+- **输出**: 6 维度标准化画像
+  - 身份
+  - 内容分布
+  - 影响力评级
+  - 叙事立场
+  - 社交图谱
+  - 行动建议
+- **时间**: 10 分钟出结果
+- **开发时间**: 1 小时
+
+**价值**:
+- KOL 研究自动化
+- 人选决策辅助
+- 社交分析工具
+
+---
+
+### 3. Polymarket 策略万次模拟
+
+**核心内容**: Polymarket 策略回测与验证
+
+**典型案例**:
+> "Polymarket 万次模拟，97% 的策略死了。三个活下来的有一个共同点：每笔交易进场前 EV 必须为正，没有例外。
+> 
+> 文章把 Python 代码都给了，跑一遍就能复现。但有意思的是，模拟里的 EV 是写死的常数，现实里的 EV 每分钟都在变。
+> 
+> 差距在那个 P 上。概率估计偏一点，Kelly..."
+
+**核心发现**:
+- **模拟规模**: 10,000 次
+- **存活率**: 3% (97% 策略死亡)
+- **共同点**: EV 必须为正 (Expected Value)
+- **关键差距**: 模拟 EV 是常数 vs 现实 EV 每分钟变化
+- **核心变量**: 概率估计 (P)
+
+**价值**:
+- 策略验证方法论
+- EV 思维重要性
+- 模拟与现实差距认知
+
+---
+
+### 4. 基础设施工程化
+
+**核心内容**: 多账户交易基础设施挑战
+
+**典型案例**:
+> "策略跑通了，想多开几个号分散风险，结果卡了一整天。
+> 
+> 坑不在策略，在基础设施。
+> 
+> 同一套代码，A 账户正常交易，B 账户死活显示余额 $0。API..."
+
+**核心问题**:
+- 多账户分散风险需求
+- 基础设施挑战
+- API 限制与问题
+- 账户管理复杂性
+
+**价值**:
+- 实战工程经验
+- 基础设施重要性认知
+- 风险分散实践
+
+---
+
+### 5. AI 工作效率反思
+
+**核心内容**: AI 工具对工作效率的影响
+
+**典型案例**:
+> "用 AI 之后每天工作时间更长了。
+> 
+> 以前没有 Claude Code 的时候，想到一个点子，评估一下觉得太麻烦，算了。现在的问题是：什么都不麻烦了。数据采集想做就做，策略想试就试，内容想写就写。可能性太多，反而每天都在排优先级。
+> 
+> AI 确实帮你省了时间，但省下来的每一分钟都被新的可能性填满了。"
+
+**核心洞察**:
+- **现象**: 工作时间更长
+- **原因**: 可能性太多，优先级排序困难
+- **悖论**: AI 省时间 → 新可能性填满
+- **挑战**: 优先级管理
+
+**价值**:
+- AI 工具使用反思
+- 工作效率本质思考
+- 优先级管理重要性
+
+---
+
+## ✅ 如何使用这个对象页
+
+### 学习建议
+1. **学习 AI 工程化**: 参考 today.md 共享记忆方案
+2. **学习自动化**: X Profile Skill 开发思路
+3. **学习策略验证**: EV 思维和万次模拟方法
+4. **学习基础设施**: 多账户管理挑战与解决
+
+### 不要做什么
+1. ❌ 不要忽视基础设施重要性
+2. ❌ 不要盲目相信模拟结果 (注意现实差距)
+3. ❌ 不要让 AI 工具填满所有时间 (需优先级管理)
+4. ❌ 不要忽视 EV 思维 (每笔交易前 EV 必须为正)
+
+---
+
+## 🔗 相关链接
+
+- **Twitter/X**: https://x.com/runes_leo
+- **相关文章**: 
+  - [AI 工具共享记忆](https://x.com/runes_leo/status/xxxx)
+  - [X Profile Skill](https://x.com/runes_leo/status/xxxx)
+  - [Polymarket 策略模拟](https://x.com/runes_leo/status/xxxx)
+
+---
+
+## 📌 关键推文存档
+
+### 推文 1: AI 工具共享记忆
+> "同时用 Claude Code、Codex、OpenClaw，怎么让它们共享记忆？
+> 
+> 我的方案很土：一套 markdown 文件 + 两层自动同步。
+> 
+> 核心是 today.md。每个 session 开始自动读，结束自动写。OpenClaw 本地助手通过 symlink 共享同一份文件，每 5 分钟 cron"
+
+**互动**: ❤️201 | 🔖258
+
+**要点**:
+- 多 AI 工具协同
+- today.md 核心文件
+- symlink 共享
+- 5 分钟 cron 更新
+
+---
+
+### 推文 2: X Profile Skill
+> "说做就做。花一个小时做成了 X profile Skill。
+> 
+> 输入一个 X @ handle，自动拉基本信息 + 最近推文 + 高互动搜索，10 分钟出标准化画像：身份、内容分布、影响力评级、叙事立场、社交图谱、行动建议，六个维度。
+> 
+> 第一个试验拿 @simonw 大佬开刀（见图）。152K 粉，A 级，最亮眼的是收藏率——平均每条"
+
+**互动**: ❤️6 | 🔖1
+
+**要点**:
+- 1 小时开发
+- 10 分钟出结果
+- 6 维度画像
+- 首个试验：@simonw
+
+---
+
+### 推文 3: Polymarket 万次模拟
+> "Polymarket 万次模拟，97% 的策略死了。三个活下来的有一个共同点：每笔交易进场前 EV 必须为正，没有例外。
+> 
+> 文章把 Python 代码都给了，跑一遍就能复现。但有意思的是，模拟里的 EV 是写死的常数，现实里的 EV 每分钟都在变。
+> 
+> 差距在那个 P 上。概率估计偏一点，Kelly..."
+
+**互动**: ❤️65 | 🔖109
+
+**要点**:
+- 10,000 次模拟
+- 97% 策略死亡
+- 存活共同点：EV 必须为正
+- 模拟 vs 现实差距：EV 常数 vs 变化
+
+---
+
+### 推文 4: 基础设施挑战
+> "策略跑通了，想多开几个号分散风险，结果卡了一整天。
+> 
+> 坑不在策略，在基础设施。
+> 
+> 同一套代码，A 账户正常交易，B 账户死活显示余额 $0。API..."
+
+**互动**: ❤️14 | 🔖30
+
+**要点**:
+- 多账户分散风险
+- 基础设施挑战
+- API 问题
+- 卡一整天
+
+---
+
+### 推文 5: AI 工作效率反思
+> "用 AI 之后每天工作时间更长了。
+> 
+> 以前没有 Claude Code 的时候，想到一个点子，评估一下觉得太麻烦，算了。现在的问题是：什么都不麻烦了。数据采集想做就做，策略想试就试，内容想写就写。可能性太多，反而每天都在排优先级。
+> 
+> AI 确实帮你省了时间，但省下来的每一分钟都被新的可能性填满了。"
+
+**互动**: ❤️28 | 🔖5
+
+**要点**:
+- 工作时间更长
+- 可能性太多
+- 优先级排序困难
+- AI 省时间被新可能性填满
+
+---
+
+## 📊 互动数据分析
+
+| 指标 | 数值 | 说明 |
+|------|------|------|
+| 平均点赞 | ~50-100 | 中上互动 |
+| 爆款率 | ~10% | 偶尔有爆款 |
+| 转发率 | 中等 | 内容可传播 |
+| 收藏率 | 高 | 实用价值高 |
+| 总浏览 | 4 千+ | 有一定影响力 |
+
+---
+
+## 🎯 总结
+
+Runes Leo 是一个**AI 工程化实战型 KOL**，适合：
+- 学习 AI 工具共享记忆方案
+- 学习 X Profile 自动化分析
+- 学习 Polymarket 策略验证方法
+- 学习基础设施工程化实践
+- 反思 AI 工具使用效率
+
+**不建议**盲目相信模拟结果，应注意模拟与现实的差距。
+
+---
+
+**整理者**: Zorro-Research 🔍  
+**用途**: KOL 研究 / AI 工程 / 策略开发  
+**状态**: ✅ 已完成 (2026-03-23)

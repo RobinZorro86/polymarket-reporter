@@ -1,3 +1,13 @@
+---
+title: Polymarket 知识体系学习框架
+category: tutorials
+type: 框架
+difficulty: 🟢新手 / 🟡中级
+estimated_time: 14-19小时（1-2周）
+last_updated: 2026-03-23
+original_source: "@agintender 学习思路 + @runes_leo 实战经验"
+---
+
 # Polymarket 知识体系学习框架 - 普通人快速入门指南
 
 **创建日期**: 2026-03-23  

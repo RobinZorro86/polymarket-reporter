@@ -1,3 +1,13 @@
+---
+title: Polymarket 新手最短学习路径
+category: tutorials
+type: 教程
+difficulty: 🟢新手
+estimated_time: 7天（每天20-30分钟）
+last_updated: 2026-03-25
+original_source: "@agintender + @runes_leo"
+---
+
 # Polymarket 新手最短学习路径
 
 **目标**: 30 分钟入门，当天就能做出第一笔有依据的交易决策  

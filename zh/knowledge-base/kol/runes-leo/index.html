@@ -4,8 +4,11 @@ category: kol
 type: 能力学习
 difficulty: 🟡中级 / 🔴进阶
 estimated_time: 3-8小时（分能力学习）
-last_updated: 2026-03-25
-original_source: https://x.com/runes_leo/status/2035907768595660951
+last_updated: 2026-03-27
+original_source: https://x.com/runes_leo/status/2037046326089711700 (补充)
+additional_sources:
+  - https://x.com/runes_leo/status/2035907768595660951 (EV思维)
+  - https://x.com/runes_leo/status/2037046326089711700 (多Agent协作)
 ---
 
 # Runes Leo (@runes_leo) - 能力学习页
@@ -109,6 +112,34 @@ Runes Leo 对 Polymarket 做了 **10,000 次策略模拟**，发现：
 - ❌ 不要每个工具单独建记忆文件（最后无法汇总）
 - ❌ 不要忘记 session 结束前写 today.md（记忆断层）
 - ❌ 不要放敏感信息在共享文件里
+
+---
+
+### 🆕 最新补充：多 Agent 协作的反直觉发现（2026-03-27）
+
+> Anthropic 自己做长任务也不用单个 Agent 硬撑，拆成三个：
+> - 一个写需求
+> - 一个写代码
+> - **一个当用户去点点看（独立评估者）**
+>
+> 最反直觉的发现：让写代码的 Agent 自己检查自己，它会"自我表扬"。
+> **必须拆一个独立的评估者，专门挑毛病。**
+
+**成本对比**：
+| 方式 | 时间 | 成本 | 结果 |
+|------|------|------|------|
+| 单 Agent | 20 分钟 | $9 | 核心功能是坏的 |
+| 三 Agent 协作 | 6 小时 | $200 | 功能完整可用 |
+
+**这个发现对 Polymarket 研究的意义**：
+- 研究市场时，不要让同一个 AI 同时"做判断"和"验证判断"
+- 用一个 AI 收集信息，另一个 AI 专门挑战结论
+- 避免 AI 的"自我表扬"导致漏掉关键风险
+
+**操作方法**：
+1. **Agent A**（研究员）：收集市场信息、计算 EV、整理数据
+2. **Agent B**（质疑者）：专门找 Agent A 结论的反例、漏洞、偏差
+3. **人类**：综合两方意见做最终决策
 
 ### 关联知识
 

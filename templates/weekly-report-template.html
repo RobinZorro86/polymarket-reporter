@@ -2,9 +2,11 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Polymarket 周报 | Prediction Market 101</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/reports-design.css">
   <style>
     :root { --accent: #0071e3; --bg: #ffffff; --surface: #f5f5f7; --text: #1d1d1f; --text-secondary: #86868b; --border: #d2d2d7; --success: #34c759; --warning: #ff9500; --danger: #ff3b30; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -245,5 +247,15 @@
       <p>报告由 Aegis V2 + OpenClaw 自动生成 | 数据来源：Polymarket API, X API, Google News, Dune Analytics</p>
     </div>
   </footer>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var els = document.querySelectorAll('.stat-card, .section, .news-item, .tweet-card, .market-table');
+    els.forEach(function(el, i) {
+      el.style.opacity='0'; el.style.transform='translateY(12px)';
+      el.style.transition='opacity 0.5s ease,transform 0.5s ease';
+      setTimeout(function(){ el.style.opacity='1'; el.style.transform='none'; }, 50+i*40);
+    });
+  });
+  </script>
 </body>
 </html>

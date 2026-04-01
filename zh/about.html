@@ -8,21 +8,117 @@
   <link rel="canonical" href="https://www.pred101.com/zh/about.html">
   <link rel="alternate" hreflang="zh" href="https://www.pred101.com/zh/about.html">
   <link rel="alternate" hreflang="en" href="https://www.pred101.com/en/about.html">
-  <style>
-    :root { --bg:#0b1020; --surface:rgba(18,25,45,.84); --text:#f5f7ff; --text-secondary:#9ba7c4; --border:rgba(162,182,255,.14); --accent:#6f7cff; --accent-2:#38d0ff; --warning:#f59e0b; --shadow:0 20px 60px rgba(0,0,0,.35); --radius:22px; --max:1100px; }
-    *{box-sizing:border-box;margin:0;padding:0} body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at top left, rgba(111,124,255,.22), transparent 28%),linear-gradient(180deg,#08101f 0%,#0b1020 46%,#0a0f1b 100%);color:var(--text);line-height:1.6} a{text-decoration:none;color:inherit}.container{max-width:var(--max);margin:0 auto;padding:0 24px} header{position:sticky;top:0;z-index:20;backdrop-filter:blur(18px);background:rgba(8,12,24,.72);border-bottom:1px solid var(--border)} header .container{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px}.logo{font-weight:800;font-size:1.06rem;letter-spacing:-.03em}.logo .mark{color:var(--accent-2)} nav{display:flex;gap:18px;flex-wrap:wrap} nav a{color:var(--text-secondary);font-size:.95rem} nav a.active,nav a:hover{color:var(--text)} main{padding:78px 0 54px}.eyebrow{color:var(--accent-2);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px} h1{font-size:clamp(2.4rem,6vw,4.8rem);line-height:.96;letter-spacing:-.05em}.lead{margin-top:18px;color:var(--text-secondary);max-width:860px;font-size:1.08rem}.panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px}.stack{display:grid;gap:18px}.stack h2{font-size:1.35rem}.stack p,.stack li{color:var(--text-secondary)} .stack ul{padding-left:18px}.notice{background:linear-gradient(135deg, rgba(111,124,255,.16), rgba(56,208,255,.10));border:1px solid var(--border);border-radius:18px;padding:16px 18px;color:var(--text-secondary)} .warn{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.18);border-radius:18px;padding:16px 18px;color:#f8d8a2} section{padding:18px 0} footer{padding:40px 0 54px;color:var(--text-secondary)} footer .container{border-top:1px solid var(--border);padding-top:24px}
-  </style>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/redesign.css">
 </head>
 <body>
-  <header><div class="container"><a href="/zh/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a><nav><a href="/zh/">首页</a><a href="/zh/learn/">学习路径</a><a href="/zh/knowledge-base/">知识库</a><a href="/zh/reports/">报告</a><a href="/zh/about.html" class="active">关于</a><div class="lang-switch"><a href="/en/about.html">EN</a><a href="/zh/about.html" class="active">中文</a></div></nav></div></header>
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/zh/" class="logo">
+        <span class="pred">pred</span><span class="num">101</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/zh/">首页</a>
+        <a href="/zh/learn/">学习路径</a>
+        <a href="/zh/knowledge-base/">知识库</a>
+        <a href="/zh/reports/">报告</a>
+        <a href="/zh/about.html" class="active">关于</a>
+        <div class="lang-switch">
+          <a href="/en/about.html">EN</a>
+          <a href="/zh/about.html" class="active">中文</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
   <main>
     <div class="container">
-      <div class="eyebrow">关于 · 站点意图</div>
-      <h1>pred101 的目标不是堆内容，而是建立顺序。</h1>
-      <p class="lead">Prediction Market 101 中文主站面向的是学习、研究、执行与复盘四个环节。我们不想做成一个杂乱资讯站，也不想做成一个只有文件索引的仓库，而是要把用户一步步带进正确的路径。</p>
+      <div class="eyebrow anim-fade-up">关于 · 站点意图</div>
+      <h1 class="page-title anim-fade-up anim-delay-1">pred101 的目标不是堆内容，<br>而是建立顺序。</h1>
+      <p class="lead anim-fade-up anim-delay-2">Prediction Market 101 中文主站面向的是学习、研究、执行与复盘四个环节。我们不想做成一个杂乱资讯站，也不想做成一个只有文件索引的仓库，而是要把用户一步步带进正确的路径。</p>
     </div>
-    <section><div class="container stack"><div class="panel"><h2>pred101 是什么</h2><p>pred101 是围绕预测市场建立的系统化知识站点。它的核心由四层构成：学习路径、策略库、KOL 评估、报告更新流。每一层都承担不同任务，而不是互相抢位置。</p></div><div class="panel"><h2>pred101 不是什么</h2><p>它不是资讯堆砌页，不是 KOL 截图墙，也不是随手归档的链接仓库。我们的标准是：结构清楚、顺序清楚、下一步清楚。</p></div><div class="panel"><h2>当前结构</h2><ul><li>首页负责给方向，而不是给目录</li><li>学习路径负责建立顺序</li><li>知识库负责长期沉淀</li><li>报告中心负责最新更新</li><li>中文层承担更深的研究和更高频的内容更新</li></ul></div><div class="notice"><strong>语言策略：</strong>英文层负责清晰概览，中文层负责主站运营、深度归档与更完整的报告输出。</div><div class="warn"><strong>风险声明：</strong>pred101 仅用于学习、研究和信息整理，不构成任何投资建议。预测市场具有高风险，真实交易前必须自行评估并设置明确风控边界。</div></div></section>
+
+    <section>
+      <div class="container">
+        <div class="stack" style="display:grid;gap:18px;margin-top:24px;">
+          <div class="panel reveal">
+            <h2>pred101 是什么</h2>
+            <p>pred101 是围绕预测市场建立的系统化知识站点。它的核心由四层构成：学习路径、策略库、KOL 评估、报告更新流。每一层都承担不同任务，而不是互相抢位置。</p>
+          </div>
+          <div class="panel reveal">
+            <h2>pred101 不是什么</h2>
+            <p>它不是资讯堆砌页，不是 KOL 截图墙，也不是随手归档的链接仓库。我们的标准是：结构清楚、顺序清楚、下一步清楚。</p>
+          </div>
+          <div class="panel reveal">
+            <h2>当前结构</h2>
+            <ul>
+              <li>首页负责给方向，而不是给目录</li>
+              <li>学习路径负责建立顺序</li>
+              <li>知识库负责长期沉淀</li>
+              <li>报告中心负责最新更新</li>
+              <li>中文层承担更深的研究和更高频的内容更新</li>
+            </ul>
+          </div>
+          <div class="notice reveal">
+            <strong>语言策略：</strong>英文层负责清晰概览，中文层负责主站运营、深度归档与更完整的报告输出。
+          </div>
+          <div class="notice notice-amber reveal">
+            <strong>风险声明：</strong>pred101 仅用于学习、研究和信息整理，不构成任何投资建议。预测市场具有高风险，真实交易前必须自行评估并设置明确风控边界。
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
-  <footer><div class="container"><p>pred101.com · Prediction Market 101 中文主站</p><p><a href="/zh/about.html">关于</a> · <a href="/en/about.html">English</a></p></div></footer>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>pred101.com &middot; Prediction Market 101 中文主站</p>
+      <div class="footer-links">
+        <a href="/zh/about.html">关于</a>
+        <a href="/en/about.html">English</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Entry Animations -->
+  <script>
+    (function() {
+      // Staggered hero
+      var els = document.querySelectorAll('.anim-fade-up');
+      els.forEach(function(el) { el.style.opacity = '0'; });
+
+      // Scroll reveal
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var el = entry.target;
+            var delay = el.dataset.delay || 0;
+            setTimeout(function() {
+              el.style.opacity = '1';
+              el.classList.add('visible');
+            }, delay);
+            observer.unobserve(el);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.reveal').forEach(function(el) {
+        el.style.opacity = '0';
+        observer.observe(el);
+      });
+
+      window.addEventListener('load', function() {
+        var heroEls = document.querySelectorAll('.anim-fade-up');
+        heroEls.forEach(function(el) {
+          el.style.opacity = '1';
+          el.style.animationPlayState = 'running';
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

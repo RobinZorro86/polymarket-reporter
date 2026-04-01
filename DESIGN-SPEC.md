@@ -217,3 +217,31 @@ font-family: 'JetBrains Mono', monospace;              /* 数据 */
 - [ ] 移动端响应式（768px / 1024px 两个断点）
 - [ ] 数字/价格使用等宽字体
 - [ ] 无 emoji 作为唯一图标（用 SVG 或 CSS shape 替代）
+
+---
+
+## Phase 1 Completion Record
+
+**Completed:** 2026-04-01
+**Git Commit:** `ae7e041`
+**Scope:** 7 / 7 pages (100%)
+
+### Files Modified / Created
+
+| File | Status |
+|------|--------|
+| `css/redesign.css` | **Created** — full design system |
+| `zh/index.html` | Updated |
+| `en/index.html` | Updated |
+| `zh/knowledge-base/index.html` | Updated |
+| `zh/learn/index.html` | Updated |
+| `zh/kol/index.html` | Updated |
+| `zh/reports/index.html` | Updated |
+| `zh/resources/index.html` | Updated |
+
+### What Was Done
+
+- **CSS Design System** (`css/redesign.css`, ~16KB): Google Fonts (Instrument Serif / DM Sans / JetBrains Mono), full CSS variable system, header (sticky + blur), footer, card/path-card/report-card styles with `--glow-cyan` hover, `.btn-primary/.btn-secondary`, grid-2/3/4, `.hero-*` typography, timeline, timeline-list, `@keyframes fade-up`, scroll-triggered `.animate-on-scroll` (IntersectionObserver), responsive breakpoints.
+- **All 7 pages updated**: Google Fonts link + `<link rel="stylesheet" href="/css/redesign.css">` in `<head>`; inline `<style>` replaced with minimal page-specific overrides; HTML class names aligned to design system; scroll animation JS injected at `</body>`; entrance animations on hero elements; all purple-gradient backgrounds removed.
+- **No HTML structure changes** — only style/class modifications.
+- **No text content or URL changes.**

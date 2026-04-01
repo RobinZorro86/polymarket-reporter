@@ -8,18 +8,99 @@
   <link rel="canonical" href="https://www.pred101.com/en/">
   <link rel="alternate" hreflang="en" href="https://www.pred101.com/en/">
   <link rel="alternate" hreflang="zh" href="https://www.pred101.com/zh/">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/redesign.css">
   <style>
-    :root { --bg:#0b1020; --surface:rgba(18,25,45,.84); --text:#f5f7ff; --text-secondary:#9ba7c4; --border:rgba(162,182,255,.14); --accent:#6f7cff; --accent-2:#38d0ff; --shadow:0 20px 60px rgba(0,0,0,.35); --radius:22px; --max:1180px; }
-    *{box-sizing:border-box;margin:0;padding:0} body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at top left, rgba(111,124,255,.22), transparent 28%),linear-gradient(180deg,#08101f 0%,#0b1020 46%,#0a0f1b 100%);color:var(--text);line-height:1.6} a{text-decoration:none;color:inherit}.container{max-width:var(--max);margin:0 auto;padding:0 24px} header{position:sticky;top:0;z-index:20;backdrop-filter:blur(18px);background:rgba(8,12,24,.72);border-bottom:1px solid var(--border)} header .container{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px}.logo{font-weight:800;font-size:1.06rem;letter-spacing:-.03em}.logo .mark{color:var(--accent-2)} nav{display:flex;gap:18px;flex-wrap:wrap} nav a{color:var(--text-secondary);font-size:.95rem} nav a.active,nav a:hover{color:var(--text)} .lang-switch{display:inline-flex;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:999px;padding:4px;gap:4px}.lang-switch a{padding:6px 12px;border-radius:999px;font-size:.85rem}.lang-switch a.active{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:white} main{padding:78px 0 54px}.eyebrow{color:var(--accent-2);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px} h1{font-size:clamp(2.6rem,6.5vw,5rem);line-height:.96;letter-spacing:-.05em}.lead{margin-top:18px;color:var(--text-secondary);max-width:860px;font-size:1.08rem}.grid-4,.grid-3,.grid-2{display:grid;gap:18px}.grid-4{grid-template-columns:repeat(4,1fr)}.grid-3{grid-template-columns:repeat(3,1fr)}.grid-2{grid-template-columns:repeat(2,1fr)} section{padding:26px 0}.section-head{margin-bottom:18px}.section-head h2{font-size:clamp(1.6rem,4vw,2.3rem);letter-spacing:-.04em}.section-head p{color:var(--text-secondary);margin-top:8px}.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}.card .icon{font-size:1.7rem;margin-bottom:12px}.card h3{font-size:1.1rem;margin-bottom:8px}.card p{color:var(--text-secondary);font-size:.95rem}.tag{display:inline-block;margin-top:14px;color:var(--accent-2);font-size:.78rem}.notice{margin-top:22px;padding:16px 18px;border-radius:18px;background:linear-gradient(135deg, rgba(111,124,255,.16), rgba(56,208,255,.10));border:1px solid var(--border);color:var(--text-secondary)}@media (max-width:1080px){.grid-4,.grid-3,.grid-2{grid-template-columns:1fr 1fr}}@media (max-width:760px){.grid-4,.grid-3,.grid-2{grid-template-columns:1fr}} footer{padding:40px 0 54px;color:var(--text-secondary)} footer .container{border-top:1px solid var(--border);padding-top:24px}
+    /* ── Page-specific overrides ── */
+    h1 { font-family: var(--font-display); font-style: italic; }
+    .card h3 { font-family: var(--font-body); font-weight: 600; letter-spacing: -0.02em; }
+    .card p  { color: var(--text-secondary); font-size: 0.95rem; }
+    .card .tag { font-family: var(--font-mono); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+    .card .icon { font-size: 1.7rem; margin-bottom: 14px; }
+
+    /* Entrance animations */
+    .eyebrow   { animation: fade-up 0.5s ease-out both; }
+    main h1    { animation: fade-up 0.5s 0.10s ease-out both; }
+    .lead      { animation: fade-up 0.5s 0.18s ease-out both; }
+    .notice    { animation: fade-up 0.5s 0.26s ease-out both; }
   </style>
 </head>
 <body>
-  <header><div class="container"><a href="/en/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a><nav><a href="/en/">Overview</a><a href="/en/learn/">7-Day Path</a><a href="/en/strategies/">Strategies</a><a href="/en/kol/">KOLs</a><a href="/en/resources/">Resources</a><div class="lang-switch"><a href="/en/" class="active">EN</a><a href="/zh/">Chinese</a></div></nav></div></header>
+  <header class="site-header">
+    <div class="container">
+      <a href="/en/" class="logo"><span class="logo-mark">pred101</span> · Prediction Market 101</a>
+      <nav class="site-nav">
+        <a href="/en/" class="active">Overview</a>
+        <a href="/en/learn/">7-Day Path</a>
+        <a href="/en/strategies/">Strategies</a>
+        <a href="/en/kol/">KOLs</a>
+        <a href="/en/resources/">Resources</a>
+        <div class="lang-switch">
+          <a href="/en/" class="active">EN</a>
+          <a href="/zh/">Chinese</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
   <main>
-    <div class="container"><div class="eyebrow">Overview · English entry layer</div><h1>Start with structure, not with noise.</h1><p class="lead">The English layer of pred101 is an overview system: it helps you understand the learning path, the strategy map, and where to find the freshest Chinese-first reports.</p><div class="notice">English is the clean orientation layer. For the deepest archive and newest reports, the Chinese main site remains the stronger operating layer.</div></div>
-    <section><div class="container"><div class="section-head"><h2>Four entry points</h2><p>Small number of choices. Clear next actions.</p></div><div class="grid-4"><a class="card" href="/en/learn/"><div class="icon">🧭</div><h3>7-Day Path</h3><p>The shortest structured route into prediction markets.</p><span class="tag">Start here</span></a><a class="card" href="/en/strategies/"><div class="icon">🎯</div><h3>Strategies</h3><p>Reusable frameworks and execution patterns.</p><span class="tag">Method layer</span></a><a class="card" href="/en/kol/"><div class="icon">👥</div><h3>KOL Research</h3><p>Study methods, conviction, and signal quality.</p><span class="tag">Research layer</span></a><a class="card" href="/en/reports/"><div class="icon">📰</div><h3>Reports</h3><p>Daily and weekly English-path updates with clear separation from the Chinese branch.</p><span class="tag">Freshest layer</span></a></div></div></section>
-    <section><div class="container"><div class="section-head"><h2>Read now</h2><p>If you only read two things today, read the latest daily and weekly report.</p></div><div class="grid-2"><a class="card" href="/en/reports/daily/daily-2026-03-09.html"><div class="icon">📅</div><h3>Daily Report · 2026-03-09</h3><p>Refined summary, curated news, and risk framing.</p></a><a class="card" href="/en/reports/weekly/weekly-2026-03-10.html"><div class="icon">📈</div><h3>Weekly Report · 2026-03-10</h3><p>Longer-horizon review and more stable market framing.</p></a></div></div></section>
+    <div class="container" style="padding-top:78px;padding-bottom:54px;">
+      <div class="hero-eyebrow">Overview · English entry layer</div>
+      <h1 class="hero-title">Start with structure, not with noise.</h1>
+      <p class="hero-lead">The English layer of pred101 is an overview system: it helps you understand the learning path, the strategy map, and where to find the freshest Chinese-first reports.</p>
+      <div class="notice">English is the clean orientation layer. For the deepest archive and newest reports, the Chinese main site remains the stronger operating layer.</div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Four entry points</h2>
+          <p>Small number of choices. Clear next actions.</p>
+        </div>
+        <div class="grid-4">
+          <a class="card animate-on-scroll delay-1" href="/en/learn/"><div class="card-icon icon">🧭</div><h3 class="card-title">7-Day Path</h3><p class="card-desc">The shortest structured route into prediction markets.</p><span class="card-tag">Start here</span></a>
+          <a class="card animate-on-scroll delay-2" href="/en/strategies/"><div class="card-icon icon">🎯</div><h3 class="card-title">Strategies</h3><p class="card-desc">Reusable frameworks and execution patterns.</p><span class="card-tag">Method layer</span></a>
+          <a class="card animate-on-scroll delay-3" href="/en/kol/"><div class="card-icon icon">👥</div><h3 class="card-title">KOL Research</h3><p class="card-desc">Study methods, conviction, and signal quality.</p><span class="card-tag">Research layer</span></a>
+          <a class="card animate-on-scroll delay-4" href="/en/reports/"><div class="card-icon icon">📰</div><h3 class="card-title">Reports</h3><p class="card-desc">Daily and weekly English-path updates with clear separation from the Chinese branch.</p><span class="card-tag">Freshest layer</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Read now</h2>
+          <p>If you only read two things today, read the latest daily and weekly report.</p>
+        </div>
+        <div class="grid-2">
+          <a class="card animate-on-scroll delay-1" href="/en/reports/daily/daily-2026-03-09.html"><div class="card-icon icon">📅</div><h3 class="card-title">Daily Report · 2026-03-09</h3><p class="card-desc">Refined summary, curated news, and risk framing.</p></a>
+          <a class="card animate-on-scroll delay-2" href="/en/reports/weekly/weekly-2026-03-10.html"><div class="card-icon icon">📈</div><h3 class="card-title">Weekly Report · 2026-03-10</h3><p class="card-desc">Longer-horizon review and more stable market framing.</p></a>
+        </div>
+      </div>
+    </section>
   </main>
-  <footer><div class="container"><p>pred101.com · Prediction Market 101 overview</p></div></footer>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>pred101.com · Prediction Market 101 overview</p>
+    </div>
+  </footer>
+
+  <!-- Scroll-triggered animation JS -->
+  <script>
+    (function() {
+      var els = document.querySelectorAll('.animate-on-scroll');
+      if (!els.length) return;
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      els.forEach(function(el) { io.observe(el); });
+    })();
+  </script>
 </body>
 </html>

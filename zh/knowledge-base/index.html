@@ -8,137 +8,140 @@
   <link rel="canonical" href="https://www.pred101.com/zh/knowledge-base/">
   <link rel="alternate" hreflang="zh" href="https://www.pred101.com/zh/knowledge-base/">
   <link rel="alternate" hreflang="en" href="https://www.pred101.com/en/knowledge-base/">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/redesign.css">
   <style>
-    :root {
-      --bg: #0b1020; --surface: rgba(18, 25, 45, 0.84); --text: #f5f7ff; --text-secondary: #9ba7c4;
-      --border: rgba(162, 182, 255, 0.14); --accent: #6f7cff; --accent-2: #38d0ff; --shadow: 0 20px 60px rgba(0,0,0,.35);
-      --radius: 22px; --max: 1180px;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top left, rgba(111,124,255,.22), transparent 28%), linear-gradient(180deg, #08101f 0%, #0b1020 46%, #0a0f1b 100%);
-      color: var(--text); line-height: 1.6;
-    }
-    a { color: inherit; text-decoration: none; }
-    .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
-    header { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(18px); background: rgba(8,12,24,.72); border-bottom: 1px solid var(--border); }
-    header .container { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-    .logo { font-weight: 800; font-size: 1.06rem; letter-spacing: -0.03em; }
-    .logo .mark { color: var(--accent-2); }
-    nav { display: flex; gap: 18px; flex-wrap: wrap; }
-    nav a { color: var(--text-secondary); font-size: .95rem; }
-    nav a.active, nav a:hover { color: var(--text); }
-    main { padding: 78px 0 54px; }
-    .hero { margin-bottom: 28px; }
-    .eyebrow { color: var(--accent-2); font-size: .82rem; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 14px; }
-    h1 { font-size: clamp(2.4rem, 6vw, 4.8rem); line-height: .96; letter-spacing: -.05em; }
-    .lead { margin-top: 18px; color: var(--text-secondary); max-width: 840px; font-size: 1.08rem; }
-    .notice { margin-top: 22px; padding: 16px 18px; border-radius: 18px; background: linear-gradient(135deg, rgba(111,124,255,.16), rgba(56,208,255,.10)); border: 1px solid var(--border); color: var(--text-secondary); }
-    section { padding: 24px 0; }
-    .section-head { margin-bottom: 18px; }
-    .section-head h2 { font-size: clamp(1.6rem,4vw,2.3rem); letter-spacing: -.04em; }
-    .section-head p { color: var(--text-secondary); margin-top: 8px; }
-    .grid-4, .grid-3 { display: grid; gap: 18px; }
-    .grid-4 { grid-template-columns: repeat(4,1fr); }
-    .grid-3 { grid-template-columns: repeat(3,1fr); }
-    .card {
-      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow);
-      padding: 22px; min-height: 210px;
-    }
-    .card .icon { font-size: 1.7rem; margin-bottom: 12px; }
-    .card h3 { font-size: 1.1rem; margin-bottom: 8px; }
-    .card p { color: var(--text-secondary); font-size: .95rem; }
-    .tag { display: inline-block; margin-top: 14px; color: var(--accent-2); font-size: .78rem; }
-    @media (max-width: 1080px) { .grid-4, .grid-3 { grid-template-columns: repeat(2,1fr); } }
-    @media (max-width: 760px) { .grid-4, .grid-3 { grid-template-columns: 1fr; } }
-    footer { padding: 40px 0 54px; color: var(--text-secondary); }
-    footer .container { border-top: 1px solid var(--border); padding-top: 24px; }
+    h1 { font-family: var(--font-display); font-style: italic; }
+    .card h3 { font-family: var(--font-body); font-weight: 600; letter-spacing: -0.02em; }
+    .card p  { color: var(--text-secondary); font-size: 0.95rem; }
+    .card .tag { font-family: var(--font-mono); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+    .card .icon { font-size: 1.7rem; margin-bottom: 14px; }
+    /* Entrance animations */
+    .hero-eyebrow { animation: fade-up 0.5s ease-out both; }
+    .hero h1      { animation: fade-up 0.5s 0.10s ease-out both; }
+    .lead         { animation: fade-up 0.5s 0.18s ease-out both; }
+    .notice       { animation: fade-up 0.5s 0.26s ease-out both; }
   </style>
 </head>
 <body>
-  <header>
+  <header class="site-header">
     <div class="container">
-      <a href="/zh/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a>
-      <nav>
+      <a href="/zh/" class="logo"><span class="logo-mark">pred101</span> · Prediction Market 101</a>
+      <nav class="site-nav">
         <a href="/zh/">首页</a>
         <a href="/zh/learn/">学习路径</a>
         <a href="/zh/knowledge-base/" class="active">知识库</a>
         <a href="/zh/reports/">报告</a>
         <a href="/zh/about.html">关于</a>
-      <div class="lang-switch"><a href="/en/knowledge-base/">EN</a><a href="/zh/knowledge-base/" class="active">中文</a></div></nav>
+        <div class="lang-switch">
+          <a href="/en/knowledge-base/">EN</a>
+          <a href="/zh/knowledge-base/" class="active">中文</a>
+        </div>
+      </nav>
     </div>
   </header>
 
   <main>
-    <div class="container hero">
-      <div class="eyebrow">知识地图 · 不是文件堆砌</div>
-      <h1>知识库应该像地图，不该像仓库。</h1>
-      <p class="lead">这个页面不再承担“把所有东西列出来”的任务，而是明确地把内容组织成五层：入门、策略、KOL、资源、报告。用户来这里，应该知道自己现在处在哪一层，下一步该去哪。</p>
-      <div class="notice">最重要的设计决策：把“按文件分类”改成“按任务路径分类”。这是 pred101 从可看走向像产品的关键一步。</div>
+    <div class="container hero" style="padding-top:78px;padding-bottom:28px;">
+      <div class="hero-eyebrow">知识地图 · 不是文件堆砌</div>
+      <h1 class="hero-title">知识库应该像地图，不该像仓库。</h1>
+      <p class="hero-lead">这个页面不再承担"把所有东西列出来"的任务，而是明确地把内容组织成五层：入门、策略、KOL、资源、报告。用户来这里，应该知道自己现在处在哪一层，下一步该去哪。</p>
+      <div class="notice">最重要的设计决策：把"按文件分类"改成"按任务路径分类"。这是 pred101 从可看走向像产品的关键一步。</div>
     </div>
 
-    <section>
+    <section class="section">
       <div class="container">
-        <div class="section-head"><h2>先从哪开始</h2><p>面向第一次进入站点的用户，先解决顺序问题。</p></div>
+        <div class="section-head">
+          <h2>先从哪开始</h2>
+          <p>面向第一次进入站点的用户，先解决顺序问题。</p>
+        </div>
         <div class="grid-4">
-          <a class="card" href="/zh/learn/"><div class="icon">🧭</div><h3>学习路径</h3><p>7 天结构化学习路线，从概念到实战复盘。</p><span class="tag">默认第一步</span></a>
-          <a class="card" href="/zh/knowledge-base/tutorials/polymarket-basics/"><div class="icon">📚</div><h3>平台基础</h3><p>理解预测市场、合约、费用结构与分辨率逻辑。</p><span class="tag">理解市场</span></a>
-          <a class="card" href="/zh/knowledge-base/tutorials/wallet-setup/"><div class="icon">👛</div><h3>钱包配置</h3><p>钱包、多链、USDC 与安全实践。</p><span class="tag">执行准备</span></a>
-          <a class="card" href="/zh/knowledge-base/resources/risk-management/"><div class="icon">🛡️</div><h3>风险管理</h3><p>仓位、熔断、规则风险和不该碰的市场。</p><span class="tag">必读</span></a>
+          <a class="card animate-on-scroll delay-1" href="/zh/learn/"><div class="card-icon icon">🧭</div><h3 class="card-title">学习路径</h3><p class="card-desc">7 天结构化学习路线，从概念到实战复盘。</p><span class="card-tag">默认第一步</span></a>
+          <a class="card animate-on-scroll delay-2" href="/zh/knowledge-base/tutorials/polymarket-basics/"><div class="card-icon icon">📚</div><h3 class="card-title">平台基础</h3><p class="card-desc">理解预测市场、合约、费用结构与分辨率逻辑。</p><span class="card-tag">理解市场</span></a>
+          <a class="card animate-on-scroll delay-3" href="/zh/knowledge-base/tutorials/wallet-setup/"><div class="card-icon icon">👛</div><h3 class="card-title">钱包配置</h3><p class="card-desc">钱包、多链、USDC 与安全实践。</p><span class="card-tag">执行准备</span></a>
+          <a class="card animate-on-scroll delay-4" href="/zh/knowledge-base/resources/risk-management/"><div class="card-icon icon">🛡️</div><h3 class="card-title">风险管理</h3><p class="card-desc">仓位、熔断、规则风险和不该碰的市场。</p><span class="card-tag">必读</span></a>
         </div>
       </div>
     </section>
 
-    <section>
+    <section class="section">
       <div class="container">
-        <div class="section-head"><h2>策略库</h2><p>策略不是越多越好，先建立有限但清晰的操作框架。</p></div>
+        <div class="section-head">
+          <h2>策略库</h2>
+          <p>策略不是越多越好，先建立有限但清晰的操作框架。</p>
+        </div>
         <div class="grid-3">
-          <a class="card" href="/zh/knowledge-base/strategies/signal-sniper/"><div class="icon">📡</div><h3>Signal Sniper</h3><p>突发新闻与事件驱动信号后的快速定价偏差。</p><span class="tag">事件驱动</span></a>
-          <a class="card" href="/zh/knowledge-base/strategies/weather-trader/"><div class="icon">🌤️</div><h3>Weather Trader</h3><p>基于可量化天气变量的预测市场套利。</p><span class="tag">另类数据</span></a>
-          <a class="card" href="/zh/knowledge-base/strategies/fast-loop/"><div class="icon">⚡</div><h3>Fast-Loop</h3><p>高频循环、短时定价与执行纪律。</p><span class="tag">高频</span></a>
+          <a class="card animate-on-scroll delay-1" href="/zh/knowledge-base/strategies/signal-sniper/"><div class="card-icon icon">📡</div><h3 class="card-title">Signal Sniper</h3><p class="card-desc">突发新闻与事件驱动信号后的快速定价偏差。</p><span class="card-tag">事件驱动</span></a>
+          <a class="card animate-on-scroll delay-2" href="/zh/knowledge-base/strategies/weather-trader/"><div class="card-icon icon">🌤️</div><h3 class="card-title">Weather Trader</h3><p class="card-desc">基于可量化天气变量的预测市场套利。</p><span class="card-tag">另类数据</span></a>
+          <a class="card animate-on-scroll delay-3" href="/zh/knowledge-base/strategies/fast-loop/"><div class="card-icon icon">⚡</div><h3 class="card-title">Fast-Loop</h3><p class="card-desc">高频循环、短时定价与执行纪律。</p><span class="card-tag">高频</span></a>
         </div>
       </div>
     </section>
 
-    <section>
+    <section class="section">
       <div class="container">
-        <div class="section-head"><h2>KOL 研究</h2><p>研究对象不是“谁厉害”，而是“谁的方法值得学”。</p></div>
+        <div class="section-head">
+          <h2>KOL 研究</h2>
+          <p>研究对象不是"谁厉害"，而是"谁的方法值得学"。</p>
+        </div>
         <div class="grid-3">
-          <a class="card" href="/zh/knowledge-base/kol/rankings/"><div class="icon">🏆</div><h3>KOL 排名</h3><p>按方法、可信度、可执行性与风险适配度排序。</p><span class="tag">先看总览</span></a>
-          <a class="card" href="/zh/knowledge-base/kol/vladic_eth/"><div class="icon">🧠</div><h3>@vladic_eth</h3><p>系统化框架、交易原型与结构化执行。</p><span class="tag">框架型</span></a>
-          <a class="card" href="/zh/knowledge-base/kol/noisyb0y1/"><div class="icon">🎯</div><h3>@noisyb0y1</h3><p>高信号、高节奏、高执行密度的代表样本。</p><span class="tag">高频观察</span></a>
+          <a class="card animate-on-scroll delay-1" href="/zh/knowledge-base/kol/rankings/"><div class="card-icon icon">🏆</div><h3 class="card-title">KOL 排名</h3><p class="card-desc">按方法、可信度、可执行性与风险适配度排序。</p><span class="card-tag">先看总览</span></a>
+          <a class="card animate-on-scroll delay-2" href="/zh/knowledge-base/kol/vladic_eth/"><div class="card-icon icon">🧠</div><h3 class="card-title">@vladic_eth</h3><p class="card-desc">系统化框架、交易原型与结构化执行。</p><span class="card-tag">框架型</span></a>
+          <a class="card animate-on-scroll delay-3" href="/zh/knowledge-base/kol/noisyb0y1/"><div class="card-icon icon">🎯</div><h3 class="card-title">@noisyb0y1</h3><p class="card-desc">高信号、高节奏、高执行密度的代表样本。</p><span class="card-tag">高频观察</span></a>
         </div>
       </div>
     </section>
 
-    <section>
+    <section class="section">
       <div class="container">
-        <div class="section-head"><h2>工具与资源</h2><p>让数据流、内容流和执行流真正连起来。</p></div>
+        <div class="section-head">
+          <h2>工具与资源</h2>
+          <p>让数据流、内容流和执行流真正连起来。</p>
+        </div>
         <div class="grid-3">
-          <a class="card" href="/zh/knowledge-base/tutorials/openclaw-setup/"><div class="icon">🦞</div><h3>OpenClaw 配置</h3><p>自动化工作流、技能和研究/执行基础设施。</p><span class="tag">系统搭建</span></a>
-          <a class="card" href="/zh/knowledge-base/resources/apis/"><div class="icon">🔌</div><h3>API 文档</h3><p>Polymarket、Simmer、Chainstack 与周边工具链。</p><span class="tag">开发者</span></a>
-          <a class="card" href="/zh/knowledge-base/resources/tools/"><div class="icon">🧰</div><h3>工具清单</h3><p>CLI、面板、抓取、清洗和自动化发布工具。</p><span class="tag">基础设施</span></a>
+          <a class="card animate-on-scroll delay-1" href="/zh/knowledge-base/tutorials/openclaw-setup/"><div class="card-icon icon">🦞</div><h3 class="card-title">OpenClaw 配置</h3><p class="card-desc">自动化工作流、技能和研究/执行基础设施。</p><span class="card-tag">系统搭建</span></a>
+          <a class="card animate-on-scroll delay-2" href="/zh/knowledge-base/resources/apis/"><div class="card-icon icon">🔌</div><h3 class="card-title">API 文档</h3><p class="card-desc">Polymarket、Simmer、Chainstack 与周边工具链。</p><span class="card-tag">开发者</span></a>
+          <a class="card animate-on-scroll delay-3" href="/zh/knowledge-base/resources/tools/"><div class="card-icon icon">🧰</div><h3 class="card-title">工具清单</h3><p class="card-desc">CLI、面板、抓取、清洗和自动化发布工具。</p><span class="card-tag">基础设施</span></a>
         </div>
       </div>
     </section>
 
-    <section>
+    <section class="section">
       <div class="container">
-        <div class="section-head"><h2>报告与复盘</h2><p>知识库负责沉淀，报告负责更新。不要混成一锅。</p></div>
+        <div class="section-head">
+          <h2>报告与复盘</h2>
+          <p>知识库负责沉淀，报告负责更新。不要混成一锅。</p>
+        </div>
         <div class="grid-3">
-          <a class="card" href="/zh/reports/"><div class="icon">📰</div><h3>报告中心</h3><p>进入每日/每周更新流，获取当前市场语境。</p><span class="tag">更新入口</span></a>
-          <a class="card" href="/zh/reports/daily/daily-2026-03-08.html"><div class="icon">📅</div><h3>最新日报</h3><p>查看最新的精炼市场日报、新闻摘要与风险提示。</p><span class="tag">最新</span></a>
-          <a class="card" href="/zh/learn/day7/"><div class="icon">♻️</div><h3>复盘模板</h3><p>用固定格式把观点、入场、退出和改进点留痕。</p><span class="tag">闭环</span></a>
+          <a class="card animate-on-scroll delay-1" href="/zh/reports/"><div class="card-icon icon">📰</div><h3 class="card-title">报告中心</h3><p class="card-desc">进入每日/每周更新流，获取当前市场语境。</p><span class="card-tag">更新入口</span></a>
+          <a class="card animate-on-scroll delay-2" href="/zh/reports/daily/daily-2026-03-08.html"><div class="card-icon icon">📅</div><h3 class="card-title">最新日报</h3><p class="card-desc">查看最新的精炼市场日报、新闻摘要与风险提示。</p><span class="card-tag">最新</span></a>
+          <a class="card animate-on-scroll delay-3" href="/zh/learn/day7/"><div class="card-icon icon">♻️</div><h3 class="card-title">复盘模板</h3><p class="card-desc">用固定格式把观点、入场、退出和改进点留痕。</p><span class="card-tag">闭环</span></a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
+  <footer class="site-footer">
     <div class="container">
       <p>pred101.com · Prediction Market 101 知识库</p>
     </div>
   </footer>
+
+  <!-- Scroll-triggered animation JS -->
+  <script>
+    (function() {
+      var els = document.querySelectorAll('.animate-on-scroll');
+      if (!els.length) return;
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      els.forEach(function(el) { io.observe(el); });
+    })();
+  </script>
 </body>
 </html>

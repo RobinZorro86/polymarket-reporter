@@ -8,87 +8,56 @@
   <link rel="canonical" href="https://www.pred101.com/zh/learn/">
   <link rel="alternate" hreflang="zh" href="https://www.pred101.com/zh/learn/">
   <link rel="alternate" hreflang="en" href="https://www.pred101.com/en/learn/">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/redesign.css">
   <style>
-    :root {
-      --bg: #0b1020; --surface: rgba(18, 25, 45, 0.84); --text: #f5f7ff; --text-secondary: #9ba7c4;
-      --border: rgba(162, 182, 255, 0.14); --accent: #6f7cff; --accent-2: #38d0ff; --shadow: 0 20px 60px rgba(0,0,0,.35);
-      --radius: 22px; --max: 1180px;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top left, rgba(111,124,255,.22), transparent 28%), linear-gradient(180deg, #08101f 0%, #0b1020 46%, #0a0f1b 100%);
-      color: var(--text); line-height: 1.6;
-    }
-    a { color: inherit; text-decoration: none; }
-    .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
-    header { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(18px); background: rgba(8,12,24,.72); border-bottom: 1px solid var(--border); }
-    header .container { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-    .logo { font-weight: 800; font-size: 1.06rem; letter-spacing: -0.03em; }
-    .logo .mark { color: var(--accent-2); }
-    nav { display: flex; gap: 18px; flex-wrap: wrap; }
-    nav a { color: var(--text-secondary); font-size: .95rem; }
-    nav a.active, nav a:hover { color: var(--text); }
-    main { padding: 78px 0 54px; }
-    .hero { margin-bottom: 48px; }
-    .eyebrow { color: var(--accent-2); font-size: .82rem; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 14px; }
-    h1 { font-size: clamp(2.4rem, 6vw, 4.8rem); line-height: .96; letter-spacing: -.05em; }
-    .lead { margin-top: 18px; color: var(--text-secondary); max-width: 840px; font-size: 1.08rem; }
-    .notice { margin-top: 22px; padding: 16px 18px; border-radius: 18px; background: linear-gradient(135deg, rgba(111,124,255,.16), rgba(56,208,255,.10)); border: 1px solid var(--border); color: var(--text-secondary); }
-    .timeline { position: relative; padding-left: 24px; }
-    .timeline::before { content: ""; position: absolute; left: 7px; top: 0; bottom: 0; width: 2px; background: var(--border); }
-    .day-card {
-      position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-      padding: 24px; margin-bottom: 24px; box-shadow: var(--shadow);
-    }
-    .day-card::before {
-      content: ""; position: absolute; left: -21px; top: 28px; width: 12px; height: 12px;
-      background: var(--accent); border-radius: 50%; border: 3px solid var(--bg);
-    }
-    .day-card .day-badge {
-      display: inline-block; background: rgba(111,124,255,.15); color: var(--accent-2);
-      font-size: .75rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; margin-bottom: 12px;
-    }
-    .day-card h2 { font-size: 1.4rem; margin-bottom: 8px; }
-    .day-card p { color: var(--text-secondary); margin-bottom: 16px; }
-    .day-card ul { padding-left: 20px; color: var(--text-secondary); }
-    .day-card li { margin: 6px 0; }
-    .day-card .time { font-size: .85rem; color: var(--accent-2); margin-top: 12px; }
-    .next-steps { margin-top: 48px; padding: 24px; background: var(--surface); border-radius: var(--radius); border: 1px solid var(--border); }
-    .next-steps h3 { font-size: 1.3rem; margin-bottom: 16px; }
+    h1 { font-family: var(--font-display); font-style: italic; }
+    /* Entrance animations */
+    .hero-eyebrow { animation: fade-up 0.5s ease-out both; }
+    .hero h1      { animation: fade-up 0.5s 0.10s ease-out both; }
+    .lead         { animation: fade-up 0.5s 0.18s ease-out both; }
+    .notice       { animation: fade-up 0.5s 0.26s ease-out both; }
+    .timeline      { animation: fade-up 0.5s 0.34s ease-out both; }
+    /* next-steps override */
+    .next-steps { margin-top: 48px; padding: 24px; background: var(--bg-surface); border-radius: var(--radius); border: 1px solid var(--border); }
+    .next-steps h3 { font-size: 1.25rem; margin-bottom: 14px; font-family: var(--font-display); font-style: italic; }
     .next-steps ul { padding-left: 20px; color: var(--text-secondary); }
-    footer { padding: 40px 0 54px; color: var(--text-secondary); }
-    footer .container { border-top: 1px solid var(--border); padding-top: 24px; }
-    @media (max-width: 760px) { .timeline { padding-left: 16px; } .day-card { padding: 18px; } }
+    .next-steps li { margin: 7px 0; font-size: 0.95rem; }
   </style>
 </head>
 <body>
-  <header>
+  <header class="site-header">
     <div class="container">
-      <a href="/zh/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a>
-      <nav>
+      <a href="/zh/" class="logo"><span class="logo-mark">pred101</span> · Prediction Market 101</a>
+      <nav class="site-nav">
         <a href="/zh/">首页</a>
         <a href="/zh/learn/" class="active">学习路径</a>
         <a href="/zh/knowledge-base/">知识库</a>
         <a href="/zh/reports/">报告</a>
         <a href="/zh/about.html">关于</a>
-        <div class="lang-switch"><a href="/en/learn/">EN</a><a href="/zh/learn/" class="active">中文</a></div>
+        <div class="lang-switch">
+          <a href="/en/learn/">EN</a>
+          <a href="/zh/learn/" class="active">中文</a>
+        </div>
       </nav>
     </div>
   </header>
 
   <main>
-    <div class="container hero">
-      <div class="eyebrow">学习路线 · 7 天从零到实战</div>
-      <h1>7 天学会预测市场交易</h1>
-      <p class="lead">每天 30 分钟，从基础概念到实战策略。不需要金融背景，只需要好奇心和执行力。</p>
+    <div class="container hero" style="padding-top:78px;padding-bottom:48px;">
+      <div class="hero-eyebrow">学习路线 · 7 天从零到实战</div>
+      <h1 class="hero-title">7 天学会预测市场交易</h1>
+      <p class="hero-lead">每天 30 分钟，从基础概念到实战策略。不需要金融背景，只需要好奇心和执行力。</p>
       <div class="notice">
-        <strong>💡 设计理念：</strong>不是"看完所有资料"，而是"每天完成一个小任务"。学完 7 天，你应该能独立执行一笔交易。
+        <strong>设计理念：</strong>不是"看完所有资料"，而是"每天完成一个小任务"。学完 7 天，你应该能独立执行一笔交易。
       </div>
     </div>
 
     <div class="container timeline">
-      <div class="day-card">
+      <div class="day-card animate-on-scroll delay-1">
         <span class="day-badge">Day 1 · 30 分钟</span>
         <h2>预测市场基础概念</h2>
         <p>理解什么是预测市场、如何赚钱、与传统投资的区别。</p>
@@ -98,10 +67,10 @@
           <li>分辨率机制和结算逻辑</li>
           <li>风险警告：这不是"轻松赚钱"</li>
         </ul>
-        <div class="time">⏱️ 阅读 15 分钟 + 思考 15 分钟</div>
+        <div class="time">⏱ 阅读 15 分钟 + 思考 15 分钟</div>
       </div>
 
-      <div class="day-card">
+      <div class="day-card animate-on-scroll delay-2">
         <span class="day-badge">Day 2 · 40 分钟</span>
         <h2>Polymarket 平台操作</h2>
         <p>熟悉 Polymarket 界面、市场浏览、下单流程。</p>
@@ -111,10 +80,10 @@
           <li>理解市场详情：流动性、交易量、到期时间</li>
           <li>模拟下单（不实际执行）</li>
         </ul>
-        <div class="time">⏱️ 阅读 20 分钟 + 实操 20 分钟</div>
+        <div class="time">⏱ 阅读 20 分钟 + 实操 20 分钟</div>
       </div>
 
-      <div class="day-card">
+      <div class="day-card animate-on-scroll delay-3">
         <span class="day-badge">Day 3 · 40 分钟</span>
         <h2>钱包配置与安全</h2>
         <p>设置加密钱包、充值 USDC、安全实践。</p>
@@ -124,10 +93,10 @@
           <li>购买和充值 USDC</li>
           <li>安全清单：私钥、钓鱼、授权管理</li>
         </ul>
-        <div class="time">⏱️ 配置 30 分钟 + 安全检查 10 分钟</div>
+        <div class="time">⏱ 配置 30 分钟 + 安全检查 10 分钟</div>
       </div>
 
-      <div class="day-card">
+      <div class="day-card animate-on-scroll delay-4">
         <span class="day-badge">Day 4 · 30 分钟</span>
         <h2>风险管理原则</h2>
         <p>学习仓位管理、止损、避免常见错误。</p>
@@ -137,10 +106,10 @@
           <li>流动性风险：避免小市场</li>
           <li>决议风险：理解"不可预测"的情况</li>
         </ul>
-        <div class="time">⏱️ 阅读 20 分钟 + 制定个人规则 10 分钟</div>
+        <div class="time">⏱ 阅读 20 分钟 + 制定个人规则 10 分钟</div>
       </div>
 
-      <div class="day-card">
+      <div class="day-card animate-on-scroll delay-5">
         <span class="day-badge">Day 5 · 40 分钟</span>
         <h2>基础策略：Signal Sniper</h2>
         <p>学习第一个可执行策略：事件驱动快速反应。</p>
@@ -150,10 +119,10 @@
           <li>执行流程：发现 → 验证 → 下单</li>
           <li>案例研究：实际交易复盘</li>
         </ul>
-        <div class="time">⏱️ 学习 25 分钟 + 模拟演练 15 分钟</div>
+        <div class="time">⏱ 学习 25 分钟 + 模拟演练 15 分钟</div>
       </div>
 
-      <div class="day-card">
+      <div class="day-card animate-on-scroll delay-6">
         <span class="day-badge">Day 6 · 40 分钟</span>
         <h2>进阶策略选择</h2>
         <p>根据兴趣选择深入学习：Fast-Loop / Mert Sniper / Weather Trader。</p>
@@ -163,24 +132,24 @@
           <li><strong>Weather Trader：</strong>另类数据、天气套利</li>
           <li>选择建议：根据你的时间和风险偏好</li>
         </ul>
-        <div class="time">⏱️ 策略学习 30 分钟 + 选择决策 10 分钟</div>
+        <div class="time">⏱ 策略学习 30 分钟 + 选择决策 10 分钟</div>
       </div>
 
-      <div class="day-card">
+      <div class="day-card animate-on-scroll delay-7">
         <span class="day-badge">Day 7 · 60 分钟</span>
         <h2>实战复盘与 KOL 研究</h2>
         <p>第一笔实际交易（小额）+ 学习成功交易者经验。</p>
         <ul>
-          <li>执行第一笔真实交易（建议≤$10）</li>
+          <li>执行第一笔真实交易（建议 ≤ $10）</li>
           <li>记录交易逻辑和预期</li>
           <li>研究 1-2 位 KOL 的交易框架</li>
           <li>制定下周学习计划</li>
         </ul>
-        <div class="time">⏱️ 实战 30 分钟 + 复盘 30 分钟</div>
+        <div class="time">⏱ 实战 30 分钟 + 复盘 30 分钟</div>
       </div>
 
       <div class="next-steps">
-        <h3>🎯 完成 7 天后，你应该：</h3>
+        <h3>完成 7 天后，你应该：</h3>
         <ul>
           <li>✅ 理解预测市场的基本运作机制</li>
           <li>✅ 有配置好的钱包和少量 USDC</li>
@@ -188,21 +157,35 @@
           <li>✅ 掌握至少 1 个可执行策略</li>
           <li>✅ 完成第一笔真实交易（无论盈亏）</li>
         </ul>
-        <h3 style="margin-top: 24px;">📚 下一步学习：</h3>
+        <h3 style="margin-top: 24px;">下一步学习：</h3>
         <ul>
-          <li><a href="/zh/knowledge-base/strategies/" style="color: var(--accent);">策略库深度学习</a></li>
-          <li><a href="/zh/knowledge-base/kol/" style="color: var(--accent);">KOL 研究页</a></li>
-          <li><a href="/zh/reports/" style="color: var(--accent);">每日报告跟踪</a></li>
+          <li><a href="/zh/knowledge-base/strategies/" style="color: var(--accent-cyan);">策略库深度学习</a></li>
+          <li><a href="/zh/knowledge-base/kol/" style="color: var(--accent-cyan);">KOL 研究页</a></li>
+          <li><a href="/zh/reports/" style="color: var(--accent-cyan);">每日报告跟踪</a></li>
         </ul>
       </div>
     </div>
   </main>
 
-  <footer>
+  <footer class="site-footer">
     <div class="container">
       <p>pred101 · Prediction Market 101 学习路径</p>
-      <p style="margin-top: 8px; font-size: .85rem;">最后更新：2026-03-17</p>
+      <p style="margin-top: 8px; font-size: 0.85rem; font-family: var(--font-mono);">最后更新：2026-03-17</p>
     </div>
   </footer>
+
+  <!-- Scroll-triggered animation JS -->
+  <script>
+    (function() {
+      var els = document.querySelectorAll('.animate-on-scroll');
+      if (!els.length) return;
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      els.forEach(function(el) { io.observe(el); });
+    })();
+  </script>
 </body>
 </html>

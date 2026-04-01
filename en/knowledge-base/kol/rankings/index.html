@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KOL Rankings &amp; Evaluation | pred101</title>
   <meta name="description" content="pred101 KOL rankings and evaluation: research entry points organized by methodology, actionability, authenticity, and risk fit.">
@@ -101,5 +103,17 @@
     </div>
   </main>
   <footer><div class="container"><p>pred101.com · KOL ranking layer · Updated 2026-03-08</p></div></footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var els = document.querySelectorAll('.card,.section,.news-item,.tweet-card,.stat-card,.report-card,.path-card');
+  els.forEach(function(el, i) {
+    el.style.opacity='0';
+    el.style.transform='translateY(14px)';
+    el.style.transition='opacity 0.5s ease,transform 0.5s ease';
+    el.style.animationDelay=(i*0.06)+'s';
+    setTimeout(function(){ el.style.opacity='1'; el.style.transform='none'; }, 50);
+  });
+});
+</script>
 </body>
 </html>

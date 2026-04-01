@@ -2,11 +2,13 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>@edwordkaru 策略分析 | Prediction Market 101</title>
   <link rel="canonical" href="https://www.pred101.com/zh/knowledge-base/kol/edwordkaru/">
   <link rel="alternate" hreflang="zh" href="https://www.pred101.com/zh/knowledge-base/kol/edwordkaru/">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/reports-design.css">
   <style>
     :root { --accent: #0071e3; --bg: #ffffff; --surface: #f5f5f7; --text: #1d1d1f; --text-secondary: #86868b; --border: #d2d2d7; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -164,5 +166,17 @@ Locations: NYC, Chicago, Seattle,
       </p>
     </div>
   </footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var els = document.querySelectorAll('.card,.section,.news-item,.tweet-card,.stat-card,.report-card,.path-card');
+  els.forEach(function(el, i) {
+    el.style.opacity='0';
+    el.style.transform='translateY(14px)';
+    el.style.transition='opacity 0.5s ease,transform 0.5s ease';
+    el.style.animationDelay=(i*0.06)+'s';
+    setTimeout(function(){ el.style.opacity='1'; el.style.transform='none'; }, 50);
+  });
+});
+</script>
 </body>
 </html>

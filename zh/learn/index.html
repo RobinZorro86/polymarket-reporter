@@ -187,5 +187,14 @@
       els.forEach(function(el) { io.observe(el); });
     })();
   </script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var els = document.querySelectorAll('.card, .section, section, .path-card');
+  els.forEach(function(el, i) {
+    el.classList.add('animate-on-scroll');
+    el.style.animationDelay = (i * 0.06) + 's';
+  });
+});
+</script>
 </body>
 </html>

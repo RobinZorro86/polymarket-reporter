@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- TIMESTAMP: created=2026-03-05T13:50:00+09:00 updated=2026-03-08T08:55+09:00 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,48 +11,7 @@
   <link rel="alternate" hreflang="zh" href="https://www.pred101.com/zh/reports/daily/daily-2026-03-05.html">
   <link rel="alternate" hreflang="en" href="https://www.pred101.com/en/reports/daily/daily-2026-03-05.html">
   <link rel="stylesheet" href="/css/style.css">
-  <style>
-    :root { --accent: #0071e3; --bg: #ffffff; --surface: #f5f5f7; --text: #1d1d1f; --text-secondary: #86868b; --border: #d2d2d7; --success: #34c759; --warning: #ff9500; --danger: #ff3b30; }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.47059; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 22px; }
-    header { background: rgba(255,255,255,0.8); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
-    header .container { display: flex; justify-content: space-between; align-items: center; height: 52px; }
-    .logo { font-size: 21px; font-weight: 600; color: var(--text); text-decoration: none; }
-    nav a { color: var(--text-secondary); text-decoration: none; margin-left: 24px; font-size: 12px; transition: color 0.2s; }
-    nav a:hover { color: var(--accent); }
-    nav a.active { color: var(--text); }
-    main { padding: 60px 0 80px; }
-    .report-header { text-align: center; margin-bottom: 60px; }
-    .report-header h1 { font-size: 40px; font-weight: 600; margin-bottom: 12px; }
-    .report-header .meta { font-size: 15px; color: var(--text-secondary); }
-    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 60px; }
-    .stat-card { background: var(--surface); border-radius: 18px; padding: 32px 24px; text-align: center; }
-    .stat-card .value { font-size: 48px; font-weight: 600; color: var(--accent); line-height: 1; margin-bottom: 8px; }
-    .stat-card .label { font-size: 14px; color: var(--text-secondary); }
-    .section { margin: 60px 0; }
-    .section-title { font-size: 32px; font-weight: 600; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
-    .market-table { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: 14px; overflow: hidden; }
-    .market-table th { background: rgba(0,113,227,0.08); padding: 16px; text-align: left; font-weight: 600; font-size: 13px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; }
-    .market-table td { padding: 16px; border-bottom: 1px solid var(--border); font-size: 15px; }
-    .market-table tr:last-child td { border-bottom: none; }
-    .market-table tr:hover { background: rgba(0,113,227,0.04); }
-    .probability { display: inline-block; padding: 4px 12px; border-radius: 980px; font-weight: 600; font-size: 13px; }
-    .prob-high { background: rgba(52,199,89,0.15); color: var(--success); }
-    .prob-mid { background: rgba(255,149,0,0.15); color: var(--warning); }
-    .prob-low { background: rgba(255,59,48,0.15); color: var(--danger); }
-    .category-tag { display: inline-block; padding: 4px 10px; border-radius: 6px; font-size: 12px; background: var(--surface); color: var(--text-secondary); }
-    footer { border-top: 1px solid var(--border); padding: 40px 0; text-align: center; }
-    footer p { font-size: 12px; color: var(--text-secondary); }
-    footer a { color: var(--text-secondary); text-decoration: none; }
-    footer a:hover { color: var(--accent); }
-    @media (max-width: 768px) {
-      .report-header h1 { font-size: 32px; }
-      .stats-grid { grid-template-columns: 1fr; }
-      .market-table { font-size: 13px; }
-      .market-table th, .market-table td { padding: 12px; }
-    }
-  </style>
+  <link rel="stylesheet" href="/css/reports-design.css">
 </head>
 <body>
   <header>
@@ -64,14 +25,12 @@
       <div class="lang-switch"><a href="/en/reports/daily/daily-2026-03-05.html">EN</a><a href="/zh/reports/daily/daily-2026-03-05/" class="active">中文</a></div></nav>
     </div>
   </header>
-
   <main>
     <div class="container">
       <div class="report-header">
         <h1>📊 每日市场报告</h1>
         <p class="meta">2026 年 3 月 5 日 • 生成时间 13:50</p>
       </div>
-
       <div class="stats-grid">
         <div class="stat-card">
           <div class="value">50</div>
@@ -86,7 +45,6 @@
           <div class="label">类别</div>
         </div>
       </div>
-
       <div class="section">
         <h2 class="section-title">📈 前 10 机会</h2>
         <table class="market-table">
@@ -162,7 +120,6 @@
           </tbody>
         </table>
       </div>
-
       <div class="section">
         <h2 class="section-title">🏷️ 类别分布</h2>
         <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px;">
@@ -174,7 +131,6 @@
       </div>
     </div>
   </main>
-
   <footer>
     <div class="container">
       <p>
@@ -187,5 +143,15 @@
     </div>
         <p style="margin-top: 12px;"><a href="/zh/reports/daily/daily-2026-03-05.html">中文</a> · <a href="/en/reports/daily/daily-2026-03-05.html">English</a></p>
 </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var els = document.querySelectorAll('.stat-card, .section, .news-item, .tweet-card');
+  els.forEach(function(el, i) {
+    el.classList.add('animate-in', 'stagger-' + Math.min(i % 8 + 1, 8));
+  });
+});
+</script>
+
 </body>
 </html>

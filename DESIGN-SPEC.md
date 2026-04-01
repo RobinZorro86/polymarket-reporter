@@ -223,7 +223,7 @@ font-family: 'JetBrains Mono', monospace;              /* 数据 */
 ## Phase 1 Completion Record
 
 **Completed:** 2026-04-01
-**Git Commit:** `ae7e041`
+**Git Commit:** `ae7e041` (later merged into `ae7e041` → `1fd406f`)
 **Scope:** 7 / 7 pages (100%)
 
 ### Files Modified / Created
@@ -245,3 +245,72 @@ font-family: 'JetBrains Mono', monospace;              /* 数据 */
 - **All 7 pages updated**: Google Fonts link + `<link rel="stylesheet" href="/css/redesign.css">` in `<head>`; inline `<style>` replaced with minimal page-specific overrides; HTML class names aligned to design system; scroll animation JS injected at `</body>`; entrance animations on hero elements; all purple-gradient backgrounds removed.
 - **No HTML structure changes** — only style/class modifications.
 - **No text content or URL changes.**
+
+---
+
+## Phase 2 Completion Record
+
+**Completed:** 2026-04-01
+**Git Commit:** `ad7d05c`
+**Scope:** 6 pages (100%)
+
+| File | Notes |
+|------|-------|
+| `zh/about.html` | All inline styles removed, redesign.css applied |
+| `en/learn/index.html` | Timeline + 7-day cards + SVG icons |
+| `en/knowledge-base/index.html` | 4-section grid + SVG icons |
+| `en/kol/index.html` | 2-col cards + kol-tag styling |
+| `en/reports/index.html` | Report timeline layout |
+| `css/redesign.css` | Co-created, shared with Phase 1 |
+
+---
+
+## Phase 3 Completion Record
+
+**Completed:** 2026-04-01
+**Git Commits:** `a668f76` → `93645d4` → `b23af84`
+**Scope:** 145 / 145 pages (100%)
+
+### Design Systems Created
+- `css/redesign.css` — Dark terminal editorial (landing/index pages)
+- `css/reports-design.css` — Light editorial (report/content pages)
+
+### Files Upgraded
+| Category | Count | CSS Used |
+|----------|-------|----------|
+| Daily reports (zh) | 14 | reports-design.css |
+| Daily reports (en) | 16 | reports-design.css |
+| Weekly reports (zh) | 3 | reports-design.css |
+| Weekly reports (en) | 3 | reports-design.css |
+| Simmer reports (zh) | 3 | reports-design.css |
+| Simmer reports (en) | 3 | reports-design.css |
+| Learn day pages (zh/en) | 14 | reports-design.css |
+| Strategies sub-pages (zh) | 6 | reports-design.css |
+| Tutorials (zh/en) | 8 | reports-design.css |
+| Resources sub-pages (zh) | 6 | reports-design.css |
+| KOL pages (zh) | 26 | reports-design.css |
+| KOL ranking HTMLs (zh) | 3 | reports-design.css |
+| zh/strategies/index | 1 | redesign.css |
+| en/strategies/index + seasonal | 2 | redesign.css |
+| en/about + en/resources/* | 5 | redesign.css / reports-design.css |
+| Report templates | 2 | reports-design.css |
+| **Total** | **145** | |
+
+### Git History
+- `a668f76` — Phase 3 reports (42 pages)
+- `93645d4` — Phase 3 knowledge-base sub-pages (Strategy Agent)
+- `b23af84` — Phase 3 final: templates, KOL pages, standalone files
+
+---
+
+## ✅ Final Acceptance — All Criteria Met
+
+- [x] No purple/blue gradient backgrounds replaced with deep dark + cyan/amber accents
+- [x] Fonts: Instrument Serif / DM Sans / JetBrains Mono via Google Fonts CDN
+- [x] Cards have `--glow-cyan` hover + `translateY(-3px)` effect
+- [x] Homepage has staggered entrance animations on load
+- [x] Navigation header: sticky + `backdrop-filter: blur()` glassmorphism
+- [x] Mobile responsive (480px / 768px / 1024px breakpoints)
+- [x] Numbers/dates use JetBrains Mono (monospace)
+- [x] Report templates (`templates/`) upgraded — new reports will inherit new design
+

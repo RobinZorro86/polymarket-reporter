@@ -351,3 +351,79 @@ footer p { font-size: 0.8rem; color: var(--text-muted); }
   .container { padding: 0 16px; }
   main { padding: 32px 0 60px; }
 }
+
+/* === Strategy & Tutorial Content Styles === */
+.strategy-section {
+  background: var(--bg-elevated);
+  border-left: 4px solid var(--accent);
+  padding: 18px 20px;
+  margin: 20px 0;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.case-study {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin: 16px 0;
+  box-shadow: var(--shadow-sm);
+}
+.risk-alert, .warning-box {
+  background: rgba(217,119,6,0.07);
+  border-left: 4px solid var(--warning);
+  padding: 16px;
+  margin: 16px 0;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.checklist {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0;
+}
+.checklist li {
+  padding: 8px 0 8px 24px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+.checklist li:last-child { border-bottom: none; }
+.checklist li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--positive);
+  font-weight: 700;
+}
+.code-block, pre {
+  background: #1e293b;
+  color: #e2e8f0;
+  padding: 16px 20px;
+  border-radius: var(--radius);
+  overflow-x: auto;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  margin: 16px 0;
+  box-shadow: var(--shadow-sm);
+}
+.nav-links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+.nav-links a {
+  background: var(--accent);
+  color: white;
+  padding: 7px 14px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+.nav-links a:hover {
+  background: var(--accent-hover);
+  text-decoration: none;
+}

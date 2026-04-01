@@ -7,8 +7,11 @@
   <link rel="canonical" href="https://www.pred101.com/en/knowledge-base/tutorials/">
   <link rel="alternate" hreflang="en" href="https://www.pred101.com/en/knowledge-base/tutorials/">
   <link rel="alternate" hreflang="zh" href="https://www.pred101.com/zh/knowledge-base/tutorials/">
-  <style>
-    :root{--bg:#0b1020;--surface:rgba(18,25,45,.84);--text:#f5f7ff;--text-secondary:#9ba7c4;--border:rgba(162,182,255,.14);--accent:#6f7cff;--accent-2:#38d0ff;--shadow:0 20px 60px rgba(0,0,0,.35);--radius:22px;--max:1100px}*{box-sizing:border-box;margin:0;padding:0}body{font-family:Inter,ui-sans-serif,system-ui,sans-serif;background:linear-gradient(180deg,#08101f 0%,#0b1020 100%);color:var(--text);line-height:1.6}.container{max-width:var(--max);margin:0 auto;padding:72px 24px 48px}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:24px}.card{display:block;text-decoration:none;color:inherit;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:20px;box-shadow:var(--shadow)}.eyebrow{color:var(--accent-2);font-size:.8rem;text-transform:uppercase;letter-spacing:.1em}.card h3{margin-top:10px;font-size:1.05rem}.card p{margin-top:8px;color:var(--text-secondary)}@media(max-width:760px){.grid{grid-template-columns:1fr}}</style>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/redesign.css">
 </head>
 <body>
 <header><div class="container"><a href="/en/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a><nav><a href="/en/">Overview</a><a href="/en/learn/">7-Day Path</a><a href="/en/strategies/">Strategies</a><a href="/en/kol/">KOLs</a><a href="/en/resources/">Resources</a><div class="lang-switch"><a href="/en/knowledge-base/tutorials/" class="active">EN</a><a href="/zh/knowledge-base/tutorials/">Chinese</a></div></nav></div></header>
@@ -22,5 +25,18 @@
     <a class="card" href="/en/knowledge-base/tutorials/openclaw-setup/"><h3>OpenClaw Setup</h3><p>Automation workflow and environment setup.</p></a>
   </div>
 </div>
+  <!-- Scroll-triggered animation JS -->
+  <script>
+    (function() {
+      var els = document.querySelectorAll('.animate-on-scroll');
+      if (!els.length) return;
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      els.forEach(function(el) { io.observe(el); });
+    })();
+  </script>
 </body>
 </html>

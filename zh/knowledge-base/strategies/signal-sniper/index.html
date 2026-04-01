@@ -8,7 +8,11 @@
   <link rel="canonical" href="https://www.pred101.com/zh/knowledge-base/strategies/signal-sniper/">
   <link rel="alternate" hreflang="zh" href="https://www.pred101.com/zh/knowledge-base/strategies/signal-sniper/">
   <link rel="alternate" hreflang="en" href="https://www.pred101.com/en/knowledge-base/strategies/signal-sniper/">
-  <link rel="stylesheet" href="/css/style.css">
+    <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/reports-design.css">
 </head>
 <body>
 <header><div class="container"><a href="/zh/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a><nav><a href="/zh/">首页</a><a href="/zh/knowledge-base/" class="active">知识库</a><a href="/zh/reports/">报告</a><a href="/zh/about.html">关于</a><div class="lang-switch"><a href="/en/knowledge-base/strategies/signal-sniper/">EN</a><a href="/zh/knowledge-base/strategies/signal-sniper/" class="active">中文</a></div></nav></div></header>
@@ -17,5 +21,18 @@
 <p>基于实时信号检测的事件驱动重新定价策略。</p>
 <p><a href="/en/knowledge-base/strategies/signal-sniper/">查看英文版</a></p>
 </div></main>
+  <!-- Scroll-triggered animation JS -->
+  <script>
+    (function() {
+      var els = document.querySelectorAll('.animate-on-scroll');
+      if (!els.length) return;
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      els.forEach(function(el) { io.observe(el); });
+    })();
+  </script>
 </body>
 </html>

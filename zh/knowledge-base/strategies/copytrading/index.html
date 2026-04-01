@@ -8,19 +8,11 @@
   <link rel="canonical" href="https://www.pred101.com/zh/knowledge-base/strategies/copytrading/">
   <link rel="alternate" hreflang="zh" href="https://www.pred101.com/zh/knowledge-base/strategies/copytrading/">
   <link rel="alternate" hreflang="en" href="https://www.pred101.com/en/knowledge-base/strategies/copytrading/">
-  <link rel="stylesheet" href="/css/style.css">
-  <style>
-    .strategy-section { background: #f8f9fa; border-left: 4px solid #007bff; padding: 20px; margin: 24px 0; }
-    .case-study { background: #fff; border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; margin: 16px 0; }
-    .risk-alert { background: #fff3cd; border-left: 4px solid #ffc107; padding: 16px; margin: 16px 0; }
-    .checklist { list-style: none; padding: 0; }
-    .checklist li { padding: 8px 0; border-bottom: 1px solid #e9ecef; }
-    .checklist li:before { content: "✓ "; color: #28a745; font-weight: bold; }
-    .code-block { background: #2d2d2d; color: #f8f8f2; padding: 16px; border-radius: 4px; overflow-x: auto; font-family: 'Courier New', monospace; font-size: 13px; }
-    .nav-links { display: flex; gap: 12px; flex-wrap: wrap; margin: 24px 0; }
-    .nav-links a { background: #007bff; color: white; padding: 8px 16px; border-radius: 4px; text-decoration: none; }
-    .nav-links a:hover { background: #0056b3; }
-  </style>
+    <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/reports-design.css">
 </head>
 <body>
 <header><div class="container"><a href="/zh/" class="logo"><span class="mark">pred101</span> · Prediction Market 101</a><nav><a href="/zh/">首页</a><a href="/zh/knowledge-base/" class="active">知识库</a><a href="/zh/reports/">报告</a><a href="/zh/about.html">关于</a><div class="lang-switch"><a href="/en/knowledge-base/strategies/copytrading/">EN</a><a href="/zh/knowledge-base/strategies/copytrading/" class="active">中文</a></div></nav></div></header>
@@ -273,5 +265,18 @@ monitoring:
 
 </div></main>
 <footer><div class="container"><p>&copy; 2026 pred101. All rights reserved.</p></div></footer>
+  <!-- Scroll-triggered animation JS -->
+  <script>
+    (function() {
+      var els = document.querySelectorAll('.animate-on-scroll');
+      if (!els.length) return;
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      els.forEach(function(el) { io.observe(el); });
+    })();
+  </script>
 </body>
 </html>
